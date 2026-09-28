@@ -1,7 +1,7 @@
-
 import 'package:flutter/material.dart';
+
 import '../constants/app_colors.dart';
- 
+
 class CustomInputField extends StatefulWidget {
   final TextEditingController controller;
   final String label;
@@ -9,7 +9,7 @@ class CustomInputField extends StatefulWidget {
   final IconData icon;
   final bool isPassword;
   final String? Function(String?)? validator;
- 
+
   const CustomInputField({
     super.key,
     required this.controller,
@@ -19,21 +19,13 @@ class CustomInputField extends StatefulWidget {
     this.isPassword = false,
     this.validator,
   });
- 
-  // PENTING: generic <CustomInputField> di sini memberi tahu Dart bahwa
-  // State yang dibuat ini pasangannya widget CustomInputField, bukan
-  // StatefulWidget generik biasa.
   @override
   State<CustomInputField> createState() => _CustomInputFieldState();
 }
- 
-// PENTING: generic <CustomInputField> di sini juga wajib ada. Karena inilah
-// yang bikin `widget.icon`, `widget.label`, `widget.controller`, dst
-// dikenali Dart — tanpa ini, `widget` cuma dianggap StatefulWidget biasa
-// yang tidak punya properti custom apa pun.
+
 class _CustomInputFieldState extends State<CustomInputField> {
   bool _isObscure = true;
- 
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -107,4 +99,3 @@ class _CustomInputFieldState extends State<CustomInputField> {
     );
   }
 }
- 
