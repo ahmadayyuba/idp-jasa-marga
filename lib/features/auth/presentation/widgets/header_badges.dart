@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../../../../core/widgets/status_badge.dart';
 
 class HeaderBadges extends StatelessWidget {

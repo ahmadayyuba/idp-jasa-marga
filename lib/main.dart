@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'features/auth/presentation/login_screen.dart';
+import 'features/dashboard/presentation/dashboard_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,11 +14,12 @@ class MyApp extends StatelessWidget {
       title: 'IDP Jasa Marga',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        fontFamily: 'Roboto', 
+        fontFamily: 'Roboto',
         useMaterial3: true,
-        scaffoldBackgroundColor: Colors.black,
+        scaffoldBackgroundColor: const Color(0xFFF8FAFC),
       ),
-      home: const LoginScreen(),
+      // Menjadikan DashboardScreen sebagai tampilan utama
+      home: const DashboardScreen(),
     );
   }
 }

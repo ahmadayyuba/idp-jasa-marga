@@ -48,12 +48,12 @@ class _LoginScreenState extends State<LoginScreen> {
           const BackgroundLayer(),
           SafeArea(
             child: SingleChildScrollView(
-              padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 40),
+              padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 60),
               child: Form(
                 key: _formKey,
                 child: Column(
                   children: [
-                    const SizedBox(height: 40),
+                    const SizedBox(height: 60),
                     const HeaderBadges(),
                     const SizedBox(height: 40),
                     LoginCard(

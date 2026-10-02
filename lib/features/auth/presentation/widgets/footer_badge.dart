@@ -18,7 +18,11 @@ class FooterBadge extends StatelessWidget {
           SizedBox(width: 6),
           Text(
             '© 2018 - 2026 PT Jasa Marga (Persero) Tbk',
-            style: TextStyle(color: Colors.white70, fontSize: 14),
+            style: TextStyle(
+              color: Colors.white70,
+              fontSize: 12,
+              fontWeight: FontWeight.bold,
+            ),
           ),
         ],
       ),
