@@ -5,6 +5,7 @@ import 'widgets/traffic_summary_card.dart';
 import 'widgets/feature_menu_grid.dart';
 import 'widgets/floating_side_button.dart';
 import 'widgets/custom_bottom_nav_bar.dart';
+import 'widgets/notifications/notification_bottom_sheet.dart';
 
 class DashboardScreen extends StatelessWidget {
   const DashboardScreen({super.key});
@@ -32,8 +33,10 @@ class DashboardScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     HeaderProfileSection(
-                      username: 'Anggun Windari',
-                      onNotificationTap: () {},
+                      userName: 'Anggun Windari',
+                      onNotificationTap: () {
+                        NotificationBottomSheet.show(context);
+                      },
                       onFilterTap: () {},
                       onLogoutTap: () {},
                     ),

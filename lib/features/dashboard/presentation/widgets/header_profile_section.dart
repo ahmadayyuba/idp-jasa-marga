@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
 class HeaderProfileSection extends StatelessWidget {
-  final String username;
+  final String userName;
   final VoidCallback onNotificationTap;
   final VoidCallback onFilterTap;
   final VoidCallback onLogoutTap;
 
   const HeaderProfileSection({
     super.key,
-    required this.username,
+    required this.userName,
     required this.onNotificationTap,
     required this.onFilterTap,
     required this.onLogoutTap,
@@ -40,7 +40,7 @@ class HeaderProfileSection extends StatelessWidget {
               style: TextStyle(fontSize: 12, color: Colors.grey),
             ),
             Text(
-              username,
+              userName,
               style: const TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.bold,
