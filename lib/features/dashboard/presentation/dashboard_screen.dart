@@ -6,6 +6,8 @@ import 'widgets/feature_menu_grid.dart';
 import 'widgets/floating_side_button.dart';
 import 'widgets/custom_bottom_nav_bar.dart';
 import 'widgets/notifications/notification_bottom_sheet.dart';
+import 'widgets/settings/settings_bottom_sheet.dart';
+import '../../auth/presentation/login_screen.dart';
 
 class DashboardScreen extends StatelessWidget {
   const DashboardScreen({super.key});
@@ -37,8 +39,17 @@ class DashboardScreen extends StatelessWidget {
                       onNotificationTap: () {
                         NotificationBottomSheet.show(context);
                       },
-                      onFilterTap: () {},
-                      onLogoutTap: () {},
+                      onFilterTap: () {
+                        SettingsBottomSheet.show(context);
+                      },
+                      onLogoutTap: () {
+                        Navigator.of(context).pushAndRemoveUntil(
+                          MaterialPageRoute(
+                            builder: (context) => const LoginScreen(),
+                          ),
+                          (route) => false,
+                        );
+                      },
                     ),
                     const SizedBox(height: 20),
                     const TrafficSummaryCard(),

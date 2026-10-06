@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import '../../../traffic/presentation/antrean_gerbang_screen.dart';
+import '../../../traffic/presentation/realtime_traffic_screen.dart';
 
 class CustomBottomNavBar extends StatelessWidget {
   const CustomBottomNavBar({super.key});
@@ -20,9 +22,19 @@ class CustomBottomNavBar extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          _buildNavItem(Icons.home_rounded, 'Home', true),
-          _buildNavItem(Icons.videocam_outlined, 'CCTV', false),
-          
+          _buildNavItem(
+            icon: Icons.home_rounded,
+            label: 'Home',
+            isActive: true,
+            onTap: () {},
+          ),
+          _buildNavItem(
+            icon: Icons.videocam_outlined,
+            label: 'CCTV',
+            isActive: false,
+            onTap: () {},
+          ),
+
           // Center Floating Action Icon
           Container(
             width: 52,
@@ -35,33 +47,70 @@ class CustomBottomNavBar extends StatelessWidget {
             child: const Icon(Icons.map_outlined, color: Colors.white, size: 26),
           ),
 
-          _buildNavItem(Icons.grid_view_outlined, 'Antrian\nGerbang', false),
-          _buildNavItem(Icons.show_chart_rounded, 'Realtime\nTraffic', false),
+          // Tombol Navigasi Antrian Gerbang
+          _buildNavItem(
+            icon: Icons.grid_view_outlined,
+            label: 'Antrian\nGerbang',
+            isActive: false,
+            onTap: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => const AntreanGerbangScreen(),
+                ),
+              );
+            },
+          ),
+
+          // Tombol Navigasi Realtime Traffic
+          _buildNavItem(
+            icon: Icons.show_chart_rounded,
+            label: 'Realtime\nTraffic',
+            isActive: false,
+            onTap: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => const RealtimeTrafficScreen(),
+                ),
+              );
+            },
+          ),
         ],
       ),
     );
   }
 
-  Widget _buildNavItem(IconData icon, String label, bool isActive) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Icon(
-          icon,
-          size: 22,
-          color: isActive ? const Color(0xFF003399) : Colors.grey,
+  Widget _buildNavItem({
+    required IconData icon,
+    required String label,
+    required bool isActive,
+    required VoidCallback onTap,
+  }) {
+    return InkWell(
+      onTap: onTap,
+      borderRadius: BorderRadius.circular(12),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(
+              icon,
+              size: 22,
+              color: isActive ? const Color(0xFF003399) : Colors.grey,
+            ),
+            const SizedBox(height: 2),
+            Text(
+              label,
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 9,
+                fontWeight: isActive ? FontWeight.bold : FontWeight.normal,
+                color: isActive ? const Color(0xFF003399) : Colors.grey,
+              ),
+            ),
+          ],
         ),
-        const SizedBox(height: 2),
-        Text(
-          label,
-          textAlign: TextAlign.center,
-          style: TextStyle(
-            fontSize: 9,
-            fontWeight: isActive ? FontWeight.bold : FontWeight.normal,
-            color: isActive ? const Color(0xFF003399) : Colors.grey,
-          ),
-        ),
-      ],
+      ),
     );
   }
 }

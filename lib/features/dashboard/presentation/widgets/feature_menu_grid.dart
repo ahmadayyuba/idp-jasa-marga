@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'feature_menu_item.dart';
-
+import '../../../../features/traffic/traffic_dashboard_screen.dart';
+import '../../../../features/traffic/presentation/realtime_traffic_screen.dart';
+import '../../../traffic/presentation/antrean_gerbang_screen.dart';
 class FeatureMenuGrid extends StatelessWidget {
   const FeatureMenuGrid({super.key});
 
@@ -18,13 +20,13 @@ class FeatureMenuGrid extends StatelessWidget {
       {'icon': Icons.camera_alt_outlined, 'label': 'ETLE &\nWIM'},
     ];
 
-    return GridView.builder(
+return GridView.builder(
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 4,
         crossAxisSpacing: 12,
-        mainAxisExtent: 100, //di cek apakah nanti designnya bakal sedikit berantakan
+        mainAxisSpacing: 20,
         childAspectRatio: 0.75,
       ),
       itemCount: menuItems.length,
@@ -32,9 +34,30 @@ class FeatureMenuGrid extends StatelessWidget {
         return FeatureMenuItem(
           icon: menuItems[index]['icon'],
           label: menuItems[index]['label'],
-          onTap: (){}
-          );
+          onTap: () {
+            if (index == 0) {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => const TrafficDashboardScreen(),
+                ),
+              );
+            }else if (index == 1) {
+              // Menu Indeks 1: Realtime Traffic
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => const RealtimeTrafficScreen(),
+                  ),
+                );
+              }else if (index == 2) { // Menu 3: Antrian Gerbang
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => const AntreanGerbangScreen()),
+              );
+            }
+          },
+        );
       },
     );
   }
 }
+  
