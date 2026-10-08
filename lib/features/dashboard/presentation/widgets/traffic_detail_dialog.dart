@@ -219,7 +219,7 @@ class TrafficDetailDialog extends StatelessWidget {
                         children: [
                           Icon(Icons.arrow_forward_rounded, size: 16, color: Colors.white),
                           SizedBox(width: 8),
-                          Text(
+                          Text(   
                             'Buka Gangguan Lalin',
                             style: TextStyle(
                               fontSize: 12,

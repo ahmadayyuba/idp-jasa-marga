@@ -7,6 +7,7 @@ import './widgets/antrean_gauge_card.dart';
 
 import '../../dashboard/presentation/widgets/floating_side_button.dart';
 import '../../dashboard/presentation/widgets/custom_bottom_nav_bar.dart';
+import '../../dashboard/presentation/dashboard_screen.dart';
 
 class AntreanGerbangScreen extends StatelessWidget {
   const AntreanGerbangScreen({super.key});
@@ -64,23 +65,41 @@ class AntreanGerbangScreen extends StatelessWidget {
             colors: [Color(0xFFE0F2FE), Color(0xFFF8FAFC)],
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
-            ),
+          ),
         ),
         child: SafeArea(
           child: Stack(
             children: [
               SingleChildScrollView(
-                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 20,
+                  vertical: 20,
+                ),
                 child: Column(
                   children: [
                     TrafficHeader(
-                      onBack:  () => Navigator.of(context),
-                      onMenuTap: () {}, 
+                      onBack: () {
+                        if (Navigator.of(context).canPop()) {
+                          Navigator.of(context).pop();
+                        } else {
+                          Navigator.of(context).pushReplacement(
+                            MaterialPageRoute(
+                              builder: (context) => const DashboardScreen(),
+                            ),
+                          );
+                        }
+                      },
+                      onMenuTap: () {
+                        if (Navigator.of(context).canPop()) {
+                          Navigator.of(context)
+                              .popUntil((route) => route.isFirst);
+                        }
+                      },
                       onRefreshTap: () {},
-                      ),
-                      const SizedBox(height: 16),
-                      const TrafficTabPills(),
-                      const SizedBox(height: 20),
+                    ),
+                    const SizedBox(height: 16),
+                    const TrafficTabPills(),
+                    const SizedBox(height: 20),
                     const Text(
                       'Antrian Gerbang Tol',
                       style: TextStyle(
@@ -100,12 +119,13 @@ class AntreanGerbangScreen extends StatelessWidget {
                       shrinkWrap: true,
                       physics: const NeverScrollableScrollPhysics(),
                       itemCount: gerbangList.length,
-                      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 2,
-                        crossAxisSpacing: 12,
-                        mainAxisSpacing: 12,
-                        childAspectRatio: 0.92,
-                      ),
+                      gridDelegate:
+                          const SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: 2,
+                            crossAxisSpacing: 12,
+                            mainAxisSpacing: 12,
+                            childAspectRatio: 0.92,
+                          ),
                       itemBuilder: (context, index) {
                         final item = gerbangList[index];
                         return AntreanGaugeCard(

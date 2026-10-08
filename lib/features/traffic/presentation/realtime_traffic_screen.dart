@@ -7,6 +7,7 @@ import 'widgets/speed_chart_card.dart';
 
 import '../../dashboard/presentation/widgets/floating_side_button.dart';
 import '../../dashboard/presentation/widgets/custom_bottom_nav_bar.dart';
+import '../../dashboard/presentation/dashboard_screen.dart';
 
 class RealtimeTrafficScreen extends StatelessWidget {
   const RealtimeTrafficScreen({super.key});
@@ -117,83 +118,107 @@ class RealtimeTrafficScreen extends StatelessWidget {
       body: Container(
         decoration: const BoxDecoration(
           gradient: LinearGradient(
-          colors: [Color(0xFFE0F2FE), Color(0xFFF8FAFC)],
-          begin: Alignment.topCenter,
-          end: Alignment.bottomCenter,
-            ),
+            colors: [Color(0xFFE0F2FE), Color(0xFFF8FAFC)],
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+          ),
         ),
         child: SafeArea(
           child: Stack(
             children: [
               SingleChildScrollView(
-                padding: const EdgeInsets.symmetric(horizontal: 20,
-                vertical: 16),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 20,
+                  vertical: 16,
+                ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     TrafficHeader(
-                      onBack: () => Navigator.of(context).pop(), 
-                      onMenuTap: () {}, 
-                      onRefreshTap: () {}
-                      ),
-                      const SizedBox(height: 16),
-                      const TrafficTabPills(),
-                      const SizedBox(height: 20),
-                      const TrafficSpeedSummaryPills(),
-                      const SizedBox(height: 16),
+                      onBack: () {
+                        if (Navigator.of(context).canPop()) {
+                          Navigator.of(context).pop();
+                        } else {
+                          Navigator.of(context).pushReplacement(
+                            MaterialPageRoute(
+                              builder: (context) => const DashboardScreen(),
+                            ),
+                          );
+                        }
+                      },
+                      onMenuTap: () {
+                        if (Navigator.of(context).canPop()) {
+                          Navigator.of(context)
+                              .popUntil((route) => route.isFirst);
+                        }
+                      },
+                      onRefreshTap: () {},
+                    ),
+                    const SizedBox(height: 16),
+                    const TrafficTabPills(),
+                    const SizedBox(height: 20),
+                    const TrafficSpeedSummaryPills(),
+                    const SizedBox(height: 16),
 
-                      Align(
-                        alignment: Alignment.centerRight,
-                        child: Container(
-                          padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 6),
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(20),
-                            border: Border.all(color: const Color(0xFFCBD5E1)),
-                          ),
-                          child: const Row(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              Icon(Icons.tune_rounded, size: 14, color: Color(0xFF003399)),
-                              SizedBox(width: 6),
-                              Text(
-                                'Filter',
-                                style: TextStyle(
-                                  fontSize: 11,
-                                  fontWeight: FontWeight.bold,
-                                  color: Color(0xFF003399),
-                                ),
+                    Align(
+                      alignment: Alignment.centerRight,
+                      child: Container(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 14,
+                          vertical: 6,
+                        ),
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(20),
+                          border: Border.all(color: const Color(0xFFCBD5E1)),
+                        ),
+                        child: const Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Icon(
+                              Icons.tune_rounded,
+                              size: 14,
+                              color: Color(0xFF003399),
+                            ),
+                            SizedBox(width: 6),
+                            Text(
+                              'Filter',
+                              style: TextStyle(
+                                fontSize: 11,
+                                fontWeight: FontWeight.bold,
+                                color: Color(0xFF003399),
                               ),
-                            ],
-                          ),
+                            ),
+                          ],
                         ),
                       ),
-                      const SizedBox(height: 12),
+                    ),
+                    const SizedBox(height: 12),
 
-                      SpeedChartCard(
-                        title: 'Jakarta - Tangerang',
-                        lastUpdate: '2022-09-04 22:20:17',
-                        barData: jakartaTangerangData,
-                      ),
-                      const SizedBox(height: 16),
-                      SpeedChartCard(
-                        title: 'Dalam Kota',
-                        lastUpdate: '2022-09-04 22:20:17',
-                        barData: dalamKotaData,
-                      ),
-                      const SizedBox(height: 80),
-                    ],
-                  ),
+                    SpeedChartCard(
+                      title: 'Jakarta - Tangerang',
+                      lastUpdate: '2022-09-04 22:20:17',
+                      barData: jakartaTangerangData,
+                    ),
+                    const SizedBox(height: 16),
+                    SpeedChartCard(
+                      title: 'Dalam Kota',
+                      lastUpdate: '2022-09-04 22:20:17',
+                      barData: dalamKotaData,
+                    ),
+                    const SizedBox(height: 80),
+                  ],
                 ),
+              ),
 
-                Positioned(
-                  right: 0,
-                  bottom: MediaQuery.of(context).size.height * 0.15,
-                  child: FloatingSideButton(onPressed: () {}),
-                ),
-              ],
-            ),
+              Positioned(
+                right: 0,
+                bottom: MediaQuery.of(context).size.height * 0.15,
+                child: FloatingSideButton(onPressed: () {}),
+              ),
+            ],
           ),
+        ),
       ),
       bottomNavigationBar: const CustomBottomNavBar(),
     );

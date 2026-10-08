@@ -7,6 +7,7 @@ import '../traffic/presentation/widgets/gangguan_traffic_grid.dart';
 import '../traffic/presentation/widgets/odol_chart_card.dart';
 import '../dashboard/presentation/widgets/floating_side_button.dart';
 import '../dashboard/presentation/widgets/custom_bottom_nav_bar.dart';
+import '../dashboard/presentation/dashboard_screen.dart';
 
 class TrafficDashboardScreen extends StatelessWidget {
   const TrafficDashboardScreen({super.key});
@@ -26,13 +27,31 @@ class TrafficDashboardScreen extends StatelessWidget {
           child: Stack(
             children: [
               SingleChildScrollView(
-                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 20,
+                  vertical: 16,
+                ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     TrafficHeader(
-                      onBack: () => Navigator.of(context).pop(),
-                      onMenuTap: () {},
+                      onBack: () {
+                        if (Navigator.of(context).canPop()) {
+                          Navigator.of(context).pop();
+                        } else {
+                          Navigator.of(context).pushReplacement(
+                            MaterialPageRoute(
+                              builder: (context) => const DashboardScreen(),
+                            ), // <-- Kurung tutup MaterialPageRoute SEHARUSNYA di sini!
+                          );
+                        }
+                      },
+                      onMenuTap: () {
+                        if (Navigator.of(context).canPop()) {
+                          Navigator.of(context)
+                              .popUntil((route) => route.isFirst);
+                        }
+                      },
                       onRefreshTap: () {},
                     ),
                     const SizedBox(height: 16),
