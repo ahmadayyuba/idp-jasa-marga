@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
+
 import 'feature_menu_item.dart';
 import '../../../../features/traffic/traffic_dashboard_screen.dart';
 import '../../../../features/traffic/presentation/realtime_traffic_screen.dart';
 import '../../../traffic/presentation/antrean_gerbang_screen.dart';
+import '../../../traffic/presentation/lalin_per_jam_screen.dart';
+
 class FeatureMenuGrid extends StatelessWidget {
   const FeatureMenuGrid({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final List<Map<String, dynamic>> menuItems =  [
+    final List<Map<String, dynamic>> menuItems = [
       {'icon': Icons.bar_chart_rounded, 'label': 'Dashboard\nLalu Lintas'},
       {'icon': Icons.speed_rounded, 'label': 'Realtime\nTraffic'},
       {'icon': Icons.grid_view_rounded, 'label': 'Antrian\nGerbang'},
@@ -20,7 +23,7 @@ class FeatureMenuGrid extends StatelessWidget {
       {'icon': Icons.camera_alt_outlined, 'label': 'ETLE &\nWIM'},
     ];
 
-return GridView.builder(
+    return GridView.builder(
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
@@ -41,17 +44,24 @@ return GridView.builder(
                   builder: (context) => const TrafficDashboardScreen(),
                 ),
               );
-            }else if (index == 1) {
-              // Menu Indeks 1: Realtime Traffic
+            } else if (index == 1) {
               Navigator.of(context).push(
                 MaterialPageRoute(
                   builder: (context) => const RealtimeTrafficScreen(),
-                  ),
-                );
-              }else if (index == 2) { // Menu 3: Antrian Gerbang
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (context) => const AntreanGerbangScreen()),
+                ),
+              );
+            } else if (index == 2) {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => const AntreanGerbangScreen(),
+                ),
+              );
+            } else if (index == 3) {
+              // Menu 4: Lalin Per Jam
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => const LalinPerJamScreen(),
+                ),
               );
             }
           },
@@ -60,4 +70,3 @@ return GridView.builder(
     );
   }
 }
-  
