@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'traffic_header.dart';
 import 'traffic_tab_pills.dart';
 import 'traffic_speed_summary_pills.dart';
-import 'speed_chart_card.dart';  
+import 'speed_chart_card.dart';
 
 import '../../../dashboard/presentation/widgets/floating_side_button.dart';
 import '../../../dashboard/presentation/widgets/custom_bottom_nav_bar.dart';
@@ -15,8 +15,16 @@ class RealtimeTrafficScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     // Data Dummy Grafik 1: Jakarta - Tangerang
     final List<Map<String, dynamic>> jakartaTangerangData = [
-      {'label': 'SS TOMANG', 'heightFactor': 0.45, 'color': const Color(0xFFEF4444)},
-      {'label': 'KEBON JERUK', 'heightFactor': 0.70, 'color': const Color(0xFF60A5FA)},
+      {
+        'label': 'SS TOMANG',
+        'heightFactor': 0.45,
+        'color': const Color(0xFFEF4444),
+      },
+      {
+        'label': 'KEBON JERUK',
+        'heightFactor': 0.70,
+        'color': const Color(0xFF60A5FA),
+      },
       {
         'label': 'KEBON JERUK',
         'heightFactor': 0.90,
@@ -24,18 +32,50 @@ class RealtimeTrafficScreen extends StatelessWidget {
         'hasTooltip': true,
         'speed': '17 Km/Jam',
       },
-      {'label': 'MERUYA', 'heightFactor': 0.72, 'color': const Color(0xFF60A5FA)},
-      {'label': 'SS KEMBANGAN', 'heightFactor': 0.68, 'color': const Color(0xFF60A5FA)},
-      {'label': 'KR TENGAH', 'heightFactor': 0.52, 'color': const Color(0xFFF59E0B)},
-      {'label': 'KUNCIRAN', 'heightFactor': 0.72, 'color': const Color(0xFF60A5FA)},
-      {'label': 'TANGERANG', 'heightFactor': 0.95, 'color': const Color(0xFF60A5FA)},
-      {'label': 'KARAWACI', 'heightFactor': 0.88, 'color': const Color(0xFF60A5FA)},
+      {
+        'label': 'MERUYA',
+        'heightFactor': 0.72,
+        'color': const Color(0xFF60A5FA),
+      },
+      {
+        'label': 'SS KEMBANGAN',
+        'heightFactor': 0.68,
+        'color': const Color(0xFF60A5FA),
+      },
+      {
+        'label': 'KR TENGAH',
+        'heightFactor': 0.52,
+        'color': const Color(0xFFF59E0B),
+      },
+      {
+        'label': 'KUNCIRAN',
+        'heightFactor': 0.72,
+        'color': const Color(0xFF60A5FA),
+      },
+      {
+        'label': 'TANGERANG',
+        'heightFactor': 0.95,
+        'color': const Color(0xFF60A5FA),
+      },
+      {
+        'label': 'KARAWACI',
+        'heightFactor': 0.88,
+        'color': const Color(0xFF60A5FA),
+      },
     ];
 
     // Data Dummy Grafik 2: Dalam Kota
     final List<Map<String, dynamic>> dalamKotaData = [
-      {'label': 'SEMANGGI', 'heightFactor': 0.35, 'color': const Color(0xFFEF4444)},
-      {'label': 'SENAYAN', 'heightFactor': 0.65, 'color': const Color(0xFF60A5FA)},
+      {
+        'label': 'SEMANGGI',
+        'heightFactor': 0.35,
+        'color': const Color(0xFFEF4444),
+      },
+      {
+        'label': 'SENAYAN',
+        'heightFactor': 0.65,
+        'color': const Color(0xFF60A5FA),
+      },
       {
         'label': 'KUNINGAN',
         'heightFactor': 0.85,
@@ -43,12 +83,36 @@ class RealtimeTrafficScreen extends StatelessWidget {
         'hasTooltip': true,
         'speed': '25 Km/Jam',
       },
-      {'label': 'TEBET', 'heightFactor': 0.50, 'color': const Color(0xFFF59E0B)},
-      {'label': 'CAWANG', 'heightFactor': 0.60, 'color': const Color(0xFF60A5FA)},
-      {'label': 'HALIM', 'heightFactor': 0.62, 'color': const Color(0xFF60A5FA)},
-      {'label': 'GROGOL', 'heightFactor': 0.48, 'color': const Color(0xFFF59E0B)},
-      {'label': 'SLIPI', 'heightFactor': 0.75, 'color': const Color(0xFF60A5FA)},
-      {'label': 'TOMANG', 'heightFactor': 0.80, 'color': const Color(0xFF60A5FA)},
+      {
+        'label': 'TEBET',
+        'heightFactor': 0.50,
+        'color': const Color(0xFFF59E0B),
+      },
+      {
+        'label': 'CAWANG',
+        'heightFactor': 0.60,
+        'color': const Color(0xFF60A5FA),
+      },
+      {
+        'label': 'HALIM',
+        'heightFactor': 0.62,
+        'color': const Color(0xFF60A5FA),
+      },
+      {
+        'label': 'GROGOL',
+        'heightFactor': 0.48,
+        'color': const Color(0xFFF59E0B),
+      },
+      {
+        'label': 'SLIPI',
+        'heightFactor': 0.75,
+        'color': const Color(0xFF60A5FA),
+      },
+      {
+        'label': 'TOMANG',
+        'heightFactor': 0.80,
+        'color': const Color(0xFF60A5FA),
+      },
     ];
 
     return Scaffold(
@@ -64,7 +128,10 @@ class RealtimeTrafficScreen extends StatelessWidget {
           child: Stack(
             children: [
               SingleChildScrollView(
-                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 20,
+                  vertical: 16,
+                ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -74,7 +141,7 @@ class RealtimeTrafficScreen extends StatelessWidget {
                       onRefreshTap: () {},
                     ),
                     const SizedBox(height: 16),
-                    const TrafficTabPills(),
+                    const TrafficTabPills(activeIndex: 3),
                     const SizedBox(height: 20),
                     const TrafficSpeedSummaryPills(),
                     const SizedBox(height: 16),
@@ -84,7 +151,9 @@ class RealtimeTrafficScreen extends StatelessWidget {
                       alignment: Alignment.centerRight,
                       child: Container(
                         padding: const EdgeInsets.symmetric(
-                            horizontal: 14, vertical: 6),
+                          horizontal: 14,
+                          vertical: 6,
+                        ),
                         decoration: BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.circular(20),
@@ -93,8 +162,11 @@ class RealtimeTrafficScreen extends StatelessWidget {
                         child: const Row(
                           mainAxisSize: MainAxisSize.min,
                           children: [
-                            Icon(Icons.tune_rounded,
-                                size: 14, color: Color(0xFF003399)),
+                            Icon(
+                              Icons.tune_rounded,
+                              size: 14,
+                              color: Color(0xFF003399),
+                            ),
                             SizedBox(width: 6),
                             Text(
                               'Filter',

@@ -31,7 +31,7 @@ class LalinPerJamChartScreen extends StatelessWidget {
       {'time': '09:00', 'count': 562},
       {'time': '10:00', 'count': 481},
       {'time': '11:00', 'count': 1850},
-      {'time': '12:00', 'count': 2630, 'isHighlighted': true},  
+      {'time': '12:00', 'count': 2630, 'isHighlighted': true},
       {'time': '13:00', 'count': 2410},
       {'time': '14:00', 'count': 2180},
       {'time': '15:00', 'count': 2750},
@@ -86,7 +86,10 @@ class LalinPerJamChartScreen extends StatelessWidget {
           child: Stack(
             children: [
               SingleChildScrollView(
-                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 20,
+                  vertical: 16,
+                ),
                 child: Column(
                   children: [
                     TrafficHeader(
@@ -103,17 +106,18 @@ class LalinPerJamChartScreen extends StatelessWidget {
                       },
                       onMenuTap: () {
                         if (Navigator.of(context).canPop()) {
-                          Navigator.of(context).popUntil((route) => route.isFirst);
+                          Navigator.of(context)
+                              .popUntil((route) => route.isFirst);
                         }
                       },
                       onRefreshTap: () {},
                     ),
                     const SizedBox(height: 16),
-                    const TrafficTabPills(),
+                    const TrafficTabPills(activeIndex: 3),
                     const SizedBox(height: 16),
 
                     // Sub Toggle
-                    LalinSubToggle(onChanged: (index) {}),
+                    LalinSubToggle(selectedIndex: 1, onChanged: (index) {}),
                     const SizedBox(height: 16),
 
                     // Filter Bar
@@ -121,7 +125,12 @@ class LalinPerJamChartScreen extends StatelessWidget {
                     const SizedBox(height: 16),
 
                     // Gate Category Tabs
-                    LalinGateCategoryTabs(onChanged: (index) {}),
+                    LalinGateCategoryTabs(
+                      selectedIndex: 0,
+                      selectedViewMode: 0,
+                      onCategoryChanged: (index) {},
+                      onViewModeChanged: (index) {},
+                    ),
                     const SizedBox(height: 16),
 
                     // List Kartu Grafik Batang

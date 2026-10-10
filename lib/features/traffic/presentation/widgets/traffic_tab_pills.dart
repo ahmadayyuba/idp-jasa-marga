@@ -1,57 +1,79 @@
 import 'package:flutter/material.dart';
 
-class TrafficTabPills extends StatefulWidget {
-  const TrafficTabPills({super.key});
+import '../../../traffic/traffic_dashboard_screen.dart';
+import '../realtime_traffic_screen.dart';
+import '../antrean_gerbang_screen.dart';
+import '../lalin_per_jam_screen.dart';
 
-  @override
-  State<TrafficTabPills> createState() => _TrafficTabPillsState();
-}
+class TrafficTabPills extends StatelessWidget {
+  final int activeIndex;
 
-class _TrafficTabPillsState extends State<TrafficTabPills> {
-  int _selectedIndex = 0;
-  final List<String> _tabs = [
-    'Dashboard',
-    'Realtime',
-    'Antrean Gerbang',
-    'Lalin Per Jam'
-  ];
+  const TrafficTabPills({
+    super.key,
+    required this.activeIndex, 
+  });
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 38,
-      child: ListView.builder(
-        scrollDirection: Axis.horizontal,
-        itemCount: _tabs.length,
-        itemBuilder: (context, index) {
-          final isSelected = _selectedIndex == index;
-          return Padding(
-            padding: const EdgeInsets.only(right: 8),
-            child: GestureDetector(
-              onTap: () => setState(() => _selectedIndex = index),
-              child: Container(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 18, vertical: 8),
-                decoration: BoxDecoration(
-                  color: isSelected ? const Color(0xFF003399) : Colors.white,
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                child: Center(
-                  child: Text(
-                    _tabs[index],
-                    style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.bold,
-                      color: isSelected
-                          ? Colors.white
-                          : const Color(0xFF475569),
-                    ),
-                  ),
-                ),
-              ),
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      child: Row(
+        children: [
+          _buildPill(context, 'Dashboard', 0, const TrafficDashboardScreen()),
+          const SizedBox(width: 8),
+          _buildPill(context, 'Realtime', 1, const RealtimeTrafficScreen()),
+          const SizedBox(width: 8),
+          _buildPill(context, 'Antrean Gerbang', 2, const AntreanGerbangScreen()),
+          const SizedBox(width: 8),
+          _buildPill(context, 'Lalin Per Jam', 3, const LalinPerJamScreen()),
+        ],
+      ),
+    );
+  }
+
+Widget _buildPill(
+    BuildContext context,
+    String label,
+    int index,
+    Widget targetScreen,
+  ) {
+    final bool isActive = activeIndex == index;
+
+    return GestureDetector(
+      onTap: () {
+        if (!isActive) {
+          Navigator.of(context).pushReplacement(
+            PageRouteBuilder(
+              pageBuilder: (context, animation1, animation2) => targetScreen,
+              transitionDuration: Duration.zero, // Biar ga ada delay/flicker animasi
+              reverseTransitionDuration: Duration.zero,
             ),
           );
-        },
+        }
+      },
+      child: AnimatedContainer(
+        duration: const Duration(milliseconds: 150),
+        padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 10),
+        decoration: BoxDecoration(
+          color: isActive ? const Color(0xFF003399) : Colors.white,
+          borderRadius: BorderRadius.circular(24),
+          boxShadow: [
+            if (!isActive)
+              BoxShadow(
+                color: Colors.black.withOpacity(0.04),
+                blurRadius: 4,
+                offset: const Offset(0, 2),
+              ),
+          ],
+        ),
+        child: Text(
+          label,
+          style: TextStyle(
+            fontSize: 12,
+            fontWeight: FontWeight.bold,
+            color: isActive ? Colors.white : const Color(0xFF475569),
+          ),
+        ),
       ),
     );
   }

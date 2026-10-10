@@ -55,7 +55,7 @@ class TrafficDashboardScreen extends StatelessWidget {
                       onRefreshTap: () {},
                     ),
                     const SizedBox(height: 16),
-                    const TrafficTabPills(),
+                    const TrafficTabPills(activeIndex: 0),
                     const SizedBox(height: 20),
                     const RekayasaTrafficCard(),
                     const SizedBox(height: 20),

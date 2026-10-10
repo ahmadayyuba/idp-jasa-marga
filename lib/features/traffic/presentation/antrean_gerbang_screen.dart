@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:idp_jasa_marga/features/traffic/presentation/widgets/traffic_tab_pills.dart';
 
-import './widgets/traffic_header.dart';
-import './widgets/antrean_direction_pills.dart';
-import './widgets/antrean_gauge_card.dart';
+import 'widgets/traffic_header.dart';
+import 'widgets/traffic_tab_pills.dart';
+import 'widgets/antrean_direction_pills.dart';
+import 'widgets/antrean_gauge_card.dart';
 
+import '../../dashboard/presentation/dashboard_screen.dart';
 import '../../dashboard/presentation/widgets/floating_side_button.dart';
 import '../../dashboard/presentation/widgets/custom_bottom_nav_bar.dart';
-import '../../dashboard/presentation/dashboard_screen.dart';
 
 class AntreanGerbangScreen extends StatelessWidget {
   const AntreanGerbangScreen({super.key});
@@ -58,6 +58,7 @@ class AntreanGerbangScreen extends StatelessWidget {
         'needlePercent': 0.20,
       },
     ];
+
     return Scaffold(
       body: Container(
         decoration: const BoxDecoration(
@@ -73,7 +74,7 @@ class AntreanGerbangScreen extends StatelessWidget {
               SingleChildScrollView(
                 padding: const EdgeInsets.symmetric(
                   horizontal: 20,
-                  vertical: 20,
+                  vertical: 16,
                 ),
                 child: Column(
                   children: [
@@ -98,7 +99,7 @@ class AntreanGerbangScreen extends StatelessWidget {
                       onRefreshTap: () {},
                     ),
                     const SizedBox(height: 16),
-                    const TrafficTabPills(),
+                    const TrafficTabPills(activeIndex: 2),
                     const SizedBox(height: 20),
                     const Text(
                       'Antrian Gerbang Tol',
@@ -110,11 +111,11 @@ class AntreanGerbangScreen extends StatelessWidget {
                     ),
                     const SizedBox(height: 16),
 
-                    // Direction Filter Pill
+                    // Direction Filter
                     AntreanDirectionPills(onChanged: (index) {}),
                     const SizedBox(height: 20),
 
-                    // Grid 2 Kolom Card Gauge
+                    // Grid Card Gauge
                     GridView.builder(
                       shrinkWrap: true,
                       physics: const NeverScrollableScrollPhysics(),
@@ -124,7 +125,7 @@ class AntreanGerbangScreen extends StatelessWidget {
                             crossAxisCount: 2,
                             crossAxisSpacing: 12,
                             mainAxisSpacing: 12,
-                            childAspectRatio: 0.92,
+                            childAspectRatio: 0.88,
                           ),
                       itemBuilder: (context, index) {
                         final item = gerbangList[index];
@@ -137,15 +138,14 @@ class AntreanGerbangScreen extends StatelessWidget {
                         );
                       },
                     ),
-                    const SizedBox(height: 80), // Spacer bottom nav
+                    const SizedBox(height: 80),
                   ],
                 ),
               ),
 
-              // Reusable Floating Side Button
               Positioned(
                 right: 0,
-                bottom: MediaQuery.sizeOf(context).height * 0.15,
+                bottom: MediaQuery.of(context).size.height * 0.15,
                 child: FloatingSideButton(onPressed: () {}),
               ),
             ],

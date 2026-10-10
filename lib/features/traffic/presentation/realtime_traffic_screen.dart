@@ -155,7 +155,7 @@ class RealtimeTrafficScreen extends StatelessWidget {
                       onRefreshTap: () {},
                     ),
                     const SizedBox(height: 16),
-                    const TrafficTabPills(),
+                    const TrafficTabPills(activeIndex: 1),
                     const SizedBox(height: 20),
                     const TrafficSpeedSummaryPills(),
                     const SizedBox(height: 16),

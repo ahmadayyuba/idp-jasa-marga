@@ -1,17 +1,14 @@
 import 'package:flutter/material.dart';
 
-
-class LalinSubToggle extends StatefulWidget {
+class LalinSubToggle extends StatelessWidget {
+  final int selectedIndex;
   final ValueChanged<int> onChanged;
 
-  const LalinSubToggle({super.key, required this.onChanged});
-
-  @override
-  State<LalinSubToggle> createState() => _LalinSubToggleState();
-}
-
-class _LalinSubToggleState extends State<LalinSubToggle> {
-  int _selectedIndex = 0;
+  const LalinSubToggle({
+    super.key,
+    required this.selectedIndex,
+    required this.onChanged,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -23,106 +20,77 @@ class _LalinSubToggleState extends State<LalinSubToggle> {
       ),
       child: Row(
         children: [
-          Expanded(
-            child: GestureDetector(
-              onTap: () {
-                setState(() => _selectedIndex = 0);
-                widget.onChanged(0);
-              },
-              child: AnimatedContainer(
-                duration: const Duration(milliseconds: 200),
-                padding: const EdgeInsets.symmetric(vertical: 8),
-                decoration: BoxDecoration(
-                  color: _selectedIndex == 0
-                      ? const Color(0xFF003399)
-                      : Colors.transparent,
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Icon(
-                      Icons.adjust_rounded,
-                      size: 14,
-                      color: _selectedIndex == 0
-                          ? Colors.white
-                          : const Color(0xFF475569),
-                    ),
-                    const SizedBox(width: 6),
-                    Text(
-                      'GERBANG TOL',
-                      style: TextStyle(
-                        fontSize: 10,
-                        fontWeight: FontWeight.bold,
-                        color: _selectedIndex == 0
-                            ? Colors.white
-                            : const Color(0xFF475569),
-                      ),
-                    ),
-                    const SizedBox(width: 6),
-                    Container(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 6, vertical: 2),
-                      decoration: BoxDecoration(
-                        color: const Color(0xFFEF4444),
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      child: const Text(
-                        '23',
-                        style: TextStyle(
-                          fontSize: 9,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
+          _buildItem(
+            index: 0,
+            icon: Icons.adjust_rounded,
+            label: 'GERBANG TOL',
+            badgeText: '23',
           ),
-          Expanded(
-            child: GestureDetector(
-              onTap: () {
-                setState(() => _selectedIndex = 1);
-                widget.onChanged(1);
-              },
-              child: AnimatedContainer(
-                duration: const Duration(milliseconds: 200),
-                padding: const EdgeInsets.symmetric(vertical: 8),
-                decoration: BoxDecoration(
-                  color: _selectedIndex == 1
-                      ? const Color(0xFF003399)
-                      : Colors.transparent,
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Icon(
-                      Icons.sensors_rounded,
-                      size: 14,
-                      color: _selectedIndex == 1
-                          ? Colors.white
-                          : const Color(0xFF475569),
-                    ),
-                    const SizedBox(width: 6),
-                    Text(
-                      'TRAFFIC COUNTING',
-                      style: TextStyle(
-                        fontSize: 10,
-                        fontWeight: FontWeight.bold,
-                        color: _selectedIndex == 1
-                            ? Colors.white
-                            : const Color(0xFF475569),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
+          _buildItem(
+            index: 1,
+            icon: Icons.sensors_rounded,
+            label: 'TRAFFIC COUNTING',
           ),
         ],
+      ),
+    );
+  }
+
+  Widget _buildItem({
+    required int index,
+    required IconData icon,
+    required String label,
+    String? badgeText,
+  }) {
+    final isSelected = selectedIndex == index;
+    return Expanded(
+      child: GestureDetector(
+        onTap: () => onChanged(index),
+        child: AnimatedContainer(
+          duration: const Duration(milliseconds: 200),
+          padding: const EdgeInsets.symmetric(vertical: 8),
+          decoration: BoxDecoration(
+            color: isSelected ? const Color(0xFF003399) : Colors.transparent,
+            borderRadius: BorderRadius.circular(20),
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(
+                icon,
+                size: 14,
+                color: isSelected ? Colors.white : const Color(0xFF475569),
+              ),
+              const SizedBox(width: 6),
+              Text(
+                label,
+                style: TextStyle(
+                  fontSize: 10,
+                  fontWeight: FontWeight.bold,
+                  color: isSelected ? Colors.white : const Color(0xFF475569),
+                ),
+              ),
+              if (badgeText != null) ...[
+                const SizedBox(width: 6),
+                Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                  decoration: BoxDecoration(
+                    color: const Color(0xFFEF4444),
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: Text(
+                    badgeText,
+                    style: const TextStyle(
+                      fontSize: 9,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+              ],
+            ],
+          ),
+        ),
       ),
     );
   }
