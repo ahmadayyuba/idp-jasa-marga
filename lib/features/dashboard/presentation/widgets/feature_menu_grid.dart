@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:idp_jasa_marga/features/traffic/presentation/traffic_screen.dart';
 
 import 'feature_menu_item.dart';
 import '../../../../features/traffic/traffic_dashboard_screen.dart';
 import '../../../../features/traffic/presentation/realtime_traffic_screen.dart';
 import '../../../traffic/presentation/antrean_gerbang_screen.dart';
 import '../../../traffic/presentation/lalin_per_jam_screen.dart';
+import '../../../traffic/presentation/gangguan_lalin_screen.dart'; // <-- Tambah Import Ini
+import '../../../traffic/presentation/kinerja_lalin_screen.dart'; // <-- Tambah Import Ini
 
 class FeatureMenuGrid extends StatelessWidget {
   const FeatureMenuGrid({super.key});
@@ -57,11 +60,29 @@ class FeatureMenuGrid extends StatelessWidget {
                 ),
               );
             } else if (index == 3) {
-              // Menu 4: Lalin Per Jam
               Navigator.of(context).push(
                 MaterialPageRoute(
                   builder: (context) => const LalinPerJamScreen(),
                 ),
+              );
+            } else if (index == 4) {
+              // Menu 5: Gangguan Lalin
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => const GangguanLalinScreen(),
+                ),
+              );
+            } else if (index == 5) {
+              // Menu 6: Kinerja Lalin
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => const KinerjaLalinScreen(),
+                ),
+              );
+            } else if (index == 6) {
+              // Menu 7 : Traffic
+              Navigator.of(context).push(
+                MaterialPageRoute(builder: (context) => const TrafficScreen()),
               );
             }
           },

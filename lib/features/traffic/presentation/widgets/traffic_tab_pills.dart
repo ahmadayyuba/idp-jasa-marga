@@ -4,14 +4,14 @@ import '../../../traffic/traffic_dashboard_screen.dart';
 import '../realtime_traffic_screen.dart';
 import '../antrean_gerbang_screen.dart';
 import '../lalin_per_jam_screen.dart';
+import '../gangguan_lalin_screen.dart';
+import '../kinerja_lalin_screen.dart';
+import '../traffic_screen.dart';
 
 class TrafficTabPills extends StatelessWidget {
   final int activeIndex;
 
-  const TrafficTabPills({
-    super.key,
-    required this.activeIndex, 
-  });
+  const TrafficTabPills({super.key, required this.activeIndex});
 
   @override
   Widget build(BuildContext context) {
@@ -23,15 +23,26 @@ class TrafficTabPills extends StatelessWidget {
           const SizedBox(width: 8),
           _buildPill(context, 'Realtime', 1, const RealtimeTrafficScreen()),
           const SizedBox(width: 8),
-          _buildPill(context, 'Antrean Gerbang', 2, const AntreanGerbangScreen()),
+          _buildPill(
+            context,
+            'Antrean Gerbang',
+            2,
+            const AntreanGerbangScreen(),
+          ),
           const SizedBox(width: 8),
           _buildPill(context, 'Lalin Per Jam', 3, const LalinPerJamScreen()),
+          const SizedBox(width: 8),
+          _buildPill(context, 'Gangguan Lalin', 4, const GangguanLalinScreen()),
+          const SizedBox(width: 8),
+          _buildPill(context, 'Kinerja Lalin', 5, const KinerjaLalinScreen()),
+          const SizedBox(width: 8),
+          _buildPill(context, 'Traffic', 6, const TrafficScreen(),)
         ],
       ),
     );
   }
 
-Widget _buildPill(
+  Widget _buildPill(
     BuildContext context,
     String label,
     int index,
@@ -45,7 +56,8 @@ Widget _buildPill(
           Navigator.of(context).pushReplacement(
             PageRouteBuilder(
               pageBuilder: (context, animation1, animation2) => targetScreen,
-              transitionDuration: Duration.zero, // Biar ga ada delay/flicker animasi
+              transitionDuration:
+                  Duration.zero, // Biar ga ada delay/flicker animasi
               reverseTransitionDuration: Duration.zero,
             ),
           );
