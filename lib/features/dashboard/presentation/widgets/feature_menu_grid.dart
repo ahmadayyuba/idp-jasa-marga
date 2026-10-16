@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+
 import 'feature_menu_item.dart';
-import '../../../../core/routes/app_routes.dart'; // Import AppRoutes
+import '../../../../core/routes/app_routes.dart';
 
 class FeatureMenuGrid extends StatelessWidget {
   const FeatureMenuGrid({super.key});
@@ -58,6 +59,12 @@ class FeatureMenuGrid extends StatelessWidget {
                 break;
               case 7:
                 Navigator.of(context).pushNamed(AppRoutes.managementLcs);
+                break;
+              case 8:
+                Navigator.of(context).pushNamed(AppRoutes.etleWimScreen);
+                break;
+              default:
+                // Handle default case if needed
                 break;
             }
           },

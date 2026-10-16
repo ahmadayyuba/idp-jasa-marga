@@ -4,7 +4,7 @@ import 'widgets/traffic_header.dart';
 import 'widgets/traffic_tab_pills.dart';
 import 'widgets/management_lcs_filter_card.dart';
 import 'widgets/management_lcs_card.dart';
-
+import 'widgets/detail_lcs_dialog.dart';
 // Reusable Dashboard Widgets
 import '../../dashboard/presentation/dashboard_screen.dart';
 import '../../dashboard/presentation/widgets/floating_side_button.dart';
@@ -20,6 +20,8 @@ class ManagementLcsScreen extends StatelessWidget {
       {
         'locationCode': 'CKP KM 71+200 A',
         'locationSub': 'Jakarta-Cikampek (Jalur A)',
+        'ruasText': 'Jakarta-Cikampek',
+        'jalurText': 'A',
         'isOnline': true,
         'laneList': [
           LaneSignItem(laneLabel: 'L1', isOpen: true),
@@ -30,6 +32,8 @@ class ManagementLcsScreen extends StatelessWidget {
       {
         'locationCode': 'CKP KM 71+200 B',
         'locationSub': 'Jakarta-Cikampek (Jalur B)',
+        'ruasText': 'Jakarta-Cikampek',
+        'jalurText': 'B',
         'isOnline': true,
         'laneList': [
           LaneSignItem(laneLabel: 'L1', isOpen: true),
@@ -40,6 +44,8 @@ class ManagementLcsScreen extends StatelessWidget {
       {
         'locationCode': 'CKP KM 46+000 A',
         'locationSub': 'Jakarta-Cikampek (Jalur A)',
+        'ruasText': 'Jakarta-Cikampek',
+        'jalurText': 'A',
         'isOnline': true,
         'laneList': [
           LaneSignItem(laneLabel: 'L1', isOpen: true),
@@ -51,6 +57,8 @@ class ManagementLcsScreen extends StatelessWidget {
       {
         'locationCode': 'CKP KM 46+500 A',
         'locationSub': 'Jakarta-Cikampek (Jalur A)',
+        'ruasText': 'Jakarta-Cikampek',
+        'jalurText': 'A',
         'isOnline': true,
         'laneList': [
           LaneSignItem(laneLabel: 'L1', isOpen: true),
@@ -62,6 +70,8 @@ class ManagementLcsScreen extends StatelessWidget {
       {
         'locationCode': 'CKP KM 70+400 A',
         'locationSub': 'Jakarta-Cikampek (Jalur A)',
+        'ruasText': 'Jakarta-Cikampek',
+        'jalurText': 'A',
         'isOnline': true,
         'laneList': [
           LaneSignItem(laneLabel: 'L1', isOpen: true),
@@ -117,9 +127,7 @@ class ManagementLcsScreen extends StatelessWidget {
                     const SizedBox(height: 16),
 
                     // Filter Card
-                    ManagementLcsFilterCard(
-                      totalTitik: lcsList.length,
-                    ),
+                    ManagementLcsFilterCard(totalTitik: lcsList.length),
                     const SizedBox(height: 16),
 
                     // List Cards Management LCS
@@ -131,12 +139,33 @@ class ManagementLcsScreen extends StatelessWidget {
                           const SizedBox(height: 12),
                       itemBuilder: (context, index) {
                         final item = lcsList[index];
+                        final List<LaneSignItem> lanes = item['laneList'];
+
                         return ManagementLcsCard(
                           locationCode: item['locationCode'],
                           locationSub: item['locationSub'],
                           isOnline: item['isOnline'],
-                          laneList: item['laneList'],
-                          onDetailTap: () {},
+                          laneList: lanes,
+                          onDetailTap: () {
+                            // Menampilkan dialog modal Detail Sinyal LCS saat diklik
+                            DetailLcsDialog.show(
+                              context,
+                              title:
+                                  'Detail Sinyal LCS ${item['locationCode']}',
+                              ruasText: 'Jakarta-Cikampek',
+                              jalurText: 'A',
+                              gantryList: lanes.map((lane) {
+                                final labelIndex = lane.laneLabel.replaceAll(
+                                  'L',
+                                  '',
+                                );
+                                return LcsGantryStatus(
+                                  laneLabel: 'Lajur $labelIndex',
+                                  isOpen: lane.isOpen,
+                                );
+                              }).toList(),
+                            );
+                          },
                         );
                       },
                     ),

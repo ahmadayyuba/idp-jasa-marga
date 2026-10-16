@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
+
 import '../../../../core/routes/app_routes.dart'; // Import AppRoutes
 
 class TrafficTabPills extends StatelessWidget {
   final int activeIndex;
 
-  const TrafficTabPills({
-    super.key,
-    required this.activeIndex,
-  });
+  const TrafficTabPills({super.key, required this.activeIndex});
 
   @override
   Widget build(BuildContext context) {
@@ -30,6 +28,8 @@ class TrafficTabPills extends StatelessWidget {
           _buildPill(context, 'Traffic', 6, AppRoutes.trafficScreen),
           const SizedBox(width: 8),
           _buildPill(context, 'Management LCS', 7, AppRoutes.managementLcs),
+          const SizedBox(width: 8),
+          _buildPill(context, 'ETLE & WIM', 8, AppRoutes.etleWimScreen),
         ],
       ),
     );
