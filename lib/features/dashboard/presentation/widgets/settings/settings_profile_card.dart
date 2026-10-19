@@ -52,7 +52,7 @@ class SettingsProfileCard extends StatelessWidget {
                   ),
                   const SizedBox(height: 4),
                 Text(
-                  '\(role • ID\)employeeId',
+                  '(role • ID)employeeId',
                   style: const TextStyle(
                     fontSize: 12,
                     color: Color(0xFF64748B),

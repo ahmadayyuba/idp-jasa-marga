@@ -15,7 +15,7 @@ class LalinSubToggle extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(4),
       decoration: BoxDecoration(
-        color: const Color(0xFFE2E8F0).withOpacity(0.6),
+        color: const Color(0xFFE2E8F0).withValues(alpha: 0.6),
         borderRadius: BorderRadius.circular(24),
       ),
       child: Row(

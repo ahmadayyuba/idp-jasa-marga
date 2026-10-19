@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+
+// Import asli milik temanmu
 import 'features/dashboard/presentation/dashboard_screen.dart';
+// Import layar baru kita
+import 'features/peralatan_tol/prensentation/peralatan_dashboard_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,8 +22,12 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
         scaffoldBackgroundColor: const Color(0xFFF8FAFC),
       ),
-      // Menjadikan DashboardScreen sebagai tampilan utama
-      home: const DashboardScreen(),
+      // --- UBAH SEMENTARA UNTUK TESTING ---
+      // Kita komen dulu layar utama milik temanmu:
+      // home: const DashboardScreen(),
+
+      // Kita panggil layar kerangka kita sebagai halaman pertama:
+      home: const PeralatanDashboardScreen(),
     );
   }
 }
