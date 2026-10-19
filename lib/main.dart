@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 // Import asli milik temanmu
 import 'features/dashboard/presentation/dashboard_screen.dart';
-// Import layar baru kita
-import 'features/peralatan_tol/prensentation/peralatan_dashboard_screen.dart';
+import 'core/routes/app_router.dart';
+import 'core/routes/app_routes.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,6 +17,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'IDP Jasa Marga',
       debugShowCheckedModeBanner: false,
+      initialRoute: AppRoutes.loginscreen,
+      onGenerateRoute: AppRouter.generateRoute,
       theme: ThemeData(
         fontFamily: 'Roboto',
         useMaterial3: true,

@@ -1,17 +1,11 @@
 import 'package:flutter/material.dart';
 
-import '../../../traffic/traffic_dashboard_screen.dart';
-import '../realtime_traffic_screen.dart';
-import '../antrean_gerbang_screen.dart';
-import '../lalin_per_jam_screen.dart';
+import '../../../../core/routes/app_routes.dart'; // Import AppRoutes
 
 class TrafficTabPills extends StatelessWidget {
   final int activeIndex;
 
-  const TrafficTabPills({
-    super.key,
-    required this.activeIndex, 
-  });
+  const TrafficTabPills({super.key, required this.activeIndex});
 
   @override
   Widget build(BuildContext context) {
@@ -19,36 +13,40 @@ class TrafficTabPills extends StatelessWidget {
       scrollDirection: Axis.horizontal,
       child: Row(
         children: [
-          _buildPill(context, 'Dashboard', 0, const TrafficDashboardScreen()),
+          _buildPill(context, 'Dashboard', 0, AppRoutes.trafficDashboard),
           const SizedBox(width: 8),
-          _buildPill(context, 'Realtime', 1, const RealtimeTrafficScreen()),
+          _buildPill(context, 'Realtime', 1, AppRoutes.realtimeTraffic),
           const SizedBox(width: 8),
-          _buildPill(context, 'Antrean Gerbang', 2, const AntreanGerbangScreen()),
+          _buildPill(context, 'Antrean Gerbang', 2, AppRoutes.antreanGerbang),
           const SizedBox(width: 8),
-          _buildPill(context, 'Lalin Per Jam', 3, const LalinPerJamScreen()),
+          _buildPill(context, 'Lalin Per Jam', 3, AppRoutes.lalinPerJam),
+          const SizedBox(width: 8),
+          _buildPill(context, 'Gangguan Lalin', 4, AppRoutes.gangguanLalin),
+          const SizedBox(width: 8),
+          _buildPill(context, 'Kinerja Lalin', 5, AppRoutes.kinerjaLalin),
+          const SizedBox(width: 8),
+          _buildPill(context, 'Traffic', 6, AppRoutes.trafficScreen),
+          const SizedBox(width: 8),
+          _buildPill(context, 'Management LCS', 7, AppRoutes.managementLcs),
+          const SizedBox(width: 8),
+          _buildPill(context, 'ETLE & WIM', 8, AppRoutes.etleWimScreen),
         ],
       ),
     );
   }
 
-Widget _buildPill(
+  Widget _buildPill(
     BuildContext context,
     String label,
     int index,
-    Widget targetScreen,
+    String routeName,
   ) {
     final bool isActive = activeIndex == index;
 
     return GestureDetector(
       onTap: () {
         if (!isActive) {
-          Navigator.of(context).pushReplacement(
-            PageRouteBuilder(
-              pageBuilder: (context, animation1, animation2) => targetScreen,
-              transitionDuration: Duration.zero, // Biar ga ada delay/flicker animasi
-              reverseTransitionDuration: Duration.zero,
-            ),
-          );
+          Navigator.of(context).pushReplacementNamed(routeName);
         }
       },
       child: AnimatedContainer(

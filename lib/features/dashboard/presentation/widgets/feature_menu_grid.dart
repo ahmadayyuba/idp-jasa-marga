@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'feature_menu_item.dart';
-import '../../../../features/traffic/traffic_dashboard_screen.dart';
-import '../../../../features/traffic/presentation/realtime_traffic_screen.dart';
-import '../../../traffic/presentation/antrean_gerbang_screen.dart';
-import '../../../traffic/presentation/lalin_per_jam_screen.dart';
+import '../../../../core/routes/app_routes.dart';
 
 class FeatureMenuGrid extends StatelessWidget {
   const FeatureMenuGrid({super.key});
@@ -38,31 +35,37 @@ class FeatureMenuGrid extends StatelessWidget {
           icon: menuItems[index]['icon'],
           label: menuItems[index]['label'],
           onTap: () {
-            if (index == 0) {
-              Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (context) => const TrafficDashboardScreen(),
-                ),
-              );
-            } else if (index == 1) {
-              Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (context) => const RealtimeTrafficScreen(),
-                ),
-              );
-            } else if (index == 2) {
-              Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (context) => const AntreanGerbangScreen(),
-                ),
-              );
-            } else if (index == 3) {
-              // Menu 4: Lalin Per Jam
-              Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (context) => const LalinPerJamScreen(),
-                ),
-              );
+            switch (index) {
+              case 0:
+                Navigator.of(context).pushNamed(AppRoutes.trafficDashboard);
+                break;
+              case 1:
+                Navigator.of(context).pushNamed(AppRoutes.realtimeTraffic);
+                break;
+              case 2:
+                Navigator.of(context).pushNamed(AppRoutes.antreanGerbang);
+                break;
+              case 3:
+                Navigator.of(context).pushNamed(AppRoutes.lalinPerJam);
+                break;
+              case 4:
+                Navigator.of(context).pushNamed(AppRoutes.gangguanLalin);
+                break;
+              case 5:
+                Navigator.of(context).pushNamed(AppRoutes.kinerjaLalin);
+                break;
+              case 6:
+                Navigator.of(context).pushNamed(AppRoutes.trafficScreen);
+                break;
+              case 7:
+                Navigator.of(context).pushNamed(AppRoutes.managementLcs);
+                break;
+              case 8:
+                Navigator.of(context).pushNamed(AppRoutes.etleWimScreen);
+                break;
+              default:
+                // Handle default case if needed
+                break;
             }
           },
         );
