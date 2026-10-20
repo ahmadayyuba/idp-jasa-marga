@@ -10,6 +10,7 @@ import 'widgets/maintenance_banner_card.dart';
 import 'widgets/maintenance_kpi_row.dart';
 import 'widgets/maintenance_search_filter.dart';
 import 'widgets/maintenance_task_card.dart';
+import 'water_level_sensor_view.dart';
 
 // Reusable Dashboard Widgets
 import '../../dashboard/presentation/widgets/floating_side_button.dart';
@@ -111,7 +112,6 @@ class _MaintenanceParentScreenState extends State<MaintenanceParentScreen> {
                     ),
                     const SizedBox(height: 16),
 
-                    // MENGGUNAKAN INDEXEDSTACK AGAR TIDAK RE-BUILD DARI NOL
                     IndexedStack(
                       index: _activeTab,
                       children: [
@@ -164,15 +164,7 @@ class _MaintenanceParentScreenState extends State<MaintenanceParentScreen> {
                         ),
 
                         // Tab 2: Water Level Sensor View
-                        const Center(
-                          child: Padding(
-                            padding: EdgeInsets.all(32.0),
-                            child: Text(
-                              'Konten Water Level Sensor',
-                              style: TextStyle(color: Color(0xFF64748B)),
-                            ),
-                          ),
-                        ),
+                        const WaterLevelSensorView(),
                       ],
                     ),
 

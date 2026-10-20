@@ -11,4 +11,5 @@ class AppRoutes {
   static const String etleWimScreen = '/etle-wim';
   static const String maintenanceSummary = '/maintenance-summary';
   static const String dataPemeliharaan = '/data-pemeliharaan';
+  static const String waterLevelSensor = '/water-level-sensor';
 }

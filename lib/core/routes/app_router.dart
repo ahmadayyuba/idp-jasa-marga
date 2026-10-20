@@ -14,6 +14,7 @@ import '../../features/traffic/presentation/traffic_screen.dart';
 import '../../features/traffic/presentation/management_lcs_screen.dart';
 import '../../features/traffic/presentation/etle_wim_screen.dart';
 import '../../features/maintenance/presentation/maintenance_parent_screen.dart';
+import '../../features/maintenance/presentation/water_level_sensor_view.dart';
 
 // --- Import Screens Punya Temen Kamu ---
 
@@ -62,7 +63,8 @@ class AppRouter {
         return _buildRoute(const MaintenanceParentScreen(initialIndex: 0), settings);
       case AppRoutes.dataPemeliharaan:
         return _buildRoute(const MaintenanceParentScreen(initialIndex: 1), settings);
-
+      case AppRoutes.waterLevelSensor:
+        return _buildRoute(const MaintenanceParentScreen(initialIndex: 2), settings);
       default:
         return MaterialPageRoute(
           builder: (_) => Scaffold(

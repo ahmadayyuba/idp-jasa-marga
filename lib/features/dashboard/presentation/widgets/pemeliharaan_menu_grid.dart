@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../../../../core/routes/app_routes.dart';
 import 'feature_menu_item.dart';
 
@@ -36,9 +37,7 @@ class PemeliharaanMenuGrid extends StatelessWidget {
                 Navigator.of(context).pushNamed(AppRoutes.dataPemeliharaan);
                 break;
               case 2:
-                ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(content: Text('Menu Water Level Sensor')),
-                );
+                Navigator.of(context).pushNamed(AppRoutes.waterLevelSensor);
                 break;
             }
           },
