@@ -13,6 +13,7 @@ import '../../features/traffic/presentation/kinerja_lalin_screen.dart';
 import '../../features/traffic/presentation/traffic_screen.dart';
 import '../../features/traffic/presentation/management_lcs_screen.dart';
 import '../../features/traffic/presentation/etle_wim_screen.dart';
+import '../../features/maintenance/presentation/maintenance_parent_screen.dart';
 
 // --- Import Screens Punya Temen Kamu ---
 
@@ -57,6 +58,10 @@ class AppRouter {
       // 10. ETLE & WIM
       case AppRoutes.etleWimScreen:
         return _buildRoute(const EtleWimScreen(), settings);
+      case AppRoutes.maintenanceSummary:
+        return _buildRoute(const MaintenanceParentScreen(initialIndex: 0), settings);
+      case AppRoutes.dataPemeliharaan:
+        return _buildRoute(const MaintenanceParentScreen(initialIndex: 1), settings);
 
       default:
         return MaterialPageRoute(
