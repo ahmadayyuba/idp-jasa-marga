@@ -12,4 +12,6 @@ class AppRoutes {
   static const String maintenanceSummary = '/maintenance-summary';
   static const String dataPemeliharaan = '/data-pemeliharaan';
   static const String waterLevelSensor = '/water-level-sensor';
+  static const String cctvRuas = '/cctv-ruas-Screen';
+  static const String cctvSegment = '/cctv-segment';
 }

@@ -59,13 +59,13 @@ class WaterLevelHeroCard extends StatelessWidget {
                 ),
               ],
             ),
-            ),
+          ),
         ],
       ),
     );
   }
 
-  Widget _buildStatusBadge(Color dotColor , String label) {
+  Widget _buildStatusBadge(Color dotColor, String label) {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
       decoration: BoxDecoration(
@@ -78,10 +78,7 @@ class WaterLevelHeroCard extends StatelessWidget {
           Container(
             width: 8,
             height: 8,
-            decoration: BoxDecoration(
-              color: dotColor,
-              shape: BoxShape.circle,
-            ),
+            decoration: BoxDecoration(color: dotColor, shape: BoxShape.circle),
           ),
           const SizedBox(width: 4),
           Text(
@@ -91,7 +88,7 @@ class WaterLevelHeroCard extends StatelessWidget {
               fontWeight: FontWeight.bold,
               color: Colors.white,
             ),
-          )
+          ),
         ],
       ),
     );

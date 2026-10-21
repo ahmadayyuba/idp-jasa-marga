@@ -14,7 +14,8 @@ import '../../features/traffic/presentation/traffic_screen.dart';
 import '../../features/traffic/presentation/management_lcs_screen.dart';
 import '../../features/traffic/presentation/etle_wim_screen.dart';
 import '../../features/maintenance/presentation/maintenance_parent_screen.dart';
-import '../../features/maintenance/presentation/water_level_sensor_view.dart';
+import '../../cctv/presentation/cctv_ruas_screen.dart';
+import '../../cctv/presentation/cctv_segment_screen.dart';
 
 // --- Import Screens Punya Temen Kamu ---
 
@@ -60,11 +61,27 @@ class AppRouter {
       case AppRoutes.etleWimScreen:
         return _buildRoute(const EtleWimScreen(), settings);
       case AppRoutes.maintenanceSummary:
-        return _buildRoute(const MaintenanceParentScreen(initialIndex: 0), settings);
+        return _buildRoute(
+          const MaintenanceParentScreen(initialIndex: 0),
+          settings,
+        );
       case AppRoutes.dataPemeliharaan:
-        return _buildRoute(const MaintenanceParentScreen(initialIndex: 1), settings);
+        return _buildRoute(
+          const MaintenanceParentScreen(initialIndex: 1),
+          settings,
+        );
       case AppRoutes.waterLevelSensor:
-        return _buildRoute(const MaintenanceParentScreen(initialIndex: 2), settings);
+        return _buildRoute(
+          const MaintenanceParentScreen(initialIndex: 2),
+          settings,
+        );
+      case AppRoutes.cctvRuas:
+        return _buildRoute(const CctvRuasScreen(), settings);
+      case AppRoutes.cctvSegment:
+        final ruasName = settings.arguments as String? ?? 'JAGORAWI';
+        return MaterialPageRoute(
+          builder: (_) => CctvSegmentScreen(ruasName: ruasName),
+        );
       default:
         return MaterialPageRoute(
           builder: (_) => Scaffold(
