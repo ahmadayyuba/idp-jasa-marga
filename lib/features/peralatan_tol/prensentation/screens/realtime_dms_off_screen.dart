@@ -43,7 +43,7 @@ class RealtimeDmsOffScreen extends StatelessWidget {
                     child: Text(
                       'Total: 12 Unit Off',
                       style: AppTextStyles.badgeText.copyWith(
-                        color: AppColors.dangerRed,
+                        color: AppColors.cardRed,
                       ),
                     ),
                   ),
@@ -99,7 +99,7 @@ class RealtimeDmsOffScreen extends StatelessWidget {
                   width: 20,
                   height: 20,
                   decoration: const BoxDecoration(
-                    color: AppColors.dangerRed,
+                    color: AppColors.cardRed,
                     shape: BoxShape.circle,
                   ),
                   alignment: Alignment.center,

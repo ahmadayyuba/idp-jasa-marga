@@ -30,7 +30,7 @@ class KendaraanOperasionalScreen extends StatelessWidget {
                 title: 'Online (Aktif)',
                 value: '4',
                 subtitle: 'Sedang Beroperasi',
-                valueColor: AppColors.successGreen,
+                valueColor: AppColors.cardGreen,
                 bgColor: AppColors.bgSuccessSoft,
                 icon: Icons.cell_tower, // Ikon sinyal memancar
               ),
@@ -41,7 +41,7 @@ class KendaraanOperasionalScreen extends StatelessWidget {
                 title: 'Offline (Standby)',
                 value: '4',
                 subtitle: 'Di Pool / Parkir',
-                valueColor: AppColors.dangerRed,
+                valueColor: AppColors.cardRed,
                 bgColor: AppColors.bgDangerSoft,
                 icon: Icons.signal_cellular_connected_no_internet_4_bar,
               ),
@@ -441,8 +441,8 @@ class KendaraanOperasionalScreen extends StatelessWidget {
                   borderRadius: BorderRadius.circular(20),
                   border: Border.all(
                     color: isOffline
-                        ? AppColors.dangerRed.withValues(alpha: 0.3)
-                        : AppColors.successGreen.withValues(alpha: 0.3),
+                        ? AppColors.cardRed.withValues(alpha: 0.3)
+                        : AppColors.cardGreen.withValues(alpha: 0.3),
                   ),
                 ),
                 child: Row(
@@ -451,16 +451,16 @@ class KendaraanOperasionalScreen extends StatelessWidget {
                       Icons.circle,
                       size: 8,
                       color: isOffline
-                          ? AppColors.dangerRed
-                          : AppColors.successGreen,
+                          ? AppColors.cardRed
+                          : AppColors.cardGreen,
                     ),
                     const SizedBox(width: 4),
                     Text(
                       isOffline ? 'Off' : 'On',
                       style: TextStyle(
                         color: isOffline
-                            ? AppColors.dangerRed
-                            : AppColors.successGreen,
+                            ? AppColors.cardRed
+                            : AppColors.cardGreen,
                         fontSize: 11,
                         fontWeight: FontWeight.bold,
                       ),
@@ -623,7 +623,7 @@ class KendaraanOperasionalScreen extends StatelessWidget {
                                 vertical: 4,
                               ),
                               decoration: BoxDecoration(
-                                color: AppColors.dangerRed,
+                                color: AppColors.cardRed,
                                 borderRadius: BorderRadius.circular(6),
                               ),
                               child: Text(
@@ -657,13 +657,13 @@ class KendaraanOperasionalScreen extends StatelessWidget {
                               color: AppColors.bgDangerSoft.withValues(
                                 alpha: 0.2,
                               ),
-                              border: Border.all(color: AppColors.dangerRed),
+                              border: Border.all(color: AppColors.cardRed),
                               borderRadius: BorderRadius.circular(4),
                             ),
                             child: const Text(
                               'GPS Signal: LOST',
                               style: TextStyle(
-                                color: AppColors.dangerRed,
+                                color: AppColors.cardRed,
                                 fontSize: 8,
                                 fontWeight: FontWeight.bold,
                               ),

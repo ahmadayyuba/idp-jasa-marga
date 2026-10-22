@@ -311,7 +311,7 @@ class ReportStatusCctvScreen extends StatelessWidget {
                 child: Text(
                   statusText,
                   style: const TextStyle(
-                    color: AppColors.dangerRed,
+                    color: AppColors.cardRed,
                     fontSize: 10,
                     fontWeight: FontWeight.bold,
                   ),
@@ -374,7 +374,7 @@ class ReportStatusCctvScreen extends StatelessWidget {
         Text(
           statusValue,
           style: TextStyle(
-            color: isDanger ? AppColors.dangerRed : AppColors.textMuted,
+            color: isDanger ? AppColors.cardRed : AppColors.textMuted,
             fontSize: 11,
             fontWeight: FontWeight.bold,
           ),

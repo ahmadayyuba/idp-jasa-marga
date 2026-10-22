@@ -342,8 +342,8 @@ class MonitoringSegmentHitScreen extends StatelessWidget {
                   speedText,
                   style: TextStyle(
                     color: isSpeedFast
-                        ? AppColors.successGreen
-                        : AppColors.dangerRed,
+                        ? AppColors.cardGreen
+                        : AppColors.cardRed,
                     fontSize: 12,
                     fontWeight: FontWeight.bold,
                   ),

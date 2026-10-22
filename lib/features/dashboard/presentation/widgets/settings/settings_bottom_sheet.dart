@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+
 import 'settings_profile_card.dart';
 import 'settings_tile.dart';
 import 'settings_logout_button.dart';
 import '../../../../auth/presentation/login_screen.dart';
+
 class SettingsBottomSheet extends StatefulWidget {
   const SettingsBottomSheet({super.key});
 
@@ -103,7 +105,7 @@ class _SettingsBottomSheetState extends State {
             subtitle: 'Gunakan sidik jari/Face ID HP untuk login cepat',
             trailing: Switch.adaptive(
               value: _isBiometricEnabled,
-              activeColor: const Color(0xFF003399),
+              activeThumbColor: const Color(0xFF003399),
               activeTrackColor: const Color(0xFF93C5FD),
               onChanged: (val) {
                 setState(() {
@@ -115,21 +117,19 @@ class _SettingsBottomSheetState extends State {
           const SizedBox(height: 24),
 
           // Sub-Komponen 3: Tombol Logout
-// Sub-Komponen 3: Tombol Logout
-SettingsLogoutButton(
-  onPressed: () {
-    // 1. Tutup Bottom Sheet dulu
-    Navigator.of(context).pop();
+          // Sub-Komponen 3: Tombol Logout
+          SettingsLogoutButton(
+            onPressed: () {
+              // 1. Tutup Bottom Sheet dulu
+              Navigator.of(context).pop();
 
-    // 2. Arahkan pengguna kembali ke LoginScreen & hapus tumpukan navigasi sebelumnya
-    Navigator.of(context).pushAndRemoveUntil(
-      MaterialPageRoute(
-        builder: (context) => const LoginScreen(),
-      ),
-      (route) => false, // false artinya user tidak bisa tekan back untuk kembali ke Dashboard
-    );
-  },
-),
+              // 2. Arahkan pengguna kembali ke LoginScreen & hapus tumpukan navigasi sebelumnya
+              Navigator.of(context).pushAndRemoveUntil(
+                MaterialPageRoute(builder: (context) => const LoginScreen()),
+                (route) => false, // false artinya user tidak bisa tekan back untuk kembali ke Dashboard
+              );
+            },
+          ),
           const SizedBox(height: 30),
         ],
       ),

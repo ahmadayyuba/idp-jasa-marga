@@ -45,7 +45,7 @@ class RealtimeSpeedcamScreen extends StatelessWidget {
                     child: Text(
                       'Total : 1',
                       style: AppTextStyles.badgeText.copyWith(
-                        color: AppColors.dangerRed,
+                        color: AppColors.cardRed,
                       ),
                     ),
                   ),
@@ -89,7 +89,7 @@ class RealtimeSpeedcamScreen extends StatelessWidget {
           title: 'KM 48+100 B JORR',
           durationText: '7 Jam 36 Menit 39 Detik',
           offlineTimeText: '2026-09-02 05:59:38',
-          indicatorColor: AppColors.dangerRed,
+          indicatorColor: AppColors.cardRed,
           durationBgColor: AppColors.bgDangerSoft,
         ),
         const SizedBox(height: 16),
@@ -112,7 +112,7 @@ class RealtimeSpeedcamScreen extends StatelessWidget {
               child: Text(
                 '6 Unit Online',
                 style: AppTextStyles.badgeText.copyWith(
-                  color: AppColors.successGreen,
+                  color: AppColors.cardGreen,
                 ),
               ),
             ),
@@ -173,7 +173,7 @@ class RealtimeSpeedcamScreen extends StatelessWidget {
             child: Text(
               badgeCount,
               style: AppTextStyles.badgeText.copyWith(
-                color: AppColors.dangerRed,
+                color: AppColors.cardRed,
                 fontSize: 10,
               ),
             ),

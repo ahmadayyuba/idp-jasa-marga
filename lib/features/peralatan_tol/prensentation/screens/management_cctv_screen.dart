@@ -302,7 +302,7 @@ class ManagementCctvScreen extends StatelessWidget {
               const Text(
                 '● NORMAL ',
                 style: TextStyle(
-                  color: AppColors.successGreen,
+                  color: AppColors.cardGreen,
                   fontSize: 11,
                   fontWeight: FontWeight.bold,
                 ),
@@ -310,7 +310,7 @@ class ManagementCctvScreen extends StatelessWidget {
               const Icon(
                 Icons.info_outline,
                 size: 14,
-                color: AppColors.successGreen,
+                color: AppColors.cardGreen,
               ),
             ],
           ),

@@ -3,10 +3,7 @@ import 'package:flutter/material.dart';
 class ManagementLcsFilterCard extends StatefulWidget {
   final int totalTitik;
 
-  const ManagementLcsFilterCard({
-    super.key,
-    this.totalTitik = 6,
-  });
+  const ManagementLcsFilterCard({super.key, this.totalTitik = 6});
 
   @override
   State<ManagementLcsFilterCard> createState() =>
@@ -26,7 +23,7 @@ class _ManagementLcsFilterCardState extends State<ManagementLcsFilterCard> {
         borderRadius: BorderRadius.circular(20),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.02),
+            color: Colors.black.withValues(alpha: 0.02),
             blurRadius: 8,
             offset: const Offset(0, 2),
           ),
@@ -58,8 +55,7 @@ class _ManagementLcsFilterCardState extends State<ManagementLcsFilterCard> {
                 ],
               ),
               Container(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
+                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
                 decoration: BoxDecoration(
                   color: const Color(0xFFDCFCE7),
                   borderRadius: BorderRadius.circular(10),
@@ -108,15 +104,8 @@ class _ManagementLcsFilterCardState extends State<ManagementLcsFilterCard> {
                   color: Color(0xFF0F172A),
                 ),
                 onChanged: (val) => setState(() => _selectedRuas = val!),
-                items: [
-                  'Jakarta-Cikampek',
-                  'Jagorawi',
-                  'Cipularang',
-                ].map((e) {
-                  return DropdownMenuItem<String>(
-                    value: e,
-                    child: Text(e),
-                  );
+                items: ['Jakarta-Cikampek', 'Jagorawi', 'Cipularang'].map((e) {
+                  return DropdownMenuItem<String>(value: e, child: Text(e));
                 }).toList(),
               ),
             ),

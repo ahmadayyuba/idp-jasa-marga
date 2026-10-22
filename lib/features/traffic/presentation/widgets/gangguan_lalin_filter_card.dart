@@ -33,7 +33,7 @@ class _GangguanLalinFilterCardState extends State<GangguanLalinFilterCard> {
         borderRadius: BorderRadius.circular(20),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.02),
+            color: Colors.black.withValues(alpha: 0.02),
             blurRadius: 10,
             offset: const Offset(0, 2),
           ),
@@ -65,8 +65,10 @@ class _GangguanLalinFilterCardState extends State<GangguanLalinFilterCard> {
                 ],
               ),
               Container(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 10,
+                  vertical: 4,
+                ),
                 decoration: BoxDecoration(
                   color: const Color(0xFFFFE4E6),
                   borderRadius: BorderRadius.circular(12),
@@ -141,8 +143,10 @@ class _GangguanLalinFilterCardState extends State<GangguanLalinFilterCard> {
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color(0xFF2563EB),
                   elevation: 0,
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 18, vertical: 10),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 18,
+                    vertical: 10,
+                  ),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
@@ -163,8 +167,10 @@ class _GangguanLalinFilterCardState extends State<GangguanLalinFilterCard> {
                 onPressed: widget.onReset,
                 style: OutlinedButton.styleFrom(
                   elevation: 0,
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 18, vertical: 10),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 18,
+                    vertical: 10,
+                  ),
                   side: const BorderSide(color: Color(0xFFCBD5E1)),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10),
@@ -242,10 +248,7 @@ class _GangguanLalinFilterCardState extends State<GangguanLalinFilterCard> {
               ),
               onChanged: onChanged,
               items: items.map((e) {
-                return DropdownMenuItem<String>(
-                  value: e,
-                  child: Text(e),
-                );
+                return DropdownMenuItem<String>(value: e, child: Text(e));
               }).toList(),
             ),
           ),

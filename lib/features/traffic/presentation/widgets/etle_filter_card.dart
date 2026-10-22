@@ -22,7 +22,7 @@ class _EtleFilterCardState extends State<EtleFilterCard> {
         borderRadius: BorderRadius.circular(20),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.02),
+            color: Colors.black.withValues(alpha: 0.02),
             blurRadius: 8,
             offset: const Offset(0, 2),
           ),
@@ -46,7 +46,10 @@ class _EtleFilterCardState extends State<EtleFilterCard> {
                   ),
                   const SizedBox(width: 8),
                   Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 8,
+                      vertical: 4,
+                    ),
                     decoration: BoxDecoration(
                       color: const Color(0xFFFFEDD5),
                       borderRadius: BorderRadius.circular(8),
@@ -96,7 +99,8 @@ class _EtleFilterCardState extends State<EtleFilterCard> {
                 child: _buildDropdown(
                   value: _selectedStartMonth,
                   items: ['Januari', 'Februari', 'Maret'],
-                  onChanged: (val) => setState(() => _selectedStartMonth = val!),
+                  onChanged: (val) =>
+                      setState(() => _selectedStartMonth = val!),
                 ),
               ),
               const Padding(
@@ -132,7 +136,9 @@ class _EtleFilterCardState extends State<EtleFilterCard> {
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
         decoration: BoxDecoration(
-          color: isSelected ? const Color(0xFFDBEAFE) : Colors.transparent, // Light Blue for active
+          color: isSelected
+              ? const Color(0xFFDBEAFE)
+              : Colors.transparent, // Light Blue for active
           borderRadius: BorderRadius.circular(8),
         ),
         child: Text(
@@ -140,7 +146,9 @@ class _EtleFilterCardState extends State<EtleFilterCard> {
           style: TextStyle(
             fontSize: 11,
             fontWeight: FontWeight.bold,
-            color: isSelected ? const Color(0xFF1E3A8A) : const Color(0xFF64748B),
+            color: isSelected
+                ? const Color(0xFF1E3A8A)
+                : const Color(0xFF64748B),
           ),
         ),
       ),
@@ -174,10 +182,7 @@ class _EtleFilterCardState extends State<EtleFilterCard> {
           ),
           onChanged: onChanged,
           items: items.map((e) {
-            return DropdownMenuItem<String>(
-              value: e,
-              child: Text(e),
-            );
+            return DropdownMenuItem<String>(value: e, child: Text(e));
           }).toList(),
         ),
       ),

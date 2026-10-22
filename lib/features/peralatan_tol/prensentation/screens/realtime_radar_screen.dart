@@ -45,7 +45,7 @@ class RealtimeRadarScreen extends StatelessWidget {
                     child: Text(
                       'Total : 3',
                       style: AppTextStyles.badgeText.copyWith(
-                        color: AppColors.dangerRed,
+                        color: AppColors.cardRed,
                       ),
                     ),
                   ),
@@ -89,7 +89,7 @@ class RealtimeRadarScreen extends StatelessWidget {
           title: 'Rest Area KM 72+000 A O...',
           durationText: '13 Jam 46 Menit 35 Detik',
           offlineTimeText: '2026-09-01 23:50:00',
-          indicatorColor: AppColors.dangerRed,
+          indicatorColor: AppColors.cardRed,
           durationBgColor: AppColors.bgDangerSoft,
         ),
         const SizedBox(height: 12),
@@ -100,7 +100,7 @@ class RealtimeRadarScreen extends StatelessWidget {
           title: 'JORR E KM 48+100 B',
           durationText: '8 Jam 41 Menit 35 Detik',
           offlineTimeText: '2026-09-02 04:55:00',
-          indicatorColor: AppColors.dangerRed,
+          indicatorColor: AppColors.cardRed,
           durationBgColor: AppColors.bgDangerSoft,
         ),
         const OfflineDeviceCard(
@@ -131,7 +131,7 @@ class RealtimeRadarScreen extends StatelessWidget {
               child: Text(
                 '2 Unit Online',
                 style: AppTextStyles.badgeText.copyWith(
-                  color: AppColors.successGreen,
+                  color: AppColors.cardGreen,
                 ),
               ),
             ),
@@ -171,7 +171,7 @@ class RealtimeRadarScreen extends StatelessWidget {
             child: Text(
               badgeCount,
               style: AppTextStyles.badgeText.copyWith(
-                color: AppColors.dangerRed,
+                color: AppColors.cardRed,
                 fontSize: 10,
               ),
             ),

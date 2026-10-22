@@ -46,7 +46,7 @@ class RealtimeEwsScreen extends StatelessWidget {
                     child: Text(
                       'Total : 2',
                       style: AppTextStyles.badgeText.copyWith(
-                        color: AppColors.dangerRed,
+                        color: AppColors.cardRed,
                       ),
                     ),
                   ),
@@ -136,7 +136,7 @@ class RealtimeEwsScreen extends StatelessWidget {
               child: Text(
                 '4 Unit Online',
                 style: AppTextStyles.badgeText.copyWith(
-                  color: AppColors.successGreen,
+                  color: AppColors.cardGreen,
                 ),
               ),
             ),

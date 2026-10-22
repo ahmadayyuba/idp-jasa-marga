@@ -30,7 +30,7 @@ class MonitoringAlatScreen extends StatelessWidget {
                 title: 'CCTV Hidup',
                 value: '3399 Unit',
                 subtitle: '87.9% Aktif',
-                textColor: AppColors.successGreen,
+                textColor: AppColors.cardGreen,
                 bgColor: AppColors.bgSuccessSoft,
                 icon: Icons.check_circle,
               ),
@@ -41,7 +41,7 @@ class MonitoringAlatScreen extends StatelessWidget {
                 title: 'CCTV Mati',
                 value: '468 Unit',
                 subtitle: '12.1% Gangguan',
-                textColor: AppColors.dangerRed,
+                textColor: AppColors.cardRed,
                 bgColor: AppColors.bgDangerSoft,
                 icon: Icons.cancel,
               ),
@@ -72,7 +72,7 @@ class MonitoringAlatScreen extends StatelessWidget {
                     children: [
                       _legendDot(AppColors.primaryBlue, 'Hidup'),
                       const SizedBox(width: 8),
-                      _legendDot(AppColors.dangerRed, 'Mati'),
+                      _legendDot(AppColors.cardRed, 'Mati'),
                     ],
                   ),
                 ],
@@ -321,7 +321,7 @@ class MonitoringAlatScreen extends StatelessWidget {
                 child: Text(
                   offText,
                   style: TextStyle(
-                    color: hasOff ? AppColors.dangerRed : AppColors.textMuted,
+                    color: hasOff ? AppColors.cardRed : AppColors.textMuted,
                     fontSize: 11,
                     fontWeight: FontWeight.bold,
                   ),

@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 class AppColors {
   // === Warna Utama Brand Jasa Marga & Accent (Bawaan Teman) ===
-  static const Color primaryBlue = Color(0xFF005BAC);
-  static const Color buttonGradientEnd = Color(0xFF0083EE);
+  static const Color primaryBlue = Color.fromARGB(255, 17, 11, 104);
+  static const Color buttonGradientEnd = Color(0xFFE2F0FD);
 
   // === Warna Teks (Bawaan Teman) ===
   static const Color textDark = Color(0xFF0F172A);
@@ -18,12 +18,9 @@ class AppColors {
   // =======================================================
 
   // Status Dasar & Kartu Ringkasan
-  static const Color successGreen = Color(
-    0xFF10B981,
-  ); // Hijau connected/normal/PWO (70% PWO)
-  static const Color dangerRed = Color(
-    0xFFEF4444,
-  ); // Merah offline/off (RWGR/OFF)
+  static const Color cardGreen = Color(0xFF22C55E); // Green Emerald
+  static const Color cardRed = Color(0xFFF85D5D);   // Soft Coral Red
+
   static const Color warningOrange = Color(
     0xFFF59E0B,
   ); // Amber/Oranye (EWS/legend 0-6 jam)

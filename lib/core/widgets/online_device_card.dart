@@ -27,9 +27,7 @@ class OnlineDeviceCard extends StatelessWidget {
       decoration: BoxDecoration(
         color: AppColors.bgSuccessSoft, // Latar hijau sangat pudar
         borderRadius: BorderRadius.circular(16),
-        border: Border.all(
-          color: AppColors.successGreen.withValues(alpha: 0.3),
-        ),
+        border: Border.all(color: AppColors.cardGreen.withValues(alpha: 0.3)),
       ),
       child: Column(
         children: [
@@ -40,7 +38,7 @@ class OnlineDeviceCard extends StatelessWidget {
                 width: 24,
                 height: 24,
                 decoration: const BoxDecoration(
-                  color: AppColors.successGreen,
+                  color: AppColors.cardGreen,
                   shape: BoxShape.circle,
                 ),
                 alignment: Alignment.center,
@@ -61,7 +59,7 @@ class OnlineDeviceCard extends StatelessWidget {
                   vertical: 6,
                 ),
                 decoration: BoxDecoration(
-                  color: AppColors.successGreen,
+                  color: AppColors.cardGreen,
                   borderRadius: BorderRadius.circular(6),
                 ),
                 child: Row(

@@ -7,25 +7,25 @@ class AppTextStyles {
 
   // 1. Judul Utama / Header Screen
   static const TextStyle screenTitle = TextStyle(
-    fontSize: 18,
+    fontSize: 20,
     fontWeight:
-        FontWeight.w800, // <-- Ubah di sini jadi lebih tebal (w700 atau w800)
+        FontWeight.w900, // <-- Ubah di sini jadi lebih tebal (w700 atau w800)
     color: AppColors.primaryBlue,
+    letterSpacing: -0.3,
   );
 
   // 2. Judul Sub-Seksi / Header di dalam Card (misal: "Realtime Data Peralatan...")
   static const TextStyle cardHeader = TextStyle(
-    fontSize: 14,
-    fontWeight: FontWeight.bold,
+    fontSize: 15,
+    fontWeight: FontWeight.w800,
     color: AppColors.primaryBlue,
   );
 
   // 3. Nama Lokasi / Bold Title di dalam daftar (misal: "JANGER", "DALAM KOTA")
   static const TextStyle itemGroupTitle = TextStyle(
-    fontSize: 13,
-    fontWeight: FontWeight.bold,
+    fontSize: 12,
+    fontWeight: FontWeight.w700,
     color: AppColors.textDark,
-    letterSpacing: 0.5,
   );
 
   // 4. Detail Item (misal: "EWS Bitung KM 26+000 A")

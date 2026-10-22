@@ -15,7 +15,7 @@ class SummaryScreen extends StatelessWidget {
         const Text(
           'PWO-RWGR',
           style: TextStyle(
-            color: AppColors.primaryBlue,
+            color: AppColors.primaryBlue, // SUDAH BENAR
             fontSize: 14,
             fontWeight: FontWeight.bold,
           ),
@@ -32,7 +32,8 @@ class SummaryScreen extends StatelessWidget {
                   vertical: 20,
                 ),
                 decoration: BoxDecoration(
-                  color: const Color(0xFF28C76F), // Hijau sesuai referensi
+                  color: AppColors
+                      .cardGreen, // --- REFAKTOR: Ganti Hardcode Hijau ---
                   borderRadius: BorderRadius.circular(16),
                 ),
                 child: Row(
@@ -46,7 +47,7 @@ class SummaryScreen extends StatelessWidget {
                       ),
                       child: const Icon(
                         Icons.bar_chart,
-                        color: Color(0xFF28C76F),
+                        color: AppColors.cardGreen, // --- REFAKTOR: Ganti Hardcode Hijau ---
                         size: 20,
                       ),
                     ),
@@ -85,9 +86,8 @@ class SummaryScreen extends StatelessWidget {
                   vertical: 20,
                 ),
                 decoration: BoxDecoration(
-                  color: const Color(
-                    0xFFFF5B5C,
-                  ), // Merah muda/coral sesuai referensi
+                  color: AppColors
+                      .cardRed, // --- REFAKTOR: Ganti Hardcode Merah ---
                   borderRadius: BorderRadius.circular(16),
                 ),
                 child: Row(
@@ -101,7 +101,8 @@ class SummaryScreen extends StatelessWidget {
                       ),
                       child: const Icon(
                         Icons.bar_chart,
-                        color: Color(0xFFFF5B5C),
+                        color: AppColors
+                            .cardRed, // --- REFAKTOR: Ganti Hardcode Merah ---
                         size: 20,
                       ),
                     ),
@@ -152,7 +153,7 @@ class SummaryScreen extends StatelessWidget {
     );
   }
 
-  // Helper Kartu Grafik dengan Filter di Dalamnya
+  // Helper Kartu Grafik (Sudah Clean Code, tidak ada hardcode)
   Widget _buildChartCard({
     required String title,
     required List<String> filters,

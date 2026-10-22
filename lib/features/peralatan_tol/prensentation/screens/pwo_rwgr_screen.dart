@@ -344,7 +344,7 @@ class PwoRwgrScreen extends StatelessWidget {
                 child: Text(
                   pwoPercentage,
                   style: const TextStyle(
-                    color: AppColors.successGreen,
+                    color: AppColors.cardGreen,
                     fontSize: 11,
                     fontWeight: FontWeight.bold,
                   ),
@@ -369,7 +369,7 @@ class PwoRwgrScreen extends StatelessWidget {
                   child: _buildMetricItem(
                     'Wkt Hidup',
                     wktHidup,
-                    AppColors.successGreen,
+                    AppColors.cardGreen,
                   ),
                 ),
                 Expanded(

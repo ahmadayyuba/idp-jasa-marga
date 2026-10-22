@@ -51,7 +51,7 @@ class MatrixDmsScreen extends StatelessWidget {
                     child: Text(
                       '● 3 Unit Aktif',
                       style: AppTextStyles.badgeText.copyWith(
-                        color: AppColors.successGreen,
+                        color: AppColors.cardGreen,
                       ),
                     ),
                   ),

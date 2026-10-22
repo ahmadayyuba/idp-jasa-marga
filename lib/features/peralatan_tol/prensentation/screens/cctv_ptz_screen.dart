@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 import '../../../../core/constants/app_colors.dart';
-import '../../../../core/constants/app_text_styles.dart';
+
+// import '../../../../core/constants/app_text_styles.dart'; // Uncomment jika dipakai
 
 class CctvPtzScreen extends StatelessWidget {
   const CctvPtzScreen({super.key});
@@ -21,7 +22,7 @@ class CctvPtzScreen extends StatelessWidget {
                   vertical: 12,
                 ),
                 decoration: BoxDecoration(
-                  color: Colors.white,
+                  color: Colors.white, // Tetap menggunakan bawaan Flutter untuk putih murni
                   borderRadius: BorderRadius.circular(12),
                   border: Border.all(color: AppColors.bgBorderSoft),
                 ),
@@ -88,7 +89,7 @@ class CctvPtzScreen extends StatelessWidget {
               Container(
                 height: 200,
                 decoration: const BoxDecoration(
-                  color: Color(0xFFE5E9F2),
+                  color: AppColors.bgBorderSoft, // --- REFAKTOR: Ganti Hardcode Color(0xFFE5E9F2) ---
                   borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
                 ),
                 child: Stack(
@@ -125,7 +126,7 @@ class CctvPtzScreen extends StatelessWidget {
                           vertical: 4,
                         ),
                         decoration: BoxDecoration(
-                          color: Colors.black.withValues(alpha: 0.6),
+                          color: AppColors.textDark.withValues(alpha: 0.7), // --- REFAKTOR: Ganti Colors.black agar lebih senada dengan tema ---
                           borderRadius: BorderRadius.circular(6),
                         ),
                         child: const Text(
@@ -170,7 +171,7 @@ class CctvPtzScreen extends StatelessWidget {
                           vertical: 4,
                         ),
                         decoration: BoxDecoration(
-                          color: Colors.black.withValues(alpha: 0.6),
+                          color: AppColors.textDark.withValues(alpha: 0.7), // --- REFAKTOR: Ganti Colors.black agar lebih senada dengan tema ---
                           borderRadius: BorderRadius.circular(6),
                         ),
                         child: const Text(
@@ -199,7 +200,7 @@ class CctvPtzScreen extends StatelessWidget {
                               fontSize: 15,
                               fontWeight: FontWeight.w800,
                               color: AppColors.primaryBlue,
-                            ), // Font ditebalkan dan biru
+                            ),
                           ),
                           const SizedBox(height: 12),
                           _buildDetailRow('Ruas', ': JAPEK'),
@@ -224,13 +225,13 @@ class CctvPtzScreen extends StatelessWidget {
                                 Icon(
                                   Icons.circle,
                                   size: 8,
-                                  color: AppColors.successGreen,
+                                  color: AppColors.cardGreen,
                                 ),
                                 SizedBox(width: 6),
                                 Text(
                                   'ONLINE 1080P PTZ ACTIVE',
                                   style: TextStyle(
-                                    color: AppColors.successGreen,
+                                    color: AppColors.cardGreen,
                                     fontSize: 10,
                                     fontWeight: FontWeight.bold,
                                   ),
@@ -299,7 +300,7 @@ class CctvPtzScreen extends StatelessWidget {
             fontSize: 14,
             fontWeight: FontWeight.w800,
             color: AppColors.textDark,
-          ), // Font ditebalkan
+          ),
         ),
         const SizedBox(height: 12),
 
@@ -345,15 +346,12 @@ class CctvPtzScreen extends StatelessWidget {
     );
   }
 
-  // HELPER DIPERBARUI: Bentuk kotak membulat (bukan lingkaran), sesuai referensi.
   Widget _buildControlButton(IconData icon, {bool isCenter = false}) {
     return Container(
       padding: const EdgeInsets.all(8),
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(
-          8,
-        ), // Diubah dari BoxShape.circle ke BorderRadius
+        borderRadius: BorderRadius.circular(8),
         border: Border.all(color: AppColors.bgBorderSoft),
       ),
       child: Icon(
@@ -364,7 +362,6 @@ class CctvPtzScreen extends StatelessWidget {
     );
   }
 
-  // HELPER DIPERBARUI: Ikon control_camera dan font tebal
   Widget _buildCameraListItem({
     required String title,
     required String subtitle,
@@ -392,7 +389,7 @@ class CctvPtzScreen extends StatelessWidget {
               borderRadius: BorderRadius.circular(8),
             ),
             child: Icon(
-              Icons.control_camera, // Ikon panah empat arah
+              Icons.control_camera,
               color: isActive ? Colors.white : AppColors.textMuted,
               size: 20,
             ),
@@ -424,10 +421,7 @@ class CctvPtzScreen extends StatelessWidget {
             ),
           ),
           if (isActive)
-            const Icon(
-              Icons.check_circle,
-              color: AppColors.primaryBlue,
-            ), // Icon centang biru
+            const Icon(Icons.check_circle, color: AppColors.primaryBlue),
         ],
       ),
     );

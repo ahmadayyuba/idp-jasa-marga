@@ -26,7 +26,7 @@ class KinerjaSummaryCards extends StatelessWidget {
             borderRadius: BorderRadius.circular(20),
             boxShadow: [
               BoxShadow(
-                color: const Color(0xFF003399).withOpacity(0.2),
+                color: const Color(0xFF003399).withValues(alpha: 0.2),
                 blurRadius: 10,
                 offset: const Offset(0, 4),
               ),
@@ -37,7 +37,7 @@ class KinerjaSummaryCards extends StatelessWidget {
               Container(
                 padding: const EdgeInsets.all(10),
                 decoration: BoxDecoration(
-                  color: Colors.white.withOpacity(0.15),
+                  color: Colors.white.withValues(alpha: 0.15),
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: const Icon(
@@ -62,10 +62,7 @@ class KinerjaSummaryCards extends StatelessWidget {
                     SizedBox(height: 2),
                     Text(
                       'Monitoring V/C Ratio, Kecepatan, dan SPM Ruas Tol',
-                      style: TextStyle(
-                        fontSize: 10,
-                        color: Color(0xFFE0F2FE),
-                      ),
+                      style: TextStyle(fontSize: 10, color: Color(0xFFE0F2FE)),
                     ),
                   ],
                 ),
@@ -87,7 +84,7 @@ class KinerjaSummaryCards extends StatelessWidget {
                   borderRadius: BorderRadius.circular(16),
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.black.withOpacity(0.02),
+                      color: Colors.black.withValues(alpha: 0.02),
                       blurRadius: 8,
                       offset: const Offset(0, 2),
                     ),
@@ -116,11 +113,7 @@ class KinerjaSummaryCards extends StatelessWidget {
                     const SizedBox(height: 6),
                     const Row(
                       children: [
-                        Icon(
-                          Icons.circle,
-                          size: 8,
-                          color: Color(0xFF16A34A),
-                        ),
+                        Icon(Icons.circle, size: 8, color: Color(0xFF16A34A)),
                         SizedBox(width: 4),
                         Expanded(
                           child: Text(
@@ -150,7 +143,7 @@ class KinerjaSummaryCards extends StatelessWidget {
                   borderRadius: BorderRadius.circular(16),
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.black.withOpacity(0.02),
+                      color: Colors.black.withValues(alpha: 0.02),
                       blurRadius: 8,
                       offset: const Offset(0, 2),
                     ),
@@ -179,11 +172,7 @@ class KinerjaSummaryCards extends StatelessWidget {
                     const SizedBox(height: 6),
                     const Row(
                       children: [
-                        Icon(
-                          Icons.circle,
-                          size: 8,
-                          color: Color(0xFF2563EB),
-                        ),
+                        Icon(Icons.circle, size: 8, color: Color(0xFF2563EB)),
                         SizedBox(width: 4),
                         Expanded(
                           child: Text(

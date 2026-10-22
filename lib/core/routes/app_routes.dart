@@ -9,4 +9,5 @@ class AppRoutes {
   static const String managementLcs = '/management-lcs';
   static const String trafficScreen = '/traffic';
   static const String etleWimScreen = '/etle-wim';
+  static const String peralatanDashboard = '/peralatan-dashboard';
 }
