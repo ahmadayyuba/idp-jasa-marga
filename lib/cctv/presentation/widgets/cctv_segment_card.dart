@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../core/constants/app_colors.dart';
 
 class CctvSegmentCard extends StatelessWidget {
   final String title;
@@ -15,22 +16,22 @@ class CctvSegmentCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
-      color: Colors.transparent,
+      color: AppColors.transparent,
       child: InkWell(
         onTap: onTap,
         borderRadius: BorderRadius.circular(20),
         child: Container(
           padding: const EdgeInsets.all(16),
           decoration: BoxDecoration(
-            color: isAll ? const Color(0xFFEFF6FF) : Colors.white,
+            color: isAll ? AppColors.cardLightBlue : AppColors.white,
             borderRadius: BorderRadius.circular(20),
             border: isAll
-                ? Border.all(color: const Color(0xFFBFDBFF), width: 1.5)
+                ? Border.all(color: AppColors.borderLightBlue, width: 1.5)
                 : null,
             boxShadow: [
               if (!isAll)
                 BoxShadow(
-                  color: Colors.black.withValues(alpha: 0.03),
+                  color: AppColors.black.withValues(alpha: 0.03),
                   blurRadius: 10,
                   offset: const Offset(0, 4),
                 ),
@@ -45,13 +46,13 @@ class CctvSegmentCard extends StatelessWidget {
                 height: 52,
                 decoration: BoxDecoration(
                   color: isAll
-                      ? const Color(0xFF1E3A8A)
-                      : const Color(0xFFDBEAFE),
+                      ? AppColors.primaryBlue
+                      : AppColors.iconCircleBg,
                   shape: BoxShape.circle,
                 ),
                 child: Icon(
                   Icons.videocam_rounded,
-                  color: isAll ? Colors.white : const Color(0xFF1E3A8A),
+                  color: isAll ? AppColors.white : AppColors.primaryBlue,
                   size: 26,
                 ),
               ),
@@ -67,8 +68,8 @@ class CctvSegmentCard extends StatelessWidget {
                   fontSize: 12,
                   fontWeight: FontWeight.bold,
                   color: isAll
-                      ? const Color(0xFF1E3A8A)
-                      : const Color(0xFF0F172A),
+                      ? AppColors.primaryBlue
+                      : AppColors.textPrimary,
                 ),
               ),
             ],

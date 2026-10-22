@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../../core/constants/app_colors.dart';
 
 class HeaderProfileSection extends StatelessWidget {
   final String userName;
@@ -20,13 +21,13 @@ class HeaderProfileSection extends StatelessWidget {
       children: [
         CircleAvatar(
           radius: 24,
-          backgroundColor: const Color(0xFFE2EDF8),
+          backgroundColor: AppColors.avatarLightBlue,
           child: const Text(
             'A',
             style: TextStyle(
               fontSize: 20,
               fontWeight: FontWeight.bold,
-              color: Color(0xFF003399),
+              color: AppColors.primaryActive,
             ),
           ),
         ),
@@ -37,14 +38,14 @@ class HeaderProfileSection extends StatelessWidget {
           children: [
             const Text(
               'Halo',
-              style: TextStyle(fontSize: 12, color: Colors.grey),
+              style: TextStyle(fontSize: 12, color: AppColors.grey),
             ),
             Text(
               userName,
               style: const TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.bold,
-                color: Color(0xFF1E293B),
+                color: AppColors.playerSurface,
               ),
             ),
           ],
@@ -84,13 +85,13 @@ class HeaderProfileSection extends StatelessWidget {
         width: 40,
         height: 40,
         decoration: BoxDecoration(
-          color: Colors.white.withOpacity(0.8),
+          color: AppColors.white.withOpacity(0.8),
           shape: BoxShape.circle,
         ),
         child: Stack(
           alignment: Alignment.center,
           children: [
-            Icon(icon, color: const Color(0xFF003399), size: 20),
+            Icon(icon, color: AppColors.primaryActive, size: 20),
             if(showBadge)
               Positioned(
                 top: 10,
@@ -99,7 +100,7 @@ class HeaderProfileSection extends StatelessWidget {
                   width: 8,
                   height: 8,
                   decoration: const BoxDecoration(
-                    color: Colors.red,
+                    color: AppColors.red,
                     shape: BoxShape.circle,
                   ),
                 ),

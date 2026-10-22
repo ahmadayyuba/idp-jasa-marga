@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../../core/constants/app_colors.dart';
 
 class WaterLevelFilterChips extends StatelessWidget {
   const WaterLevelFilterChips({super.key});
@@ -18,14 +19,14 @@ class WaterLevelFilterChips extends StatelessWidget {
             label: 'Perhatian (1)',
             isActive: false,
             icon: Icons.warning_amber_rounded,
-            iconColor: const Color(0xFFD97706),
+            iconColor: AppColors.warningAmber,
           ),
           const SizedBox(width: 8),
           _buildChip(
             label: 'Pompa Aktif (1)',
             isActive: false,
             icon: Icons.bolt_rounded,
-            iconColor: const Color(0xFFF59E0B),
+            iconColor: AppColors.alertAmber,
           ),
         ],
       ),
@@ -41,13 +42,13 @@ class WaterLevelFilterChips extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
       decoration: BoxDecoration(
-        color: isActive ? const Color(0xFF0F2B5B) : Colors.white,
+        color: isActive ? AppColors.darkNavy : AppColors.white,
         borderRadius: BorderRadius.circular(24),
-        border: isActive ? null : Border.all(color: const Color(0xFFE2E8F0)),
+        border: isActive ? null : Border.all(color: AppColors.dividerSlate),
         boxShadow: [
           if (!isActive)
             BoxShadow(
-              color: Colors.black.withOpacity(0.03),
+              color: AppColors.black.withOpacity(0.03),
               blurRadius: 4,
               offset: const Offset(0, 2),
             ),
@@ -65,7 +66,7 @@ class WaterLevelFilterChips extends StatelessWidget {
             style: TextStyle(
               fontSize: 11,
               fontWeight: FontWeight.bold,
-              color: isActive ? Colors.white : const Color(0xFF475569),
+              color: isActive ? AppColors.white : AppColors.slate600,
             ),
           ),
         ],

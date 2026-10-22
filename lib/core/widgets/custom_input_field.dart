@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../constants/app_colors.dart';
 
 class CustomInputField extends StatefulWidget {
@@ -31,9 +30,9 @@ class _CustomInputFieldState extends State<CustomInputField> {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: AppColors.white,
         borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: Colors.grey.shade200),
+        border: Border.all(color: AppColors.grey200),
       ),
       child: Row(
         children: [
@@ -66,7 +65,7 @@ class _CustomInputFieldState extends State<CustomInputField> {
                   decoration: InputDecoration(
                     hintText: widget.hint,
                     hintStyle: const TextStyle(
-                      color: Colors.black87,
+                      color: AppColors.black87,
                       fontWeight: FontWeight.w600,
                       fontSize: 14,
                     ),

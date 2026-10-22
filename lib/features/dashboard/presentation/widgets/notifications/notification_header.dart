@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../../../core/constants/app_colors.dart';
 
 class NotificationHeader extends StatelessWidget {
   final int newCount;
@@ -22,7 +23,7 @@ class NotificationHeader extends StatelessWidget {
           width: 40,
           height: 4,
           decoration: BoxDecoration(
-            color: const Color(0xFFCBD5E1),
+            color: AppColors.borderSlate,
             borderRadius: BorderRadius.circular(2),
           ),
         ),
@@ -37,12 +38,12 @@ class NotificationHeader extends StatelessWidget {
                 width: 44,
                 height: 44,
                 decoration: const BoxDecoration(
-                  color: Color(0xFFE0F2FE),
+                  color: AppColors.bgGradientStart,
                   shape: BoxShape.circle,
                 ),
                 child: const Icon(
                   Icons.notifications_active_rounded,
-                  color: Color(0xFF003399),
+                  color: AppColors.primaryActive,
                   size: 22,
                 ),
               ),
@@ -68,7 +69,7 @@ class NotificationHeader extends StatelessWidget {
                               vertical: 2,
                             ),
                             decoration: BoxDecoration(
-                              color: const Color(0xFFEF4444),
+                              color: AppColors.alertRed,
                               borderRadius: BorderRadius.circular(12),
                             ),
                             child: Text(
@@ -76,7 +77,7 @@ class NotificationHeader extends StatelessWidget {
                               style: const TextStyle(
                                 fontSize: 10,
                                 fontWeight: FontWeight.bold,
-                                color: Colors.white,
+                                color: AppColors.white,
                               ),
                             ),
                           ),
@@ -87,7 +88,7 @@ class NotificationHeader extends StatelessWidget {
                       'Live Operational Alerts',
                       style: TextStyle(
                         fontSize: 12,
-                        color: Color(0xFF64748B),
+                        color: AppColors.textSecondary,
                       ),
                     ),
                   ],
@@ -105,7 +106,7 @@ class NotificationHeader extends StatelessWidget {
                   style: TextStyle(
                     fontSize: 12,
                     fontWeight: FontWeight.bold,
-                    color: Color(0xFF003399),
+                    color: AppColors.primaryActive,
                   ),
                 ),
               ),
@@ -114,7 +115,7 @@ class NotificationHeader extends StatelessWidget {
                 onTap: onClose,
                 child: const Icon(
                   Icons.close_rounded,
-                  color: Color(0xFF64748B),
+                  color: AppColors.textSecondary,
                   size: 22,
                 ),
               ),

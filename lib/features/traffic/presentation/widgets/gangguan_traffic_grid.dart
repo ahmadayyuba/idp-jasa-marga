@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../../core/constants/app_colors.dart';
 
 class GangguanTrafficGrid extends StatelessWidget {
   const GangguanTrafficGrid({super.key});
@@ -22,7 +23,7 @@ class GangguanTrafficGrid extends StatelessWidget {
           style: TextStyle(
             fontSize: 14,
             fontWeight: FontWeight.bold,
-            color: Color(0xFF003399),
+            color: AppColors.primaryActive,
           ),
         ),
         const SizedBox(height: 12),
@@ -41,20 +42,20 @@ class GangguanTrafficGrid extends StatelessWidget {
             return Container(
               padding: const EdgeInsets.all(12),
               decoration: BoxDecoration(
-                color: const Color(0xFFEEF2FF),
+                color: AppColors.cardIndigoLight,
                 borderRadius: BorderRadius.circular(16),
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Icon(item['icon'], color: const Color(0xFF003399), size: 20),
+                  Icon(item['icon'], color: AppColors.primaryActive, size: 20),
                   Text(
                     item['label'],
                     style: const TextStyle(
                       fontSize: 11,
                       fontWeight: FontWeight.w600,
-                      color: Color(0xFF1E293B),
+                      color: AppColors.playerSurface,
                     ),
                   ),
                 ],

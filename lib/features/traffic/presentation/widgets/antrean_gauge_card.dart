@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'gauge_painter.dart';
+import '../../../../core/constants/app_colors.dart';
 
 class AntreanGaugeCard extends StatelessWidget {
   final String title;
@@ -23,11 +24,11 @@ class AntreanGaugeCard extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 14),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: AppColors.white,
         borderRadius: BorderRadius.circular(20),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.02),
+            color: AppColors.black.withOpacity(0.02),
             blurRadius: 10,
             offset: const Offset(0, 2),
           )
@@ -38,7 +39,7 @@ class AntreanGaugeCard extends StatelessWidget {
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 6),
             decoration: BoxDecoration(
-              color: const Color(0xFF003399),
+              color: AppColors.primaryActive,
               borderRadius: BorderRadius.circular(16),
             ),
             child: Text(
@@ -46,7 +47,7 @@ class AntreanGaugeCard extends StatelessWidget {
               style: const TextStyle(
                 fontSize: 11,
                 fontWeight: FontWeight.bold,
-                color: Colors.white,
+                color: AppColors.white,
               ),
               textAlign: TextAlign.center,
               overflow: TextOverflow.ellipsis,
@@ -66,16 +67,16 @@ class AntreanGaugeCard extends StatelessWidget {
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 3),
             decoration: BoxDecoration(
-              color: const Color(0xFFF8FAFC),
+              color: AppColors.bgGradientEnd,
               borderRadius: BorderRadius.circular(12),
-              border: Border.all(color: const Color(0xFFE2E8F0)),
+              border: Border.all(color: AppColors.dividerSlate),
             ),
             child: Text(
               distance,
               style: const TextStyle(
                 fontSize: 10,
                 fontWeight: FontWeight.bold,
-                color: Color(0xFF334155),
+                color: AppColors.slate700,
               ),
             ),
           ),

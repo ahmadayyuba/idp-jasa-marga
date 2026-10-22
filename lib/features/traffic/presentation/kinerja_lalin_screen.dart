@@ -9,6 +9,7 @@ import 'widgets/kinerja_ruas_card.dart';
 import '../../dashboard/presentation/dashboard_screen.dart';
 import '../../dashboard/presentation/widgets/floating_side_button.dart';
 import '../../dashboard/presentation/widgets/custom_bottom_nav_bar.dart';
+import '../../../core/constants/app_colors.dart';
 
 class KinerjaLalinScreen extends StatelessWidget {
   const KinerjaLalinScreen({super.key});
@@ -59,7 +60,7 @@ class KinerjaLalinScreen extends StatelessWidget {
       body: Container(
         decoration: const BoxDecoration(
           gradient: LinearGradient(
-            colors: [Color(0xFFE0F2FE), Color(0xFFF8FAFC)],
+            colors: [AppColors.bgGradientStart, AppColors.bgGradientEnd],
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
           ),
@@ -114,7 +115,7 @@ class KinerjaLalinScreen extends StatelessWidget {
                       style: TextStyle(
                         fontSize: 14,
                         fontWeight: FontWeight.bold,
-                        color: Color(0xFF0F2B5B),
+                        color: AppColors.darkNavy,
                       ),
                     ),
                     const SizedBox(height: 12),

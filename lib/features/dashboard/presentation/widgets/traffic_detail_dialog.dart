@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../../core/constants/app_colors.dart';
 
 class TrafficDetailDialog extends StatelessWidget {
   final String title;
@@ -42,7 +43,7 @@ class TrafficDetailDialog extends StatelessWidget {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadiusGeometry.circular(24),),
         insetPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
-        backgroundColor: Colors.white,
+        backgroundColor: AppColors.white,
         child: Padding(
           padding: const EdgeInsets.all(20),
         child: Column(
@@ -57,12 +58,12 @@ class TrafficDetailDialog extends StatelessWidget {
                   Container(
                     padding: const EdgeInsets.all(10),
                     decoration: BoxDecoration(
-                      color: const Color(0xFFFEE2E2),
+                      color: AppColors.badgeRedBg,
                       borderRadius: BorderRadius.circular(12),
                     ),
                     child: const Icon(
                       Icons.warning_amber_rounded,
-                      color: Color(0xFFEF4444),
+                      color: AppColors.alertRed,
                       size: 22,
                     ),
                   ),
@@ -77,7 +78,7 @@ class TrafficDetailDialog extends StatelessWidget {
                           style: const TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.bold,
-                            color: Color(0xFF003399),
+                            color: AppColors.primaryActive,
                             ),
                           ),
                           const SizedBox(height: 2),
@@ -85,7 +86,7 @@ class TrafficDetailDialog extends StatelessWidget {
                             kmInfo,
                             style: const TextStyle(
                               fontSize: 12,
-                              color: Colors.grey,
+                              color: AppColors.grey,
                             ),
                           ),
                         ],
@@ -95,14 +96,14 @@ class TrafficDetailDialog extends StatelessWidget {
                   onTap: () => Navigator.of(context).pop(),
                   child: const Icon(
                     Icons.close_rounded,
-                    color: Colors.grey,
+                    color: AppColors.grey,
                     size: 22,
                     ),
                   ),
                 ],
               ),
             const SizedBox(height: 16),
-            const Divider(height: 1, color: Color(0xFFE2E8F0)),
+            const Divider(height: 1, color: AppColors.dividerSlate),
             const SizedBox(height: 16),
 
             Row(
@@ -114,23 +115,23 @@ class TrafficDetailDialog extends StatelessWidget {
                   style: TextStyle(
                     fontSize: 13,
                     fontWeight: FontWeight.w600,
-                    color: Color(0xFF475569),
+                    color: AppColors.slate600,
                   ),
                 ),
                   Container(
                     padding: const EdgeInsets.symmetric(horizontal: 12,
                     vertical: 6),
                     decoration: BoxDecoration(
-                      color: const Color(0xFFFEF08A),
+                      color: AppColors.badgeYellowBg,
                       borderRadius: BorderRadius.circular(20),
-                      border: Border.all(color: const Color(0xFFFACC15)),
+                      border: Border.all(color: AppColors.borderYellow),
                     ),
                     child: Text(
                       status,
                       style: const TextStyle(
                         fontSize: 12,
                         fontWeight: FontWeight.bold,
-                        color: Color(0xFF854D0E),
+                        color: AppColors.yellowDark,
                       ),
                     ),
                   ),
@@ -141,9 +142,9 @@ class TrafficDetailDialog extends StatelessWidget {
               Container(
                 padding: const EdgeInsets.all(12),
                 decoration: BoxDecoration(
-                  color: const Color(0xFFF8FAFC),
+                  color: AppColors.bgGradientEnd,
                   borderRadius: BorderRadius.circular(16),
-                  border: Border.all(color: const Color(0xFFF8FAFC)),
+                  border: Border.all(color: AppColors.bgGradientEnd),
                 ),
                 child: Column(
                   children: [
@@ -152,25 +153,25 @@ class TrafficDetailDialog extends StatelessWidget {
                       label: 'Jalur/ Lajur',
                       value: jalur,
                     ),
-                    const Divider(height: 16, color: Color(0xFFF8FAFC)),
+                    const Divider(height: 16, color: AppColors.bgGradientEnd),
                     _buildDetailRow(
                       icon: Icons.directions_car_rounded,
                       label: 'Jenis Gangguan',
                       value: jenisGangguan,
                     ),
-                    const Divider(height: 16, color: Color(0xFFF8FAFC)),
+                    const Divider(height: 16, color: AppColors.bgGradientEnd),
                     _buildDetailRow(
                       icon: Icons.access_time_rounded,
                       label: 'Waktu Kejadian',
                       value: waktu,
                     ),
-                    const Divider(height: 16, color: Color(0xFFE2E8F0)),
+                    const Divider(height: 16, color: AppColors.dividerSlate),
                     _buildDetailRow(
                     icon: Icons.timer_outlined,
                     label: 'Durasi Penanganan:',
                     value: durasi,
                     ),
-                    const Divider(height: 16, color: Color(0xFFE2E8F0)),
+                    const Divider(height: 16, color: AppColors.dividerSlate),
                     _buildDetailRow(
                     icon: Icons.traffic_rounded,
                     label: 'Dampak Lalin:',
@@ -188,7 +189,7 @@ class TrafficDetailDialog extends StatelessWidget {
                       onPressed: () => Navigator.of(context).pop(), 
                       style: OutlinedButton.styleFrom(
                         padding: const EdgeInsets.symmetric(vertical: 14),
-                        side: const BorderSide(color: Color(0xFFCBD5E1)),
+                        side: const BorderSide(color: AppColors.borderSlate),
                         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12),
                         ),
                       ),
@@ -197,7 +198,7 @@ class TrafficDetailDialog extends StatelessWidget {
                         style: TextStyle(
                           fontSize: 14,
                           fontWeight: FontWeight.bold,
-                          color: Color(0xFF475569),
+                          color: AppColors.slate600,
                         ),
                       ),
                     ),
@@ -208,7 +209,7 @@ class TrafficDetailDialog extends StatelessWidget {
                     child: ElevatedButton(
                       onPressed: onOpenDetail,
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: const Color(0xFF003399),
+                        backgroundColor: AppColors.primaryActive,
                         padding: const EdgeInsets.symmetric(vertical: 14),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(12),
@@ -217,14 +218,14 @@ class TrafficDetailDialog extends StatelessWidget {
                       child: const Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Icon(Icons.arrow_forward_rounded, size: 16, color: Colors.white),
+                          Icon(Icons.arrow_forward_rounded, size: 16, color: AppColors.white),
                           SizedBox(width: 8),
                           Text(   
                             'Buka Gangguan Lalin',
                             style: TextStyle(
                               fontSize: 12,
                               fontWeight: FontWeight.bold,
-                              color: Colors.white,
+                              color: AppColors.white,
                             ),
                           ),
                         ],
@@ -247,13 +248,13 @@ class TrafficDetailDialog extends StatelessWidget {
   }) {
     return Row(
       children: [
-        Icon(icon, size: 16, color: const Color(0xFF64748B)),
+        Icon(icon, size: 16, color: AppColors.textSecondary),
         const SizedBox(width: 8),
         Text(
           label,
           style: const TextStyle(
             fontSize: 11,
-            color: Color(0xFF64748B),
+            color: AppColors.textSecondary,
           ),
         ),
         const Spacer(),
@@ -264,7 +265,7 @@ class TrafficDetailDialog extends StatelessWidget {
             style: const TextStyle(
               fontSize: 11,
               fontWeight: FontWeight.bold,
-              color: Color(0xFF0F172A),
+              color: AppColors.textPrimary,
             ),
           ),
         ),

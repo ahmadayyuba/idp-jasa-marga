@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'traffic_detail_dialog.dart';
+import '../../../../core/constants/app_colors.dart';
 
 class TrafficSummaryCard extends StatefulWidget {
   const TrafficSummaryCard({super.key});
@@ -22,7 +23,7 @@ class _TrafficSummaryCardState extends State {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: const Color(0xFFF1F5F9),
+        color: AppColors.bgSlate,
         borderRadius: BorderRadius.circular(24),
       ),
       padding: const EdgeInsets.all(8),
@@ -32,7 +33,7 @@ class _TrafficSummaryCardState extends State {
           Container(
             padding: const EdgeInsets.all(4),
             decoration: BoxDecoration(
-              color: const Color(0xFF005BAC),
+              color: AppColors.accentBlue,
               borderRadius: BorderRadius.circular(20),
             ),
             child: Row(
@@ -44,7 +45,7 @@ class _TrafficSummaryCardState extends State {
                     child: Container(
                       padding: const EdgeInsets.symmetric(vertical: 8),
                       decoration: BoxDecoration(
-                        color: isSelected ? Colors.white : Colors.transparent,
+                        color: isSelected ? AppColors.white : AppColors.transparent,
                         borderRadius: BorderRadius.circular(16),
                       ),
                       child: Text(
@@ -54,8 +55,8 @@ class _TrafficSummaryCardState extends State {
                           fontSize: 10,
                           fontWeight: FontWeight.bold,
                           color: isSelected
-                              ? const Color(0xFF003399)
-                              : Colors.white,
+                              ? AppColors.primaryActive
+                              : AppColors.white,
                         ),
                       ),
                     ),
@@ -81,7 +82,7 @@ class _TrafficSummaryCardState extends State {
                         style: TextStyle(
                           fontSize: 11,
                           fontWeight: FontWeight.bold,
-                          color: Color(0xFF003399),
+                          color: AppColors.primaryActive,
                         ),
                       ),
                     ),
@@ -92,7 +93,7 @@ class _TrafficSummaryCardState extends State {
                         style: TextStyle(
                           fontSize: 11,
                           fontWeight: FontWeight.bold,
-                          color: Color(0xFF003399),
+                          color: AppColors.primaryActive,
                         ),
                       ),
                     ),
@@ -103,7 +104,7 @@ class _TrafficSummaryCardState extends State {
                         style: TextStyle(
                           fontSize: 11,
                           fontWeight: FontWeight.bold,
-                          color: Color(0xFF003399),
+                          color: AppColors.primaryActive,
                         ),
                       ),
                     ),
@@ -115,7 +116,7 @@ class _TrafficSummaryCardState extends State {
                         style: TextStyle(
                           fontSize: 11,
                           fontWeight: FontWeight.bold,
-                          color: Color(0xFF003399),
+                          color: AppColors.primaryActive,
                         ),
                       ),
                     ),
@@ -177,7 +178,7 @@ class _TrafficSummaryCardState extends State {
                   Icon(
                     Icons.info_outline_rounded,
                     size: 14,
-                    color: isWarning ? Colors.blue : Colors.blue.shade300,
+                    color: isWarning ? AppColors.blue : AppColors.blueShade300,
                   ),
                   const SizedBox(width: 4),
                   Expanded(
@@ -197,14 +198,14 @@ class _TrafficSummaryCardState extends State {
               flex: 2,
               child: Text(
                 km,
-                style: const TextStyle(fontSize: 10, color: Colors.grey),
+                style: const TextStyle(fontSize: 10, color: AppColors.grey),
               ),
             ),
             Expanded(
               flex: 2,
               child: Text(
                 arah,
-                style: const TextStyle(fontSize: 10, color: Colors.grey),
+                style: const TextStyle(fontSize: 10, color: AppColors.grey),
               ),
             ),
             Expanded(
@@ -215,7 +216,7 @@ class _TrafficSummaryCardState extends State {
                 style: TextStyle(
                   fontSize: 10,
                   fontWeight: FontWeight.bold,
-                  color: isWarning ? Colors.black : Colors.black87,
+                  color: isWarning ? AppColors.black : AppColors.black87,
                 ),
               ),
             ),

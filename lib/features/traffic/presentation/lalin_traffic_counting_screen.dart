@@ -10,6 +10,7 @@ import 'widgets/traffic_counting_card.dart';
 import '../../dashboard/presentation/dashboard_screen.dart';
 import '../../dashboard/presentation/widgets/floating_side_button.dart';
 import '../../dashboard/presentation/widgets/custom_bottom_nav_bar.dart';
+import '../../../core/constants/app_colors.dart';
 
 class LalinTrafficCountingScreen extends StatelessWidget {
   const LalinTrafficCountingScreen({super.key});
@@ -37,7 +38,7 @@ class LalinTrafficCountingScreen extends StatelessWidget {
       body: Container(
         decoration: const BoxDecoration(
           gradient: LinearGradient(
-            colors: [Color(0xFFE0F2FE), Color(0xFFF8FAFC)],
+            colors: [AppColors.bgGradientStart, AppColors.bgGradientEnd],
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
           ),

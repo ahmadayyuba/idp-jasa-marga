@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../../core/constants/app_colors.dart';
 
 class KinerjaRuasCard extends StatelessWidget {
   final String ruasTitle;
@@ -17,21 +18,21 @@ class KinerjaRuasCard extends StatelessWidget {
   // Penentuan warna badge berdasarkan nilai V/C Ratio
   Color get _vcBgColor {
     if (vcRatio >= 0.80) {
-      return const Color(0xFFFEE2E2); // Merah Muda
+      return AppColors.badgeRedBg; // Merah Muda
     } else if (vcRatio >= 0.65) {
-      return const Color(0xFFFEF3C7); // Kuning / Krem
+      return AppColors.badgeAmberBg; // Kuning / Krem
     } else {
-      return const Color(0xFFDCFCE7); // Hijau Muda
+      return AppColors.badgeGreenBg; // Hijau Muda
     }
   }
 
   Color get _vcTextColor {
     if (vcRatio >= 0.80) {
-      return const Color(0xFFDC2626); // Merah
+      return AppColors.dangerRed; // Merah
     } else if (vcRatio >= 0.65) {
-      return const Color(0xFFD97706); // Oranye/Kuning
+      return AppColors.warningAmber; // Oranye/Kuning
     } else {
-      return const Color(0xFF16A34A); // Hijau
+      return AppColors.statusGreen; // Hijau
     }
   }
 
@@ -40,11 +41,11 @@ class KinerjaRuasCard extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: AppColors.white,
         borderRadius: BorderRadius.circular(16),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.02),
+            color: AppColors.black.withOpacity(0.02),
             blurRadius: 8,
             offset: const Offset(0, 2),
           ),
@@ -63,7 +64,7 @@ class KinerjaRuasCard extends StatelessWidget {
                   style: const TextStyle(
                     fontSize: 13,
                     fontWeight: FontWeight.bold,
-                    color: Color(0xFF0F2B5B),
+                    color: AppColors.darkNavy,
                   ),
                 ),
               ),
@@ -106,7 +107,7 @@ class KinerjaRuasCard extends StatelessWidget {
                     style: TextStyle(
                       fontSize: 11,
                       fontWeight: FontWeight.bold,
-                      color: Color(0xFF0F172A),
+                      color: AppColors.textPrimary,
                     ),
                   ),
                   Text(
@@ -114,7 +115,7 @@ class KinerjaRuasCard extends StatelessWidget {
                     style: const TextStyle(
                       fontSize: 11,
                       fontWeight: FontWeight.bold,
-                      color: Color(0xFF003399),
+                      color: AppColors.primaryActive,
                     ),
                   ),
                 ],

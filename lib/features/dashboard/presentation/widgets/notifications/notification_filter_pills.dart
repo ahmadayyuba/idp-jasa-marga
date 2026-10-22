@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../../../core/constants/app_colors.dart';
 
 class NotificationFilterPills  extends StatelessWidget {
   final int selectedIndex;
@@ -34,8 +35,8 @@ class NotificationFilterPills  extends StatelessWidget {
                 ),
                 decoration: BoxDecoration(
                   color: isSelected
-                      ? const Color(0xFF003399)
-                      : const Color(0xFFF1F5F9),
+                      ? AppColors.primaryActive
+                      : AppColors.bgSlate,
                   borderRadius: BorderRadius.circular(20),
                 ),
                 child: Row(
@@ -46,8 +47,8 @@ class NotificationFilterPills  extends StatelessWidget {
                         fontSize: 12,
                         fontWeight: FontWeight.w600,
                         color: isSelected
-                            ? Colors.white
-                            : const Color(0xFF475569),
+                            ? AppColors.white
+                            : AppColors.slate600,
                       ),
                     ),
                     const SizedBox(width: 6),
@@ -55,8 +56,8 @@ class NotificationFilterPills  extends StatelessWidget {
                       padding: const EdgeInsets.all(5),
                       decoration: BoxDecoration(
                         color: isSelected
-                            ? const Color(0xFF1E40AF)
-                            : const Color(0xFFE2E8F0),
+                            ? AppColors.blue800
+                            : AppColors.dividerSlate,
                         shape: BoxShape.circle,
                       ),
                       child: Text(
@@ -65,8 +66,8 @@ class NotificationFilterPills  extends StatelessWidget {
                           fontSize: 10,
                           fontWeight: FontWeight.bold,
                           color: isSelected
-                              ? Colors.white
-                              : const Color(0xFF475569),
+                              ? AppColors.white
+                              : AppColors.slate600,
                         ),
                       ),
                     ),

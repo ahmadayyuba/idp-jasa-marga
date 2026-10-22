@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../../core/constants/app_colors.dart';
 
 class ActivityChartCard extends StatelessWidget {
   const ActivityChartCard({super.key});
@@ -6,28 +7,28 @@ class ActivityChartCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final items = [
-      {'label': 'Scrapping', 'height': 0.5, 'color': const Color(0xFF93C5FD)},
-      {'label': 'Patching', 'height': 0.4, 'color': const Color(0xFFFDBA74)},
-      {'label': 'Rekonstruksi', 'height': 0.65, 'color': const Color(0xFF34D399)},
-      {'label': 'Pekerjaan Lain', 'height': 0.35, 'color': const Color(0xFF93C5FD)},
-      {'label': 'Scrapping', 'height': 0.7, 'color': const Color(0xFFFDBA74)},
-      {'label': 'Patching', 'height': 0.45, 'color': const Color(0xFF34D399)},
-      {'label': 'Rekonstruksi', 'height': 0.25, 'color': const Color(0xFF93C5FD)},
-      {'label': 'Rekonstruksi', 'height': 0.7, 'color': const Color(0xFFFDBA74)},
-      {'label': 'Pekerjaan Lain', 'height': 0.85, 'color': const Color(0xFF34D399)},
-      {'label': 'Patching', 'height': 0.45, 'color': const Color(0xFF93C5FD)},
-      {'label': 'Pekerjaan Lain', 'height': 0.55, 'color': const Color(0xFFFDBA74)},
-      {'label': 'Rekonstruksi', 'height': 0.8, 'color': const Color(0xFF34D399)},
+      {'label': 'Scrapping', 'height': 0.5, 'color': AppColors.pastelBlue},
+      {'label': 'Patching', 'height': 0.4, 'color': AppColors.patchingOrange},
+      {'label': 'Rekonstruksi', 'height': 0.65, 'color': AppColors.mintGreen},
+      {'label': 'Pekerjaan Lain', 'height': 0.35, 'color': AppColors.pastelBlue},
+      {'label': 'Scrapping', 'height': 0.7, 'color': AppColors.patchingOrange},
+      {'label': 'Patching', 'height': 0.45, 'color': AppColors.mintGreen},
+      {'label': 'Rekonstruksi', 'height': 0.25, 'color': AppColors.pastelBlue},
+      {'label': 'Rekonstruksi', 'height': 0.7, 'color': AppColors.patchingOrange},
+      {'label': 'Pekerjaan Lain', 'height': 0.85, 'color': AppColors.mintGreen},
+      {'label': 'Patching', 'height': 0.45, 'color': AppColors.pastelBlue},
+      {'label': 'Pekerjaan Lain', 'height': 0.55, 'color': AppColors.patchingOrange},
+      {'label': 'Rekonstruksi', 'height': 0.8, 'color': AppColors.mintGreen},
     ];
 
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: AppColors.white,
         borderRadius: BorderRadius.circular(20),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.02),
+            color: AppColors.black.withOpacity(0.02),
             blurRadius: 8,
             offset: const Offset(0, 2),
           ),
@@ -45,7 +46,7 @@ class ActivityChartCard extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 14,
                   fontWeight: FontWeight.bold,
-                  color: Color(0xFF0F2B5B),
+                  color: AppColors.darkNavy,
                 ),
               ),
               _buildFilterButton(),
@@ -94,7 +95,7 @@ class ActivityChartCard extends StatelessWidget {
                             label,
                             style: const TextStyle(
                               fontSize: 7,
-                              color: Color(0xFF94A3B8),
+                              color: AppColors.textMuted,
                             ),
                             overflow: TextOverflow.ellipsis,
                           ),
@@ -112,11 +113,11 @@ class ActivityChartCard extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              _buildLegend(const Color(0xFF93C5FD), 'Dalam Rencana'),
+              _buildLegend(AppColors.pastelBlue, 'Dalam Rencana'),
               const SizedBox(width: 12),
-              _buildLegend(const Color(0xFFFDBA74), 'Proses'),
+              _buildLegend(AppColors.patchingOrange, 'Proses'),
               const SizedBox(width: 12),
-              _buildLegend(const Color(0xFF34D399), 'Selesai'),
+              _buildLegend(AppColors.mintGreen, 'Selesai'),
             ],
           ),
         ],
@@ -128,20 +129,20 @@ class ActivityChartCard extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
       decoration: BoxDecoration(
-        color: const Color(0xFFF8FAFC),
-        border: Border.all(color: const Color(0xFFE2E8F0)),
+        color: AppColors.bgGradientEnd,
+        border: Border.all(color: AppColors.dividerSlate),
         borderRadius: BorderRadius.circular(8),
       ),
       child: const Row(
         children: [
-          Icon(Icons.tune_rounded, size: 12, color: Color(0xFF64748B)),
+          Icon(Icons.tune_rounded, size: 12, color: AppColors.textSecondary),
           SizedBox(width: 4),
           Text(
             'Filter',
             style: TextStyle(
               fontSize: 11,
               fontWeight: FontWeight.w600,
-              color: Color(0xFF64748B),
+              color: AppColors.textSecondary,
             ),
           ),
         ],
@@ -163,7 +164,7 @@ class ActivityChartCard extends StatelessWidget {
           style: const TextStyle(
             fontSize: 9,
             fontWeight: FontWeight.bold,
-            color: Color(0xFF475569),
+            color: AppColors.slate600,
           ),
         ),
       ],

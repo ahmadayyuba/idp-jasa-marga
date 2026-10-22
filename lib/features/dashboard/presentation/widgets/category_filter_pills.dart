@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../../core/constants/app_colors.dart';
 
 class CategoryFilterPills extends StatelessWidget {
   final int activeIndex;
@@ -28,12 +29,12 @@ class CategoryFilterPills extends StatelessWidget {
                 duration: const Duration(milliseconds: 150),
                 padding: const EdgeInsets.symmetric(vertical: 12),
                 decoration: BoxDecoration(
-                  color: isActive ? const Color(0xFF003399) : Colors.white,
+                  color: isActive ? AppColors.primaryActive : AppColors.white,
                   borderRadius: BorderRadius.circular(24),
                   boxShadow: [
                     if (!isActive)
                       BoxShadow(
-                        color: Colors.black.withOpacity(0.04),
+                        color: AppColors.black.withOpacity(0.04),
                         blurRadius: 6,
                         offset: const Offset(0, 2),
                       ),
@@ -45,7 +46,7 @@ class CategoryFilterPills extends StatelessWidget {
                   style: TextStyle(
                     fontSize: 12,
                     fontWeight: FontWeight.bold,
-                    color: isActive ? Colors.white : const Color(0xFF475569),
+                    color: isActive ? AppColors.white : AppColors.slate600,
                   ),
                 ),
               ),

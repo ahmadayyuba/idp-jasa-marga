@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../../core/constants/app_colors.dart';
 
 class TrafficSpeedSummaryPills extends StatelessWidget {
   final String avgSpeed;
@@ -21,7 +22,7 @@ class TrafficSpeedSummaryPills extends StatelessWidget {
           style: TextStyle(
             fontSize: 18,
             fontWeight: FontWeight.bold,
-            color: Color(0xFF0F172A),
+            color: AppColors.textPrimary,
           ),
         ),
         const SizedBox(height: 12),
@@ -29,9 +30,9 @@ class TrafficSpeedSummaryPills extends StatelessWidget {
           children: [
             Expanded(
               child: _buildBadge(
-                bgColor: const Color(0xFFE0F2FE),
-                borderColor: const Color(0xFFBAE6FD),
-                textColor: const Color(0xFF0284C7),
+                bgColor: AppColors.bgGradientStart,
+                borderColor: AppColors.borderSkyBlue,
+                textColor: AppColors.brightBlue,
                 icon: Icons.bolt_rounded,
                 text: 'Rata2: $avgSpeed',
               ),
@@ -39,10 +40,10 @@ class TrafficSpeedSummaryPills extends StatelessWidget {
             const SizedBox(width: 8),
             Expanded(
               child: _buildBadge(
-                bgColor: const Color(0xFFFEE2E2),
-                borderColor: const Color(0xFFFECACA),
-                textColor: const Color(0xFFDC2626),
-                dotColor: const Color(0xFFEF4444),
+                bgColor: AppColors.badgeRedBg,
+                borderColor: AppColors.borderRedLight,
+                textColor: AppColors.dangerRed,
+                dotColor: AppColors.alertRed,
                 icon: Icons.bolt_rounded,
                 text: '$busyPoints Titik Padat',
               ),
@@ -50,10 +51,10 @@ class TrafficSpeedSummaryPills extends StatelessWidget {
             const SizedBox(width: 8),
             Expanded(
               child: _buildBadge(
-                bgColor: const Color(0xFFDCFCE7),
-                borderColor: const Color(0xFFBBF7D0),
-                textColor: const Color(0xFF16A34A),
-                dotColor: const Color(0xFF0284C7),
+                bgColor: AppColors.badgeGreenBg,
+                borderColor: AppColors.borderGreenLight,
+                textColor: AppColors.statusGreen,
+                dotColor: AppColors.brightBlue,
                 icon: Icons.bolt_rounded,
                 text: '$smoothPoints Titik Lancar',
               ),

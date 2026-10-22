@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../../core/constants/app_colors.dart';
 
 class EtleFilterCard extends StatefulWidget {
   const EtleFilterCard({super.key});
@@ -18,11 +19,11 @@ class _EtleFilterCardState extends State<EtleFilterCard> {
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: AppColors.white,
         borderRadius: BorderRadius.circular(20),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.02),
+            color: AppColors.black.withOpacity(0.02),
             blurRadius: 8,
             offset: const Offset(0, 2),
           ),
@@ -41,14 +42,14 @@ class _EtleFilterCardState extends State<EtleFilterCard> {
                     style: TextStyle(
                       fontSize: 14,
                       fontWeight: FontWeight.bold,
-                      color: Color(0xFF0F2B5B),
+                      color: AppColors.darkNavy,
                     ),
                   ),
                   const SizedBox(width: 8),
                   Container(
                     padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                     decoration: BoxDecoration(
-                      color: const Color(0xFFFFEDD5),
+                      color: AppColors.badgeOrangeBg,
                       borderRadius: BorderRadius.circular(8),
                     ),
                     child: const Text(
@@ -56,7 +57,7 @@ class _EtleFilterCardState extends State<EtleFilterCard> {
                       style: TextStyle(
                         fontSize: 9,
                         fontWeight: FontWeight.bold,
-                        color: Color(0xFFEA580C),
+                        color: AppColors.warningOrange,
                       ),
                     ),
                   ),
@@ -65,7 +66,7 @@ class _EtleFilterCardState extends State<EtleFilterCard> {
               Container(
                 padding: const EdgeInsets.all(2),
                 decoration: BoxDecoration(
-                  color: const Color(0xFFF1F5F9),
+                  color: AppColors.bgSlate,
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: Row(
@@ -106,7 +107,7 @@ class _EtleFilterCardState extends State<EtleFilterCard> {
                   style: TextStyle(
                     fontSize: 11,
                     fontWeight: FontWeight.bold,
-                    color: Color(0xFF64748B),
+                    color: AppColors.textSecondary,
                   ),
                 ),
               ),
@@ -132,7 +133,7 @@ class _EtleFilterCardState extends State<EtleFilterCard> {
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
         decoration: BoxDecoration(
-          color: isSelected ? const Color(0xFFDBEAFE) : Colors.transparent, // Light Blue for active
+          color: isSelected ? AppColors.iconCircleBg : AppColors.transparent, // Light Blue for active
           borderRadius: BorderRadius.circular(8),
         ),
         child: Text(
@@ -140,7 +141,7 @@ class _EtleFilterCardState extends State<EtleFilterCard> {
           style: TextStyle(
             fontSize: 11,
             fontWeight: FontWeight.bold,
-            color: isSelected ? const Color(0xFF1E3A8A) : const Color(0xFF64748B),
+            color: isSelected ? AppColors.primaryBlue : AppColors.textSecondary,
           ),
         ),
       ),
@@ -155,7 +156,7 @@ class _EtleFilterCardState extends State<EtleFilterCard> {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 10),
       decoration: BoxDecoration(
-        border: Border.all(color: const Color(0xFFE2E8F0)),
+        border: Border.all(color: AppColors.dividerSlate),
         borderRadius: BorderRadius.circular(10),
       ),
       child: DropdownButtonHideUnderline(
@@ -165,12 +166,12 @@ class _EtleFilterCardState extends State<EtleFilterCard> {
           icon: const Icon(
             Icons.keyboard_arrow_down_rounded,
             size: 16,
-            color: Color(0xFF64748B),
+            color: AppColors.textSecondary,
           ),
           style: const TextStyle(
             fontSize: 11,
             fontWeight: FontWeight.bold,
-            color: Color(0xFF0F172A),
+            color: AppColors.textPrimary,
           ),
           onChanged: onChanged,
           items: items.map((e) {

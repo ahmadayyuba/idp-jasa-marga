@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../../core/constants/app_colors.dart';
 
 class CctvLiveDialog extends StatelessWidget {
   final String locationName;
@@ -18,7 +19,7 @@ class CctvLiveDialog extends StatelessWidget {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(24),
       ),
-      backgroundColor: Colors.white,
+      backgroundColor: AppColors.white,
       insetPadding: const EdgeInsets.symmetric(horizontal: 20),
       child: Padding(
         padding: const EdgeInsets.all(20.0),
@@ -34,7 +35,7 @@ class CctvLiveDialog extends StatelessWidget {
                   children: [
                     const Icon(
                       Icons.videocam_rounded,
-                      color: Color(0xFF1E3A8A), // Biru gelap
+                      color: AppColors.primaryBlue, // Biru gelap
                       size: 20,
                     ),
                     const SizedBox(width: 8),
@@ -43,7 +44,7 @@ class CctvLiveDialog extends StatelessWidget {
                       style: const TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
-                        color: Color(0xFF0F172A),
+                        color: AppColors.textPrimary,
                       ),
                     ),
                   ],
@@ -52,7 +53,7 @@ class CctvLiveDialog extends StatelessWidget {
                   onTap: () => Navigator.of(context).pop(),
                   child: const Icon(
                     Icons.close_rounded,
-                    color: Color(0xFF64748B),
+                    color: AppColors.textSecondary,
                     size: 24,
                   ),
                 ),
@@ -66,10 +67,10 @@ class CctvLiveDialog extends StatelessWidget {
               height: 200,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(16),
-                color: const Color(0xFF1E293B), // Warna dasar biru gelap/hitam
+                color: AppColors.playerSurface, // Warna dasar biru gelap/hitam
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.black.withOpacity(0.1),
+                    color: AppColors.black.withOpacity(0.1),
                     blurRadius: 10,
                     offset: const Offset(0, 4),
                   ),
@@ -87,8 +88,8 @@ class CctvLiveDialog extends StatelessWidget {
                           begin: Alignment.topCenter,
                           end: Alignment.bottomCenter,
                           colors: [
-                            const Color(0xFF2563EB).withOpacity(0.5),
-                            const Color(0xFF1D4ED8).withOpacity(0.8),
+                            AppColors.blue600.withOpacity(0.5),
+                            AppColors.blue700.withOpacity(0.8),
                           ],
                         ),
                       ),
@@ -104,11 +105,11 @@ class CctvLiveDialog extends StatelessWidget {
                         horizontal: 8,
                         vertical: 4,
                       ),
-                      color: Colors.black.withOpacity(0.6),
+                      color: AppColors.black.withOpacity(0.6),
                       child: Text(
                         'EWS-CCTV [LIVE] $timestamp',
                         style: const TextStyle(
-                          color: Colors.white,
+                          color: AppColors.white,
                           fontSize: 10,
                           fontFamily: 'monospace', // Font ala timestamp CCTV
                         ),
@@ -125,11 +126,11 @@ class CctvLiveDialog extends StatelessWidget {
                         horizontal: 8,
                         vertical: 4,
                       ),
-                      color: Colors.black.withOpacity(0.6),
+                      color: AppColors.black.withOpacity(0.6),
                       child: Text(
                         cctvName,
                         style: const TextStyle(
-                          color: Colors.white,
+                          color: AppColors.white,
                           fontSize: 10,
                           fontWeight: FontWeight.bold,
                         ),
@@ -153,7 +154,7 @@ class CctvLiveDialog extends StatelessWidget {
   }) {
     showDialog(
       context: context,
-      barrierColor: Colors.black.withOpacity(0.4), // Warna backdrop meredup
+      barrierColor: AppColors.black.withOpacity(0.4), // Warna backdrop meredup
       builder: (context) => CctvLiveDialog(
         locationName: locationName,
         cctvName: cctvName,

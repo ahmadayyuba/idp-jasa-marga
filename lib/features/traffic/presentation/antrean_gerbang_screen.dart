@@ -8,6 +8,7 @@ import 'widgets/antrean_gauge_card.dart';
 import '../../dashboard/presentation/dashboard_screen.dart';
 import '../../dashboard/presentation/widgets/floating_side_button.dart';
 import '../../dashboard/presentation/widgets/custom_bottom_nav_bar.dart';
+import '../../../core/constants/app_colors.dart';
 
 class AntreanGerbangScreen extends StatelessWidget {
   const AntreanGerbangScreen({super.key});
@@ -19,42 +20,42 @@ class AntreanGerbangScreen extends StatelessWidget {
         'title': 'Ciawi 1 (A)',
         'distance': '1000M',
         'statusText': 'Cukup Padat',
-        'statusColor': const Color(0xFFF97316),
+        'statusColor': AppColors.alertOrange,
         'needlePercent': 0.72,
       },
       {
         'title': 'Cililitan 2 (A)',
         'distance': '500M',
         'statusText': 'Sedikit Padat',
-        'statusColor': const Color(0xFFF59E0B),
+        'statusColor': AppColors.alertAmber,
         'needlePercent': 0.48,
       },
       {
         'title': 'Halim Utama (A)',
         'distance': '1200M',
         'statusText': 'Cukup Padat',
-        'statusColor': const Color(0xFFF97316),
+        'statusColor': AppColors.alertOrange,
         'needlePercent': 0.76,
       },
       {
         'title': 'Cibubur 1 (A)',
         'distance': '400M',
         'statusText': 'Sedikit Padat',
-        'statusColor': const Color(0xFFF59E0B),
+        'statusColor': AppColors.alertAmber,
         'needlePercent': 0.42,
       },
       {
         'title': 'Kapuk (A)',
         'distance': '900M',
         'statusText': 'Cukup Padat',
-        'statusColor': const Color(0xFFF97316),
+        'statusColor': AppColors.alertOrange,
         'needlePercent': 0.68,
       },
       {
         'title': 'Senayan (A)',
         'distance': '200M',
         'statusText': 'Lancar',
-        'statusColor': const Color(0xFF10B981),
+        'statusColor': AppColors.successGreen,
         'needlePercent': 0.20,
       },
     ];
@@ -63,7 +64,7 @@ class AntreanGerbangScreen extends StatelessWidget {
       body: Container(
         decoration: const BoxDecoration(
           gradient: LinearGradient(
-            colors: [Color(0xFFE0F2FE), Color(0xFFF8FAFC)],
+            colors: [AppColors.bgGradientStart, AppColors.bgGradientEnd],
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
           ),
@@ -106,7 +107,7 @@ class AntreanGerbangScreen extends StatelessWidget {
                       style: TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
-                        color: Color(0xFF0F172A),
+                        color: AppColors.textPrimary,
                       ),
                     ),
                     const SizedBox(height: 16),

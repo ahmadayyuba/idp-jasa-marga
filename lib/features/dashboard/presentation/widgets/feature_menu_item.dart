@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../../core/constants/app_colors.dart';
 
 class FeatureMenuItem extends StatelessWidget {
   final IconData icon;
@@ -23,17 +24,17 @@ class FeatureMenuItem extends StatelessWidget {
             width: 56,
             height: 56,
             decoration: BoxDecoration(
-              color: Colors.white,
+              color: AppColors.white,
               shape: BoxShape.circle,
               boxShadow: [
                 BoxShadow(
-                  color: Colors.black.withOpacity(0.04),
+                  color: AppColors.black.withOpacity(0.04),
                   blurRadius: 8,
                   offset: const Offset(0, 2),
                 )
               ]
             ),
-            child: Icon(icon, color: const Color(0xFF003399), size: 26,),
+            child: Icon(icon, color: AppColors.primaryActive, size: 26,),
           ),
           const SizedBox(height: 8),
           Text(
@@ -42,7 +43,7 @@ class FeatureMenuItem extends StatelessWidget {
             style: const TextStyle(
               fontSize: 10,
               fontWeight: FontWeight.bold,
-                color: Color(0xFF1E293B),
+                color: AppColors.playerSurface,
             ),
           ),
         ],

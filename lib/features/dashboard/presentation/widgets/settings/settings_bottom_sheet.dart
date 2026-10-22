@@ -3,6 +3,7 @@ import 'settings_profile_card.dart';
 import 'settings_tile.dart';
 import 'settings_logout_button.dart';
 import '../../../../auth/presentation/login_screen.dart';
+import '../../../../../core/constants/app_colors.dart';
 class SettingsBottomSheet extends StatefulWidget {
   const SettingsBottomSheet({super.key});
 
@@ -11,7 +12,7 @@ class SettingsBottomSheet extends StatefulWidget {
     return showModalBottomSheet(
       context: context,
       isScrollControlled: true,
-      backgroundColor: Colors.transparent,
+      backgroundColor: AppColors.transparent,
       builder: (context) => const SettingsBottomSheet(),
     );
   }
@@ -28,7 +29,7 @@ class _SettingsBottomSheetState extends State {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 20),
       decoration: const BoxDecoration(
-        color: Color(0xFFF8FAFC),
+        color: AppColors.bgGradientEnd,
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(28),
           topRight: Radius.circular(28),
@@ -45,7 +46,7 @@ class _SettingsBottomSheetState extends State {
               width: 40,
               height: 4,
               decoration: BoxDecoration(
-                color: const Color(0xFFCBD5E1),
+                color: AppColors.borderSlate,
                 borderRadius: BorderRadius.circular(2),
               ),
             ),
@@ -61,14 +62,14 @@ class _SettingsBottomSheetState extends State {
                 style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
-                  color: Color(0xFF0F172A),
+                  color: AppColors.textPrimary,
                 ),
               ),
               GestureDetector(
                 onTap: () => Navigator.of(context).pop(),
                 child: const Icon(
                   Icons.close_rounded,
-                  color: Color(0xFF64748B),
+                  color: AppColors.textSecondary,
                   size: 22,
                 ),
               ),
@@ -91,7 +92,7 @@ class _SettingsBottomSheetState extends State {
               fontSize: 11,
               fontWeight: FontWeight.bold,
               letterSpacing: 0.8,
-              color: Color(0xFF64748B),
+              color: AppColors.textSecondary,
             ),
           ),
           const SizedBox(height: 12),
@@ -103,8 +104,8 @@ class _SettingsBottomSheetState extends State {
             subtitle: 'Gunakan sidik jari/Face ID HP untuk login cepat',
             trailing: Switch.adaptive(
               value: _isBiometricEnabled,
-              activeColor: const Color(0xFF003399),
-              activeTrackColor: const Color(0xFF93C5FD),
+              activeColor: AppColors.primaryActive,
+              activeTrackColor: AppColors.pastelBlue,
               onChanged: (val) {
                 setState(() {
                   _isBiometricEnabled = val;

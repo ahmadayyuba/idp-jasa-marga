@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../../core/constants/app_colors.dart';
 
 class MaintenanceKpiRow extends StatelessWidget {
   final int totalProyek;
@@ -20,8 +21,8 @@ class MaintenanceKpiRow extends StatelessWidget {
           child: _buildKpiCard(
             title: 'Total Proyek',
             value: '$totalProyek Titik',
-            bgColor: Colors.white,
-            valueColor: const Color(0xFF0F2B5B),
+            bgColor: AppColors.white,
+            valueColor: AppColors.darkNavy,
           ),
         ),
         const SizedBox(width: 8),
@@ -29,8 +30,8 @@ class MaintenanceKpiRow extends StatelessWidget {
           child: _buildKpiCard(
             title: 'Proses',
             value: '$totalProses Titik',
-            bgColor: const Color(0xFFFEF3C7),
-            valueColor: const Color(0xFFD97706),
+            bgColor: AppColors.badgeAmberBg,
+            valueColor: AppColors.warningAmber,
           ),
         ),
         const SizedBox(width: 8),
@@ -38,8 +39,8 @@ class MaintenanceKpiRow extends StatelessWidget {
           child: _buildKpiCard(
             title: 'Selesai',
             value: '$totalSelesai Titik',
-            bgColor: const Color(0xFFDCFCE7),
-            valueColor: const Color(0xFF16A34A),
+            bgColor: AppColors.badgeGreenBg,
+            valueColor: AppColors.statusGreen,
           ),
         ),
       ],
@@ -57,7 +58,7 @@ class MaintenanceKpiRow extends StatelessWidget {
       decoration: BoxDecoration(
         color: bgColor,
         borderRadius: BorderRadius.circular(14),
-        border: Border.all(color: Colors.black.withOpacity(0.04)),
+        border: Border.all(color: AppColors.black.withOpacity(0.04)),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -67,7 +68,7 @@ class MaintenanceKpiRow extends StatelessWidget {
             style: const TextStyle(
               fontSize: 19,
               fontWeight: FontWeight.w600,
-              color: Color(0xFF64748B),
+              color: AppColors.textSecondary,
             ),
           ),
           const SizedBox(height: 8),

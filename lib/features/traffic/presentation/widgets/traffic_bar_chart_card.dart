@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../../core/constants/app_colors.dart';
 
 class TrafficBarChartCard extends StatelessWidget {
   final String title;
@@ -14,38 +15,38 @@ class TrafficBarChartCard extends StatelessWidget {
   Widget build(BuildContext context) {
     // Data Dummy Bar Chart Kecepatan
     final List<Map<String, dynamic>> barItems = [
-      {'val': 58, 'color': const Color(0xFF3B82F6)},
-      {'val': 58, 'color': const Color(0xFF3B82F6)},
-      {'val': 58, 'color': const Color(0xFF3B82F6)},
-      {'val': 49, 'color': const Color(0xFF3B82F6)},
-      {'val': 49, 'color': const Color(0xFF3B82F6)},
-      {'val': 32, 'color': const Color(0xFFEF4444)},
-      {'val': 55, 'color': const Color(0xFF3B82F6)},
-      {'val': 70, 'color': const Color(0xFF10B981)},
-      {'val': 68, 'color': const Color(0xFF10B981)},
-      {'val': 70, 'color': const Color(0xFF10B981)},
-      {'val': 52, 'color': const Color(0xFF3B82F6)},
-      {'val': 52, 'color': const Color(0xFF3B82F6)},
-      {'val': 43, 'color': const Color(0xFF3B82F6)},
-      {'val': 34, 'color': const Color(0xFFEF4444)},
-      {'val': 53, 'color': const Color(0xFF3B82F6)},
-      {'val': 21, 'color': const Color(0xFFEF4444)},
-      {'val': 11, 'color': const Color(0xFFEF4444)},
-      {'val': 61, 'color': const Color(0xFF10B981)},
-      {'val': 53, 'color': const Color(0xFF3B82F6)},
-      {'val': 68, 'color': const Color(0xFF10B981)},
-      {'val': 69, 'color': const Color(0xFF10B981)},
-      {'val': 55, 'color': const Color(0xFF3B82F6)},
+      {'val': 58, 'color': AppColors.blue500},
+      {'val': 58, 'color': AppColors.blue500},
+      {'val': 58, 'color': AppColors.blue500},
+      {'val': 49, 'color': AppColors.blue500},
+      {'val': 49, 'color': AppColors.blue500},
+      {'val': 32, 'color': AppColors.alertRed},
+      {'val': 55, 'color': AppColors.blue500},
+      {'val': 70, 'color': AppColors.successGreen},
+      {'val': 68, 'color': AppColors.successGreen},
+      {'val': 70, 'color': AppColors.successGreen},
+      {'val': 52, 'color': AppColors.blue500},
+      {'val': 52, 'color': AppColors.blue500},
+      {'val': 43, 'color': AppColors.blue500},
+      {'val': 34, 'color': AppColors.alertRed},
+      {'val': 53, 'color': AppColors.blue500},
+      {'val': 21, 'color': AppColors.alertRed},
+      {'val': 11, 'color': AppColors.alertRed},
+      {'val': 61, 'color': AppColors.successGreen},
+      {'val': 53, 'color': AppColors.blue500},
+      {'val': 68, 'color': AppColors.successGreen},
+      {'val': 69, 'color': AppColors.successGreen},
+      {'val': 55, 'color': AppColors.blue500},
     ];
 
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: AppColors.white,
         borderRadius: BorderRadius.circular(20),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.02),
+            color: AppColors.black.withOpacity(0.02),
             blurRadius: 8,
             offset: const Offset(0, 2),
           ),
@@ -65,7 +66,7 @@ class TrafficBarChartCard extends StatelessWidget {
                       width: 8,
                       height: 8,
                       decoration: const BoxDecoration(
-                        color: Color(0xFF10B981),
+                        color: AppColors.successGreen,
                         shape: BoxShape.circle,
                       ),
                     ),
@@ -76,7 +77,7 @@ class TrafficBarChartCard extends StatelessWidget {
                         style: const TextStyle(
                           fontSize: 13,
                           fontWeight: FontWeight.bold,
-                          color: Color(0xFF0F172A),
+                          color: AppColors.textPrimary,
                         ),
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
@@ -91,7 +92,7 @@ class TrafficBarChartCard extends StatelessWidget {
                   vertical: 4,
                 ),
                 decoration: BoxDecoration(
-                  color: const Color(0xFFF1F5F9),
+                  color: AppColors.bgSlate,
                   borderRadius: BorderRadius.circular(8),
                 ),
                 child: const Row(
@@ -99,7 +100,7 @@ class TrafficBarChartCard extends StatelessWidget {
                     Icon(
                       Icons.table_chart_rounded,
                       size: 14,
-                      color: Color(0xFF475569),
+                      color: AppColors.slate600,
                     ),
                     SizedBox(width: 4),
                     Text(
@@ -107,7 +108,7 @@ class TrafficBarChartCard extends StatelessWidget {
                       style: TextStyle(
                         fontSize: 10,
                         fontWeight: FontWeight.bold,
-                        color: Color(0xFF475569),
+                        color: AppColors.slate600,
                       ),
                     ),
                   ],
@@ -118,7 +119,7 @@ class TrafficBarChartCard extends StatelessWidget {
           const SizedBox(height: 4),
           Text(
             subtitle,
-            style: const TextStyle(fontSize: 10, color: Color(0xFF64748B)),
+            style: const TextStyle(fontSize: 10, color: AppColors.textSecondary),
           ),
           const SizedBox(height: 14),
 
@@ -127,7 +128,7 @@ class TrafficBarChartCard extends StatelessWidget {
             height: 180,
             padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
             decoration: BoxDecoration(
-              color: const Color(0xFF0F172A),
+              color: AppColors.textPrimary,
               borderRadius: BorderRadius.circular(16),
             ),
             child: LayoutBuilder(
@@ -185,15 +186,15 @@ class TrafficBarChartCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               _buildLegend(
-                color: const Color(0xFF10B981),
+                color: AppColors.successGreen,
                 label: '≥ 60 Km/j (Lancar)',
               ),
               _buildLegend(
-                color: const Color(0xFF3B82F6),
+                color: AppColors.blue500,
                 label: '40-59 Km/j (Sedang)',
               ),
               _buildLegend(
-                color: const Color(0xFFEF4444),
+                color: AppColors.alertRed,
                 label: '< 40 Km/j (Padat)',
               ),
             ],
@@ -210,11 +211,11 @@ class TrafficBarChartCard extends StatelessWidget {
           width: 18,
           child: Text(
             label,
-            style: const TextStyle(fontSize: 8, color: Colors.white38),
+            style: const TextStyle(fontSize: 8, color: AppColors.white38),
           ),
         ),
         const Expanded(
-          child: Divider(color: Colors.white10, height: 1, thickness: 1),
+          child: Divider(color: AppColors.white10, height: 1, thickness: 1),
         ),
       ],
     );
@@ -234,7 +235,7 @@ class TrafficBarChartCard extends StatelessWidget {
           style: const TextStyle(
             fontSize: 9,
             fontWeight: FontWeight.w600,
-            color: Color(0xFF475569),
+            color: AppColors.slate600,
           ),
         ),
       ],

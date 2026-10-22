@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../core/constants/app_colors.dart';
 
 class CctvRuasCard extends StatelessWidget {
   final String title;
@@ -21,13 +22,13 @@ class CctvRuasCard extends StatelessWidget {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
           gradient: const LinearGradient(
-            colors: [Color(0xFF111827), Color(0xFF1E3A8A)], // Gradient Biru Gelap
+            colors: [AppColors.deepNavy, AppColors.primaryBlue], // Gradient Biru Gelap
             begin: Alignment.centerLeft,
             end: Alignment.centerRight,
           ),
           boxShadow: [
             BoxShadow(
-              color: const Color(0xFF1E3A8A).withOpacity(0.3),
+              color: AppColors.primaryBlue.withOpacity(0.3),
               blurRadius: 12,
               offset: const Offset(0, 6),
             ),
@@ -48,7 +49,7 @@ class CctvRuasCard extends StatelessWidget {
                   decoration: BoxDecoration(
                     border: Border(
                       top: BorderSide(
-                        color: Colors.white.withOpacity(0.1),
+                        color: AppColors.white.withOpacity(0.1),
                         width: 2,
                       ),
                     ),
@@ -72,7 +73,7 @@ class CctvRuasCard extends StatelessWidget {
                           style: const TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.bold,
-                            color: Colors.white,
+                            color: AppColors.white,
                           ),
                         ),
                         const SizedBox(height: 4),
@@ -80,7 +81,7 @@ class CctvRuasCard extends StatelessWidget {
                           subtitle,
                           style: const TextStyle(
                             fontSize: 10,
-                            color: Colors.white70,
+                            color: AppColors.white70,
                           ),
                         ),
                       ],
@@ -91,12 +92,12 @@ class CctvRuasCard extends StatelessWidget {
                   Container(
                     padding: const EdgeInsets.all(12),
                     decoration: const BoxDecoration(
-                      color: Colors.white,
+                      color: AppColors.white,
                       shape: BoxShape.circle,
                     ),
                     child: const Icon(
                       Icons.map_rounded, // Menggunakan icon peta mirip desain
-                      color: Color(0xFF0F2B5B),
+                      color: AppColors.darkNavy,
                       size: 24,
                     ),
                   ),

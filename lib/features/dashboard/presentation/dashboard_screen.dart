@@ -16,6 +16,7 @@ import 'widgets/notifications/notification_bottom_sheet.dart';
 import 'widgets/settings/settings_bottom_sheet.dart';
 import '../../auth/presentation/login_screen.dart';
 import 'widgets/pemeliharaan_menu_grid.dart';
+import '../../../core/constants/app_colors.dart';
 
 class DashboardScreen extends StatefulWidget {
   const DashboardScreen({super.key});
@@ -33,7 +34,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
       body: Container(
         decoration: const BoxDecoration(
           gradient: LinearGradient(
-            colors: [Color(0xFFE0F2FE), Color(0xFFF8FAFC)],
+            colors: [AppColors.bgGradientStart, AppColors.bgGradientEnd],
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
           ),

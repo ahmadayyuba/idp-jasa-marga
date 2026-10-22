@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../../core/constants/app_colors.dart';
 
 class FloatingSideButton extends StatelessWidget {
   final VoidCallback onPressed;
@@ -12,7 +13,7 @@ class FloatingSideButton extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.only(left: 8, top: 6, bottom: 6, right: 8),
         decoration: const BoxDecoration(
-          color: Color(0xFF333333), // Background kapsul abu-abu gelap
+          color: AppColors.darkCharcoal, // Background kapsul abu-abu gelap
           borderRadius: BorderRadius.only(
             topLeft: Radius.circular(24),
             bottomLeft: Radius.circular(24),
@@ -22,10 +23,10 @@ class FloatingSideButton extends StatelessWidget {
           width: 40,
           height: 40,
           decoration: const BoxDecoration(
-            color: Color(0xFF28A745), // Warna hijau tombol
+            color: AppColors.actionGreen, // Warna hijau tombol
             shape: BoxShape.circle,
           ),
-          child: const Icon(Icons.more_horiz, color: Colors.white, size: 24),
+          child: const Icon(Icons.more_horiz, color: AppColors.white, size: 24),
         ),
       ),
     );

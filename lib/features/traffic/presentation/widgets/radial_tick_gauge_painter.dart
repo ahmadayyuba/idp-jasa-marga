@@ -1,5 +1,6 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
+import '../../../../core/constants/app_colors.dart';
 
 class RadialTickGaugePainter extends CustomPainter {
   final double percent; 
@@ -15,12 +16,12 @@ class RadialTickGaugePainter extends CustomPainter {
     const sweepAngle = pi * 1.5;   
 
     final activePaint = Paint()
-      ..color = const Color(0xFF10B981)
+      ..color = AppColors.successGreen
       ..strokeWidth = 3.0
       ..strokeCap = StrokeCap.round;
 
     final inactivePaint = Paint()
-      ..color = const Color(0xFFE2E8F0)
+      ..color = AppColors.dividerSlate
       ..strokeWidth = 2.5
       ..strokeCap = StrokeCap.round;
 

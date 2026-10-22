@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../../core/constants/app_colors.dart';
 
 class MaintenanceHeader extends StatelessWidget {
   final VoidCallback onBack;
@@ -24,7 +25,7 @@ class MaintenanceHeader extends StatelessWidget {
             child: Icon(
               Icons.arrow_back_ios_new_rounded,
               size: 20,
-              color: Color(0xFF0F2B5B),
+              color: AppColors.darkNavy,
             ),
           ),
         ),
@@ -34,7 +35,7 @@ class MaintenanceHeader extends StatelessWidget {
           style: TextStyle(
             fontSize: 20,
             fontWeight: FontWeight.bold,
-            color: Color(0xFF0F2B5B),
+            color: AppColors.darkNavy,
           ),
         ),
         const Spacer(),
@@ -43,13 +44,13 @@ class MaintenanceHeader extends StatelessWidget {
           children: [
             Container(
               decoration: const BoxDecoration(
-                color: Colors.white,
+                color: AppColors.white,
                 shape: BoxShape.circle,
               ),
               child: IconButton(
                 icon: const Icon(
                   Icons.notifications_outlined,
-                  color: Color(0xFF0F2B5B),
+                  color: AppColors.darkNavy,
                   size: 20,
                 ),
                 onPressed: onNotificationTap ?? () {},
@@ -62,7 +63,7 @@ class MaintenanceHeader extends StatelessWidget {
                 width: 8,
                 height: 8,
                 decoration: const BoxDecoration(
-                  color: Color(0xFFEF4444),
+                  color: AppColors.alertRed,
                   shape: BoxShape.circle,
                 ),
               ),
@@ -72,13 +73,13 @@ class MaintenanceHeader extends StatelessWidget {
         const SizedBox(width: 8),
         Container(
           decoration: const BoxDecoration(
-            color: Colors.white,
+            color: AppColors.white,
             shape: BoxShape.circle,
           ),
           child: IconButton(
             icon: const Icon(
               Icons.refresh_rounded,
-              color: Color(0xFF0F2B5B),
+              color: AppColors.darkNavy,
               size: 20,
             ),
             onPressed: onRefreshTap ?? () {},

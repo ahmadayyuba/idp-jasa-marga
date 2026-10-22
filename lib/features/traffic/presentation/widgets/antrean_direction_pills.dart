@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../../core/constants/app_colors.dart';
 
 class AntreanDirectionPills extends StatefulWidget {
   final ValueChanged<int> onChanged;
@@ -17,7 +18,7 @@ class _AntreanDirectionPillsState extends State<AntreanDirectionPills> {
     return Container(
       padding: const EdgeInsets.all(4),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: AppColors.white,
         borderRadius: BorderRadius.circular(24),
       ),
       child: Row(
@@ -41,7 +42,7 @@ class _AntreanDirectionPillsState extends State<AntreanDirectionPills> {
           duration: const Duration(milliseconds: 200),
           padding: const EdgeInsets.symmetric(vertical: 12),
           decoration: BoxDecoration(
-            color: isSelected ? const Color(0xFF003399) : Colors.transparent,
+            color: isSelected ? AppColors.primaryActive : AppColors.transparent,
             borderRadius: BorderRadius.circular(20),
           ),
           child: Text(
@@ -50,7 +51,7 @@ class _AntreanDirectionPillsState extends State<AntreanDirectionPills> {
             style: TextStyle(
               fontSize: 12,
               fontWeight: FontWeight.bold,
-              color: isSelected ? Colors.white : const Color(0xFF003399),
+              color: isSelected ? AppColors.white : AppColors.primaryActive,
             ),
           ),
         ),

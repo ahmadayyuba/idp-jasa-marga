@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../../core/constants/app_colors.dart';
 
 class MaintenanceTaskCard extends StatelessWidget {
   final String title;
@@ -25,23 +26,23 @@ class MaintenanceTaskCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final statusBgColor = isCompleted
-        ? const Color(0xFFDCFCE7)
-        : const Color(0xFFFEF3C7);
+        ? AppColors.badgeGreenBg
+        : AppColors.badgeAmberBg;
     final statusTextColor = isCompleted
-        ? const Color(0xFF16A34A)
-        : const Color(0xFFD97706);
+        ? AppColors.statusGreen
+        : AppColors.warningAmber;
     final progressBarColor = isCompleted
-        ? const Color(0xFF16A34A)
-        : const Color(0xFF0284C7);
+        ? AppColors.statusGreen
+        : AppColors.brightBlue;
 
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: AppColors.white,
         borderRadius: BorderRadius.circular(18),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.02),
+            color: AppColors.black.withOpacity(0.02),
             blurRadius: 8,
             offset: const Offset(0, 2),
           ),
@@ -60,7 +61,7 @@ class MaintenanceTaskCard extends StatelessWidget {
                   style: const TextStyle(
                     fontSize: 14,
                     fontWeight: FontWeight.bold,
-                    color: Color(0xFF0F2B5B),
+                    color: AppColors.darkNavy,
                   ),
                 ),
               ),
@@ -92,7 +93,7 @@ class MaintenanceTaskCard extends StatelessWidget {
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
                 decoration: BoxDecoration(
-                  color: const Color(0xFFEFF6FF),
+                  color: AppColors.cardLightBlue,
                   borderRadius: BorderRadius.circular(6),
                 ),
                 child: Text(
@@ -100,7 +101,7 @@ class MaintenanceTaskCard extends StatelessWidget {
                   style: const TextStyle(
                     fontSize: 10,
                     fontWeight: FontWeight.bold,
-                    color: Color(0xFF1D4ED8),
+                    color: AppColors.blue700,
                   ),
                 ),
               ),
@@ -110,7 +111,7 @@ class MaintenanceTaskCard extends StatelessWidget {
                   locationDetail,
                   style: const TextStyle(
                     fontSize: 10,
-                    color: Color(0xFF64748B),
+                    color: AppColors.textSecondary,
                   ),
                   overflow: TextOverflow.ellipsis,
                 ),
@@ -127,7 +128,7 @@ class MaintenanceTaskCard extends StatelessWidget {
                   child: LinearProgressIndicator(
                     value: progressPercent / 100,
                     minHeight: 8,
-                    backgroundColor: const Color(0xFFF1F5F9),
+                    backgroundColor: AppColors.bgSlate,
                     valueColor: AlwaysStoppedAnimation<Color>(progressBarColor),
                   ),
                 ),
@@ -139,8 +140,8 @@ class MaintenanceTaskCard extends StatelessWidget {
                   fontSize: 11,
                   fontWeight: FontWeight.bold,
                   color: isCompleted
-                      ? const Color(0xFF16A34A)
-                      : const Color(0xFF0F2B5B),
+                      ? AppColors.statusGreen
+                      : AppColors.darkNavy,
                 ),
               ),
             ],
@@ -153,13 +154,13 @@ class MaintenanceTaskCard extends StatelessWidget {
               Expanded(
                 child: Text(
                   'Pelakasana: $pelaksana',
-                  style: const TextStyle(fontSize: 9, color: Color(0xFF94A3B8)),
+                  style: const TextStyle(fontSize: 9, color: AppColors.textMuted),
                   overflow: TextOverflow.ellipsis,
                 ),
               ),
               Text(
                 'Target: $targetDate',
-                style: const TextStyle(fontSize: 9, color: Color(0xFF94A3B8)),
+                style: const TextStyle(fontSize: 9, color: AppColors.textMuted),
               ),
             ],
           ),

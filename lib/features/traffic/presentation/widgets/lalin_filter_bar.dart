@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../../core/constants/app_colors.dart';
 
 class LalinFilterBar extends StatelessWidget {
   const LalinFilterBar({super.key});
@@ -12,9 +13,9 @@ class LalinFilterBar extends StatelessWidget {
           child: Container(
             padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
             decoration: BoxDecoration(
-              color: Colors.white,
+              color: AppColors.white,
               borderRadius: BorderRadius.circular(16),
-              border: Border.all(color: const Color(0xFFE2E8F0)),
+              border: Border.all(color: AppColors.dividerSlate),
             ),
             child: const Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -24,10 +25,10 @@ class LalinFilterBar extends StatelessWidget {
                   style: TextStyle(
                     fontSize: 12,
                     fontWeight: FontWeight.w600,
-                    color: Color(0xFF0F172A),
+                    color: AppColors.textPrimary,
                   ),
                 ),
-                Icon(Icons.arrow_drop_down_rounded, color: Color(0xFF64748B)),
+                Icon(Icons.arrow_drop_down_rounded, color: AppColors.textSecondary),
               ],
             ),
           ),
@@ -38,21 +39,21 @@ class LalinFilterBar extends StatelessWidget {
         Container(
           padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
           decoration: BoxDecoration(
-            color: Colors.white,
+            color: AppColors.white,
             borderRadius: BorderRadius.circular(16),
-            border: Border.all(color: const Color(0xFF0284C7)),
+            border: Border.all(color: AppColors.brightBlue),
           ),
           child: const Row(
             children: [
               Icon(Icons.description_outlined,
-                  size: 16, color: Color(0xFF0284C7)),
+                  size: 16, color: AppColors.brightBlue),
               SizedBox(width: 6),
               Text(
                 'Report Lalu Lintas',
                 style: TextStyle(
                   fontSize: 11,
                   fontWeight: FontWeight.bold,
-                  color: Color(0xFF0284C7),
+                  color: AppColors.brightBlue,
                 ),
               ),
             ],

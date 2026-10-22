@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../core/constants/app_colors.dart';
 
 class CctvSearchBar extends StatelessWidget {
   final TextEditingController controller;
@@ -16,11 +17,11 @@ class CctvSearchBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: AppColors.white,
         borderRadius: BorderRadius.circular(24),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withValues(alpha: 0.03),
+            color: AppColors.black.withValues(alpha: 0.03),
             blurRadius: 10,
             offset: const Offset(0, 4),
           ),
@@ -29,11 +30,11 @@ class CctvSearchBar extends StatelessWidget {
       child: TextField(
         controller: controller,
         onChanged: onChanged,
-        style: const TextStyle(fontSize: 14, color: Color(0xFF0F172A)),
+        style: const TextStyle(fontSize: 14, color: AppColors.textPrimary),
         decoration: InputDecoration(
           hintText: hintText, // 3. Dipakai di InputDecoration
-          hintStyle: const TextStyle(fontSize: 14, color: Color(0xFF94A3B8)),
-          prefixIcon: const Icon(Icons.search_rounded, color: Color(0xFF0F2B5B)),
+          hintStyle: const TextStyle(fontSize: 14, color: AppColors.textMuted),
+          prefixIcon: const Icon(Icons.search_rounded, color: AppColors.darkNavy),
           border: InputBorder.none,
           contentPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 14),
         ),

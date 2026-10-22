@@ -3,18 +3,17 @@ import 'package:flutter/material.dart';
 import 'widgets/cctv_segment_header.dart';
 import 'widgets/cctv_search_bar.dart';
 import 'widgets/cctv_segment_card.dart';
+import 'cctv_live_screen.dart';
 
 // Reusable Dashboard Widgets
 import '../../features/dashboard/presentation/widgets/floating_side_button.dart';
 import '../../features/dashboard/presentation/widgets/custom_bottom_nav_bar.dart';
+import '../../core/constants/app_colors.dart';
 
 class CctvSegmentScreen extends StatefulWidget {
   final String ruasName;
 
-  const CctvSegmentScreen({
-    super.key,
-    required this.ruasName,
-  });
+  const CctvSegmentScreen({super.key, required this.ruasName});
 
   @override
   State<CctvSegmentScreen> createState() => _CctvSegmentScreenState();
@@ -55,7 +54,7 @@ class _CctvSegmentScreenState extends State<CctvSegmentScreen> {
       body: Container(
         decoration: const BoxDecoration(
           gradient: LinearGradient(
-            colors: [Color(0xFFE0F2FE), Color(0xFFF8FAFC)],
+            colors: [AppColors.bgGradientStart, AppColors.bgGradientEnd],
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
           ),
@@ -64,9 +63,12 @@ class _CctvSegmentScreenState extends State<CctvSegmentScreen> {
           child: Stack(
             children: [
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 20,
+                  vertical: 16,
+                ),
                 child: Column(
-                  children: [ 
+                  children: [
                     CctvSegmentHeader(
                       ruasName: widget.ruasName,
                       onBack: () => Navigator.of(context).pop(),
@@ -88,13 +90,13 @@ class _CctvSegmentScreenState extends State<CctvSegmentScreen> {
                     Expanded(
                       child: GridView.builder(
                         padding: const EdgeInsets.only(bottom: 80),
-                        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 2,
-                          crossAxisSpacing: 16,
-                          mainAxisSpacing: 16,
-                          childAspectRatio: 1.0,
-                        ),
-                        itemCount: filtered.length,
+                        gridDelegate:
+                            const SliverGridDelegateWithFixedCrossAxisCount(
+                              crossAxisCount: 2,
+                              crossAxisSpacing: 16,
+                              mainAxisSpacing: 16,
+                              childAspectRatio: 1.0,
+                            ),
                         itemBuilder: (context, index) {
                           final segment = filtered[index];
                           final isAll = segment == 'Semua Segment';
@@ -103,12 +105,13 @@ class _CctvSegmentScreenState extends State<CctvSegmentScreen> {
                             title: segment,
                             isAll: isAll,
                             onTap: () {
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                SnackBar(
-                                  content: Text('Menuju Live CCTV: $segment'),
+                              // 👇 Tambahkan navigasi ke CctvLiveScreen
+                              Navigator.of(context).push(
+                                MaterialPageRoute(
+                                  builder: (context) =>
+                                      CctvLiveScreen(segmentName: segment),
                                 ),
                               );
-                              // TODO: Tahap berikutnya akan membuka CctvLiveScreen / Live View
                             },
                           );
                         },

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../core/constants/app_colors.dart';
 
 class CctvHeader extends StatelessWidget {
   const CctvHeader({super.key});
@@ -11,7 +12,7 @@ class CctvHeader extends StatelessWidget {
           width: 44,
           height: 44,
           decoration: const BoxDecoration(
-            color: Color(0xFFE0E7FF), // Biru pucat
+            color: AppColors.avatarBg, // Biru pucat
             shape: BoxShape.circle,
           ),
           alignment: Alignment.center,
@@ -20,7 +21,7 @@ class CctvHeader extends StatelessWidget {
             style: TextStyle(
               fontSize: 18,
               fontWeight: FontWeight.bold,
-              color: Color(0xFF1E3A8A),
+              color: AppColors.primaryBlue,
             ),
           ),
         ),
@@ -33,14 +34,14 @@ class CctvHeader extends StatelessWidget {
             children: [
               Text(
                 'Halo',
-                style: TextStyle(fontSize: 12, color: Color(0xFF64748B)),
+                style: TextStyle(fontSize: 12, color: AppColors.textSecondary),
               ),
               Text(
                 'Anggun Windari!',
                 style: TextStyle(
                   fontSize: 15,
                   fontWeight: FontWeight.bold,
-                  color: Color(0xFF0F172A),
+                  color: AppColors.textPrimary,
                 ),
               ),
             ],
@@ -52,13 +53,13 @@ class CctvHeader extends StatelessWidget {
           children: [
             Container(
               decoration: const BoxDecoration(
-                color: Colors.white,
+                color: AppColors.white,
                 shape: BoxShape.circle,
               ),
               child: IconButton(
                 icon: const Icon(
                   Icons.notifications_outlined,
-                  color: Color(0xFF0F2B5B),
+                  color: AppColors.darkNavy,
                   size: 20,
                 ),
                 onPressed: () {},
@@ -71,7 +72,7 @@ class CctvHeader extends StatelessWidget {
                 width: 8,
                 height: 8,
                 decoration: const BoxDecoration(
-                  color: Color(0xFFEF4444), // Merah
+                  color: AppColors.alertRed, // Merah
                   shape: BoxShape.circle,
                 ),
               ),
@@ -83,13 +84,13 @@ class CctvHeader extends StatelessWidget {
         // Tombol Refresh
         Container(
           decoration: const BoxDecoration(
-            color: Colors.white,
+            color: AppColors.white,
             shape: BoxShape.circle,
           ),
           child: IconButton(
             icon: const Icon(
               Icons.refresh_rounded,
-              color: Color(0xFF0F2B5B),
+              color: AppColors.darkNavy,
               size: 20,
             ),
             onPressed: () {},

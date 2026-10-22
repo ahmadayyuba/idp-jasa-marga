@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../core/constants/app_colors.dart';
 
 class CctvActionButtons extends StatelessWidget {
   final VoidCallback? onNotificationTap;
@@ -19,13 +20,13 @@ class CctvActionButtons extends StatelessWidget {
           children: [
             Container(
               decoration: const BoxDecoration(
-                color: Colors.white,
+                color: AppColors.white,
                 shape: BoxShape.circle,
               ),
               child: IconButton(
                 icon: const Icon(
                   Icons.notifications_outlined,
-                  color: Color(0xFF0F2B5B),
+                  color: AppColors.darkNavy,
                   size: 20,
                 ),
                 onPressed: onNotificationTap ?? () {},
@@ -38,7 +39,7 @@ class CctvActionButtons extends StatelessWidget {
                 width: 8,
                 height: 8,
                 decoration: BoxDecoration(
-                  color: Color(0xFFEF4444),
+                  color: AppColors.alertRed,
                   shape: BoxShape.circle,
                 ),
               ),
@@ -49,13 +50,13 @@ class CctvActionButtons extends StatelessWidget {
 
         Container(
           decoration: const BoxDecoration(
-            color: Colors.white,
+            color: AppColors.white,
             shape: BoxShape.circle,
           ),
           child: IconButton(
             icon: const Icon(
               Icons.refresh_rounded,
-              color: Color(0xFF0F2B5B),
+              color: AppColors.darkNavy,
               size: 20,
             ),
             onPressed: onRefreshTap ?? () {},

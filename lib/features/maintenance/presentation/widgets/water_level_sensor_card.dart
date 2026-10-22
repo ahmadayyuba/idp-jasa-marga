@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'cctv_live_dialog.dart';
+import '../../../../core/constants/app_colors.dart';
 
 class WaterLevelSensorCard extends StatelessWidget {
   final String idKode;
@@ -27,11 +28,11 @@ class WaterLevelSensorCard extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: AppColors.white,
         borderRadius: BorderRadius.circular(20),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.03),
+            color: AppColors.black.withOpacity(0.03),
             blurRadius: 10,
             offset: const Offset(0, 4),
           ),
@@ -49,7 +50,7 @@ class WaterLevelSensorCard extends StatelessWidget {
                   vertical: 4,
                 ),
                 decoration: BoxDecoration(
-                  color: const Color(0xFF1E293B),
+                  color: AppColors.playerSurface,
                   borderRadius: BorderRadius.circular(8),
                 ),
                 child: Text(
@@ -57,7 +58,7 @@ class WaterLevelSensorCard extends StatelessWidget {
                   style: const TextStyle(
                     fontSize: 10,
                     fontWeight: FontWeight.bold,
-                    color: Colors.white,
+                    color: AppColors.white,
                   ),
                 ),
               ),
@@ -68,20 +69,20 @@ class WaterLevelSensorCard extends StatelessWidget {
                   vertical: 4,
                 ),
                 decoration: BoxDecoration(
-                  color: const Color(0xFFDCFCE7),
+                  color: AppColors.badgeGreenBg,
                   borderRadius: BorderRadius.circular(8),
-                  border: Border.all(color: const Color(0xFF86EFAC)),
+                  border: Border.all(color: AppColors.lightGreenBorder),
                 ),
                 child: const Row(
                   children: [
-                    Icon(Icons.circle, size: 6, color: Color(0xFF16A34A)),
+                    Icon(Icons.circle, size: 6, color: AppColors.statusGreen),
                     SizedBox(width: 4),
                     Text(
                       'NORMAL',
                       style: TextStyle(
                         fontSize: 10,
                         fontWeight: FontWeight.bold,
-                        color: Color(0xFF16A34A),
+                        color: AppColors.statusGreen,
                       ),
                     ),
                   ],
@@ -100,8 +101,8 @@ class WaterLevelSensorCard extends StatelessWidget {
                 icon: const Icon(Icons.videocam_rounded, size: 14),
                 label: const Text('Live CCTV', style: TextStyle(fontSize: 10)),
                 style: OutlinedButton.styleFrom(
-                  foregroundColor: const Color(0xFF2563EB),
-                  side: const BorderSide(color: Color(0xFFBFDBFE)),
+                  foregroundColor: AppColors.blue600,
+                  side: const BorderSide(color: AppColors.borderBlue),
                   padding: const EdgeInsets.symmetric(
                     horizontal: 12,
                     vertical: 0,
@@ -122,13 +123,13 @@ class WaterLevelSensorCard extends StatelessWidget {
             style: const TextStyle(
               fontSize: 15,
               fontWeight: FontWeight.bold,
-              color: Color(0xFF0F172A),
+              color: AppColors.textPrimary,
             ),
           ),
           const SizedBox(height: 2),
           Text(
             subtitle,
-            style: const TextStyle(fontSize: 11, color: Color(0xFF64748B)),
+            style: const TextStyle(fontSize: 11, color: AppColors.textSecondary),
           ),
           const SizedBox(height: 16),
 
@@ -142,14 +143,14 @@ class WaterLevelSensorCard extends StatelessWidget {
                   children: [
                     _buildInfoBox(
                       icon: Icons.wb_sunny_rounded,
-                      iconColor: const Color(0xFFF59E0B),
+                      iconColor: AppColors.alertAmber,
                       title: 'TIDAK HUJAN',
                       subtitle: 'Presipitasi 0.0 mm/jam',
                     ),
                     const SizedBox(height: 12),
                     _buildInfoBox(
                       icon: Icons.power_settings_new_rounded,
-                      iconColor: const Color(0xFF94A3B8),
+                      iconColor: AppColors.textMuted,
                       title: 'POMPA STANDBY',
                       subtitle: 'Mode: AUTO (OFF)',
                     ),
@@ -169,28 +170,28 @@ class WaterLevelSensorCard extends StatelessWidget {
             children: [
               _buildLegendSegment(
                 'NORMAL',
-                const Color(0xFF22C55E),
-                const Color(0xFFDCFCE7),
+                AppColors.vibrantGreen,
+                AppColors.badgeGreenBg,
               ),
               _buildLegendSegment(
                 'SIAGA 1',
-                const Color(0xFFEAB308),
-                const Color(0xFFFEF9C3),
+                AppColors.roadYellow,
+                AppColors.pastelYellow,
               ),
               _buildLegendSegment(
                 'SIAGA 2',
-                const Color(0xFFF97316),
-                const Color(0xFFFFEDD5),
+                AppColors.alertOrange,
+                AppColors.badgeOrangeBg,
               ),
               _buildLegendSegment(
                 'SIAGA 3',
-                const Color(0xFFEF4444),
-                const Color(0xFFFEE2E2),
+                AppColors.alertRed,
+                AppColors.badgeRedBg,
               ),
               _buildLegendSegment(
                 'AWAS',
-                const Color(0xFF991B1B),
-                const Color(0xFFFECACA),
+                AppColors.darkRed,
+                AppColors.borderRedLight,
               ),
             ],
           ),
@@ -205,21 +206,21 @@ class WaterLevelSensorCard extends StatelessWidget {
                   const Icon(
                     Icons.bolt_rounded,
                     size: 14,
-                    color: Color(0xFFF59E0B),
+                    color: AppColors.alertAmber,
                   ),
                   const SizedBox(width: 4),
                   Text(
                     'Signal: $signalStatus',
                     style: const TextStyle(
                       fontSize: 9,
-                      color: Color(0xFF64748B),
+                      color: AppColors.textSecondary,
                     ),
                   ),
                 ],
               ),
               Text(
                 'Update $updateTime',
-                style: const TextStyle(fontSize: 9, color: Color(0xFF94A3B8)),
+                style: const TextStyle(fontSize: 9, color: AppColors.textMuted),
               ),
             ],
           ),
@@ -238,9 +239,9 @@ class WaterLevelSensorCard extends StatelessWidget {
       width: double.infinity,
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
       decoration: BoxDecoration(
-        color: const Color(0xFFF8FAFC),
+        color: AppColors.bgGradientEnd,
         borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: const Color(0xFFF1F5F9)),
+        border: Border.all(color: AppColors.bgSlate),
       ),
       child: Row(
         children: [
@@ -255,13 +256,13 @@ class WaterLevelSensorCard extends StatelessWidget {
                   style: const TextStyle(
                     fontSize: 10,
                     fontWeight: FontWeight.bold,
-                    color: Color(0xFF0F172A),
+                    color: AppColors.textPrimary,
                   ),
                 ),
                 const SizedBox(height: 2),
                 Text(
                   subtitle,
-                  style: const TextStyle(fontSize: 9, color: Color(0xFF64748B)),
+                  style: const TextStyle(fontSize: 9, color: AppColors.textSecondary),
                 ),
               ],
             ),
@@ -276,7 +277,7 @@ class WaterLevelSensorCard extends StatelessWidget {
       width: 100,
       height: 130,
       decoration: BoxDecoration(
-        color: const Color(0xFF334155), // Background Gelap Tangki
+        color: AppColors.slate700, // Background Gelap Tangki
         borderRadius: BorderRadius.circular(16),
       ),
       clipBehavior: Clip.antiAlias,
@@ -289,7 +290,7 @@ class WaterLevelSensorCard extends StatelessWidget {
             child: Container(
               decoration: const BoxDecoration(
                 gradient: LinearGradient(
-                  colors: [Color(0xFF0D9488), Color(0xFF34D399)],
+                  colors: [AppColors.teal, AppColors.mintGreen],
                   begin: Alignment.bottomCenter,
                   end: Alignment.topCenter,
                 ),
@@ -307,7 +308,7 @@ class WaterLevelSensorCard extends StatelessWidget {
               children: List.generate(
                 6,
                 (index) =>
-                    Container(width: 6, height: 2, color: Colors.white30),
+                    Container(width: 6, height: 2, color: AppColors.white30),
               ),
             ),
           ),
@@ -328,19 +329,19 @@ class WaterLevelSensorCard extends StatelessWidget {
                       style: const TextStyle(
                         fontSize: 24,
                         fontWeight: FontWeight.bold,
-                        color: Colors.white,
+                        color: AppColors.white,
                       ),
                     ),
                     const SizedBox(width: 2),
                     const Text(
                       'cm',
-                      style: TextStyle(fontSize: 10, color: Colors.white70),
+                      style: TextStyle(fontSize: 10, color: AppColors.white70),
                     ),
                   ],
                 ),
                 Text(
                   '$capacityPercent% Kapasitas',
-                  style: const TextStyle(fontSize: 8, color: Colors.white70),
+                  style: const TextStyle(fontSize: 8, color: AppColors.white70),
                 ),
               ],
             ),
