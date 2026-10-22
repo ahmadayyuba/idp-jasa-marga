@@ -14,6 +14,9 @@ import '../../features/traffic/presentation/traffic_screen.dart';
 import '../../features/traffic/presentation/management_lcs_screen.dart';
 import '../../features/traffic/presentation/etle_wim_screen.dart';
 import '../../features/peralatan_tol/prensentation/peralatan_dashboard_screen.dart';
+import '../../features/maintenance/presentation/maintenance_parent_screen.dart';
+import '../../cctv/presentation/cctv_ruas_screen.dart';
+import '../../cctv/presentation/cctv_segment_screen.dart';
 
 // --- Import Screens Punya Temen Kamu ---
 
@@ -63,6 +66,28 @@ class AppRouter {
       case AppRoutes.peralatanDashboard:
         return _buildRoute(const PeralatanDashboardScreen(), settings);
 
+      case AppRoutes.maintenanceSummary:
+        return _buildRoute(
+          const MaintenanceParentScreen(initialIndex: 0),
+          settings,
+        );
+      case AppRoutes.dataPemeliharaan:
+        return _buildRoute(
+          const MaintenanceParentScreen(initialIndex: 1),
+          settings,
+        );
+      case AppRoutes.waterLevelSensor:
+        return _buildRoute(
+          const MaintenanceParentScreen(initialIndex: 2),
+          settings,
+        );
+      case AppRoutes.cctvRuas:
+        return _buildRoute(const CctvRuasScreen(), settings);
+      case AppRoutes.cctvSegment:
+        final ruasName = settings.arguments as String? ?? 'JAGORAWI';
+        return MaterialPageRoute(
+          builder: (_) => CctvSegmentScreen(ruasName: ruasName),
+        );
       default:
         return MaterialPageRoute(
           builder: (_) => Scaffold(

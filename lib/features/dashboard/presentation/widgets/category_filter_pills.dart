@@ -1,44 +1,59 @@
 import 'package:flutter/material.dart';
 
-class CategoryFilterPills extends StatefulWidget {
-  const CategoryFilterPills({super.key});
+class CategoryFilterPills extends StatelessWidget {
+  final int activeIndex;
+  final Function(int) onCategoryChanged;
 
-  @override
-  State createState() => _CategoryFilterPillsState();
-}
-
-class _CategoryFilterPillsState extends State {
-  int _selectedIndex = 0;
-  final List _categories = ['Lalu Lintas', 'Pemeliharaan', 'Peralatan'];
+  const CategoryFilterPills({
+    super.key,
+    required this.activeIndex,
+    required this.onCategoryChanged,
+  });
 
   @override
   Widget build(BuildContext context) {
+    final categories = ['Lalu Lintas', 'Pemeliharaan', 'Peralatan'];
+
     return Row(
-      children:List.generate(_categories.length, (index) { final isSelected = _selectedIndex == index; 
-      return Padding(
-        padding: const EdgeInsets.only(right: 8.0),
-        child: GestureDetector(
-          onTap: () => setState(() => _selectedIndex = index),
-          child: Container(
-            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-            decoration: BoxDecoration(
-                color: isSelected ? const Color(0xFF003399) : Colors.white,
-                borderRadius: BorderRadius.circular(24),
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: List.generate(categories.length, (index) {
+        final isActive = activeIndex == index;
+        return Expanded(
+          child: Padding(
+            padding: EdgeInsets.only(
+              right: index < categories.length - 1 ? 8.0 : 0,
+            ),
+            child: GestureDetector(
+              onTap: () => onCategoryChanged(index),
+              child: AnimatedContainer(
+                duration: const Duration(milliseconds: 150),
+                padding: const EdgeInsets.symmetric(vertical: 12),
+                decoration: BoxDecoration(
+                  color: isActive ? const Color(0xFF003399) : Colors.white,
+                  borderRadius: BorderRadius.circular(24),
+                  boxShadow: [
+                    if (!isActive)
+                      BoxShadow(
+                        color: Colors.black.withValues(alpha: 0.04),
+                        blurRadius: 6,
+                        offset: const Offset(0, 2),
+                      ),
+                  ],
                 ),
+                alignment: Alignment.center,
                 child: Text(
-                  _categories[index],
+                  categories[index],
                   style: TextStyle(
                     fontSize: 12,
-                    fontWeight: FontWeight.w600,
-                    color: isSelected ? Colors.white: 
-                    Colors.black87
+                    fontWeight: FontWeight.bold,
+                    color: isActive ? Colors.white : const Color(0xFF475569),
                   ),
                 ),
               ),
             ),
-          );
-        }
-      ),
+          ),
+        );
+      }),
     );
   }
 }

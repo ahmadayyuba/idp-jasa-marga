@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+
 import '../../../traffic/presentation/antrean_gerbang_screen.dart';
 import '../../../traffic/presentation/realtime_traffic_screen.dart';
+import '../../../../cctv/presentation/cctv_ruas_screen.dart';
+import '../dashboard_screen.dart';
 
 class CustomBottomNavBar extends StatelessWidget {
   const CustomBottomNavBar({super.key});
@@ -25,14 +28,22 @@ class CustomBottomNavBar extends StatelessWidget {
           _buildNavItem(
             icon: Icons.home_rounded,
             label: 'Home',
-            isActive: true,
-            onTap: () {},
+            isActive: false,
+            onTap: () {
+              Navigator.of(context).pushReplacement(
+                MaterialPageRoute(builder: (context) => DashboardScreen()),
+              );
+            },
           ),
           _buildNavItem(
             icon: Icons.videocam_outlined,
             label: 'CCTV',
             isActive: false,
-            onTap: () {},
+            onTap: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(builder: (context) => const CctvRuasScreen()),
+              );
+            },
           ),
 
           // Center Floating Action Icon
@@ -44,7 +55,11 @@ class CustomBottomNavBar extends StatelessWidget {
               shape: BoxShape.circle,
               border: Border.all(color: Colors.white, width: 3),
             ),
-            child: const Icon(Icons.map_outlined, color: Colors.white, size: 26),
+            child: const Icon(
+              Icons.map_outlined,
+              color: Colors.white,
+              size: 26,
+            ),
           ),
 
           // Tombol Navigasi Antrian Gerbang
