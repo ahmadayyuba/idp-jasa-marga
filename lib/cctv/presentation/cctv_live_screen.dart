@@ -16,14 +16,11 @@ class CctvLiveScreen extends StatefulWidget {
   final SegmentModel? segment;
   final String segmentName;
 
-  const CctvLiveScreen({
-    super.key,
-    this.segment,
-    this.segmentName = '',
-  });
+  const CctvLiveScreen({super.key, this.segment, this.segmentName = ''});
 
   String get effectiveSegmentName =>
-      segment?.title ?? (segmentName.isNotEmpty ? segmentName : 'Semua Segment');
+      segment?.title ??
+      (segmentName.isNotEmpty ? segmentName : 'Semua Segment');
 
   @override
   State<CctvLiveScreen> createState() => _CctvLiveScreenState();
