@@ -1,20 +1,33 @@
 import 'package:flutter/material.dart';
+import '../../data/models/camera_model.dart';
 import '../../../core/constants/app_colors.dart';
 
 class CctvMainPlayerCard extends StatelessWidget {
-  final String cameraTitle;
-  final String timestamp;
-  final String directionText;
+  final CameraModel? camera;
+  final String? cameraTitle;
+  final String? timestamp;
+  final String? directionText;
 
   const CctvMainPlayerCard({
     super.key,
-    required this.cameraTitle,
-    required this.timestamp,
-    required this.directionText,
+    this.camera,
+    this.cameraTitle,
+    this.timestamp,
+    this.directionText,
   });
+
+  String get effectiveCameraTitle => camera?.code ?? cameraTitle ?? '';
+  String get effectiveTimestamp => camera?.timestamp ?? timestamp ?? '';
+  String get effectiveDirection => camera?.direction ?? directionText ?? '';
+  bool get effectiveIsLive => camera?.isLive ?? true;
 
   @override
   Widget build(BuildContext context) {
+    final title = effectiveCameraTitle;
+    final time = effectiveTimestamp;
+    final direction = effectiveDirection;
+    final statusText = effectiveIsLive ? '[LIVE]' : '[OFFLINE]';
+
     return Container(
       height: 220,
       decoration: BoxDecoration(
@@ -52,7 +65,7 @@ class CctvMainPlayerCard extends StatelessWidget {
                       color: AppColors.black.withValues(alpha: 0.6),
                     ),
                     child: Text(
-                      '$cameraTitle [LIVE] $timestamp',
+                      '$title $statusText $time',
                       style: const TextStyle(
                         fontSize: 10,
                         fontWeight: FontWeight.w600,
@@ -95,11 +108,11 @@ class CctvMainPlayerCard extends StatelessWidget {
                     size: 16,
                   ),
                   Text(
-                    directionText,
+                    direction,
                     style: const TextStyle(
                       fontSize: 11,
                       fontWeight: FontWeight.bold,
-                      color:AppColors.white70,
+                      color: AppColors.white70,
                       letterSpacing: 0.5,
                     ),
                   ),

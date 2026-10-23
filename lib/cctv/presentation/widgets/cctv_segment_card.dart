@@ -1,20 +1,29 @@
 import 'package:flutter/material.dart';
+import '../../data/models/segment_model.dart';
 import '../../../core/constants/app_colors.dart';
 
 class CctvSegmentCard extends StatelessWidget {
-  final String title;
-  final bool isAll;
+  final SegmentModel? segment;
+  final String? title;
+  final bool? isAll;
   final VoidCallback onTap;
 
   const CctvSegmentCard({
     super.key,
-    required this.title,
-    this.isAll = false,
+    this.segment,
+    this.title,
+    this.isAll,
     required this.onTap,
   });
 
+  String get displayTitle => segment?.title ?? title ?? '';
+  bool get displayIsAll => segment?.isAll ?? isAll ?? false;
+
   @override
   Widget build(BuildContext context) {
+    final effectiveIsAll = displayIsAll;
+    final effectiveTitle = displayTitle;
+
     return Material(
       color: AppColors.transparent,
       child: InkWell(
@@ -23,13 +32,13 @@ class CctvSegmentCard extends StatelessWidget {
         child: Container(
           padding: const EdgeInsets.all(16),
           decoration: BoxDecoration(
-            color: isAll ? AppColors.cardLightBlue : AppColors.white,
+            color: effectiveIsAll ? AppColors.cardLightBlue : AppColors.white,
             borderRadius: BorderRadius.circular(20),
-            border: isAll
+            border: effectiveIsAll
                 ? Border.all(color: AppColors.borderLightBlue, width: 1.5)
                 : null,
             boxShadow: [
-              if (!isAll)
+              if (!effectiveIsAll)
                 BoxShadow(
                   color: AppColors.black.withValues(alpha: 0.03),
                   blurRadius: 10,
@@ -45,14 +54,14 @@ class CctvSegmentCard extends StatelessWidget {
                 width: 52,
                 height: 52,
                 decoration: BoxDecoration(
-                  color: isAll
+                  color: effectiveIsAll
                       ? AppColors.primaryBlue
                       : AppColors.iconCircleBg,
                   shape: BoxShape.circle,
                 ),
                 child: Icon(
                   Icons.videocam_rounded,
-                  color: isAll ? AppColors.white : AppColors.primaryBlue,
+                  color: effectiveIsAll ? AppColors.white : AppColors.primaryBlue,
                   size: 26,
                 ),
               ),
@@ -60,14 +69,14 @@ class CctvSegmentCard extends StatelessWidget {
 
               // Judul Segment
               Text(
-                title,
+                effectiveTitle,
                 textAlign: TextAlign.center,
                 maxLines: 2,
                 overflow: TextOverflow.ellipsis,
                 style: TextStyle(
                   fontSize: 12,
                   fontWeight: FontWeight.bold,
-                  color: isAll
+                  color: effectiveIsAll
                       ? AppColors.primaryBlue
                       : AppColors.textPrimary,
                 ),

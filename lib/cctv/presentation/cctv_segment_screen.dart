@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import '../data/cctv_mock_datasource.dart';
+import '../data/models/ruas_model.dart';
+import '../data/models/segment_model.dart';
 import 'widgets/cctv_segment_header.dart';
 import 'widgets/cctv_search_bar.dart';
 import 'widgets/cctv_segment_card.dart';
@@ -11,9 +14,16 @@ import '../../features/dashboard/presentation/widgets/custom_bottom_nav_bar.dart
 import '../../core/constants/app_colors.dart';
 
 class CctvSegmentScreen extends StatefulWidget {
+  final RuasModel? ruas;
   final String ruasName;
 
-  const CctvSegmentScreen({super.key, required this.ruasName});
+  const CctvSegmentScreen({
+    super.key,
+    this.ruas,
+    this.ruasName = 'JAGORAWI',
+  });
+
+  String get effectiveRuasName => ruas?.title ?? ruasName;
 
   @override
   State<CctvSegmentScreen> createState() => _CctvSegmentScreenState();
@@ -23,26 +33,19 @@ class _CctvSegmentScreenState extends State<CctvSegmentScreen> {
   final TextEditingController _searchController = TextEditingController();
   String _searchQuery = '';
 
-  final List<String> _allSegments = [
-    'Semua Segment',
-    'SS CAWANG - TEBET',
-    'SS CAWANG - CILILITAN',
-    'SS TMII - CIBUBUR',
-    'SS GUNUNG PUTRI - BOGOR',
-    'SS BOGOR - CIAWI',
-  ];
-
   @override
   void dispose() {
     _searchController.dispose();
     super.dispose();
   }
 
-  List<String> get _filteredSegments {
-    if (_searchQuery.isEmpty) return _allSegments;
-    return _allSegments.where((segment) {
-      if (segment == 'Semua Segment') return true;
-      return segment.toLowerCase().contains(_searchQuery.toLowerCase());
+  List<SegmentModel> get _filteredSegments {
+    final segments = CctvMockDatasource.segmentList;
+    if (_searchQuery.isEmpty) return segments;
+    final query = _searchQuery.toLowerCase();
+    return segments.where((segment) {
+      if (segment.isAll) return true;
+      return segment.title.toLowerCase().contains(query);
     }).toList();
   }
 
@@ -70,7 +73,7 @@ class _CctvSegmentScreenState extends State<CctvSegmentScreen> {
                 child: Column(
                   children: [
                     CctvSegmentHeader(
-                      ruasName: widget.ruasName,
+                      ruasName: widget.effectiveRuasName,
                       onBack: () => Navigator.of(context).pop(),
                     ),
                     const SizedBox(height: 20),
@@ -89,6 +92,7 @@ class _CctvSegmentScreenState extends State<CctvSegmentScreen> {
                     // Grid View untuk Daftar Segment
                     Expanded(
                       child: GridView.builder(
+                        itemCount: filtered.length,
                         padding: const EdgeInsets.only(bottom: 80),
                         gridDelegate:
                             const SliverGridDelegateWithFixedCrossAxisCount(
@@ -99,17 +103,18 @@ class _CctvSegmentScreenState extends State<CctvSegmentScreen> {
                             ),
                         itemBuilder: (context, index) {
                           final segment = filtered[index];
-                          final isAll = segment == 'Semua Segment';
 
                           return CctvSegmentCard(
-                            title: segment,
-                            isAll: isAll,
+                            segment: segment,
+                            title: segment.title,
+                            isAll: segment.isAll,
                             onTap: () {
-                              // 👇 Tambahkan navigasi ke CctvLiveScreen
                               Navigator.of(context).push(
                                 MaterialPageRoute(
-                                  builder: (context) =>
-                                      CctvLiveScreen(segmentName: segment),
+                                  builder: (context) => CctvLiveScreen(
+                                    segment: segment,
+                                    segmentName: segment.title,
+                                  ),
                                 ),
                               );
                             },

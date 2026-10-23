@@ -1,19 +1,26 @@
 import 'package:flutter/material.dart';
+import '../../data/models/camera_model.dart';
 import '../../../core/constants/app_colors.dart';
 
 class CctvCameraCard extends StatelessWidget {
-  final String title;
-  final String subtitle;
+  final CameraModel? camera;
+  final String? title;
+  final String? subtitle;
   final bool isSelected;
   final VoidCallback onTap;
 
   const CctvCameraCard({
     super.key,
-    required this.title,
-    required this.subtitle,
+    this.camera,
+    this.title,
+    this.subtitle,
     this.isSelected = false,
     required this.onTap,
   });
+
+  String get displayTitle => camera?.title ?? title ?? '';
+  String get displaySubtitle => camera?.subtitle ?? subtitle ?? '';
+  bool get displayIsLive => camera?.isLive ?? true;
 
   @override
   Widget build(BuildContext context) {
@@ -64,9 +71,9 @@ class CctvCameraCard extends StatelessWidget {
                       : AppColors.black.withValues(alpha: 0.6),
                   borderRadius: BorderRadius.circular(6),
                 ),
-                child: const Text(
-                  'LIVE',
-                  style: TextStyle(
+                child: Text(
+                  displayIsLive ? 'LIVE' : 'OFFLINE',
+                  style: const TextStyle(
                     fontSize: 9,
                     fontWeight: FontWeight.bold,
                     color: AppColors.white,
@@ -97,7 +104,7 @@ class CctvCameraCard extends StatelessWidget {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Text(
-                      title,
+                      displayTitle,
                       style: const TextStyle(
                         fontSize: 11,
                         fontWeight: FontWeight.bold,
@@ -108,7 +115,7 @@ class CctvCameraCard extends StatelessWidget {
                     ),
                     const SizedBox(height: 2),
                     Text(
-                      subtitle,
+                      displaySubtitle,
                       style: const TextStyle(
                         fontSize: 9,
                         color: AppColors.white70,

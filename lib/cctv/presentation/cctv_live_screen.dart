@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import '../data/cctv_mock_datasource.dart';
+import '../data/models/camera_model.dart';
+import '../data/models/segment_model.dart';
 import 'widgets/cctv_live_header.dart';
 import 'widgets/cctv_main_player_card.dart';
 import 'widgets/cctv_camera_card.dart';
@@ -10,9 +13,17 @@ import '../../features/dashboard/presentation/widgets/custom_bottom_nav_bar.dart
 import '../../core/constants/app_colors.dart';
 
 class CctvLiveScreen extends StatefulWidget {
+  final SegmentModel? segment;
   final String segmentName;
 
-  const CctvLiveScreen({super.key, required this.segmentName});
+  const CctvLiveScreen({
+    super.key,
+    this.segment,
+    this.segmentName = '',
+  });
+
+  String get effectiveSegmentName =>
+      segment?.title ?? (segmentName.isNotEmpty ? segmentName : 'Semua Segment');
 
   @override
   State<CctvLiveScreen> createState() => _CctvLiveScreenState();
@@ -21,36 +32,7 @@ class CctvLiveScreen extends StatefulWidget {
 class _CctvLiveScreenState extends State<CctvLiveScreen> {
   int _selectedCameraIndex = 0;
 
-  final List<Map<String, String>> _cameras = [
-    {
-      'code': '01+600 Cililitan',
-      'title': 'SS KM 00+400',
-      'subtitle': 'CAWANG - CILILITAN',
-      'location': 'KM 00+400 | CAWANG - CILILITAN',
-      'direction': 'CAWANG',
-    },
-    {
-      'code': '01+600 Cililitan',
-      'title': 'SS CKM 00+400',
-      'subtitle': 'GERBANG TOL CILILITAN',
-      'location': 'KM 00+400 | GERBANG TOL CILILITAN',
-      'direction': 'CILILITAN',
-    },
-    {
-      'code': '03+200 Tebet',
-      'title': 'SS KM 03+200',
-      'subtitle': 'SIMPANG SUSUN TEBET',
-      'location': 'KM 03+200 | SIMPANG SUSUN TEBET',
-      'direction': 'TEBET',
-    },
-    {
-      'code': '08+100 TMII',
-      'title': 'SS KM 08+100',
-      'subtitle': 'GERBANG TOL TMII',
-      'location': 'KM 08+100 | GERBANG TOL TMII',
-      'direction': 'TMII',
-    },
-  ];
+  final List<CameraModel> _cameras = CctvMockDatasource.cameraList;
 
   @override
   Widget build(BuildContext context) {
@@ -80,16 +62,17 @@ class _CctvLiveScreenState extends State<CctvLiveScreen> {
                       children: [
                         // Header Live View dengan Back Button
                         CctvLiveHeader(
-                          segmentName: widget.segmentName,
+                          segmentName: widget.effectiveSegmentName,
                           onBack: () => Navigator.of(context).pop(),
                         ),
                         const SizedBox(height: 16),
 
                         // Main Player Video Utama
                         CctvMainPlayerCard(
-                          cameraTitle: currentCamera['code']!,
-                          timestamp: '2026-08-27 06:30:15',
-                          directionText: currentCamera['direction']!,
+                          camera: currentCamera,
+                          cameraTitle: currentCamera.code,
+                          timestamp: currentCamera.timestamp,
+                          directionText: currentCamera.direction,
                         ),
                         const SizedBox(height: 16),
 
@@ -112,7 +95,7 @@ class _CctvLiveScreenState extends State<CctvLiveScreen> {
                             const SizedBox(width: 4),
                             Expanded(
                               child: Text(
-                                currentCamera['location']!,
+                                currentCamera.location,
                                 style: const TextStyle(
                                   fontSize: 14,
                                   fontWeight: FontWeight.bold,
@@ -147,8 +130,9 @@ class _CctvLiveScreenState extends State<CctvLiveScreen> {
                         final isSelected = index == _selectedCameraIndex;
 
                         return CctvCameraCard(
-                          title: cam['title']!,
-                          subtitle: cam['subtitle']!,
+                          camera: cam,
+                          title: cam.title,
+                          subtitle: cam.subtitle,
                           isSelected: isSelected,
                           onTap: () {
                             setState(() {

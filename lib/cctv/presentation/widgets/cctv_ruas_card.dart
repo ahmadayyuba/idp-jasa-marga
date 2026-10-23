@@ -1,17 +1,23 @@
 import 'package:flutter/material.dart';
+import '../../data/models/ruas_model.dart';
 import '../../../core/constants/app_colors.dart';
 
 class CctvRuasCard extends StatelessWidget {
-  final String title;
-  final String subtitle;
+  final RuasModel? ruas;
+  final String? title;
+  final String? subtitle;
   final VoidCallback onTap;
 
   const CctvRuasCard({
     super.key,
-    required this.title,
-    required this.subtitle,
+    this.ruas,
+    this.title,
+    this.subtitle,
     required this.onTap,
   });
+
+  String get displayTitle => ruas?.title ?? title ?? '';
+  String get displaySubtitle => ruas?.subtitle ?? subtitle ?? '';
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +34,7 @@ class CctvRuasCard extends StatelessWidget {
           ),
           boxShadow: [
             BoxShadow(
-              color: AppColors.primaryBlue.withOpacity(0.3),
+              color: AppColors.primaryBlue.withValues(alpha: 0.3),
               blurRadius: 12,
               offset: const Offset(0, 6),
             ),
@@ -49,7 +55,7 @@ class CctvRuasCard extends StatelessWidget {
                   decoration: BoxDecoration(
                     border: Border(
                       top: BorderSide(
-                        color: AppColors.white.withOpacity(0.1),
+                        color: AppColors.white.withValues(alpha: 0.1),
                         width: 2,
                       ),
                     ),
@@ -69,7 +75,7 @@ class CctvRuasCard extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          title,
+                          displayTitle,
                           style: const TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.bold,
@@ -78,7 +84,7 @@ class CctvRuasCard extends StatelessWidget {
                         ),
                         const SizedBox(height: 4),
                         Text(
-                          subtitle,
+                          displaySubtitle,
                           style: const TextStyle(
                             fontSize: 10,
                             color: AppColors.white70,
