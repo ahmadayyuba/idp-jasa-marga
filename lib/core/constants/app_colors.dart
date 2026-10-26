@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 
 class AppColors {
   // === Warna Utama Brand Jasa Marga & Accent (Bawaan Teman) ===
-  static const Color primaryBlue = Color.fromARGB(255, 17, 11, 104);
+  static const Color primaryBlue = Color(0xFF250094);
+  static const Color accentBlue = Color(0xFF3B82F6);
   static const Color buttonGradientEnd = Color(0xFFE2F0FD);
 
   // === Warna Teks (Bawaan Teman) ===

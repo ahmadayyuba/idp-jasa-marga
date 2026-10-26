@@ -54,7 +54,7 @@ class PwoRwgrScreen extends StatelessWidget {
               Container(
                 height: 48,
                 decoration: BoxDecoration(
-                  color: AppColors.primaryBlue,
+                  color: AppColors.accentBlue,
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: const Row(
@@ -113,13 +113,13 @@ class PwoRwgrScreen extends StatelessWidget {
                     Icon(
                       Icons.download_rounded,
                       size: 14,
-                      color: AppColors.primaryBlue,
+                      color: AppColors.accentBlue,
                     ),
                     SizedBox(width: 4),
                     Text(
                       'Export',
                       style: TextStyle(
-                        color: AppColors.primaryBlue,
+                        color: AppColors.accentBlue,
                         fontSize: 12,
                         fontWeight: FontWeight.bold,
                       ),
@@ -136,19 +136,21 @@ class PwoRwgrScreen extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const Text(
-                  'Data Telemetri PWO-RWGR',
-                  style: AppTextStyles.cardHeader,
-                ),
-                const SizedBox(height: 2),
-                Text(
-                  '8 Titik Pemantauan Peralatan Tol',
-                  style: AppTextStyles.bodySmall,
-                ),
-              ],
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Text(
+                    'Data Telemetri PWO-RWGR',
+                    style: AppTextStyles.cardHeader,
+                  ),
+                  const SizedBox(height: 2),
+                  Text(
+                    '8 Titik Pemantauan Peralatan Tol',
+                    style: AppTextStyles.bodySmall,
+                  ),
+                ],
+              ),
             ),
             Row(
               children: [

@@ -78,7 +78,7 @@ class _PeralatanDashboardScreenState extends State<PeralatanDashboardScreen> {
     );
   }
 
-  // --- KOMPONEN HEADER ---
+ // --- KOMPONEN HEADER ---
   Widget _buildHeader() {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
@@ -101,11 +101,10 @@ class _PeralatanDashboardScreenState extends State<PeralatanDashboardScreen> {
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
             decoration: BoxDecoration(
-              color: AppColors.primaryBlue.withValues(alpha: 0.1),
+              // --- PERBAIKAN: Menggunakan warna Biru Es pucat dari AppColors ---
+              color: AppColors.iconBoxBg,
               borderRadius: BorderRadius.circular(20),
-              border: Border.all(
-                color: AppColors.primaryBlue.withValues(alpha: 0.3),
-              ),
+              // --- Hapus Border ---
             ),
             child: Row(
               children: [
@@ -128,7 +127,7 @@ class _PeralatanDashboardScreenState extends State<PeralatanDashboardScreen> {
           // Tombol Refresh
           Container(
             decoration: const BoxDecoration(
-              color: Colors.white,
+              color: Colors.white, // Tetap putih sesuai referensi
               shape: BoxShape.circle,
             ),
             child: IconButton(

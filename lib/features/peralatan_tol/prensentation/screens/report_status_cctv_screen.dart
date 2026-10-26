@@ -143,7 +143,7 @@ class ReportStatusCctvScreen extends StatelessWidget {
               Container(
                 height: 48,
                 decoration: BoxDecoration(
-                  color: AppColors.primaryBlue,
+                  color: AppColors.accentBlue,
                   borderRadius: BorderRadius.circular(10),
                 ),
                 alignment: Alignment.center,
@@ -164,19 +164,21 @@ class ReportStatusCctvScreen extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const Text(
-                  'Laporan Status Shift CCTV',
-                  style: AppTextStyles.cardHeader,
-                ),
-                const SizedBox(height: 2),
-                Text(
-                  'Ruas Dalam Kota (09/02/2026)',
-                  style: AppTextStyles.bodySmall,
-                ),
-              ],
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Text(
+                    'Laporan Status Shift CCTV',
+                    style: AppTextStyles.cardHeader,
+                  ),
+                  const SizedBox(height: 2),
+                  Text(
+                    'Ruas Dalam Kota (09/02/2026)',
+                    style: AppTextStyles.bodySmall,
+                  ),
+                ],
+              ),
             ),
             Row(
               children: [

@@ -69,7 +69,7 @@ class ManagementCctvScreen extends StatelessWidget {
                     child: Container(
                       height: 44,
                       decoration: BoxDecoration(
-                        color: AppColors.primaryBlue,
+                        color: AppColors.accentBlue,
                         borderRadius: BorderRadius.circular(10),
                       ),
                       alignment: Alignment.center,

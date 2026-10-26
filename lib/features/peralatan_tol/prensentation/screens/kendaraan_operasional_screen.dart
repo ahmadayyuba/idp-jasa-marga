@@ -15,35 +15,35 @@ class KendaraanOperasionalScreen extends StatelessWidget {
         Row(
           children: [
             Expanded(
-              child: _buildStatusCard(
+              child: _buildTopCard(
                 title: 'Total Armada',
                 value: '8',
                 subtitle: 'Unit Terdaftar',
-                valueColor: AppColors.primaryBlue,
+                textColor: AppColors.primaryBlue,
                 bgColor: AppColors.iconBoxBg,
                 icon: Icons.directions_car,
               ),
             ),
             const SizedBox(width: 8),
             Expanded(
-              child: _buildStatusCard(
+              child: _buildTopCard(
                 title: 'Online (Aktif)',
                 value: '4',
                 subtitle: 'Sedang Beroperasi',
-                valueColor: AppColors.cardGreen,
+                textColor: AppColors.cardGreen,
                 bgColor: AppColors.bgSuccessSoft,
-                icon: Icons.cell_tower, // Ikon sinyal memancar
+                icon: Icons.cell_tower,
               ),
             ),
             const SizedBox(width: 8),
             Expanded(
-              child: _buildStatusCard(
+              child: _buildTopCard(
                 title: 'Offline (Standby)',
                 value: '4',
                 subtitle: 'Di Pool / Parkir',
-                valueColor: AppColors.cardRed,
+                textColor: AppColors.cardRed,
                 bgColor: AppColors.bgDangerSoft,
-                icon: Icons.signal_cellular_connected_no_internet_4_bar,
+                icon: Icons.portable_wifi_off, // Icon coret sesuai referensi
               ),
             ),
           ],
@@ -135,59 +135,66 @@ class KendaraanOperasionalScreen extends StatelessWidget {
               // Baris Tombol Aksi (Terapkan, Reset, Export, Toggle View)
               Row(
                 children: [
-                  Container(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 16,
-                      vertical: 10,
-                    ),
-                    decoration: BoxDecoration(
-                      color: AppColors.primaryBlue,
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                    child: const Text(
-                      'Terapkan',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 12,
-                        fontWeight: FontWeight.bold,
+                  // 1. Tombol Terapkan (Flex 3)
+                  Expanded(
+                    flex: 3,
+                    child: Container(
+                      height: 44,
+                      decoration: BoxDecoration(
+                        color: AppColors.accentBlue, // <-- Ganti di sini
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      alignment: Alignment.center,
+                      child: const Text(
+                        'Terapkan',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 13,
+                        ),
                       ),
                     ),
                   ),
                   const SizedBox(width: 8),
-                  Container(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 16,
-                      vertical: 10,
+
+                  // 2. Tombol Reset (Flex 2)
+                  Expanded(
+                    flex: 2,
+                    child: Container(
+                      height: 44,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(10),
+                        border: Border.all(color: AppColors.bgBorderSoft),
+                      ),
+                      alignment: Alignment.center,
+                      child: const Text(
+                        'Reset',
+                        style: TextStyle(
+                          color: AppColors.textMuted,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 13,
+                        ),
+                      ),
                     ),
+                  ),
+                  const SizedBox(width: 8),
+
+                  // 3. Tombol Export (Lebar tetap sesuai isi)
+                  Container(
+                    height: 44,
+                    padding: const EdgeInsets.symmetric(horizontal: 10),
                     decoration: BoxDecoration(
                       color: Colors.white,
-                      borderRadius: BorderRadius.circular(8),
+                      borderRadius: BorderRadius.circular(10),
                       border: Border.all(color: AppColors.bgBorderSoft),
                     ),
-                    child: const Text(
-                      'Reset',
-                      style: TextStyle(
-                        color: AppColors.textMuted,
-                        fontSize: 12,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
-                  const SizedBox(width: 8),
-                  Container(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 12,
-                      vertical: 10,
-                    ),
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(8),
-                      border: Border.all(color: AppColors.primaryBlue),
-                    ),
+                    alignment: Alignment.center,
                     child: const Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Icon(
-                          Icons.download_rounded,
+                          Icons.download,
                           size: 14,
                           color: AppColors.primaryBlue,
                         ),
@@ -196,52 +203,52 @@ class KendaraanOperasionalScreen extends StatelessWidget {
                           'Export',
                           style: TextStyle(
                             color: AppColors.primaryBlue,
-                            fontSize: 12,
                             fontWeight: FontWeight.bold,
+                            fontSize: 12,
                           ),
                         ),
                       ],
                     ),
                   ),
-                  const Spacer(),
-                  // Toggle Kartu | Tabel
+                  const SizedBox(width: 8),
+
+                  // 4. Toggle Kartu | Tabel
                   Container(
+                    height: 44,
                     decoration: BoxDecoration(
                       color: AppColors.bgGraySoft,
-                      borderRadius: BorderRadius.circular(8),
+                      borderRadius: BorderRadius.circular(10),
                       border: Border.all(color: AppColors.bgBorderSoft),
                     ),
                     child: Row(
                       children: [
+                        // Tombol Kartu Aktif (Biru)
                         Container(
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 10,
-                            vertical: 6,
-                          ),
+                          padding: const EdgeInsets.symmetric(horizontal: 12),
                           decoration: BoxDecoration(
                             color: AppColors.primaryBlue,
-                            borderRadius: BorderRadius.circular(7),
+                            borderRadius: BorderRadius.circular(9),
                           ),
+                          alignment: Alignment.center,
                           child: const Text(
                             'Kartu',
                             style: TextStyle(
                               color: Colors.white,
-                              fontSize: 11,
                               fontWeight: FontWeight.bold,
+                              fontSize: 12,
                             ),
                           ),
                         ),
-                        const Padding(
-                          padding: EdgeInsets.symmetric(
-                            horizontal: 10,
-                            vertical: 6,
-                          ),
-                          child: Text(
+                        // Teks Tabel (Muted)
+                        Container(
+                          padding: const EdgeInsets.symmetric(horizontal: 12),
+                          alignment: Alignment.center,
+                          child: const Text(
                             'Tabel',
                             style: TextStyle(
                               color: AppColors.textMuted,
-                              fontSize: 11,
                               fontWeight: FontWeight.bold,
+                              fontSize: 12,
                             ),
                           ),
                         ),
@@ -285,21 +292,21 @@ class KendaraanOperasionalScreen extends StatelessWidget {
     );
   }
 
-  // Helper untuk Kartu Ringkasan Atas
-  Widget _buildStatusCard({
+  // Helper untuk Kartu Statistik Atas agar bentuknya seragam
+  Widget _buildTopCard({
     required String title,
     required String value,
     required String subtitle,
-    required Color valueColor,
+    required Color textColor,
     required Color bgColor,
     required IconData icon,
   }) {
     return Container(
-      padding: const EdgeInsets.all(12),
+      padding: const EdgeInsets.all(10),
       decoration: BoxDecoration(
         color: bgColor,
         borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: valueColor.withValues(alpha: 0.2)),
+        border: Border.all(color: textColor.withValues(alpha: 0.2)),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -310,19 +317,22 @@ class KendaraanOperasionalScreen extends StatelessWidget {
               Expanded(
                 child: Text(
                   title,
-                  style: AppTextStyles.bodySmall.copyWith(
+                  style: const TextStyle(
+                    color: AppColors.textMuted,
+                    fontSize: 10,
                     fontWeight: FontWeight.bold,
                   ),
+                  overflow: TextOverflow.ellipsis,
                 ),
               ),
-              Icon(icon, size: 16, color: valueColor),
+              Icon(icon, size: 14, color: textColor),
             ],
           ),
           const SizedBox(height: 6),
           Text(
             value,
             style: TextStyle(
-              color: valueColor,
+              color: textColor,
               fontSize: 18,
               fontWeight: FontWeight.bold,
             ),
@@ -330,7 +340,8 @@ class KendaraanOperasionalScreen extends StatelessWidget {
           const SizedBox(height: 2),
           Text(
             subtitle,
-            style: const TextStyle(color: AppColors.textMuted, fontSize: 9.5),
+            style: const TextStyle(color: AppColors.textMuted, fontSize: 9),
+            overflow: TextOverflow.ellipsis,
           ),
         ],
       ),

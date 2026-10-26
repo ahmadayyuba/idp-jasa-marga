@@ -104,19 +104,21 @@ class MonitoringSegmentHitScreen extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const Text(
-                  'Monitoring Hit Lalu Lintas',
-                  style: AppTextStyles.cardHeader,
-                ),
-                const SizedBox(height: 2),
-                Text(
-                  '6 Segment Kecepatan Real-Time',
-                  style: AppTextStyles.bodySmall,
-                ),
-              ],
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Text(
+                    'Monitoring Hit Lalu Lintas',
+                    style: AppTextStyles.cardHeader,
+                  ),
+                  const SizedBox(height: 2),
+                  Text(
+                    '6 Segment Kecepatan Real-Time',
+                    style: AppTextStyles.bodySmall,
+                  ),
+                ],
+              ),
             ),
             Row(
               children: [

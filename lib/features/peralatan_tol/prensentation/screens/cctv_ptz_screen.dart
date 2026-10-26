@@ -203,12 +203,13 @@ class CctvPtzScreen extends StatelessWidget {
                             ),
                           ),
                           const SizedBox(height: 12),
-                          _buildDetailRow('Ruas', ': JAPEK'),
-                          _buildDetailRow('KM', ': 071+650'),
+                          _buildDetailRow('Ruas', 'JAPEK'),
+                          _buildDetailRow('KM', '071+650'),
                           _buildDetailRow(
-                            'Latitude/ Longitude',
-                            ': 3.5622936/\n  98.8527017',
+                            'Latitude/Longitude',
+                            '3.5622936 / 98.8527017',
                           ),
+                          const SizedBox(height: 16),
                           const SizedBox(height: 16),
                           Container(
                             padding: const EdgeInsets.symmetric(
@@ -320,22 +321,30 @@ class CctvPtzScreen extends StatelessWidget {
 
   Widget _buildDetailRow(String label, String value) {
     return Padding(
-      padding: const EdgeInsets.only(bottom: 6),
+      padding: const EdgeInsets.only(bottom: 8),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          SizedBox(
-            width: 120,
+          // Porsi untuk Label (Lebih kecil)
+          Expanded(
+            flex: 2,
             child: Text(
               label,
-              style: const TextStyle(fontSize: 12, color: AppColors.textMuted),
+              style: const TextStyle(fontSize: 11, color: AppColors.textMuted),
             ),
           ),
+          // Pemisah Titik Dua
+          const Text(
+            ': ',
+            style: TextStyle(fontSize: 11, color: AppColors.textMuted),
+          ),
+          // Porsi untuk Value (Lebih besar)
           Expanded(
+            flex: 3,
             child: Text(
               value,
               style: const TextStyle(
-                fontSize: 12,
+                fontSize: 11,
                 fontWeight: FontWeight.bold,
                 color: AppColors.textDark,
               ),

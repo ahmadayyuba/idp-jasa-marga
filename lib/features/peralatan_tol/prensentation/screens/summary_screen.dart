@@ -176,9 +176,11 @@ class SummaryScreen extends StatelessWidget {
                 .map(
                   (f) => Expanded(
                     child: Container(
-                      margin: EdgeInsets.only(right: f != filters.last ? 8 : 0),
+                      // 1. Kurangi margin antar kotak dari 8 menjadi 6
+                      margin: EdgeInsets.only(right: f != filters.last ? 6 : 0),
+                      // 2. Kurangi padding horizontal dari 10/8 menjadi 6
                       padding: const EdgeInsets.symmetric(
-                        horizontal: 10,
+                        horizontal: 6,
                         vertical: 8,
                       ),
                       decoration: BoxDecoration(
@@ -189,17 +191,21 @@ class SummaryScreen extends StatelessWidget {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text(
-                            f,
-                            style: const TextStyle(
-                              fontSize: 11,
-                              color: AppColors.textDark,
-                              fontWeight: FontWeight.bold,
+                          Expanded(
+                            child: Text(
+                              f,
+                              style: const TextStyle(
+                                fontSize: 10, // 3. Turunkan font dari 11 ke 10 agar lebih aman
+                                color: AppColors.textDark,
+                                fontWeight: FontWeight.bold,
+                              ),
+                              overflow: TextOverflow.ellipsis,
                             ),
                           ),
+                          const SizedBox(width: 2), // Jarak tipis teks ke ikon
                           const Icon(
                             Icons.keyboard_arrow_down,
-                            size: 16,
+                            size: 14, // 4. Turunkan ukuran ikon dari 16 ke 14
                             color: AppColors.textMuted,
                           ),
                         ],

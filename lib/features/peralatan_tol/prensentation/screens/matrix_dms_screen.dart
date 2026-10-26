@@ -22,23 +22,33 @@ class MatrixDmsScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              // Ganti bagian Row header ini (sekitar baris 26-62)
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment
+                    .start, // Agar tetap sejajar atas jika teks turun baris
                 children: [
-                  const Row(
-                    children: [
-                      Icon(
-                        Icons.monitor,
-                        color: AppColors.primaryBlue,
-                        size: 20,
-                      ),
-                      SizedBox(width: 8),
-                      Text(
-                        'Matrix DMS (Dynamic Message Sign)',
-                        style: AppTextStyles.cardHeader,
-                      ),
-                    ],
+                  Expanded(
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Icon(
+                          Icons.monitor,
+                          color: AppColors.primaryBlue,
+                          size: 20,
+                        ),
+                        const SizedBox(width: 8),
+                        Expanded(
+                          // <-- KUNCI: Membuat teks panjang turun ke bawah
+                          child: const Text(
+                            'Matrix DMS (Dynamic Message Sign)',
+                            style: AppTextStyles.cardHeader,
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
+                  const SizedBox(width: 12),
                   Container(
                     padding: const EdgeInsets.symmetric(
                       horizontal: 10,
@@ -213,7 +223,7 @@ class MatrixDmsScreen extends StatelessWidget {
     );
   }
 
-  // --- Widget Pembungkus Kartu DMS ---
+ // --- Widget Pembungkus Kartu DMS ---
   Widget _buildDmsCard({
     required String location,
     required String slideInfo,
@@ -231,17 +241,38 @@ class MatrixDmsScreen extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Header Kartu
+          // Header Kartu (Sudah Responsif Bebas Overflow)
           Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(location, style: AppTextStyles.cardHeader),
-              const SizedBox(width: 6),
-              const Icon(
-                Icons.info_outline,
-                color: AppColors.primaryBlue,
-                size: 16,
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      children: [
+                        Flexible(
+                          child: Text(
+                            location,
+                            style: AppTextStyles.cardHeader,
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                        ),
+                        const SizedBox(width: 6),
+                        const Icon(
+                          Icons.info_outline,
+                          color: AppColors.primaryBlue,
+                          size: 16,
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 4),
+                    Text('Update: $lastUpdate', style: AppTextStyles.bodySmall),
+                  ],
+                ),
               ),
-              const Spacer(),
+              const SizedBox(width: 8),
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
                 decoration: BoxDecoration(
@@ -250,8 +281,6 @@ class MatrixDmsScreen extends StatelessWidget {
                 ),
                 child: Text(slideInfo, style: AppTextStyles.bodySmall),
               ),
-              const SizedBox(width: 8),
-              Text('Last Update: $lastUpdate', style: AppTextStyles.bodySmall),
             ],
           ),
           const SizedBox(height: 12),
