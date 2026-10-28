@@ -16,11 +16,7 @@ class RealtimeTrafficScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final List<Map<String, dynamic>> jakartaTangerangData = [
-      {
-        'label': 'SS TOMANG',
-        'heightFactor': 0.45,
-        'color': AppColors.alertRed,
-      },
+      {'label': 'SS TOMANG', 'heightFactor': 0.45, 'color': AppColors.alertRed},
       {
         'label': 'KEBON JERUK',
         'heightFactor': 0.70,
@@ -28,16 +24,12 @@ class RealtimeTrafficScreen extends StatelessWidget {
       },
       {
         'label': 'KEBON JERUK',
-        'heightFactor': 0.90,
+        'heightFactor': 0.80,
         'color': AppColors.primaryBlue,
         'hasTooltip': true,
         'speed': '17 Km/Jam',
       },
-      {
-        'label': 'MERUYA',
-        'heightFactor': 0.72,
-        'color': AppColors.blue400,
-      },
+      {'label': 'MERUYA', 'heightFactor': 0.72, 'color': AppColors.blue400},
       {
         'label': 'SS KEMBANGAN',
         'heightFactor': 0.68,
@@ -48,34 +40,14 @@ class RealtimeTrafficScreen extends StatelessWidget {
         'heightFactor': 0.52,
         'color': AppColors.alertAmber,
       },
-      {
-        'label': 'KUNCIRAN',
-        'heightFactor': 0.72,
-        'color': AppColors.blue400,
-      },
-      {
-        'label': 'TANGERANG',
-        'heightFactor': 0.95,
-        'color': AppColors.blue400,
-      },
-      {
-        'label': 'KARAWACI',
-        'heightFactor': 0.88,
-        'color': AppColors.blue400,
-      },
+      {'label': 'KUNCIRAN', 'heightFactor': 0.72, 'color': AppColors.blue400},
+      {'label': 'TANGERANG', 'heightFactor': 0.95, 'color': AppColors.blue400},
+      {'label': 'KARAWACI', 'heightFactor': 0.88, 'color': AppColors.blue400},
     ];
 
     final List<Map<String, dynamic>> dalamKotaData = [
-      {
-        'label': 'SEMANGGI',
-        'heightFactor': 0.35,
-        'color': AppColors.alertRed,
-      },
-      {
-        'label': 'SENAYAN',
-        'heightFactor': 0.65,
-        'color': AppColors.blue400,
-      },
+      {'label': 'SEMANGGI', 'heightFactor': 0.35, 'color': AppColors.alertRed},
+      {'label': 'SENAYAN', 'heightFactor': 0.65, 'color': AppColors.blue400},
       {
         'label': 'KUNINGAN',
         'heightFactor': 0.85,
@@ -83,36 +55,12 @@ class RealtimeTrafficScreen extends StatelessWidget {
         'hasTooltip': true,
         'speed': '25 Km/Jam',
       },
-      {
-        'label': 'TEBET',
-        'heightFactor': 0.50,
-        'color': AppColors.alertAmber,
-      },
-      {
-        'label': 'CAWANG',
-        'heightFactor': 0.60,
-        'color': AppColors.blue400,
-      },
-      {
-        'label': 'HALIM',
-        'heightFactor': 0.62,
-        'color': AppColors.blue400,
-      },
-      {
-        'label': 'GROGOL',
-        'heightFactor': 0.48,
-        'color': AppColors.alertAmber,
-      },
-      {
-        'label': 'SLIPI',
-        'heightFactor': 0.75,
-        'color': AppColors.blue400,
-      },
-      {
-        'label': 'TOMANG',
-        'heightFactor': 0.80,
-        'color': AppColors.blue400,
-      },
+      {'label': 'TEBET', 'heightFactor': 0.50, 'color': AppColors.alertAmber},
+      {'label': 'CAWANG', 'heightFactor': 0.60, 'color': AppColors.blue400},
+      {'label': 'HALIM', 'heightFactor': 0.62, 'color': AppColors.blue400},
+      {'label': 'GROGOL', 'heightFactor': 0.48, 'color': AppColors.alertAmber},
+      {'label': 'SLIPI', 'heightFactor': 0.75, 'color': AppColors.blue400},
+      {'label': 'TOMANG', 'heightFactor': 0.80, 'color': AppColors.blue400},
     ];
 
     return Scaffold(

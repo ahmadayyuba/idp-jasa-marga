@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../../../../core/constants/app_colors.dart';
 
 class TrafficSpeedSummaryPills extends StatelessWidget {
@@ -74,7 +75,7 @@ class TrafficSpeedSummaryPills extends StatelessWidget {
     required String text,
   }) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
+      padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 8),
       decoration: BoxDecoration(
         color: bgColor,
         borderRadius: BorderRadius.circular(8),
@@ -83,13 +84,13 @@ class TrafficSpeedSummaryPills extends StatelessWidget {
       child: Row(
         children: [
           if (icon != null) ...[
-            Icon(icon, color: textColor, size: 20),
-            const SizedBox(width: 4),
+            Icon(icon, color: textColor, size: 16),
+            const SizedBox(width: 2),
           ],
           if (dotColor != null) ...[
             Container(
-              width: 8,
-              height: 8,
+              width: 6,
+              height: 6,
               decoration: BoxDecoration(
                 color: dotColor,
                 shape: BoxShape.circle,
@@ -97,9 +98,20 @@ class TrafficSpeedSummaryPills extends StatelessWidget {
             ),
             const SizedBox(width: 4),
           ],
-          Text(
-            text,
-            style: TextStyle(color: textColor, fontWeight: FontWeight.bold),
+          Expanded(
+            child: FittedBox(
+              fit: BoxFit.scaleDown,
+              alignment: Alignment.centerLeft,
+              child: Text(
+                text,
+                maxLines: 1,
+                style: TextStyle(
+                  color: textColor,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 11,
+                ),
+              ),
+            ),
           ),
         ],
       ),
