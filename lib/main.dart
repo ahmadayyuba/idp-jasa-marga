@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'IDP Jasa Marga',
       debugShowCheckedModeBanner: false,
-      initialRoute: AppRoutes.peralatanDashboard,
+      initialRoute: AppRoutes.loginscreen,
       onGenerateRoute: AppRouter.generateRoute,
       theme: ThemeData(
         fontFamily: 'Roboto',

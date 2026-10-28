@@ -32,7 +32,7 @@ class KendaraanOperasionalScreen extends StatelessWidget {
                 subtitle: 'Sedang Beroperasi',
                 textColor: AppColors.cardGreen,
                 bgColor: AppColors.bgSuccessSoft,
-                icon: Icons.cell_tower,
+                icon: Icons.sensors,
               ),
             ),
             const SizedBox(width: 8),
@@ -43,7 +43,7 @@ class KendaraanOperasionalScreen extends StatelessWidget {
                 subtitle: 'Di Pool / Parkir',
                 textColor: AppColors.cardRed,
                 bgColor: AppColors.bgDangerSoft,
-                icon: Icons.portable_wifi_off, // Icon coret sesuai referensi
+                icon: Icons.sensors_off, // Icon coret sesuai referensi
               ),
             ),
           ],
