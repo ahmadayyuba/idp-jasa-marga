@@ -9,7 +9,6 @@ import 'widgets/category_filter_pills.dart';
 import 'widgets/feature_menu_grid.dart';
 import 'widgets/peralatan_menu_grid.dart';
 
-import 'widgets/floating_side_button.dart';
 import 'widgets/custom_bottom_nav_bar.dart';
 
 import 'widgets/notifications/notification_bottom_sheet.dart';
@@ -96,12 +95,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 ),
               ),
 
-              // Floating side button (sisi kanan)
-              Positioned(
-                right: 0,
-                bottom: MediaQuery.sizeOf(context).height * 0.015,
-                child: FloatingSideButton(onPressed: () {}),
-              ),
+             
             ],
           ),
         ),

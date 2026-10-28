@@ -6,7 +6,7 @@ import 'widgets/maintenance_chart_card.dart';
 import 'widgets/activity_chart_card.dart';
 
 // Reusable Dashboard Widgets
-import '../../dashboard/presentation/widgets/floating_side_button.dart';
+
 import '../../dashboard/presentation/widgets/custom_bottom_nav_bar.dart';
 import '../../../core/constants/app_colors.dart';
 
@@ -70,12 +70,6 @@ class _MaintenanceSummaryScreenState extends State<MaintenanceSummaryScreen> {
                     const SizedBox(height: 80),
                   ],
                 ),
-              ),
-
-              Positioned(
-                right: 0,
-                bottom: MediaQuery.of(context).size.height * 0.15,
-                child: FloatingSideButton(onPressed: () {}),
               ),
             ],
           ),

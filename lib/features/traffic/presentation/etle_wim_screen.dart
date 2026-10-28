@@ -7,7 +7,7 @@ import 'widgets/etle_filter_card.dart';
 import 'widgets/etle_chart_card.dart';
 
 import '../../dashboard/presentation/dashboard_screen.dart';
-import '../../dashboard/presentation/widgets/floating_side_button.dart';
+
 import '../../dashboard/presentation/widgets/custom_bottom_nav_bar.dart';
 import '../../../core/constants/app_colors.dart';
 
@@ -78,11 +78,7 @@ class EtleWimScreen extends StatelessWidget {
               ),
 
               // Floating Bottom-Right Action Button
-              Positioned(
-                right: 0,
-                bottom: MediaQuery.of(context).size.height * 0.15,
-                child: FloatingSideButton(onPressed: () {}),
-              ),
+              
             ],
           ),
         ),

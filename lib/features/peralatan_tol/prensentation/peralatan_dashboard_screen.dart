@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:idp_jasa_marga/features/dashboard/presentation/widgets/custom_bottom_nav_bar.dart';
+
 import '../../../core/constants/app_colors.dart';
 import '../../../core/constants/app_text_styles.dart';
 import 'screens/realtime_ews_screen.dart';
@@ -21,7 +22,9 @@ import 'screens/kendaraan_operasional_screen.dart';
 // Nanti kita import layar-layar spesifik di sini
 
 class PeralatanDashboardScreen extends StatefulWidget {
-  const PeralatanDashboardScreen({super.key});
+  final int initialIndex;
+
+  const PeralatanDashboardScreen({super.key, required this.initialIndex});
 
   @override
   State<PeralatanDashboardScreen> createState() =>
@@ -29,8 +32,14 @@ class PeralatanDashboardScreen extends StatefulWidget {
 }
 
 class _PeralatanDashboardScreenState extends State<PeralatanDashboardScreen> {
-  // Mirip useState di React. Menyimpan index tab mana yang sedang aktif.
-  int _selectedIndex = 0;
+  late int _selectedIndex;
+
+  @override
+  void initState() {
+    super.initState();
+    // 3. Tangkap nilai initialIndex saat widget pertama kali dimuat
+    _selectedIndex = widget.initialIndex;
+  }
 
   // Daftar nama 15 Menu Peralatan
   final List<String> _menuTabs = [
@@ -78,7 +87,7 @@ class _PeralatanDashboardScreenState extends State<PeralatanDashboardScreen> {
     );
   }
 
- // --- KOMPONEN HEADER ---
+  // --- KOMPONEN HEADER ---
   Widget _buildHeader() {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),

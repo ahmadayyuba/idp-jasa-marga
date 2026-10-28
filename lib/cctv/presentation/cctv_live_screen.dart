@@ -8,7 +8,7 @@ import 'widgets/cctv_main_player_card.dart';
 import 'widgets/cctv_camera_card.dart';
 
 // Reusable Dashboard Widgets
-import '../../features/dashboard/presentation/widgets/floating_side_button.dart';
+
 import '../../features/dashboard/presentation/widgets/custom_bottom_nav_bar.dart';
 import '../../core/constants/app_colors.dart';
 
@@ -143,12 +143,7 @@ class _CctvLiveScreenState extends State<CctvLiveScreen> {
                 ],
               ),
 
-              // Floating Side Button
-              Positioned(
-                right: 0,
-                bottom: MediaQuery.sizeOf(context).height * 0.05,
-                child: FloatingSideButton(onPressed: () {}),
-              ),
+              
             ],
           ),
         ),

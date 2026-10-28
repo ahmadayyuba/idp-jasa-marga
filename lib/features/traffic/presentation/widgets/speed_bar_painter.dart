@@ -5,7 +5,6 @@ import 'traffic_tab_pills.dart';
 import 'traffic_speed_summary_pills.dart';
 import 'speed_chart_card.dart';
 
-import '../../../dashboard/presentation/widgets/floating_side_button.dart';
 import '../../../dashboard/presentation/widgets/custom_bottom_nav_bar.dart';
 import '../../../../core/constants/app_colors.dart';
 
@@ -202,12 +201,7 @@ class RealtimeTrafficScreen extends StatelessWidget {
                 ),
               ),
 
-              // Reusable Floating Side Button
-              Positioned(
-                right: 0,
-                bottom: MediaQuery.sizeOf(context).height * 0.15,
-                child: FloatingSideButton(onPressed: () {}),
-              ),
+             
             ],
           ),
         ),

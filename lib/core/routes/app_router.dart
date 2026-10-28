@@ -64,7 +64,8 @@ class AppRouter {
 
       // 11. Peralatan Tol Dashboard
       case AppRoutes.peralatanDashboard:
-        return _buildRoute(const PeralatanDashboardScreen(), settings);
+      final int index = (settings.arguments as int?) ?? 0;
+        return _buildRoute(PeralatanDashboardScreen(initialIndex: index), settings);
 
       case AppRoutes.maintenanceSummary:
         return _buildRoute(

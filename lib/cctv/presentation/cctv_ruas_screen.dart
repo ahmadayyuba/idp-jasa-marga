@@ -8,7 +8,7 @@ import 'widgets/cctv_ruas_card.dart';
 import './cctv_segment_screen.dart';
 
 // Reusable Dashboard Widgets
-import '../../features/dashboard/presentation/widgets/floating_side_button.dart';
+
 import '../../features/dashboard/presentation/widgets/custom_bottom_nav_bar.dart';
 import '../../core/constants/app_colors.dart';
 
@@ -106,11 +106,7 @@ class _CctvRuasScreenState extends State<CctvRuasScreen> {
                   ],
                 ),
               ),
-              Positioned(
-                right: 0,
-                bottom: MediaQuery.of(context).size.height * 0.015,
-                child: FloatingSideButton(onPressed: () {}),
-              ),
+             
             ],
           ),
         ),
