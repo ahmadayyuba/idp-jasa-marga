@@ -136,7 +136,7 @@ class _CctvSegmentScreenState extends State<CctvSegmentScreen> {
           ),
         ),
       ),
-      bottomNavigationBar: const CustomBottomNavBar(),
+      bottomNavigationBar: const CustomBottomNavBar(activeIndex: 1),
     );
   }
 }

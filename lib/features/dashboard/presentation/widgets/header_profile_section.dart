@@ -15,16 +15,21 @@ class HeaderProfileSection extends StatelessWidget {
     required this.onLogoutTap,
   });
 
+  /// Ambil inisial pertama dari nama user
+  String get _initial =>
+      userName.trim().isNotEmpty ? userName.trim()[0].toUpperCase() : 'U';
+
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
+        // Avatar circle dengan inisial dinamis
         CircleAvatar(
           radius: 24,
           backgroundColor: AppColors.avatarLightBlue,
-          child: const Text(
-            'A',
-            style: TextStyle(
+          child: Text(
+            _initial,
+            style: const TextStyle(
               fontSize: 20,
               fontWeight: FontWeight.bold,
               color: AppColors.primaryActive,
@@ -33,12 +38,13 @@ class HeaderProfileSection extends StatelessWidget {
         ),
         const SizedBox(width: 12),
 
+        // Greeting + nama user
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const Text(
-              'Halo',
-              style: TextStyle(fontSize: 12, color: AppColors.grey),
+              'Halo,',
+              style: TextStyle(fontSize: 12, color: AppColors.textSecondary),
             ),
             Text(
               userName,
@@ -51,7 +57,6 @@ class HeaderProfileSection extends StatelessWidget {
           ],
         ),
         const Spacer(),
-
 
         // Action Buttons
         _buildIconButton(
@@ -92,7 +97,7 @@ class HeaderProfileSection extends StatelessWidget {
           alignment: Alignment.center,
           children: [
             Icon(icon, color: AppColors.primaryActive, size: 20),
-            if(showBadge)
+            if (showBadge)
               Positioned(
                 top: 10,
                 right: 10,
@@ -100,11 +105,11 @@ class HeaderProfileSection extends StatelessWidget {
                   width: 8,
                   height: 8,
                   decoration: const BoxDecoration(
-                    color: AppColors.red,
+                    color: AppColors.alertRed,
                     shape: BoxShape.circle,
                   ),
                 ),
-                ),
+              ),
           ],
         ),
       ),

@@ -153,7 +153,7 @@ class _CctvLiveScreenState extends State<CctvLiveScreen> {
           ),
         ),
       ),
-      bottomNavigationBar: const CustomBottomNavBar(),
+      bottomNavigationBar: const CustomBottomNavBar(activeIndex: 1),
     );
   }
 }

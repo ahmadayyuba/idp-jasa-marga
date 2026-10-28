@@ -2,22 +2,59 @@ import 'package:flutter/material.dart';
 
 import 'feature_menu_item.dart';
 import '../../../../core/routes/app_routes.dart';
-
+import '../../../../core/constants/app_colors.dart'; 
 class FeatureMenuGrid extends StatelessWidget {
   const FeatureMenuGrid({super.key});
 
   @override
   Widget build(BuildContext context) {
+    // 2. Gunakan konstanta dari AppColors (Bukan Color(0xFF...) manual)
     final List<Map<String, dynamic>> menuItems = [
-      {'icon': Icons.bar_chart_rounded, 'label': 'Dashboard\nLalu Lintas'},
-      {'icon': Icons.speed_rounded, 'label': 'Realtime\nTraffic'},
-      {'icon': Icons.grid_view_rounded, 'label': 'Antrian\nGerbang'},
-      {'icon': Icons.access_time_rounded, 'label': 'Lalin Per\nJam'},
-      {'icon': Icons.warning_amber_rounded, 'label': 'Gangguan\nLalin'},
-      {'icon': Icons.trending_up_rounded, 'label': 'Kinerja\nLalin'},
-      {'icon': Icons.traffic_rounded, 'label': 'Traffic'},
-      {'icon': Icons.alt_route_rounded, 'label': 'Management\nLCS'},
-      {'icon': Icons.camera_alt_outlined, 'label': 'ETLE &\nWIM'},
+      {
+        'icon': Icons.bar_chart_rounded,
+        'label': 'Dashboard\nLalu Lintas',
+        'color': AppColors.menuNavy,
+      },
+      {
+        'icon': Icons.speed_rounded,
+        'label': 'Realtime\nTraffic',
+        'color': AppColors.menuBrightBlue,
+      },
+      {
+        'icon': Icons.grid_view_rounded,
+        'label': 'Antrian\nGerbang',
+        'color': AppColors.menuIndigo,
+      },
+      {
+        'icon': Icons.access_time_rounded,
+        'label': 'Lalin Per\nJam',
+        'color': AppColors.menuTeal,
+      },
+      {
+        'icon': Icons.warning_amber_rounded,
+        'label': 'Gangguan\nLalin',
+        'color': AppColors.menuRedAlert,
+      },
+      {
+        'icon': Icons.trending_up_rounded,
+        'label': 'Kinerja\nLalin',
+        'color': AppColors.menuOrange,
+      },
+      {
+        'icon': Icons.traffic_rounded,
+        'label': 'Traffic',
+        'color': AppColors.menuPurple,
+      },
+      {
+        'icon': Icons.alt_route_rounded,
+        'label': 'Management\nLCS',
+        'color': AppColors.menuBrightBlue,
+      },
+      {
+        'icon': Icons.camera_alt_outlined,
+        'label': 'ETLE &\nWIM',
+        'color': AppColors.menuDarkBlue,
+      },
     ];
 
     return GridView.builder(
@@ -34,6 +71,7 @@ class FeatureMenuGrid extends StatelessWidget {
         return FeatureMenuItem(
           icon: menuItems[index]['icon'],
           label: menuItems[index]['label'],
+          iconColor: menuItems[index]['color'],
           onTap: () {
             switch (index) {
               case 0:
@@ -64,7 +102,6 @@ class FeatureMenuGrid extends StatelessWidget {
                 Navigator.of(context).pushNamed(AppRoutes.etleWimScreen);
                 break;
               default:
-                // Handle default case if needed
                 break;
             }
           },

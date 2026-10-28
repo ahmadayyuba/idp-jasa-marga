@@ -86,6 +86,7 @@ class AppColors {
 
   static const Color indigo = Color(0xFF4F46E5);
   static const Color purpleContraflow = Color(0xFF6366F1);
+  static const Color violet = Color(0xFF8B5CF6); // Menu: Traffic
   static const Color indigoLight = Color(0xFF818CF8);
   static const Color indigoPastel = Color(0xFFC7D2FE);
 
@@ -122,4 +123,12 @@ class AppColors {
   static const Color white38 = Colors.white38;
   static const Color white54 = Colors.white54;
   static const Color white70 = Colors.white70;
+  static const Color menuNavy = Color(0xFF0F2B5B);
+  static const Color menuBrightBlue = Color(0xFF0284C7);
+  static const Color menuIndigo = Color(0xFF6366F1);
+  static const Color menuTeal = Color(0xFF0D9488);
+  static const Color menuRedAlert = Color(0xFFEF4444);
+  static const Color menuOrange = Color(0xFFF59E0B);
+  static const Color menuPurple = Color(0xFF8B5CF6);
+  static const Color menuDarkBlue = Color(0xFF1E3A8A);
 }

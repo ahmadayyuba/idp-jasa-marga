@@ -115,7 +115,7 @@ class _CctvRuasScreenState extends State<CctvRuasScreen> {
           ),
         ),
       ),
-      bottomNavigationBar: const CustomBottomNavBar(),
+      bottomNavigationBar: const CustomBottomNavBar(activeIndex: 1),
     );
   }
 }

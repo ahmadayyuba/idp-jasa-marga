@@ -5,46 +5,25 @@ class AuthSessionManager {
   AuthSessionManager._internal();
   static final AuthSessionManager instance = AuthSessionManager._internal();
 
-  static const UserModel defaultUser = UserModel(
-    id: 'usr_001',
-    employeeId: '10700',
-    fullName: 'Rahmat Rudiantono',
-    role: 'Senior Traffic Controller',
+  // Ubah default user ke Anggun Windari
+  final ValueNotifier<UserModel?> currentUserNotifier = ValueNotifier<UserModel?>(
+    const UserModel(
+      id: 'usr_001',
+      employeeId: 'employeeId',
+      fullName: 'Anggun Windari',
+      role: 'Operator',
+    ),
   );
 
-  // ValueNotifier untuk memantau status login dan data user aktif
-  final ValueNotifier<UserModel?> currentUserNotifier =
-      ValueNotifier<UserModel?>(defaultUser);
-
-  ValueNotifier<UserModel?> get userNotifier => currentUserNotifier;
-
   UserModel? get currentUser => currentUserNotifier.value;
-
   bool get isLoggedIn => currentUserNotifier.value != null;
 
-  void login({
-    String employeeId = '10700',
-    String? fullName,
-    String role = 'Senior Traffic Controller',
-    String? avatarUrl,
-    UserModel? user,
-  }) {
-    if (user != null) {
-      currentUserNotifier.value = user;
-      return;
-    }
-
-    final trimmedId = employeeId.trim().isNotEmpty ? employeeId.trim() : '10700';
-    final name = (fullName != null && fullName.trim().isNotEmpty)
-        ? fullName.trim()
-        : (trimmedId == '10700' ? 'Rahmat Rudiantono' : 'Employee $trimmedId');
-
+  void login({required String employeeId, required String fullName}) {
     currentUserNotifier.value = UserModel(
-      id: 'usr_$trimmedId',
-      employeeId: trimmedId,
-      fullName: name,
-      role: role,
-      avatarUrl: avatarUrl,
+      id: DateTime.now().millisecondsSinceEpoch.toString(),
+      employeeId: employeeId,
+      fullName: fullName,
+      role: 'Operator',
     );
   }
 
