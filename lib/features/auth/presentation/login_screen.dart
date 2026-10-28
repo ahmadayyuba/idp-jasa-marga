@@ -5,6 +5,10 @@ import 'widgets/footer_badge.dart';
 import 'widgets/header_badges.dart';
 import 'widgets/login_card.dart';
 
+// 1. TAMBAHKAN IMPORT SESSI DAN DASHBOARD
+import '../../../core/session/auth_session_manager.dart';
+import '../../dashboard/presentation/dashboard_screen.dart';
+
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
 
@@ -26,12 +30,21 @@ class _LoginScreenState extends State<LoginScreen> {
     super.dispose();
   }
 
+  // 2. UBAH FUNGSI _handleSignIn DI SINI
   void _handleSignIn() {
     if (_formKey.currentState?.validate() ?? false) {
       final employeeId = _employeeIdController.text.trim();
-      final password = _passwordController.text;
-      debugPrint(
-        'Proses Sign-In untuk Employee ID: $employeeId | Pass length: ${password.length}',
+
+      // Simpan data sesi login pengguna
+      AuthSessionManager.instance.login(
+        employeeId: employeeId.isEmpty ? 'EMP-001' : employeeId,
+        fullName: 'Anggun Windari', // Nama profil pengguna
+      );
+
+      // Navigasi ke DashboardScreen dan bersihkan tumpukan halaman login
+      Navigator.of(context).pushAndRemoveUntil(
+        MaterialPageRoute(builder: (context) => const DashboardScreen()),
+        (route) => false,
       );
     }
   }
