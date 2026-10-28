@@ -24,7 +24,7 @@ class _SpeedChartCardState extends State<SpeedChartCard> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(16),
+      padding: const EdgeInsets.all(14),
       decoration: BoxDecoration(
         color: AppColors.white,
         borderRadius: BorderRadius.circular(24),
@@ -138,14 +138,14 @@ class _SpeedChartCardState extends State<SpeedChartCard> {
 
                       // Batang Chart Membulat
                       Container(
-                        width: 22,
-                        height: 110 * heightFactor,
+                        width: 20,
+                        height: 90 * heightFactor,
                         decoration: BoxDecoration(
                           color: barColor,
                           borderRadius: BorderRadius.circular(12),
                         ),
                       ),
-                      const SizedBox(height: 8),
+                      const SizedBox(height: 6),
 
                       // Label Lokasi Rotasi
                       Transform.rotate(
@@ -170,7 +170,7 @@ class _SpeedChartCardState extends State<SpeedChartCard> {
               }).toList(),
             ),
           ),
-          const SizedBox(height: 20),
+          const SizedBox(height: 10),
 
           // Footer Text Last Update
           Center(
