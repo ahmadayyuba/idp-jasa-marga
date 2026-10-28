@@ -59,7 +59,7 @@ class TrafficTabPills extends StatelessWidget {
           boxShadow: [
             if (!isActive)
               BoxShadow(
-                color: AppColors.black.withOpacity(0.04),
+                color: AppColors.black.withValues(alpha: 0.04),
                 blurRadius: 4,
                 offset: const Offset(0, 2),
               ),

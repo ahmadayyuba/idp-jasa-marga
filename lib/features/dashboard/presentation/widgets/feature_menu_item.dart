@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../../../../core/constants/app_colors.dart';
 
 class FeatureMenuItem extends StatelessWidget {
@@ -30,17 +31,21 @@ class FeatureMenuItem extends StatelessWidget {
             height: 56,
             decoration: BoxDecoration(
               // 4. Background lingkaran otomatis mengikuti warna ikon (transparansi 12%)
-              color: activeColor.withOpacity(0.12),
+              color: activeColor.withValues(alpha: 0.12),
               shape: BoxShape.circle,
               boxShadow: [
                 BoxShadow(
-                  color: activeColor.withOpacity(0.10),
+                  color: activeColor.withValues(alpha: 0.10),
                   blurRadius: 8,
                   offset: const Offset(0, 2),
                 ),
               ],
             ),
-            child: Icon(icon, color: activeColor, size: 26), // 5. Warna ikon dinamis
+            child: Icon(
+              icon,
+              color: activeColor,
+              size: 26,
+            ), // 5. Warna ikon dinamis
           ),
           const SizedBox(height: 8),
           Text(

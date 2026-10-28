@@ -5,7 +5,6 @@ import '../traffic/presentation/widgets/traffic_tab_pills.dart';
 import '../traffic/presentation/widgets/rekayasa_traffic_card.dart';
 import '../traffic/presentation/widgets/gangguan_traffic_grid.dart';
 import '../traffic/presentation/widgets/odol_chart_card.dart';
-import '../dashboard/presentation/widgets/floating_side_button.dart';
 import '../dashboard/presentation/widgets/custom_bottom_nav_bar.dart';
 import '../dashboard/presentation/dashboard_screen.dart';
 import '../../core/constants/app_colors.dart';
@@ -68,12 +67,7 @@ class TrafficDashboardScreen extends StatelessWidget {
                 ),
               ),
 
-              // Reusable Floating Side Button
-              Positioned(
-                right: 0,
-                bottom: MediaQuery.sizeOf(context).height * 0.15,
-                child: FloatingSideButton(onPressed: () {}),
-              ),
+              
             ],
           ),
         ),

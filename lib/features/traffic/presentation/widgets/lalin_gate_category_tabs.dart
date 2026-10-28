@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../../../../core/constants/app_colors.dart';
 
 class LalinGateCategoryTabs extends StatelessWidget {
@@ -24,7 +25,7 @@ class LalinGateCategoryTabs extends StatelessWidget {
           child: Container(
             padding: const EdgeInsets.all(3),
             decoration: BoxDecoration(
-              color: AppColors.dividerSlate.withOpacity(0.5),
+              color: AppColors.dividerSlate.withValues(alpha: 0.5),
               borderRadius: BorderRadius.circular(20),
             ),
             child: Row(
@@ -41,22 +42,16 @@ class LalinGateCategoryTabs extends StatelessWidget {
         Container(
           padding: const EdgeInsets.all(3),
           decoration: BoxDecoration(
-            color: AppColors.dividerSlate.withOpacity(0.5),
+            color: AppColors.dividerSlate.withValues(alpha: 0.5),
             borderRadius: BorderRadius.circular(20),
           ),
           child: Row(
             children: [
               // Button 1: Speedometer / Gauge Icon
-              _buildIconButton(
-                icon: Icons.speed_rounded,
-                index: 0,
-              ),
+              _buildIconButton(icon: Icons.speed_rounded, index: 0),
               const SizedBox(width: 2),
               // Button 2: Bar Chart Icon
-              _buildIconButton(
-                icon: Icons.bar_chart_rounded,
-                index: 1,
-              ),
+              _buildIconButton(icon: Icons.bar_chart_rounded, index: 1),
             ],
           ),
         ),

@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'features/dashboard/presentation/dashboard_screen.dart';
+import 'package:idp_jasa_marga/features/auth/presentation/login_screen.dart';
+
+// Import asli milik temanmu
+
 import 'core/routes/app_router.dart';
 import 'core/routes/app_routes.dart';
 import 'core/constants/app_colors.dart';
@@ -16,15 +19,19 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'IDP Jasa Marga',
       debugShowCheckedModeBanner: false,
-      initialRoute: AppRoutes.loginscreen,
+      initialRoute: AppRoutes.peralatanDashboard,
       onGenerateRoute: AppRouter.generateRoute,
       theme: ThemeData(
         fontFamily: 'Roboto',
         useMaterial3: true,
         scaffoldBackgroundColor: AppColors.bgGradientEnd,
       ),
-      // Menjadikan DashboardScreen sebagai tampilan utama
-      home: const DashboardScreen(),
+      // --- UBAH SEMENTARA UNTUK TESTING ---
+      // Kita komen dulu layar utama milik temanmu:
+      // home: const DashboardScreen(),
+
+      // Kita panggil layar kerangka kita sebagai halaman pertama:
+      home: const LoginScreen(),
     );
   }
 }

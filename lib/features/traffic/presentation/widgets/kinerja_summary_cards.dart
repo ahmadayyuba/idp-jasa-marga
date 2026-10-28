@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../../../../core/constants/app_colors.dart';
 
 class KinerjaSummaryCards extends StatelessWidget {
@@ -27,7 +28,7 @@ class KinerjaSummaryCards extends StatelessWidget {
             borderRadius: BorderRadius.circular(20),
             boxShadow: [
               BoxShadow(
-                color: AppColors.primaryActive.withOpacity(0.2),
+                color: AppColors.primaryActive.withValues(alpha: 0.2),
                 blurRadius: 10,
                 offset: const Offset(0, 4),
               ),
@@ -38,7 +39,7 @@ class KinerjaSummaryCards extends StatelessWidget {
               Container(
                 padding: const EdgeInsets.all(10),
                 decoration: BoxDecoration(
-                  color: AppColors.white.withOpacity(0.15),
+                  color: AppColors.white.withValues(alpha: 0.15),
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: const Icon(
@@ -88,7 +89,7 @@ class KinerjaSummaryCards extends StatelessWidget {
                   borderRadius: BorderRadius.circular(16),
                   boxShadow: [
                     BoxShadow(
-                      color: AppColors.black.withOpacity(0.02),
+                      color: AppColors.black.withValues(alpha: 0.02),
                       blurRadius: 8,
                       offset: const Offset(0, 2),
                     ),
@@ -151,7 +152,7 @@ class KinerjaSummaryCards extends StatelessWidget {
                   borderRadius: BorderRadius.circular(16),
                   boxShadow: [
                     BoxShadow(
-                      color: AppColors.black.withOpacity(0.02),
+                      color: AppColors.black.withValues(alpha: 0.02),
                       blurRadius: 8,
                       offset: const Offset(0, 2),
                     ),
@@ -180,11 +181,7 @@ class KinerjaSummaryCards extends StatelessWidget {
                     const SizedBox(height: 6),
                     const Row(
                       children: [
-                        Icon(
-                          Icons.circle,
-                          size: 8,
-                          color: AppColors.blue600,
-                        ),
+                        Icon(Icons.circle, size: 8, color: AppColors.blue600),
                         SizedBox(width: 4),
                         Expanded(
                           child: Text(

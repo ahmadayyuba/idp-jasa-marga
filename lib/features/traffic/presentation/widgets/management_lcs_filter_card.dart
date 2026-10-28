@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
+
 import '../../../../core/constants/app_colors.dart';
 
 class ManagementLcsFilterCard extends StatefulWidget {
   final int totalTitik;
 
-  const ManagementLcsFilterCard({
-    super.key,
-    this.totalTitik = 6,
-  });
+  const ManagementLcsFilterCard({super.key, this.totalTitik = 6});
 
   @override
   State<ManagementLcsFilterCard> createState() =>
@@ -27,7 +25,7 @@ class _ManagementLcsFilterCardState extends State<ManagementLcsFilterCard> {
         borderRadius: BorderRadius.circular(20),
         boxShadow: [
           BoxShadow(
-            color: AppColors.black.withOpacity(0.02),
+            color: AppColors.black.withValues(alpha: 0.02),
             blurRadius: 8,
             offset: const Offset(0, 2),
           ),
@@ -59,8 +57,7 @@ class _ManagementLcsFilterCardState extends State<ManagementLcsFilterCard> {
                 ],
               ),
               Container(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
+                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
                 decoration: BoxDecoration(
                   color: AppColors.badgeGreenBg,
                   borderRadius: BorderRadius.circular(10),
@@ -109,15 +106,8 @@ class _ManagementLcsFilterCardState extends State<ManagementLcsFilterCard> {
                   color: AppColors.textPrimary,
                 ),
                 onChanged: (val) => setState(() => _selectedRuas = val!),
-                items: [
-                  'Jakarta-Cikampek',
-                  'Jagorawi',
-                  'Cipularang',
-                ].map((e) {
-                  return DropdownMenuItem<String>(
-                    value: e,
-                    child: Text(e),
-                  );
+                items: ['Jakarta-Cikampek', 'Jagorawi', 'Cipularang'].map((e) {
+                  return DropdownMenuItem<String>(value: e, child: Text(e));
                 }).toList(),
               ),
             ),

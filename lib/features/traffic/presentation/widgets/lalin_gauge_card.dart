@@ -28,7 +28,7 @@ class LalinGaugeCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(20),
         boxShadow: [
           BoxShadow(
-            color: AppColors.black.withOpacity(0.02),
+            color: AppColors.black.withValues(alpha: 0.02),
             blurRadius: 10,
             offset: const Offset(0, 2),
           ),
@@ -74,10 +74,7 @@ class LalinGaugeCard extends StatelessWidget {
                   children: [
                     const Text(
                       'Total',
-                      style: TextStyle(
-                        fontSize: 9,
-                        color: AppColors.textMuted,
-                      ),
+                      style: TextStyle(fontSize: 9, color: AppColors.textMuted),
                     ),
                     Text(
                       totalCount,
@@ -89,16 +86,15 @@ class LalinGaugeCard extends StatelessWidget {
                     ),
                     const Text(
                       'Kendaraan',
-                      style: TextStyle(
-                        fontSize: 9,
-                        color: AppColors.textMuted,
-                      ),
+                      style: TextStyle(fontSize: 9, color: AppColors.textMuted),
                     ),
                     const SizedBox(height: 4),
                     // Pill Dropdown Jam
                     Container(
                       padding: const EdgeInsets.symmetric(
-                          horizontal: 8, vertical: 2),
+                        horizontal: 8,
+                        vertical: 2,
+                      ),
                       decoration: BoxDecoration(
                         color: AppColors.bgSlate,
                         borderRadius: BorderRadius.circular(10),
@@ -115,8 +111,11 @@ class LalinGaugeCard extends StatelessWidget {
                               color: AppColors.slate700,
                             ),
                           ),
-                          const Icon(Icons.keyboard_arrow_down_rounded,
-                              size: 10, color: AppColors.slate700),
+                          const Icon(
+                            Icons.keyboard_arrow_down_rounded,
+                            size: 10,
+                            color: AppColors.slate700,
+                          ),
                         ],
                       ),
                     ),
@@ -141,10 +140,7 @@ class LalinGaugeCard extends StatelessWidget {
           // 4. Update Time
           Text(
             updateTime,
-            style: const TextStyle(
-              fontSize: 8,
-              color: AppColors.textMuted,
-            ),
+            style: const TextStyle(fontSize: 8, color: AppColors.textMuted),
           ),
         ],
       ),

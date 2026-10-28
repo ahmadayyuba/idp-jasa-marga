@@ -8,7 +8,7 @@ import 'widgets/maintenance_search_filter.dart';
 import 'widgets/maintenance_task_card.dart';
 
 // Reusable Dashboard Widgets
-import '../../dashboard/presentation/widgets/floating_side_button.dart';
+
 import '../../dashboard/presentation/widgets/custom_bottom_nav_bar.dart';
 import '../../../core/constants/app_colors.dart';
 
@@ -86,7 +86,10 @@ class _DataPemeliharaanScreenState extends State<DataPemeliharaanScreen> {
           child: Stack(
             children: [
               SingleChildScrollView(
-                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 20,
+                  vertical: 16,
+                ),
                 child: Column(
                   children: [
                     MaintenanceHeader(
@@ -99,7 +102,8 @@ class _DataPemeliharaanScreenState extends State<DataPemeliharaanScreen> {
                       activeIndex: 1,
                       onTabChanged: (index) {
                         if (index == 0) {
-                          Navigator.of(context).pushReplacementNamed('/maintenance-summary');
+                          Navigator.of(context)
+                              .pushReplacementNamed('/maintenance-summary');
                         }
                       },
                     ),
@@ -125,7 +129,8 @@ class _DataPemeliharaanScreenState extends State<DataPemeliharaanScreen> {
                       shrinkWrap: true,
                       physics: const NeverScrollableScrollPhysics(),
                       itemCount: _taskList.length,
-                      separatorBuilder: (context, index) => const SizedBox(height: 12),
+                      separatorBuilder: (context, index) =>
+                          const SizedBox(height: 12),
                       itemBuilder: (context, index) {
                         final task = _taskList[index];
                         return MaintenanceTaskCard(
@@ -143,12 +148,6 @@ class _DataPemeliharaanScreenState extends State<DataPemeliharaanScreen> {
                     const SizedBox(height: 80),
                   ],
                 ),
-              ),
-
-              Positioned(
-                right: 0,
-                bottom: MediaQuery.of(context).size.height * 0.15,
-                child: FloatingSideButton(onPressed: () {}),
               ),
             ],
           ),

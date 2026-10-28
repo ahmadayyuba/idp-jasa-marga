@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../../../../core/constants/app_colors.dart';
 
 class SpeedChartCard extends StatefulWidget {
@@ -29,7 +30,7 @@ class _SpeedChartCardState extends State<SpeedChartCard> {
         borderRadius: BorderRadius.circular(24),
         boxShadow: [
           BoxShadow(
-            color: AppColors.black.withOpacity(0.02),
+            color: AppColors.black.withValues(alpha: 0.02),
             blurRadius: 10,
             offset: const Offset(0, 2),
           ),
@@ -43,7 +44,10 @@ class _SpeedChartCardState extends State<SpeedChartCard> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Container(
-                padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 6),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 14,
+                  vertical: 6,
+                ),
                 decoration: BoxDecoration(
                   color: AppColors.cardLightBlue,
                   borderRadius: BorderRadius.circular(20),
@@ -66,10 +70,7 @@ class _SpeedChartCardState extends State<SpeedChartCard> {
                   borderRadius: BorderRadius.circular(20),
                 ),
                 child: Row(
-                  children: [
-                    _buildDirectionBtn('A'),
-                    _buildDirectionBtn('B'),
-                  ],
+                  children: [_buildDirectionBtn('A'), _buildDirectionBtn('B')],
                 ),
               ),
             ],
@@ -97,13 +98,18 @@ class _SpeedChartCardState extends State<SpeedChartCard> {
                       if (hasTooltip) ...[
                         Container(
                           padding: const EdgeInsets.symmetric(
-                              horizontal: 6, vertical: 4),
+                            horizontal: 6,
+                            vertical: 4,
+                          ),
                           decoration: BoxDecoration(
                             color: AppColors.white,
                             borderRadius: BorderRadius.circular(8),
                             border: Border.all(color: AppColors.borderSlate),
                             boxShadow: const [
-                              BoxShadow(color: AppColors.black12, blurRadius: 4),
+                              BoxShadow(
+                                color: AppColors.black12,
+                                blurRadius: 4,
+                              ),
                             ],
                           ),
                           child: Column(
@@ -148,8 +154,9 @@ class _SpeedChartCardState extends State<SpeedChartCard> {
                           label,
                           style: TextStyle(
                             fontSize: 7,
-                            fontWeight:
-                                hasTooltip ? FontWeight.bold : FontWeight.w600,
+                            fontWeight: hasTooltip
+                                ? FontWeight.bold
+                                : FontWeight.w600,
                             color: hasTooltip
                                 ? AppColors.primaryActive
                                 : AppColors.textSecondary,
@@ -169,10 +176,7 @@ class _SpeedChartCardState extends State<SpeedChartCard> {
           Center(
             child: Text(
               'waktu terakhir update ${widget.lastUpdate}',
-              style: const TextStyle(
-                fontSize: 10,
-                color: AppColors.textMuted,
-              ),
+              style: const TextStyle(fontSize: 10, color: AppColors.textMuted),
             ),
           ),
         ],

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../../../../core/constants/app_colors.dart';
 
 class LalinBarChartCard extends StatelessWidget {
@@ -22,7 +23,7 @@ class LalinBarChartCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(24),
         boxShadow: [
           BoxShadow(
-            color: AppColors.black.withOpacity(0.02),
+            color: AppColors.black.withValues(alpha: 0.02),
             blurRadius: 10,
             offset: const Offset(0, 2),
           ),
@@ -60,10 +61,7 @@ class LalinBarChartCard extends StatelessWidget {
           const SizedBox(height: 2),
           Text(
             updateTime,
-            style: const TextStyle(
-              fontSize: 9,
-              color: AppColors.textMuted,
-            ),
+            style: const TextStyle(fontSize: 9, color: AppColors.textMuted),
           ),
           const SizedBox(height: 20),
 
@@ -77,11 +75,26 @@ class LalinBarChartCard extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
-                    Text('7500', style: TextStyle(fontSize: 8, color: AppColors.textMuted)),
-                    Text('5500', style: TextStyle(fontSize: 8, color: AppColors.textMuted)),
-                    Text('3500', style: TextStyle(fontSize: 8, color: AppColors.textMuted)),
-                    Text('1500', style: TextStyle(fontSize: 8, color: AppColors.textMuted)),
-                    Text('-500', style: TextStyle(fontSize: 8, color: AppColors.textMuted)),
+                    Text(
+                      '7500',
+                      style: TextStyle(fontSize: 8, color: AppColors.textMuted),
+                    ),
+                    Text(
+                      '5500',
+                      style: TextStyle(fontSize: 8, color: AppColors.textMuted),
+                    ),
+                    Text(
+                      '3500',
+                      style: TextStyle(fontSize: 8, color: AppColors.textMuted),
+                    ),
+                    Text(
+                      '1500',
+                      style: TextStyle(fontSize: 8, color: AppColors.textMuted),
+                    ),
+                    Text(
+                      '-500',
+                      style: TextStyle(fontSize: 8, color: AppColors.textMuted),
+                    ),
                   ],
                 ),
                 const SizedBox(width: 8),
@@ -110,18 +123,25 @@ class LalinBarChartCard extends StatelessWidget {
                         children: hourlyData.map((item) {
                           final int count = item['count'] as int;
                           final String time = item['time'] as String;
-                          final bool isHighlighted = item['isHighlighted'] ?? false;
+                          final bool isHighlighted =
+                              item['isHighlighted'] ?? false;
 
                           // Tentukan Warna Berdasarkan Threshold Figma
-                          Color barColor = AppColors.successGreen; // Hijau Normal
+                          Color barColor =
+                              AppColors.successGreen; // Hijau Normal
                           if (count >= 5500) {
-                            barColor = AppColors.alertRed; // Merah Kritis (>5500)
+                            barColor =
+                                AppColors.alertRed; // Merah Kritis (>5500)
                           } else if (count >= 3500) {
-                            barColor = AppColors.alertAmber; // Kuning/Oranye Padat (>4000)
+                            barColor = AppColors
+                                .alertAmber; // Kuning/Oranye Padat (>4000)
                           }
 
                           // Kalkulasi Tinggi Batang (max 7500)
-                          final double heightRatio = (count / 7500).clamp(0.05, 1.0);
+                          final double heightRatio = (count / 7500).clamp(
+                            0.05,
+                            1.0,
+                          );
 
                           return Expanded(
                             child: Stack(
@@ -157,9 +177,10 @@ class LalinBarChartCard extends StatelessWidget {
                                       height: 130 * heightRatio,
                                       decoration: BoxDecoration(
                                         color: barColor,
-                                        borderRadius: const BorderRadius.vertical(
-                                          top: Radius.circular(3),
-                                        ),
+                                        borderRadius:
+                                            const BorderRadius.vertical(
+                                              top: Radius.circular(3),
+                                            ),
                                       ),
                                     ),
                                     const SizedBox(height: 6),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../../../../core/constants/app_colors.dart';
 
 class CategoryFilterPills extends StatelessWidget {
@@ -22,7 +23,8 @@ class CategoryFilterPills extends StatelessWidget {
         return Expanded(
           child: Padding(
             padding: EdgeInsets.only(
-                right: index < categories.length - 1 ? 8.0 : 0),
+              right: index < categories.length - 1 ? 8.0 : 0,
+            ),
             child: GestureDetector(
               onTap: () => onCategoryChanged(index),
               child: AnimatedContainer(
@@ -34,7 +36,7 @@ class CategoryFilterPills extends StatelessWidget {
                   boxShadow: [
                     if (!isActive)
                       BoxShadow(
-                        color: AppColors.black.withOpacity(0.04),
+                        color: AppColors.black.withValues(alpha: 0.04),
                         blurRadius: 6,
                         offset: const Offset(0, 2),
                       ),

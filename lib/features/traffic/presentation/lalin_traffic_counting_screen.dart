@@ -8,7 +8,7 @@ import 'widgets/traffic_counting_card.dart';
 
 // Reusable Dashboard Widgets
 import '../../dashboard/presentation/dashboard_screen.dart';
-import '../../dashboard/presentation/widgets/floating_side_button.dart';
+
 import '../../dashboard/presentation/widgets/custom_bottom_nav_bar.dart';
 import '../../../core/constants/app_colors.dart';
 
@@ -114,12 +114,6 @@ class LalinTrafficCountingScreen extends StatelessWidget {
                     const SizedBox(height: 80), // Spacer bottom nav
                   ],
                 ),
-              ),
-
-              Positioned(
-                right: 0,
-                bottom: MediaQuery.of(context).size.height * 0.15,
-                child: FloatingSideButton(onPressed: () {}),
               ),
             ],
           ),

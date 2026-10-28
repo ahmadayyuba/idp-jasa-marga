@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../../../../core/constants/app_colors.dart';
 
 class EtleChartCard extends StatelessWidget {
@@ -7,9 +8,36 @@ class EtleChartCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // Dummy Data
-    final List<String> months = ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Agu'];
-    final List<double> barHeights = [0.6, 0.65, 0.6, 0.65, 0.65, 0.65, 0.68, 0.6];
-    final List<double> lineHeights = [0.65, 0.15, 0.85, 0.45, 0.55, 0.3, 0.1, 0.3];
+    final List<String> months = [
+      'Jan',
+      'Feb',
+      'Mar',
+      'Apr',
+      'Mei',
+      'Jun',
+      'Jul',
+      'Agu',
+    ];
+    final List<double> barHeights = [
+      0.6,
+      0.65,
+      0.6,
+      0.65,
+      0.65,
+      0.65,
+      0.68,
+      0.6,
+    ];
+    final List<double> lineHeights = [
+      0.65,
+      0.15,
+      0.85,
+      0.45,
+      0.55,
+      0.3,
+      0.1,
+      0.3,
+    ];
 
     return Container(
       padding: const EdgeInsets.all(16),
@@ -18,7 +46,7 @@ class EtleChartCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(20),
         boxShadow: [
           BoxShadow(
-            color: AppColors.black.withOpacity(0.02),
+            color: AppColors.black.withValues(alpha: 0.02),
             blurRadius: 8,
             offset: const Offset(0, 2),
           ),
@@ -55,7 +83,10 @@ class EtleChartCard extends StatelessWidget {
                 ),
               ),
               Container(
-                padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 10,
+                  vertical: 4,
+                ),
                 decoration: BoxDecoration(
                   color: AppColors.bgSlate,
                   borderRadius: BorderRadius.circular(8),
@@ -94,7 +125,7 @@ class EtleChartCard extends StatelessWidget {
                     _YAxisLine(labelL: '0', labelR: '0'),
                   ],
                 ),
-                
+
                 // Bars & Line Overlay
                 Positioned.fill(
                   top: 10,
@@ -124,7 +155,10 @@ class EtleChartCard extends StatelessWidget {
                           ),
                           // Custom Paint for the Line
                           CustomPaint(
-                            size: Size(constraints.maxWidth, constraints.maxHeight),
+                            size: Size(
+                              constraints.maxWidth,
+                              constraints.maxHeight,
+                            ),
                             painter: _LineChartPainter(
                               points: lineHeights,
                               lineColor: AppColors.skyBlueLight, // Light Blue
@@ -149,7 +183,10 @@ class EtleChartCard extends StatelessWidget {
                         child: Text(
                           m,
                           textAlign: TextAlign.center,
-                          style: const TextStyle(fontSize: 9, color: AppColors.white54),
+                          style: const TextStyle(
+                            fontSize: 9,
+                            color: AppColors.white54,
+                          ),
                         ),
                       );
                     }).toList(),
@@ -164,8 +201,14 @@ class EtleChartCard extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              _buildLegend(AppColors.successGreen, 'Kecepatan Rata-Rata (Km/j)'),
-              _buildLegend(AppColors.skyBlueLight, 'Jumlah Pelanggaran (Kasus)'),
+              _buildLegend(
+                AppColors.successGreen,
+                'Kecepatan Rata-Rata (Km/j)',
+              ),
+              _buildLegend(
+                AppColors.skyBlueLight,
+                'Jumlah Pelanggaran (Kasus)',
+              ),
             ],
           ),
         ],
@@ -206,14 +249,21 @@ class _YAxisLine extends StatelessWidget {
       children: [
         SizedBox(
           width: 20,
-          child: Text(labelL, style: const TextStyle(fontSize: 8, color: AppColors.white38)),
+          child: Text(
+            labelL,
+            style: const TextStyle(fontSize: 8, color: AppColors.white38),
+          ),
         ),
         const Expanded(
           child: Divider(color: AppColors.white10, height: 1, thickness: 1),
         ),
         SizedBox(
           width: 20,
-          child: Text(labelR, textAlign: TextAlign.right, style: const TextStyle(fontSize: 8, color: AppColors.white38)),
+          child: Text(
+            labelR,
+            textAlign: TextAlign.right,
+            style: const TextStyle(fontSize: 8, color: AppColors.white38),
+          ),
         ),
       ],
     );

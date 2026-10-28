@@ -3,14 +3,14 @@ import 'package:flutter/material.dart';
 class AppColors {
   AppColors._();
 
-  // --- Brand & Primary Colors ---
-  static const Color primaryBlue = Color(0xFF1E3A8A);
+  // === Warna Utama Brand Jasa Marga & Accent ===
+  static const Color primaryBlue = Color(0xFF250094);
+  static const Color accentBlue = Color(0xFF3B82F6);
+  static const Color buttonGradientEnd = Color(0xFFE2F0FD);
   static const Color darkNavy = Color(0xFF0F2B5B);
   static const Color deepNavy = Color(0xFF111827);
-  static const Color accentBlue = Color(0xFF005BAC);
   static const Color primaryActive = Color(0xFF003399);
   static const Color brightBlue = Color(0xFF0284C7);
-  static const Color buttonGradientEnd = Color(0xFF005BAC);
   static const Color midnightNavy = Color(0xFF001E3C);
   static const Color navyBlue = Color(0xFF002266);
   static const Color royalBlue = Color(0xFF004CB8);
@@ -23,20 +23,34 @@ class AppColors {
   static const Color skyBlue = Color(0xFF0EA5E9);
   static const Color skyBlueLight = Color(0xFF38BDF8);
 
-  // --- Backgrounds & Surface ---
+  // === Warna Teks ===
+  static const Color textPrimary = Color(0xFF0F172A);
+  static const Color textDark = Color(0xFF0F172A);
+  static const Color textSecondary = Color(0xFF64748B);
+  static const Color textMuted = Color(0xFF64748B);
+  static const Color textWhite = Colors.white;
+  static const Color textWhite70 = Colors.white70;
+
+  // === Warna Latar Belakang & Container ===
+  static const Color backgroundCard = Color(0xFFF8FAFC);
+  static const Color iconBoxBg = Color(0xFFEEF2FF);
   static const Color bgGradientStart = Color(0xFFE0F2FE);
-  static const Color bgGradientEnd = Color(0xFFF8FAFC);
+  static const Color bgGradientEnd = Colors.white;
   static const Color cardLightBlue = Color(0xFFEFF6FF);
   static const Color avatarBg = Color(0xFFE0E7FF);
   static const Color avatarLightBlue = Color(0xFFE2EDF8);
-  static const Color iconBoxBg = Color(0xFFEFF6FF);
   static const Color playerBg = Color(0xFF0B132B);
   static const Color playerSurface = Color(0xFF1E293B);
   static const Color bgSlate = Color(0xFFF1F5F9);
   static const Color cardIndigoLight = Color(0xFFEEF2FF);
   static const Color redSurfaceLight = Color(0xFFFFF5F5);
 
-  // --- Borders & Dividers ---
+  // === Variasi Soft Background & Borders ===
+  static const Color bgSuccessSoft = Color(0xFFECFDF5);
+  static const Color bgDangerSoft = Color(0xFFFEE2E2);
+  static const Color bgWarningSoft = Color(0xFFFEF3C7);
+  static const Color bgBorderSoft = Color(0xFFE2E8F0);
+  static const Color bgGraySoft = Color(0xFFF1F5F9);
   static const Color borderBlue = Color(0xFFBFDBFE);
   static const Color borderLightBlue = Color(0xFFBFDBFF);
   static const Color borderSkyBlue = Color(0xFFBAE6FD);
@@ -48,7 +62,20 @@ class AppColors {
   static const Color borderGreenLight = Color(0xFFBBF7D0);
   static const Color lightGreenBorder = Color(0xFF86EFAC);
 
-  // --- Badges, Chips & Accents ---
+  // === Status Dasar & Kartu Ringkasan ===
+  static const Color cardGreen = Color(0xFF22C55E);
+  static const Color cardRed = Color(0xFFF85D5D);
+  static const Color warningOrange = Color(0xFFF59E0B);
+  static const Color warningPurple = Color(0xFF8B5CF6);
+
+  // === Legend Durasi Offline ===
+  static const Color legend1 = Color(0xFFF59E0B);
+  static const Color legend2 = Color(0xFFEF4444);
+  static const Color legend3 = Color(0xFFDC2626);
+  static const Color legend4 = Color(0xFF991B1B);
+  static const Color legend5 = Color(0xFF7F1D1D);
+
+  // === Badges, Chips & Accents ===
   static const Color iconCircleBg = Color(0xFFDBEAFE);
   static const Color alertRed = Color(0xFFEF4444);
   static const Color dangerRed = Color(0xFFDC2626);
@@ -70,7 +97,6 @@ class AppColors {
   static const Color badgeAmberBg = Color(0xFFFEF3C7);
 
   static const Color alertOrange = Color(0xFFF97316);
-  static const Color warningOrange = Color(0xFFEA580C);
   static const Color patchingOrange = Color(0xFFFDBA74);
   static const Color badgeOrangeBg = Color(0xFFFFEDD5);
 
@@ -86,24 +112,16 @@ class AppColors {
 
   static const Color indigo = Color(0xFF4F46E5);
   static const Color purpleContraflow = Color(0xFF6366F1);
-  static const Color violet = Color(0xFF8B5CF6); // Menu: Traffic
+  static const Color violet = Color(0xFF8B5CF6);
   static const Color indigoLight = Color(0xFF818CF8);
   static const Color indigoPastel = Color(0xFFC7D2FE);
 
-  // --- Dark Shades & Slate ---
+  // === Dark Shades & Slate ===
   static const Color darkCharcoal = Color(0xFF333333);
   static const Color slate700 = Color(0xFF334155);
   static const Color slate600 = Color(0xFF475569);
 
-  // --- Typography / Text Colors ---
-  static const Color textPrimary = Color(0xFF0F172A);
-  static const Color textDark = Color(0xFF0F172A);
-  static const Color textSecondary = Color(0xFF64748B);
-  static const Color textMuted = Color(0xFF94A3B8);
-  static const Color textWhite = Colors.white;
-  static const Color textWhite70 = Colors.white70;
-
-  // --- Standard & Material Palette Colors ---
+  // === Standard Palette Colors ===
   static const Color white = Colors.white;
   static const Color black = Colors.black;
   static const Color transparent = Colors.transparent;

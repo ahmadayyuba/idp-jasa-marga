@@ -34,18 +34,9 @@ class _TrafficSummaryCardState extends State<TrafficSummaryCard> {
   int _selectedTabIndex = 0;
 
   final List<Map<String, dynamic>> _tabs = const [
-    {
-      'title': 'Gangguan\nLalu Lintas',
-      'icon': Icons.warning_amber_rounded,
-    },
-    {
-      'title': 'Rekayasa\nLalu Lintas',
-      'icon': Icons.alt_route_rounded,
-    },
-    {
-      'title': 'Pemeliharaan\nJalan Tol',
-      'icon': Icons.build_rounded,
-    },
+    {'title': 'Gangguan\nLalu Lintas', 'icon': Icons.warning_amber_rounded},
+    {'title': 'Rekayasa\nLalu Lintas', 'icon': Icons.alt_route_rounded},
+    {'title': 'Pemeliharaan\nJalan Tol', 'icon': Icons.build_rounded},
   ];
 
   /// Data sample per tab
@@ -117,7 +108,7 @@ class _TrafficSummaryCardState extends State<TrafficSummaryCard> {
         borderRadius: BorderRadius.circular(20),
         boxShadow: [
           BoxShadow(
-            color: AppColors.navyBlue.withOpacity(0.35),
+            color: AppColors.navyBlue.withValues(alpha: 0.35),
             blurRadius: 16,
             offset: const Offset(0, 6),
           ),
@@ -189,7 +180,7 @@ class _TrafficSummaryCardState extends State<TrafficSummaryCard> {
             child: Column(
               children: [
                 // Header kolom tabel
-                const Row( 
+                const Row(
                   children: [
                     Expanded(
                       flex: 3,
@@ -238,10 +229,7 @@ class _TrafficSummaryCardState extends State<TrafficSummaryCard> {
                     ),
                   ],
                 ),
-                const Divider(
-                  height: 14,
-                  color: AppColors.white24,
-                ),
+                const Divider(height: 14, color: AppColors.white24),
 
                 // Baris-baris data
                 ...rows.map((row) => _buildTableRow(row)),
@@ -293,10 +281,7 @@ class _TrafficSummaryCardState extends State<TrafficSummaryCard> {
               flex: 2,
               child: Text(
                 row.km,
-                style: const TextStyle(
-                  fontSize: 10,
-                  color: AppColors.white70,
-                ),
+                style: const TextStyle(fontSize: 10, color: AppColors.white70),
               ),
             ),
             // Kolom Arah
@@ -304,10 +289,7 @@ class _TrafficSummaryCardState extends State<TrafficSummaryCard> {
               flex: 2,
               child: Text(
                 row.arah,
-                style: const TextStyle(
-                  fontSize: 10,
-                  color: AppColors.white70,
-                ),
+                style: const TextStyle(fontSize: 10, color: AppColors.white70),
               ),
             ),
             // Kolom Dampak (berwarna berdasarkan tipe)

@@ -13,7 +13,7 @@ import 'widgets/maintenance_task_card.dart';
 import 'water_level_sensor_view.dart';
 
 // Reusable Dashboard Widgets
-import '../../dashboard/presentation/widgets/floating_side_button.dart';
+
 import '../../dashboard/presentation/widgets/custom_bottom_nav_bar.dart';
 import '../../../core/constants/app_colors.dart';
 
@@ -172,12 +172,6 @@ class _MaintenanceParentScreenState extends State<MaintenanceParentScreen> {
                     const SizedBox(height: 80),
                   ],
                 ),
-              ),
-
-              Positioned(
-                right: 0,
-                bottom: MediaQuery.of(context).size.height * 0.15,
-                child: FloatingSideButton(onPressed: () {}),
               ),
             ],
           ),

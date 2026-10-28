@@ -53,7 +53,7 @@ class SettingsProfileCard extends StatelessWidget {
                   ),
                   const SizedBox(height: 4),
                 Text(
-                  '\(role • ID\)employeeId',
+                  '(role • ID)employeeId',
                   style: const TextStyle(
                     fontSize: 12,
                     color: AppColors.textSecondary,

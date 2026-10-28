@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../../../../core/constants/app_colors.dart';
 
 class LaneSignItem {
@@ -33,7 +34,7 @@ class ManagementLcsCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(16),
         boxShadow: [
           BoxShadow(
-            color: AppColors.black.withOpacity(0.02),
+            color: AppColors.black.withValues(alpha: 0.02),
             blurRadius: 8,
             offset: const Offset(0, 2),
           ),
@@ -84,8 +85,10 @@ class ManagementLcsCard extends StatelessWidget {
               ),
               const SizedBox(width: 8),
               Container(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 10,
+                  vertical: 4,
+                ),
                 decoration: BoxDecoration(
                   color: isOnline
                       ? AppColors.vibrantGreen
@@ -169,17 +172,13 @@ class ManagementLcsCard extends StatelessWidget {
             style: TextStyle(
               fontSize: 10,
               fontWeight: FontWeight.bold,
-              color: lane.isOpen
-                  ? AppColors.statusGreen
-                  : AppColors.dangerRed,
+              color: lane.isOpen ? AppColors.statusGreen : AppColors.dangerRed,
             ),
           ),
           Icon(
             lane.isOpen ? Icons.arrow_downward_rounded : Icons.close_rounded,
             size: 11,
-            color: lane.isOpen
-                ? AppColors.statusGreen
-                : AppColors.dangerRed,
+            color: lane.isOpen ? AppColors.statusGreen : AppColors.dangerRed,
           ),
         ],
       ),

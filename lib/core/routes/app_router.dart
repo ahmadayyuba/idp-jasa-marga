@@ -13,6 +13,7 @@ import '../../features/traffic/presentation/kinerja_lalin_screen.dart';
 import '../../features/traffic/presentation/traffic_screen.dart';
 import '../../features/traffic/presentation/management_lcs_screen.dart';
 import '../../features/traffic/presentation/etle_wim_screen.dart';
+import '../../features/peralatan_tol/prensentation/peralatan_dashboard_screen.dart';
 import '../../features/maintenance/presentation/maintenance_parent_screen.dart';
 import '../../cctv/presentation/cctv_ruas_screen.dart';
 import '../../cctv/presentation/cctv_segment_screen.dart';
@@ -60,6 +61,12 @@ class AppRouter {
       // 10. ETLE & WIM
       case AppRoutes.etleWimScreen:
         return _buildRoute(const EtleWimScreen(), settings);
+
+      // 11. Peralatan Tol Dashboard
+      case AppRoutes.peralatanDashboard:
+      final int index = (settings.arguments as int?) ?? 0;
+        return _buildRoute(PeralatanDashboardScreen(initialIndex: index), settings);
+
       case AppRoutes.maintenanceSummary:
         return _buildRoute(
           const MaintenanceParentScreen(initialIndex: 0),

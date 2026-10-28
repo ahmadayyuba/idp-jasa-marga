@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../../../../core/constants/app_colors.dart';
 
 class TrafficFilterCard extends StatefulWidget {
@@ -24,7 +25,7 @@ class _TrafficFilterCardState extends State<TrafficFilterCard> {
         borderRadius: BorderRadius.circular(20),
         boxShadow: [
           BoxShadow(
-            color: AppColors.black.withOpacity(0.02),
+            color: AppColors.black.withValues(alpha: 0.02),
             blurRadius: 8,
             offset: const Offset(0, 2),
           ),
@@ -36,7 +37,11 @@ class _TrafficFilterCardState extends State<TrafficFilterCard> {
           // Title Filter
           const Row(
             children: [
-              Icon(Icons.traffic_rounded, size: 18, color: AppColors.primaryActive),
+              Icon(
+                Icons.traffic_rounded,
+                size: 18,
+                color: AppColors.primaryActive,
+              ),
               SizedBox(width: 6),
               Text(
                 'Filter Ruas & Koridor Tol',

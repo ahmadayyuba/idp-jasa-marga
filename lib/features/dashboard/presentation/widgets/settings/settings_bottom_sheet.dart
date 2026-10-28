@@ -104,7 +104,7 @@ class _SettingsBottomSheetState extends State {
             subtitle: 'Gunakan sidik jari/Face ID HP untuk login cepat',
             trailing: Switch.adaptive(
               value: _isBiometricEnabled,
-              activeColor: AppColors.primaryActive,
+              activeThumbColor: AppColors.primaryActive,
               activeTrackColor: AppColors.pastelBlue,
               onChanged: (val) {
                 setState(() {

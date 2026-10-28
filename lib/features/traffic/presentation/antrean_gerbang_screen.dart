@@ -6,7 +6,7 @@ import 'widgets/antrean_direction_pills.dart';
 import 'widgets/antrean_gauge_card.dart';
 
 import '../../dashboard/presentation/dashboard_screen.dart';
-import '../../dashboard/presentation/widgets/floating_side_button.dart';
+
 import '../../dashboard/presentation/widgets/custom_bottom_nav_bar.dart';
 import '../../../core/constants/app_colors.dart';
 
@@ -142,12 +142,6 @@ class AntreanGerbangScreen extends StatelessWidget {
                     const SizedBox(height: 80),
                   ],
                 ),
-              ),
-
-              Positioned(
-                right: 0,
-                bottom: MediaQuery.of(context).size.height * 0.15,
-                child: FloatingSideButton(onPressed: () {}),
               ),
             ],
           ),

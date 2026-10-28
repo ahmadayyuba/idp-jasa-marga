@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../../../../core/constants/app_colors.dart';
 
 class LalinSubToggle extends StatelessWidget {
@@ -16,7 +17,7 @@ class LalinSubToggle extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(4),
       decoration: BoxDecoration(
-        color: AppColors.dividerSlate.withOpacity(0.6),
+        color: AppColors.dividerSlate.withValues(alpha: 0.6),
         borderRadius: BorderRadius.circular(24),
       ),
       child: Row(
@@ -74,7 +75,10 @@ class LalinSubToggle extends StatelessWidget {
               if (badgeText != null) ...[
                 const SizedBox(width: 6),
                 Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 6,
+                    vertical: 2,
+                  ),
                   decoration: BoxDecoration(
                     color: AppColors.alertRed,
                     borderRadius: BorderRadius.circular(10),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'radial_tick_gauge_painter.dart';
 import '../../../../core/constants/app_colors.dart';
 
@@ -31,7 +32,7 @@ class TrafficCountingCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(20),
         boxShadow: [
           BoxShadow(
-            color: AppColors.black.withOpacity(0.02),
+            color: AppColors.black.withValues(alpha: 0.02),
             blurRadius: 10,
             offset: const Offset(0, 2),
           ),
@@ -70,8 +71,10 @@ class TrafficCountingCard extends StatelessWidget {
               const SizedBox(width: 8),
               // Badge Kecepatan Hijau
               Container(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 10,
+                  vertical: 4,
+                ),
                 decoration: BoxDecoration(
                   color: AppColors.badgeGreenBg,
                   borderRadius: BorderRadius.circular(12),

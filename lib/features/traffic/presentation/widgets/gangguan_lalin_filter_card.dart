@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../../../../core/constants/app_colors.dart';
 
 class GangguanLalinFilterCard extends StatefulWidget {
@@ -34,7 +35,7 @@ class _GangguanLalinFilterCardState extends State<GangguanLalinFilterCard> {
         borderRadius: BorderRadius.circular(20),
         boxShadow: [
           BoxShadow(
-            color: AppColors.black.withOpacity(0.02),
+            color: AppColors.black.withValues(alpha: 0.02),
             blurRadius: 10,
             offset: const Offset(0, 2),
           ),
@@ -66,8 +67,10 @@ class _GangguanLalinFilterCardState extends State<GangguanLalinFilterCard> {
                 ],
               ),
               Container(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 10,
+                  vertical: 4,
+                ),
                 decoration: BoxDecoration(
                   color: AppColors.badgeRoseBg,
                   borderRadius: BorderRadius.circular(12),
@@ -142,8 +145,10 @@ class _GangguanLalinFilterCardState extends State<GangguanLalinFilterCard> {
                 style: ElevatedButton.styleFrom(
                   backgroundColor: AppColors.blue600,
                   elevation: 0,
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 18, vertical: 10),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 18,
+                    vertical: 10,
+                  ),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
@@ -164,8 +169,10 @@ class _GangguanLalinFilterCardState extends State<GangguanLalinFilterCard> {
                 onPressed: widget.onReset,
                 style: OutlinedButton.styleFrom(
                   elevation: 0,
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 18, vertical: 10),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 18,
+                    vertical: 10,
+                  ),
                   side: const BorderSide(color: AppColors.borderSlate),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10),
@@ -243,10 +250,7 @@ class _GangguanLalinFilterCardState extends State<GangguanLalinFilterCard> {
               ),
               onChanged: onChanged,
               items: items.map((e) {
-                return DropdownMenuItem<String>(
-                  value: e,
-                  child: Text(e),
-                );
+                return DropdownMenuItem<String>(value: e, child: Text(e));
               }).toList(),
             ),
           ),

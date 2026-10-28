@@ -9,7 +9,7 @@ import 'widgets/cctv_segment_card.dart';
 import 'cctv_live_screen.dart';
 
 // Reusable Dashboard Widgets
-import '../../features/dashboard/presentation/widgets/floating_side_button.dart';
+
 import '../../features/dashboard/presentation/widgets/custom_bottom_nav_bar.dart';
 import '../../core/constants/app_colors.dart';
 
@@ -17,11 +17,7 @@ class CctvSegmentScreen extends StatefulWidget {
   final RuasModel? ruas;
   final String ruasName;
 
-  const CctvSegmentScreen({
-    super.key,
-    this.ruas,
-    this.ruasName = 'JAGORAWI',
-  });
+  const CctvSegmentScreen({super.key, this.ruas, this.ruasName = 'JAGORAWI'});
 
   String get effectiveRuasName => ruas?.title ?? ruasName;
 
@@ -126,12 +122,7 @@ class _CctvSegmentScreenState extends State<CctvSegmentScreen> {
                 ),
               ),
 
-              // Floating Side Button
-              Positioned(
-                right: 0,
-                bottom: MediaQuery.sizeOf(context).height * 0.05,
-                child: FloatingSideButton(onPressed: () {}),
-              ),
+             
             ],
           ),
         ),

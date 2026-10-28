@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../../../../core/constants/app_colors.dart';
 
 class HeaderProfileSection extends StatelessWidget {
@@ -65,10 +66,7 @@ class HeaderProfileSection extends StatelessWidget {
           showBadge: true,
         ),
         const SizedBox(width: 8),
-        _buildIconButton(
-          icon: Icons.tune_rounded,
-          onTap: onFilterTap,
-        ),
+        _buildIconButton(icon: Icons.tune_rounded, onTap: onFilterTap),
         const SizedBox(width: 8),
         _buildIconButton(
           icon: Icons.power_settings_new_rounded,
@@ -90,7 +88,7 @@ class HeaderProfileSection extends StatelessWidget {
         width: 40,
         height: 40,
         decoration: BoxDecoration(
-          color: AppColors.white.withOpacity(0.8),
+          color: AppColors.white.withValues(alpha: 0.8),
           shape: BoxShape.circle,
         ),
         child: Stack(
