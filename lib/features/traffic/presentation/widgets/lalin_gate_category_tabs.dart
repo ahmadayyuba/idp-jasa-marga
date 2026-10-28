@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../../core/constants/app_colors.dart';
+
 class LalinGateCategoryTabs extends StatelessWidget {
   final int selectedIndex;
   final int selectedViewMode; // 0 = Gauge, 1 = Chart
@@ -23,7 +25,7 @@ class LalinGateCategoryTabs extends StatelessWidget {
           child: Container(
             padding: const EdgeInsets.all(3),
             decoration: BoxDecoration(
-              color: const Color(0xFFE2E8F0).withValues(alpha: 0.5),
+              color: AppColors.dividerSlate.withValues(alpha: 0.5),
               borderRadius: BorderRadius.circular(20),
             ),
             child: Row(
@@ -40,22 +42,16 @@ class LalinGateCategoryTabs extends StatelessWidget {
         Container(
           padding: const EdgeInsets.all(3),
           decoration: BoxDecoration(
-            color: const Color(0xFFE2E8F0).withValues(alpha: 0.5),
+            color: AppColors.dividerSlate.withValues(alpha: 0.5),
             borderRadius: BorderRadius.circular(20),
           ),
           child: Row(
             children: [
               // Button 1: Speedometer / Gauge Icon
-              _buildIconButton(
-                icon: Icons.speed_rounded,
-                index: 0,
-              ),
+              _buildIconButton(icon: Icons.speed_rounded, index: 0),
               const SizedBox(width: 2),
               // Button 2: Bar Chart Icon
-              _buildIconButton(
-                icon: Icons.bar_chart_rounded,
-                index: 1,
-              ),
+              _buildIconButton(icon: Icons.bar_chart_rounded, index: 1),
             ],
           ),
         ),
@@ -71,7 +67,7 @@ class LalinGateCategoryTabs extends StatelessWidget {
         child: Container(
           padding: const EdgeInsets.symmetric(vertical: 8),
           decoration: BoxDecoration(
-            color: isSelected ? const Color(0xFF003399) : Colors.transparent,
+            color: isSelected ? AppColors.primaryActive : AppColors.transparent,
             borderRadius: BorderRadius.circular(16),
           ),
           child: Text(
@@ -80,7 +76,7 @@ class LalinGateCategoryTabs extends StatelessWidget {
             style: TextStyle(
               fontSize: 11,
               fontWeight: FontWeight.bold,
-              color: isSelected ? Colors.white : const Color(0xFF475569),
+              color: isSelected ? AppColors.white : AppColors.slate600,
             ),
           ),
         ),
@@ -96,13 +92,13 @@ class LalinGateCategoryTabs extends StatelessWidget {
         duration: const Duration(milliseconds: 150),
         padding: const EdgeInsets.all(6),
         decoration: BoxDecoration(
-          color: isSelected ? Colors.white : Colors.transparent,
+          color: isSelected ? AppColors.white : AppColors.transparent,
           shape: BoxShape.circle,
         ),
         child: Icon(
           icon,
           size: 16,
-          color: isSelected ? const Color(0xFF003399) : const Color(0xFF64748B),
+          color: isSelected ? AppColors.primaryActive : AppColors.textSecondary,
         ),
       ),
     );

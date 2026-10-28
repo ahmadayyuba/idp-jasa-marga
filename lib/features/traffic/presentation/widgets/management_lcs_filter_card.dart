@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../../core/constants/app_colors.dart';
+
 class ManagementLcsFilterCard extends StatefulWidget {
   final int totalTitik;
 
@@ -19,11 +21,11 @@ class _ManagementLcsFilterCardState extends State<ManagementLcsFilterCard> {
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: AppColors.white,
         borderRadius: BorderRadius.circular(20),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withValues(alpha: 0.02),
+            color: AppColors.black.withValues(alpha: 0.02),
             blurRadius: 8,
             offset: const Offset(0, 2),
           ),
@@ -41,7 +43,7 @@ class _ManagementLcsFilterCardState extends State<ManagementLcsFilterCard> {
                   Icon(
                     Icons.alt_route_rounded,
                     size: 18,
-                    color: Color(0xFF003399),
+                    color: AppColors.primaryActive,
                   ),
                   SizedBox(width: 6),
                   Text(
@@ -49,7 +51,7 @@ class _ManagementLcsFilterCardState extends State<ManagementLcsFilterCard> {
                     style: TextStyle(
                       fontSize: 12,
                       fontWeight: FontWeight.bold,
-                      color: Color(0xFF0F2B5B),
+                      color: AppColors.darkNavy,
                     ),
                   ),
                 ],
@@ -57,7 +59,7 @@ class _ManagementLcsFilterCardState extends State<ManagementLcsFilterCard> {
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
                 decoration: BoxDecoration(
-                  color: const Color(0xFFDCFCE7),
+                  color: AppColors.badgeGreenBg,
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: Text(
@@ -65,7 +67,7 @@ class _ManagementLcsFilterCardState extends State<ManagementLcsFilterCard> {
                   style: const TextStyle(
                     fontSize: 9,
                     fontWeight: FontWeight.bold,
-                    color: Color(0xFF16A34A),
+                    color: AppColors.statusGreen,
                   ),
                 ),
               ),
@@ -79,14 +81,14 @@ class _ManagementLcsFilterCardState extends State<ManagementLcsFilterCard> {
             style: TextStyle(
               fontSize: 10,
               fontWeight: FontWeight.w600,
-              color: Color(0xFF64748B),
+              color: AppColors.textSecondary,
             ),
           ),
           const SizedBox(height: 4),
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 12),
             decoration: BoxDecoration(
-              border: Border.all(color: const Color(0xFFE2E8F0)),
+              border: Border.all(color: AppColors.dividerSlate),
               borderRadius: BorderRadius.circular(10),
             ),
             child: DropdownButtonHideUnderline(
@@ -96,12 +98,12 @@ class _ManagementLcsFilterCardState extends State<ManagementLcsFilterCard> {
                 icon: const Icon(
                   Icons.keyboard_arrow_down_rounded,
                   size: 18,
-                  color: Color(0xFF64748B),
+                  color: AppColors.textSecondary,
                 ),
                 style: const TextStyle(
                   fontSize: 11,
                   fontWeight: FontWeight.bold,
-                  color: Color(0xFF0F172A),
+                  color: AppColors.textPrimary,
                 ),
                 onChanged: (val) => setState(() => _selectedRuas = val!),
                 items: ['Jakarta-Cikampek', 'Jagorawi', 'Cipularang'].map((e) {
@@ -121,8 +123,8 @@ class _ManagementLcsFilterCardState extends State<ManagementLcsFilterCard> {
                   height: 38,
                   padding: const EdgeInsets.symmetric(horizontal: 10),
                   decoration: BoxDecoration(
-                    color: const Color(0xFFF8FAFC),
-                    border: Border.all(color: const Color(0xFFE2E8F0)),
+                    color: AppColors.bgGradientEnd,
+                    border: Border.all(color: AppColors.dividerSlate),
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: const Row(
@@ -130,7 +132,7 @@ class _ManagementLcsFilterCardState extends State<ManagementLcsFilterCard> {
                       Icon(
                         Icons.search_rounded,
                         size: 16,
-                        color: Color(0xFF94A3B8),
+                        color: AppColors.textMuted,
                       ),
                       SizedBox(width: 6),
                       Expanded(
@@ -140,7 +142,7 @@ class _ManagementLcsFilterCardState extends State<ManagementLcsFilterCard> {
                             hintText: 'Cari berdasarkan nama lokas...',
                             hintStyle: TextStyle(
                               fontSize: 11,
-                              color: Color(0xFF94A3B8),
+                              color: AppColors.textMuted,
                             ),
                             border: InputBorder.none,
                             isDense: true,
@@ -158,7 +160,7 @@ class _ManagementLcsFilterCardState extends State<ManagementLcsFilterCard> {
               Container(
                 padding: const EdgeInsets.all(2),
                 decoration: BoxDecoration(
-                  color: const Color(0xFFF1F5F9),
+                  color: AppColors.bgSlate,
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: Row(
@@ -182,7 +184,7 @@ class _ManagementLcsFilterCardState extends State<ManagementLcsFilterCard> {
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
         decoration: BoxDecoration(
-          color: isSelected ? const Color(0xFF003399) : Colors.transparent,
+          color: isSelected ? AppColors.primaryActive : AppColors.transparent,
           borderRadius: BorderRadius.circular(8),
         ),
         child: Row(
@@ -190,7 +192,7 @@ class _ManagementLcsFilterCardState extends State<ManagementLcsFilterCard> {
             Icon(
               icon,
               size: 12,
-              color: isSelected ? Colors.white : const Color(0xFF64748B),
+              color: isSelected ? AppColors.white : AppColors.textSecondary,
             ),
             const SizedBox(width: 4),
             Text(
@@ -198,7 +200,7 @@ class _ManagementLcsFilterCardState extends State<ManagementLcsFilterCard> {
               style: TextStyle(
                 fontSize: 11,
                 fontWeight: FontWeight.bold,
-                color: isSelected ? Colors.white : const Color(0xFF64748B),
+                color: isSelected ? AppColors.white : AppColors.textSecondary,
               ),
             ),
           ],

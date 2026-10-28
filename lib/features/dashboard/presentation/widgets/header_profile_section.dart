@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../../core/constants/app_colors.dart';
+
 class HeaderProfileSection extends StatelessWidget {
   final String userName;
   final VoidCallback onNotificationTap;
@@ -14,43 +16,48 @@ class HeaderProfileSection extends StatelessWidget {
     required this.onLogoutTap,
   });
 
+  /// Ambil inisial pertama dari nama user
+  String get _initial =>
+      userName.trim().isNotEmpty ? userName.trim()[0].toUpperCase() : 'U';
+
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
+        // Avatar circle dengan inisial dinamis
         CircleAvatar(
           radius: 24,
-          backgroundColor: const Color(0xFFE2EDF8),
-          child: const Text(
-            'A',
-            style: TextStyle(
+          backgroundColor: AppColors.avatarLightBlue,
+          child: Text(
+            _initial,
+            style: const TextStyle(
               fontSize: 20,
               fontWeight: FontWeight.bold,
-              color: Color(0xFF003399),
+              color: AppColors.primaryActive,
             ),
           ),
         ),
         const SizedBox(width: 12),
 
+        // Greeting + nama user
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const Text(
-              'Halo',
-              style: TextStyle(fontSize: 12, color: Colors.grey),
+              'Halo,',
+              style: TextStyle(fontSize: 12, color: AppColors.textSecondary),
             ),
             Text(
               userName,
               style: const TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.bold,
-                color: Color(0xFF1E293B),
+                color: AppColors.playerSurface,
               ),
             ),
           ],
         ),
         const Spacer(),
-
 
         // Action Buttons
         _buildIconButton(
@@ -59,10 +66,7 @@ class HeaderProfileSection extends StatelessWidget {
           showBadge: true,
         ),
         const SizedBox(width: 8),
-        _buildIconButton(
-          icon: Icons.tune_rounded,
-          onTap: onFilterTap,
-        ),
+        _buildIconButton(icon: Icons.tune_rounded, onTap: onFilterTap),
         const SizedBox(width: 8),
         _buildIconButton(
           icon: Icons.power_settings_new_rounded,
@@ -84,14 +88,14 @@ class HeaderProfileSection extends StatelessWidget {
         width: 40,
         height: 40,
         decoration: BoxDecoration(
-          color: Colors.white.withValues(alpha: 0.8),
+          color: AppColors.white.withValues(alpha: 0.8),
           shape: BoxShape.circle,
         ),
         child: Stack(
           alignment: Alignment.center,
           children: [
-            Icon(icon, color: const Color(0xFF003399), size: 20),
-            if(showBadge)
+            Icon(icon, color: AppColors.primaryActive, size: 20),
+            if (showBadge)
               Positioned(
                 top: 10,
                 right: 10,
@@ -99,11 +103,11 @@ class HeaderProfileSection extends StatelessWidget {
                   width: 8,
                   height: 8,
                   decoration: const BoxDecoration(
-                    color: Colors.red,
+                    color: AppColors.alertRed,
                     shape: BoxShape.circle,
                   ),
                 ),
-                ),
+              ),
           ],
         ),
       ),

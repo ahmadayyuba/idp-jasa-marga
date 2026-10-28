@@ -8,6 +8,7 @@ import 'widgets/speed_chart_card.dart';
 import '../../dashboard/presentation/widgets/floating_side_button.dart';
 import '../../dashboard/presentation/widgets/custom_bottom_nav_bar.dart';
 import '../../dashboard/presentation/dashboard_screen.dart';
+import '../../../core/constants/app_colors.dart';
 
 class RealtimeTrafficScreen extends StatelessWidget {
   const RealtimeTrafficScreen({super.key});
@@ -18,49 +19,49 @@ class RealtimeTrafficScreen extends StatelessWidget {
       {
         'label': 'SS TOMANG',
         'heightFactor': 0.45,
-        'color': const Color(0xFFEF4444),
+        'color': AppColors.alertRed,
       },
       {
         'label': 'KEBON JERUK',
         'heightFactor': 0.70,
-        'color': const Color(0xFF60A5FA),
+        'color': AppColors.blue400,
       },
       {
         'label': 'KEBON JERUK',
         'heightFactor': 0.90,
-        'color': const Color(0xFF1E3A8A),
+        'color': AppColors.primaryBlue,
         'hasTooltip': true,
         'speed': '17 Km/Jam',
       },
       {
         'label': 'MERUYA',
         'heightFactor': 0.72,
-        'color': const Color(0xFF60A5FA),
+        'color': AppColors.blue400,
       },
       {
         'label': 'SS KEMBANGAN',
         'heightFactor': 0.68,
-        'color': const Color(0xFF60A5FA),
+        'color': AppColors.blue400,
       },
       {
         'label': 'KR TENGAH',
         'heightFactor': 0.52,
-        'color': const Color(0xFFF59E0B),
+        'color': AppColors.alertAmber,
       },
       {
         'label': 'KUNCIRAN',
         'heightFactor': 0.72,
-        'color': const Color(0xFF60A5FA),
+        'color': AppColors.blue400,
       },
       {
         'label': 'TANGERANG',
         'heightFactor': 0.95,
-        'color': const Color(0xFF60A5FA),
+        'color': AppColors.blue400,
       },
       {
         'label': 'KARAWACI',
         'heightFactor': 0.88,
-        'color': const Color(0xFF60A5FA),
+        'color': AppColors.blue400,
       },
     ];
 
@@ -68,49 +69,49 @@ class RealtimeTrafficScreen extends StatelessWidget {
       {
         'label': 'SEMANGGI',
         'heightFactor': 0.35,
-        'color': const Color(0xFFEF4444),
+        'color': AppColors.alertRed,
       },
       {
         'label': 'SENAYAN',
         'heightFactor': 0.65,
-        'color': const Color(0xFF60A5FA),
+        'color': AppColors.blue400,
       },
       {
         'label': 'KUNINGAN',
         'heightFactor': 0.85,
-        'color': const Color(0xFF1E3A8A),
+        'color': AppColors.primaryBlue,
         'hasTooltip': true,
         'speed': '25 Km/Jam',
       },
       {
         'label': 'TEBET',
         'heightFactor': 0.50,
-        'color': const Color(0xFFF59E0B),
+        'color': AppColors.alertAmber,
       },
       {
         'label': 'CAWANG',
         'heightFactor': 0.60,
-        'color': const Color(0xFF60A5FA),
+        'color': AppColors.blue400,
       },
       {
         'label': 'HALIM',
         'heightFactor': 0.62,
-        'color': const Color(0xFF60A5FA),
+        'color': AppColors.blue400,
       },
       {
         'label': 'GROGOL',
         'heightFactor': 0.48,
-        'color': const Color(0xFFF59E0B),
+        'color': AppColors.alertAmber,
       },
       {
         'label': 'SLIPI',
         'heightFactor': 0.75,
-        'color': const Color(0xFF60A5FA),
+        'color': AppColors.blue400,
       },
       {
         'label': 'TOMANG',
         'heightFactor': 0.80,
-        'color': const Color(0xFF60A5FA),
+        'color': AppColors.blue400,
       },
     ];
 
@@ -118,7 +119,7 @@ class RealtimeTrafficScreen extends StatelessWidget {
       body: Container(
         decoration: const BoxDecoration(
           gradient: LinearGradient(
-            colors: [Color(0xFFE0F2FE), Color(0xFFF8FAFC)],
+            colors: [AppColors.bgGradientStart, AppColors.bgGradientEnd],
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
           ),
@@ -168,9 +169,9 @@ class RealtimeTrafficScreen extends StatelessWidget {
                           vertical: 6,
                         ),
                         decoration: BoxDecoration(
-                          color: Colors.white,
+                          color: AppColors.white,
                           borderRadius: BorderRadius.circular(20),
-                          border: Border.all(color: const Color(0xFFCBD5E1)),
+                          border: Border.all(color: AppColors.borderSlate),
                         ),
                         child: const Row(
                           mainAxisSize: MainAxisSize.min,
@@ -178,7 +179,7 @@ class RealtimeTrafficScreen extends StatelessWidget {
                             Icon(
                               Icons.tune_rounded,
                               size: 14,
-                              color: Color(0xFF003399),
+                              color: AppColors.primaryActive,
                             ),
                             SizedBox(width: 6),
                             Text(
@@ -186,7 +187,7 @@ class RealtimeTrafficScreen extends StatelessWidget {
                               style: TextStyle(
                                 fontSize: 11,
                                 fontWeight: FontWeight.bold,
-                                color: Color(0xFF003399),
+                                color: AppColors.primaryActive,
                               ),
                             ),
                           ],

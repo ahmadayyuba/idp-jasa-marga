@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'notification_header.dart';
 import 'notification_filter_pills.dart';
 import 'notification_card.dart';
+import '../../../../../core/constants/app_colors.dart';
 
 class NotificationBottomSheet extends StatefulWidget {
   const NotificationBottomSheet({super.key});
@@ -10,7 +11,7 @@ class NotificationBottomSheet extends StatefulWidget {
     return showModalBottomSheet(
       context: context,
       isScrollControlled: true,
-      backgroundColor: Colors.transparent,
+      backgroundColor: AppColors.transparent,
       builder: (context) => const NotificationBottomSheet(),
     );
   }
@@ -35,7 +36,7 @@ class _NotificationBottomSheetState extends State<NotificationBottomSheet> {
     return Container(
       height: MediaQuery.of(context).size.height * 0.88,
       decoration: const BoxDecoration(
-        color: Colors.white,
+        color: AppColors.white,
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(28),
           topRight: Radius.circular(28),
@@ -66,10 +67,10 @@ class _NotificationBottomSheetState extends State<NotificationBottomSheet> {
               children: [
                 NotificationCard(
                   statusType: 'KRITIS',
-                  statusColor: const Color(0xFFDC2626),
-                  statusBgColor: const Color(0xFFFEE2E2),
-                  borderColor: const Color(0xFFFECACA),
-                  dotColor: const Color(0xFFEF4444),
+                  statusColor: AppColors.dangerRed,
+                  statusBgColor: AppColors.badgeRedBg,
+                  borderColor: AppColors.borderRedLight,
+                  dotColor: AppColors.alertRed,
                   icon: Icons.minor_crash_rounded,
                   location: 'Ruas Tol Japek KM 14+200 A',
                   time: '2 menit lalu',
@@ -81,10 +82,10 @@ class _NotificationBottomSheetState extends State<NotificationBottomSheet> {
                 ),
                 NotificationCard(
                   statusType: 'PERINGATAN',
-                  statusColor: const Color(0xFFEA580C),
-                  statusBgColor: const Color(0xFFFFEDD5),
-                  borderColor: const Color(0xFFFED7AA),
-                  dotColor: const Color(0xFFF97316),
+                  statusColor: AppColors.warningOrange,
+                  statusBgColor: AppColors.badgeOrangeBg,
+                  borderColor: AppColors.borderOrangeLight,
+                  dotColor: AppColors.alertOrange,
                   icon: Icons.tag_rounded,
                   location: 'GT Cikunir 2 - JORR',
                   time: '15 menit lalu',
@@ -96,10 +97,10 @@ class _NotificationBottomSheetState extends State<NotificationBottomSheet> {
                 ),
                 NotificationCard(
                   statusType: 'INFO',
-                  statusColor: const Color(0xFF0284C7),
-                  statusBgColor: const Color(0xFFE0F2FE),
-                  borderColor: const Color(0xFFBAE6FD),
-                  dotColor: const Color(0xFF0EA5E9),
+                  statusColor: AppColors.brightBlue,
+                  statusBgColor: AppColors.bgGradientStart,
+                  borderColor: AppColors.borderSkyBlue,
+                  dotColor: AppColors.skyBlue,
                   icon: Icons.build_rounded,
                   location: 'Tol Jagorawi KM 28+400',
                   time: '45 menit lalu',
@@ -111,10 +112,10 @@ class _NotificationBottomSheetState extends State<NotificationBottomSheet> {
                 ),
                 NotificationCard(
                   statusType: 'NORMAL',
-                  statusColor: const Color(0xFF16A34A),
-                  statusBgColor: const Color(0xFFDCFCE7),
-                  borderColor: const Color(0xFFBBF7D0),
-                  dotColor: const Color(0xFF22C55E),
+                  statusColor: AppColors.statusGreen,
+                  statusBgColor: AppColors.badgeGreenBg,
+                  borderColor: AppColors.borderGreenLight,
+                  dotColor: AppColors.vibrantGreen,
                   icon: Icons.videocam_rounded,
                   location: 'JID Server Command Center',
                   time: '2 jam lalu',

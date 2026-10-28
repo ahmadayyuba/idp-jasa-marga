@@ -8,6 +8,7 @@ import 'widgets/activity_chart_card.dart';
 // Reusable Dashboard Widgets
 import '../../dashboard/presentation/widgets/floating_side_button.dart';
 import '../../dashboard/presentation/widgets/custom_bottom_nav_bar.dart';
+import '../../../core/constants/app_colors.dart';
 
 class MaintenanceSummaryScreen extends StatefulWidget {
   const MaintenanceSummaryScreen({super.key});
@@ -26,7 +27,7 @@ class _MaintenanceSummaryScreenState extends State<MaintenanceSummaryScreen> {
       body: Container(
         decoration: const BoxDecoration(
           gradient: LinearGradient(
-            colors: [Color(0xFFE0F2FE), Color(0xFFF8FAFC)],
+            colors: [AppColors.bgGradientStart, AppColors.bgGradientEnd],
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
           ),

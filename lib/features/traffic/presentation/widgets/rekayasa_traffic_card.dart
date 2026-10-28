@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../../core/constants/app_colors.dart';
 
 class RekayasaTrafficCard extends StatelessWidget {
   const RekayasaTrafficCard({super.key});
@@ -13,28 +14,28 @@ class RekayasaTrafficCard extends StatelessWidget {
           style: TextStyle(
             fontSize: 14,
             fontWeight: FontWeight.bold,
-            color: Color(0xFF003399),
+            color: AppColors.primaryActive,
           ),
         ),
         const SizedBox(height: 12),
         Row(
           children: [
             _buildCard(
-              bgColor: const Color(0xFF10B981), // Hijau Oneway
+              bgColor: AppColors.successGreen, // Hijau Oneway
               icon: Icons.alt_route_rounded,
               value: '1057',
               label: 'Oneway',
             ),
             const SizedBox(width: 10),
             _buildCard(
-              bgColor: const Color(0xFF6366F1), // Ungu Contraflow
+              bgColor: AppColors.purpleContraflow, // Ungu Contraflow
               icon: Icons.traffic_rounded,
               value: '139',
               label: 'Contraflow',
             ),
             const SizedBox(width: 10),
             _buildCard(
-              bgColor: const Color(0xFFF97316), // Oranye Pengalihan
+              bgColor: AppColors.alertOrange, // Oranye Pengalihan
               icon: Icons.signpost_rounded,
               value: '270',
               label: 'Pengalihan',
@@ -63,7 +64,7 @@ class RekayasaTrafficCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Icon(icon, color: Colors.white, size: 22),
+            Icon(icon, color: AppColors.white, size: 22),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -72,14 +73,14 @@ class RekayasaTrafficCard extends StatelessWidget {
                   style: const TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
-                    color: Colors.white,
+                    color: AppColors.white,
                   ),
                 ),
                 Text(
                   label,
                   style: const TextStyle(
                     fontSize: 11,
-                    color: Colors.white70,
+                    color: AppColors.white70,
                   ),
                 ),
               ],

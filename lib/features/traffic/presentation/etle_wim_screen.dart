@@ -9,6 +9,7 @@ import 'widgets/etle_chart_card.dart';
 import '../../dashboard/presentation/dashboard_screen.dart';
 import '../../dashboard/presentation/widgets/floating_side_button.dart';
 import '../../dashboard/presentation/widgets/custom_bottom_nav_bar.dart';
+import '../../../core/constants/app_colors.dart';
 
 class EtleWimScreen extends StatelessWidget {
   const EtleWimScreen({super.key});
@@ -19,7 +20,7 @@ class EtleWimScreen extends StatelessWidget {
       body: Container(
         decoration: const BoxDecoration(
           gradient: LinearGradient(
-            colors: [Color(0xFFE0F2FE), Color(0xFFF8FAFC)],
+            colors: [AppColors.bgGradientStart, AppColors.bgGradientEnd],
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
           ),
@@ -95,11 +96,11 @@ class EtleWimScreen extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: AppColors.white,
         borderRadius: BorderRadius.circular(20),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withValues(alpha: 0.02),
+            color: AppColors.black.withValues(alpha: 0.02),
             blurRadius: 8,
             offset: const Offset(0, 2),
           ),
@@ -115,7 +116,7 @@ class EtleWimScreen extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 14,
                   fontWeight: FontWeight.bold,
-                  color: Color(0xFF0F2B5B),
+                  color: AppColors.darkNavy,
                 ),
               ),
               OutlinedButton.icon(
@@ -123,7 +124,7 @@ class EtleWimScreen extends StatelessWidget {
                 icon: const Icon(Icons.download_rounded, size: 14),
                 label: const Text('Export', style: TextStyle(fontSize: 10)),
                 style: OutlinedButton.styleFrom(
-                  foregroundColor: const Color(0xFF2563EB),
+                  foregroundColor: AppColors.blue600,
                   padding: const EdgeInsets.symmetric(
                     horizontal: 12,
                     vertical: 6,
@@ -140,7 +141,7 @@ class EtleWimScreen extends StatelessWidget {
           Container(
             padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 8),
             decoration: BoxDecoration(
-              color: const Color(0xFFF1F5F9),
+              color: AppColors.bgSlate,
               borderRadius: BorderRadius.circular(8),
             ),
             child: const Row(

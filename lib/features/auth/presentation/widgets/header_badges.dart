@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../../../core/widgets/status_badge.dart';
+import '../../../../core/constants/app_colors.dart';
 
 class HeaderBadges extends StatelessWidget {
   const HeaderBadges({super.key});
@@ -12,12 +13,12 @@ class HeaderBadges extends StatelessWidget {
         const StatusBadge(
           child: Row(
             children: [
-              CircleAvatar(radius: 4, backgroundColor: Colors.greenAccent),
+              CircleAvatar(radius: 4, backgroundColor: AppColors.greenAccent),
               SizedBox(width: 8),
               Text(
                 'JID GATEWAY',
                 style: TextStyle(
-                  color: Colors.white,
+                  color: AppColors.white,
                   fontSize: 11,
                   fontWeight: FontWeight.bold,
                 ),
@@ -28,11 +29,11 @@ class HeaderBadges extends StatelessWidget {
         StatusBadge(
           child: Row(
             children: [
-              Icon(Icons.lock_outline, color: Colors.amber, size: 14),
+              Icon(Icons.lock_outline, color: AppColors.amber, size: 14),
               Text(
                 'TLS 1.3 SECURE',
                 style: TextStyle(
-                  color: Colors.white,
+                  color: AppColors.white,
                   fontSize: 11,
                   fontWeight: FontWeight.bold,
                 ),

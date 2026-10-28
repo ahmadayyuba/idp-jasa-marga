@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../../core/constants/app_colors.dart';
+
 class TrafficMetricCards extends StatelessWidget {
   const TrafficMetricCards({super.key});
 
@@ -10,7 +12,7 @@ class TrafficMetricCards extends StatelessWidget {
         // Card 1: Rata-Rata Koridor
         Expanded(
           child: _buildMetricCard(
-            bgColor: const Color(0xFF1E3A8A),
+            bgColor: AppColors.primaryBlue,
             title: 'Rata-Rata Koridor',
             icon: Icons.speed_rounded,
             value: '52.2',
@@ -22,7 +24,7 @@ class TrafficMetricCards extends StatelessWidget {
                   width: 6,
                   height: 6,
                   decoration: const BoxDecoration(
-                    color: Color(0xFF22C55E),
+                    color: AppColors.vibrantGreen,
                     shape: BoxShape.circle,
                   ),
                 ),
@@ -32,7 +34,7 @@ class TrafficMetricCards extends StatelessWidget {
                   style: TextStyle(
                     fontSize: 9,
                     fontWeight: FontWeight.bold,
-                    color: Colors.white,
+                    color: AppColors.white,
                   ),
                 ),
               ],
@@ -44,7 +46,7 @@ class TrafficMetricCards extends StatelessWidget {
         // Card 2: Segmen Tercepat
         Expanded(
           child: _buildMetricCard(
-            bgColor: const Color(0xFF047857),
+            bgColor: AppColors.darkEmerald,
             title: 'Segmen Tercepat',
             icon: Icons.flash_on_rounded,
             value: '70',
@@ -54,7 +56,7 @@ class TrafficMetricCards extends StatelessWidget {
               style: TextStyle(
                 fontSize: 9,
                 fontWeight: FontWeight.bold,
-                color: Colors.white,
+                color: AppColors.white,
               ),
             ),
           ),
@@ -64,7 +66,7 @@ class TrafficMetricCards extends StatelessWidget {
         // Card 3: Titik Terpadat
         Expanded(
           child: _buildMetricCard(
-            bgColor: const Color(0xFF9F1239),
+            bgColor: AppColors.deepRose,
             title: 'Titik Terpadat',
             icon: Icons.traffic_rounded,
             value: '11',
@@ -74,7 +76,7 @@ class TrafficMetricCards extends StatelessWidget {
               style: TextStyle(
                 fontSize: 9,
                 fontWeight: FontWeight.bold,
-                color: Colors.white,
+                color: AppColors.white,
               ),
             ),
           ),
@@ -98,7 +100,7 @@ class TrafficMetricCards extends StatelessWidget {
         borderRadius: BorderRadius.circular(14),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withValues(alpha: 0.08),
+            color: AppColors.black.withValues(alpha: 0.08),
             blurRadius: 6,
             offset: const Offset(0, 2),
           ),
@@ -117,13 +119,13 @@ class TrafficMetricCards extends StatelessWidget {
                   style: const TextStyle(
                     fontSize: 9,
                     fontWeight: FontWeight.bold,
-                    color: Colors.white70,
+                    color: AppColors.white70,
                   ),
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                 ),
               ),
-              Icon(icon, size: 12, color: Colors.white70),
+              Icon(icon, size: 12, color: AppColors.white70),
             ],
           ),
           const SizedBox(height: 6),
@@ -138,13 +140,13 @@ class TrafficMetricCards extends StatelessWidget {
                 style: const TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
-                  color: Colors.white,
+                  color: AppColors.white,
                 ),
               ),
               const SizedBox(width: 3),
               Text(
                 unit,
-                style: const TextStyle(fontSize: 9, color: Colors.white70),
+                style: const TextStyle(fontSize: 9, color: AppColors.white70),
               ),
             ],
           ),
@@ -154,7 +156,7 @@ class TrafficMetricCards extends StatelessWidget {
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
             decoration: BoxDecoration(
-              color: Colors.black.withValues(alpha: 0.25),
+              color: AppColors.black.withValues(alpha: 0.25),
               borderRadius: BorderRadius.circular(6),
             ),
             child: badgeWidget,

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../../core/constants/app_colors.dart';
+
 class KinerjaSummaryCards extends StatelessWidget {
   final String spmValue;
   final String speedAvgValue;
@@ -19,14 +21,14 @@ class KinerjaSummaryCards extends StatelessWidget {
           padding: const EdgeInsets.all(16),
           decoration: BoxDecoration(
             gradient: const LinearGradient(
-              colors: [Color(0xFF003399), Color(0xFF0284C7)],
+              colors: [AppColors.primaryActive, AppColors.brightBlue],
               begin: Alignment.centerLeft,
               end: Alignment.centerRight,
             ),
             borderRadius: BorderRadius.circular(20),
             boxShadow: [
               BoxShadow(
-                color: const Color(0xFF003399).withValues(alpha: 0.2),
+                color: AppColors.primaryActive.withValues(alpha: 0.2),
                 blurRadius: 10,
                 offset: const Offset(0, 4),
               ),
@@ -37,12 +39,12 @@ class KinerjaSummaryCards extends StatelessWidget {
               Container(
                 padding: const EdgeInsets.all(10),
                 decoration: BoxDecoration(
-                  color: Colors.white.withValues(alpha: 0.15),
+                  color: AppColors.white.withValues(alpha: 0.15),
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: const Icon(
                   Icons.trending_up_rounded,
-                  color: Colors.white,
+                  color: AppColors.white,
                   size: 24,
                 ),
               ),
@@ -56,13 +58,16 @@ class KinerjaSummaryCards extends StatelessWidget {
                       style: TextStyle(
                         fontSize: 15,
                         fontWeight: FontWeight.bold,
-                        color: Colors.white,
+                        color: AppColors.white,
                       ),
                     ),
                     SizedBox(height: 2),
                     Text(
                       'Monitoring V/C Ratio, Kecepatan, dan SPM Ruas Tol',
-                      style: TextStyle(fontSize: 10, color: Color(0xFFE0F2FE)),
+                      style: TextStyle(
+                        fontSize: 10,
+                        color: AppColors.bgGradientStart,
+                      ),
                     ),
                   ],
                 ),
@@ -80,11 +85,11 @@ class KinerjaSummaryCards extends StatelessWidget {
               child: Container(
                 padding: const EdgeInsets.all(16),
                 decoration: BoxDecoration(
-                  color: Colors.white,
+                  color: AppColors.white,
                   borderRadius: BorderRadius.circular(16),
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.black.withValues(alpha: 0.02),
+                      color: AppColors.black.withValues(alpha: 0.02),
                       blurRadius: 8,
                       offset: const Offset(0, 2),
                     ),
@@ -98,7 +103,7 @@ class KinerjaSummaryCards extends StatelessWidget {
                       style: TextStyle(
                         fontSize: 11,
                         fontWeight: FontWeight.bold,
-                        color: Color(0xFF64748B),
+                        color: AppColors.textSecondary,
                       ),
                     ),
                     const SizedBox(height: 6),
@@ -107,20 +112,24 @@ class KinerjaSummaryCards extends StatelessWidget {
                       style: const TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
-                        color: Color(0xFF16A34A),
+                        color: AppColors.statusGreen,
                       ),
                     ),
                     const SizedBox(height: 6),
                     const Row(
                       children: [
-                        Icon(Icons.circle, size: 8, color: Color(0xFF16A34A)),
+                        Icon(
+                          Icons.circle,
+                          size: 8,
+                          color: AppColors.statusGreen,
+                        ),
                         SizedBox(width: 4),
                         Expanded(
                           child: Text(
                             'Standar Pelayanan Minimal',
                             style: TextStyle(
                               fontSize: 9,
-                              color: Color(0xFF94A3B8),
+                              color: AppColors.textMuted,
                             ),
                             maxLines: 1,
                             overflow: TextOverflow.ellipsis,
@@ -139,11 +148,11 @@ class KinerjaSummaryCards extends StatelessWidget {
               child: Container(
                 padding: const EdgeInsets.all(16),
                 decoration: BoxDecoration(
-                  color: Colors.white,
+                  color: AppColors.white,
                   borderRadius: BorderRadius.circular(16),
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.black.withValues(alpha: 0.02),
+                      color: AppColors.black.withValues(alpha: 0.02),
                       blurRadius: 8,
                       offset: const Offset(0, 2),
                     ),
@@ -157,7 +166,7 @@ class KinerjaSummaryCards extends StatelessWidget {
                       style: TextStyle(
                         fontSize: 11,
                         fontWeight: FontWeight.bold,
-                        color: Color(0xFF64748B),
+                        color: AppColors.textSecondary,
                       ),
                     ),
                     const SizedBox(height: 6),
@@ -166,20 +175,20 @@ class KinerjaSummaryCards extends StatelessWidget {
                       style: const TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
-                        color: Color(0xFF0F172A),
+                        color: AppColors.textPrimary,
                       ),
                     ),
                     const SizedBox(height: 6),
                     const Row(
                       children: [
-                        Icon(Icons.circle, size: 8, color: Color(0xFF2563EB)),
+                        Icon(Icons.circle, size: 8, color: AppColors.blue600),
                         SizedBox(width: 4),
                         Expanded(
                           child: Text(
                             'Seluruh Ruas Tol',
                             style: TextStyle(
                               fontSize: 9,
-                              color: Color(0xFF94A3B8),
+                              color: AppColors.textMuted,
                             ),
                             maxLines: 1,
                             overflow: TextOverflow.ellipsis,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../../core/constants/app_colors.dart';
 
 class BackgroundLayer extends StatelessWidget {
   const BackgroundLayer({super.key});
@@ -17,7 +18,7 @@ class BackgroundLayer extends StatelessWidget {
           ),
         ),
         Container(
-          color: const Color(0xFF001E3C).withValues
+          color: AppColors.midnightNavy.withValues
           (alpha: 0.75),
         ),
       ],

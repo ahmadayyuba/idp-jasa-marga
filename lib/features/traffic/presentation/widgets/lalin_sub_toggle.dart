@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../../core/constants/app_colors.dart';
+
 class LalinSubToggle extends StatelessWidget {
   final int selectedIndex;
   final ValueChanged<int> onChanged;
@@ -15,7 +17,7 @@ class LalinSubToggle extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(4),
       decoration: BoxDecoration(
-        color: const Color(0xFFE2E8F0).withValues(alpha: 0.6),
+        color: AppColors.dividerSlate.withValues(alpha: 0.6),
         borderRadius: BorderRadius.circular(24),
       ),
       child: Row(
@@ -50,7 +52,7 @@ class LalinSubToggle extends StatelessWidget {
           duration: const Duration(milliseconds: 200),
           padding: const EdgeInsets.symmetric(vertical: 8),
           decoration: BoxDecoration(
-            color: isSelected ? const Color(0xFF003399) : Colors.transparent,
+            color: isSelected ? AppColors.primaryActive : AppColors.transparent,
             borderRadius: BorderRadius.circular(20),
           ),
           child: Row(
@@ -59,7 +61,7 @@ class LalinSubToggle extends StatelessWidget {
               Icon(
                 icon,
                 size: 14,
-                color: isSelected ? Colors.white : const Color(0xFF475569),
+                color: isSelected ? AppColors.white : AppColors.slate600,
               ),
               const SizedBox(width: 6),
               Text(
@@ -67,15 +69,18 @@ class LalinSubToggle extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 10,
                   fontWeight: FontWeight.bold,
-                  color: isSelected ? Colors.white : const Color(0xFF475569),
+                  color: isSelected ? AppColors.white : AppColors.slate600,
                 ),
               ),
               if (badgeText != null) ...[
                 const SizedBox(width: 6),
                 Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 6,
+                    vertical: 2,
+                  ),
                   decoration: BoxDecoration(
-                    color: const Color(0xFFEF4444),
+                    color: AppColors.alertRed,
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: Text(
@@ -83,7 +88,7 @@ class LalinSubToggle extends StatelessWidget {
                     style: const TextStyle(
                       fontSize: 9,
                       fontWeight: FontWeight.bold,
-                      color: Colors.white,
+                      color: AppColors.white,
                     ),
                   ),
                 ),

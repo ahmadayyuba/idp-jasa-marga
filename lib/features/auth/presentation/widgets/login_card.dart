@@ -6,6 +6,7 @@ import '../../../../core/widgets/gradient_button.dart';
 import '../../../../core/widgets/square_icon_button.dart';
 import 'card_header.dart';
 
+
 class LoginCard extends StatelessWidget {
   final TextEditingController employeeIdController;
   final TextEditingController passwordController;
@@ -29,11 +30,11 @@ class LoginCard extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(24),
       decoration: BoxDecoration(
-        color: const Color(0xFFF8FAFC).withValues(alpha: 0.95),
+        color: AppColors.bgGradientEnd.withValues(alpha: 0.95),
         borderRadius: BorderRadius.circular(28),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withValues(alpha: 0.25),
+            color: AppColors.black.withValues(alpha: 0.25),
             blurRadius: 20,
             offset: const Offset(0, 10),
           ),

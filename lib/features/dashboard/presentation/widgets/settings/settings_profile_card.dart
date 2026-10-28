@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../../../core/constants/app_colors.dart';
 
 class SettingsProfileCard extends StatelessWidget {
   final String name;
@@ -19,21 +20,21 @@ class SettingsProfileCard extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: AppColors.white,
         borderRadius: BorderRadius.circular(20),
-        border: Border.all(color:  const Color(0xFFE2E8F0), width: 1.5),
+        border: Border.all(color:  AppColors.dividerSlate, width: 1.5),
       ),
       child: Row(
         children: [
           CircleAvatar(
             radius: 24,
-            backgroundColor: const Color(0xFF003399),
+            backgroundColor: AppColors.primaryActive,
             child: Text(
               initialLetter,
               style: const TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
-                color: Colors.white,
+                color: AppColors.white,
               ),
             ),
           ),
@@ -47,7 +48,7 @@ class SettingsProfileCard extends StatelessWidget {
                   style: const TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
-                    color: Color(0xFF0F172A),
+                    color: AppColors.textPrimary,
                     ),
                   ),
                   const SizedBox(height: 4),
@@ -55,7 +56,7 @@ class SettingsProfileCard extends StatelessWidget {
                   '(role • ID)employeeId',
                   style: const TextStyle(
                     fontSize: 12,
-                    color: Color(0xFF64748B),
+                    color: AppColors.textSecondary,
                   ),
                 ),
                 ],

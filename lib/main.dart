@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:idp_jasa_marga/features/auth/presentation/login_screen.dart';
 
 // Import asli milik temanmu
-import 'features/dashboard/presentation/dashboard_screen.dart';
-import 'features/peralatan_tol/prensentation/peralatan_dashboard_screen.dart';
 
 import 'core/routes/app_router.dart';
 import 'core/routes/app_routes.dart';
+import 'core/constants/app_colors.dart';
 
 void main() {
   runApp(const MyApp());
@@ -24,14 +24,14 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         fontFamily: 'Roboto',
         useMaterial3: true,
-        scaffoldBackgroundColor: const Color(0xFFF8FAFC),
+        scaffoldBackgroundColor: AppColors.bgGradientEnd,
       ),
       // --- UBAH SEMENTARA UNTUK TESTING ---
       // Kita komen dulu layar utama milik temanmu:
       // home: const DashboardScreen(),
 
       // Kita panggil layar kerangka kita sebagai halaman pertama:
-      home: const PeralatanDashboardScreen(),
+      home: const LoginScreen(),
     );
   }
 }

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../../core/constants/app_colors.dart';
+
 enum GangguanStatus { dalamPenanganan, belumDitangani, selesai }
 
 class GangguanLalinItemCard extends StatelessWidget {
@@ -23,22 +25,22 @@ class GangguanLalinItemCard extends StatelessWidget {
   Color get _statusBgColor {
     switch (status) {
       case GangguanStatus.dalamPenanganan:
-        return const Color(0xFFFEF08A);
+        return AppColors.badgeYellowBg;
       case GangguanStatus.belumDitangani:
-        return const Color(0xFFFFE4E6);
+        return AppColors.badgeRoseBg;
       case GangguanStatus.selesai:
-        return const Color(0xFF15803D);
+        return AppColors.forestGreen;
     }
   }
 
   Color get _statusTextColor {
     switch (status) {
       case GangguanStatus.dalamPenanganan:
-        return const Color(0xFFA16207);
+        return AppColors.amberDark;
       case GangguanStatus.belumDitangani:
-        return const Color(0xFFBE123C);
+        return AppColors.crimsonRose;
       case GangguanStatus.selesai:
-        return const Color(0xFF15803D);
+        return AppColors.forestGreen;
     }
   }
 
@@ -58,11 +60,11 @@ class GangguanLalinItemCard extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: AppColors.white,
         borderRadius: BorderRadius.circular(16),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withValues(alpha: 0.02),
+            color: AppColors.black.withValues(alpha: 0.02),
             blurRadius: 8,
             offset: const Offset(0, 2),
           ),
@@ -85,7 +87,7 @@ class GangguanLalinItemCard extends StatelessWidget {
                       style: const TextStyle(
                         fontSize: 14,
                         fontWeight: FontWeight.bold,
-                        color: Color(0xFF0F2B5B),
+                        color: AppColors.darkNavy,
                       ),
                     ),
                     Container(
@@ -94,7 +96,7 @@ class GangguanLalinItemCard extends StatelessWidget {
                         vertical: 3,
                       ),
                       decoration: BoxDecoration(
-                        color: const Color(0xFFF1F5F9),
+                        color: AppColors.bgSlate,
                         borderRadius: BorderRadius.circular(8),
                       ),
                       child: Text(
@@ -102,7 +104,7 @@ class GangguanLalinItemCard extends StatelessWidget {
                         style: const TextStyle(
                           fontSize: 10,
                           fontWeight: FontWeight.w600,
-                          color: Color(0xFF475569),
+                          color: AppColors.slate600,
                         ),
                       ),
                     ),
@@ -140,7 +142,7 @@ class GangguanLalinItemCard extends StatelessWidget {
                     const Icon(
                       Icons.car_crash_rounded,
                       size: 16,
-                      color: Color(0xFFDC2626),
+                      color: AppColors.dangerRed,
                     ),
                     const SizedBox(width: 6),
                     Expanded(
@@ -149,7 +151,7 @@ class GangguanLalinItemCard extends StatelessWidget {
                         style: const TextStyle(
                           fontSize: 12,
                           fontWeight: FontWeight.bold,
-                          color: Color(0xFF1E293B),
+                          color: AppColors.playerSurface,
                         ),
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
@@ -164,7 +166,7 @@ class GangguanLalinItemCard extends StatelessWidget {
                 style: const TextStyle(
                   fontSize: 11,
                   fontWeight: FontWeight.bold,
-                  color: Color(0xFF10B981),
+                  color: AppColors.successGreen,
                 ),
               ),
             ],
@@ -177,7 +179,10 @@ class GangguanLalinItemCard extends StatelessWidget {
               const SizedBox(width: 6),
               Text(
                 timeText,
-                style: const TextStyle(fontSize: 11, color: Color(0xFF64748B)),
+                style: const TextStyle(
+                  fontSize: 11,
+                  color: AppColors.textSecondary,
+                ),
               ),
             ],
           ),

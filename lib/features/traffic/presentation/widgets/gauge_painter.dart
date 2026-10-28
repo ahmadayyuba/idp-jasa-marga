@@ -1,5 +1,6 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
+import '../../../../core/constants/app_colors.dart';
 
 class GaugePainter extends CustomPainter {
   final double valuePercent; // 0.0 sampai 1.0 (posisi jarum)
@@ -21,7 +22,7 @@ class GaugePainter extends CustomPainter {
     const totalSweep = pi; // 180 derajat busur lingkaran atas
 
     // Segment 1: Hijau (Lancar) - 30%
-    paintArc.color = const Color(0xFF10B981);
+    paintArc.color = AppColors.successGreen;
     canvas.drawArc(
       Rect.fromCircle(center: center, radius: radius),
       startAngle,
@@ -31,7 +32,7 @@ class GaugePainter extends CustomPainter {
     );
 
     // Segment 2: Oranye/Kuning (Sedikit Padat / Cukup Padat) - 40%
-    paintArc.color = const Color(0xFFF59E0B);
+    paintArc.color = AppColors.alertAmber;
     canvas.drawArc(
       Rect.fromCircle(center: center, radius: radius),
       startAngle + totalSweep * 0.30,
@@ -41,7 +42,7 @@ class GaugePainter extends CustomPainter {
     );
 
     // Segment 3: Merah (Padat / Sangat Padat) - 30%
-    paintArc.color = const Color(0xFFEF4444);
+    paintArc.color = AppColors.alertRed;
     canvas.drawArc(
       Rect.fromCircle(center: center, radius: radius),
       startAngle + totalSweep * 0.70,
@@ -59,15 +60,15 @@ class GaugePainter extends CustomPainter {
     );
 
     final paintNeedle = Paint()
-      ..color = const Color(0xFF003399)
+      ..color = AppColors.primaryActive
       ..strokeWidth = 3.5
       ..strokeCap = StrokeCap.round;
 
     canvas.drawLine(center, needleEnd, paintNeedle);
 
     // Engsel Jarum (Center Circle)
-    final paintPivotOuter = Paint()..color = const Color(0xFF003399);
-    final paintPivotInner = Paint()..color = Colors.white;
+    final paintPivotOuter = Paint()..color = AppColors.primaryActive;
+    final paintPivotInner = Paint()..color = AppColors.white;
 
     canvas.drawCircle(center, 6, paintPivotOuter);
     canvas.drawCircle(center, 3, paintPivotInner);

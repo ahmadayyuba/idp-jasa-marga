@@ -10,6 +10,7 @@ import 'widgets/maintenance_task_card.dart';
 // Reusable Dashboard Widgets
 import '../../dashboard/presentation/widgets/floating_side_button.dart';
 import '../../dashboard/presentation/widgets/custom_bottom_nav_bar.dart';
+import '../../../core/constants/app_colors.dart';
 
 class DataPemeliharaanScreen extends StatefulWidget {
   const DataPemeliharaanScreen({super.key});
@@ -76,7 +77,7 @@ class _DataPemeliharaanScreenState extends State<DataPemeliharaanScreen> {
       body: Container(
         decoration: const BoxDecoration(
           gradient: LinearGradient(
-            colors: [Color(0xFFE0F2FE), Color(0xFFF8FAFC)],
+            colors: [AppColors.bgGradientStart, AppColors.bgGradientEnd],
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
           ),

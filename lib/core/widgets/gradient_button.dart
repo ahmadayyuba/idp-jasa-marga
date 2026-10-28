@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../constants/app_colors.dart';
 
 class GradientButton extends StatelessWidget {
@@ -26,8 +25,8 @@ class GradientButton extends StatelessWidget {
       ),
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
-          backgroundColor: Colors.transparent,
-          shadowColor: Colors.transparent,
+          backgroundColor: AppColors.transparent,
+          shadowColor: AppColors.transparent,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadiusGeometry.circular(16),
           ),
@@ -41,12 +40,12 @@ class GradientButton extends StatelessWidget {
               style: const TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 15,
-                color: Colors.white,
+                color: AppColors.white,
               ),
             ),
             if (icon != null) ...[
               const SizedBox(width: 8),
-              Icon(icon, size: 18, color: Colors.white),
+              Icon(icon, size: 18, color: AppColors.white),
             ],
           ],
         ),

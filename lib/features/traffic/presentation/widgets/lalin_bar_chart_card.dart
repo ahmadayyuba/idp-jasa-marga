@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../../core/constants/app_colors.dart';
+
 class LalinBarChartCard extends StatelessWidget {
   final String title;
   final String updateTime;
@@ -17,11 +19,11 @@ class LalinBarChartCard extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: AppColors.white,
         borderRadius: BorderRadius.circular(24),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withValues(alpha: 0.02),
+            color: AppColors.black.withValues(alpha: 0.02),
             blurRadius: 10,
             offset: const Offset(0, 2),
           ),
@@ -33,7 +35,7 @@ class LalinBarChartCard extends StatelessWidget {
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
             decoration: BoxDecoration(
-              color: const Color(0xFF002266),
+              color: AppColors.navyBlue,
               borderRadius: BorderRadius.circular(16),
             ),
             child: Text(
@@ -41,7 +43,7 @@ class LalinBarChartCard extends StatelessWidget {
               style: const TextStyle(
                 fontSize: 12,
                 fontWeight: FontWeight.bold,
-                color: Colors.white,
+                color: AppColors.white,
               ),
             ),
           ),
@@ -53,16 +55,13 @@ class LalinBarChartCard extends StatelessWidget {
             style: TextStyle(
               fontSize: 11,
               fontWeight: FontWeight.w600,
-              color: Color(0xFF64748B),
+              color: AppColors.textSecondary,
             ),
           ),
           const SizedBox(height: 2),
           Text(
             updateTime,
-            style: const TextStyle(
-              fontSize: 9,
-              color: Color(0xFF94A3B8),
-            ),
+            style: const TextStyle(fontSize: 9, color: AppColors.textMuted),
           ),
           const SizedBox(height: 20),
 
@@ -76,11 +75,26 @@ class LalinBarChartCard extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
-                    Text('7500', style: TextStyle(fontSize: 8, color: Color(0xFF94A3B8))),
-                    Text('5500', style: TextStyle(fontSize: 8, color: Color(0xFF94A3B8))),
-                    Text('3500', style: TextStyle(fontSize: 8, color: Color(0xFF94A3B8))),
-                    Text('1500', style: TextStyle(fontSize: 8, color: Color(0xFF94A3B8))),
-                    Text('-500', style: TextStyle(fontSize: 8, color: Color(0xFF94A3B8))),
+                    Text(
+                      '7500',
+                      style: TextStyle(fontSize: 8, color: AppColors.textMuted),
+                    ),
+                    Text(
+                      '5500',
+                      style: TextStyle(fontSize: 8, color: AppColors.textMuted),
+                    ),
+                    Text(
+                      '3500',
+                      style: TextStyle(fontSize: 8, color: AppColors.textMuted),
+                    ),
+                    Text(
+                      '1500',
+                      style: TextStyle(fontSize: 8, color: AppColors.textMuted),
+                    ),
+                    Text(
+                      '-500',
+                      style: TextStyle(fontSize: 8, color: AppColors.textMuted),
+                    ),
                   ],
                 ),
                 const SizedBox(width: 8),
@@ -97,7 +111,7 @@ class LalinBarChartCard extends StatelessWidget {
                           (_) => const Divider(
                             height: 1,
                             thickness: 0.5,
-                            color: Color(0xFFF1F5F9),
+                            color: AppColors.bgSlate,
                           ),
                         ),
                       ),
@@ -109,18 +123,25 @@ class LalinBarChartCard extends StatelessWidget {
                         children: hourlyData.map((item) {
                           final int count = item['count'] as int;
                           final String time = item['time'] as String;
-                          final bool isHighlighted = item['isHighlighted'] ?? false;
+                          final bool isHighlighted =
+                              item['isHighlighted'] ?? false;
 
                           // Tentukan Warna Berdasarkan Threshold Figma
-                          Color barColor = const Color(0xFF10B981); // Hijau Normal
+                          Color barColor =
+                              AppColors.successGreen; // Hijau Normal
                           if (count >= 5500) {
-                            barColor = const Color(0xFFEF4444); // Merah Kritis (>5500)
+                            barColor =
+                                AppColors.alertRed; // Merah Kritis (>5500)
                           } else if (count >= 3500) {
-                            barColor = const Color(0xFFF59E0B); // Kuning/Oranye Padat (>4000)
+                            barColor = AppColors
+                                .alertAmber; // Kuning/Oranye Padat (>4000)
                           }
 
                           // Kalkulasi Tinggi Batang (max 7500)
-                          final double heightRatio = (count / 7500).clamp(0.05, 1.0);
+                          final double heightRatio = (count / 7500).clamp(
+                            0.05,
+                            1.0,
+                          );
 
                           return Expanded(
                             child: Stack(
@@ -131,7 +152,7 @@ class LalinBarChartCard extends StatelessWidget {
                                   Container(
                                     width: 14,
                                     height: 180,
-                                    color: const Color(0xFFF1F5F9),
+                                    color: AppColors.bgSlate,
                                   ),
 
                                 Column(
@@ -145,7 +166,7 @@ class LalinBarChartCard extends StatelessWidget {
                                         fontWeight: isHighlighted
                                             ? FontWeight.bold
                                             : FontWeight.normal,
-                                        color: const Color(0xFF334155),
+                                        color: AppColors.slate700,
                                       ),
                                     ),
                                     const SizedBox(height: 2),
@@ -156,9 +177,10 @@ class LalinBarChartCard extends StatelessWidget {
                                       height: 130 * heightRatio,
                                       decoration: BoxDecoration(
                                         color: barColor,
-                                        borderRadius: const BorderRadius.vertical(
-                                          top: Radius.circular(3),
-                                        ),
+                                        borderRadius:
+                                            const BorderRadius.vertical(
+                                              top: Radius.circular(3),
+                                            ),
                                       ),
                                     ),
                                     const SizedBox(height: 6),
@@ -172,8 +194,8 @@ class LalinBarChartCard extends StatelessWidget {
                                             ? FontWeight.bold
                                             : FontWeight.normal,
                                         color: isHighlighted
-                                            ? const Color(0xFF002266)
-                                            : const Color(0xFF94A3B8),
+                                            ? AppColors.navyBlue
+                                            : AppColors.textMuted,
                                       ),
                                     ),
                                   ],

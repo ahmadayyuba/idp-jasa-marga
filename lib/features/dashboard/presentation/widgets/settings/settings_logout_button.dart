@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../../../core/constants/app_colors.dart';
 
 class SettingsLogoutButton extends StatelessWidget {
   final VoidCallback onPressed;
@@ -14,16 +15,16 @@ class SettingsLogoutButton extends StatelessWidget {
         width: double.infinity,
         padding: const EdgeInsets.symmetric(vertical: 14),
         decoration: BoxDecoration(
-          color: Color(0xFFFFF5F5),
+          color: AppColors.redSurfaceLight,
           borderRadius: BorderRadius.circular(16),
-          border: Border.all(color: Color(0xFFFECACA), width: 1.5),
+          border: Border.all(color: AppColors.borderRedLight, width: 1.5),
         ),
         child: const Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Icon(
               Icons.power_settings_new_rounded,
-              color: Color(0xFFEF4444),
+              color: AppColors.alertRed,
               size: 20,
             ),
             SizedBox(width: 8),
@@ -32,7 +33,7 @@ class SettingsLogoutButton extends StatelessWidget {
               style: TextStyle(
                 fontSize: 14,
                 fontWeight: FontWeight.bold,
-                color: Color(0xFFEF4444),
+                color: AppColors.alertRed,
               ),
             ),
           ],

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../../../core/constants/app_colors.dart';
 
 class SettingsTile extends StatelessWidget {
   final IconData icon;
@@ -19,9 +20,9 @@ class SettingsTile extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: AppColors.white,
         borderRadius: BorderRadius.circular(20),
-        border: Border.all(color: const Color(0xFFE2E8F0), width: 1.5),
+        border: Border.all(color: AppColors.dividerSlate, width: 1.5),
       ),
       child: Row(
         children: [
@@ -29,12 +30,12 @@ class SettingsTile extends StatelessWidget {
             width: 44,
             height: 44,
             decoration: BoxDecoration(
-              color: const Color(0xFFF1F5F9),
+              color: AppColors.bgSlate,
               borderRadius: BorderRadius.circular(14),
             ),
             child: Icon(
               icon,
-              color: const Color(0xFF003399),
+              color: AppColors.primaryActive,
               size: 22,
             ),
           ),
@@ -48,7 +49,7 @@ class SettingsTile extends StatelessWidget {
                   style: const TextStyle(
                     fontSize: 14,
                     fontWeight: FontWeight.bold,
-                    color: Color(0xFF0F172A),
+                    color: AppColors.textPrimary,
                   ),
                 ),
                 const SizedBox(height: 2),
@@ -56,7 +57,7 @@ class SettingsTile extends StatelessWidget {
                   subtitle,
                   style: const TextStyle(
                     fontSize: 11,
-                    color: Color(0xFF64748B),
+                    color: AppColors.textSecondary,
                     height: 1.3,
                   ),
                 ),

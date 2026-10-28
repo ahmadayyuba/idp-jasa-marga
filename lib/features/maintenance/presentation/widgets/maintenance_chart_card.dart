@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../../core/constants/app_colors.dart';
 
 class MaintenanceChartCard extends StatelessWidget {
   const MaintenanceChartCard({super.key});
@@ -10,11 +11,11 @@ class MaintenanceChartCard extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: AppColors.white,
         borderRadius: BorderRadius.circular(20),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withValues(alpha: 0.02),
+            color: AppColors.black.withOpacity(0.02),
             blurRadius: 8,
             offset: const Offset(0, 2),
           ),
@@ -31,7 +32,7 @@ class MaintenanceChartCard extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 14,
                   fontWeight: FontWeight.bold,
-                  color: Color(0xFF0F2B5B),
+                  color: AppColors.darkNavy,
                 ),
               ),
               _buildFilterButton(),
@@ -73,36 +74,27 @@ class MaintenanceChartCard extends StatelessWidget {
                             child: Row(
                               crossAxisAlignment: CrossAxisAlignment.end,
                               children: [
-                                _buildBar(
-                                  0.55,
-                                  const Color(0xFFC7D2FE),
-                                ), // Realisasi Tahun Lalu
+                                _buildBar(0.55, AppColors.indigoPastel), // Realisasi Tahun Lalu
                                 const SizedBox(width: 2),
-                                _buildBar(
-                                  0.75,
-                                  const Color(0xFF818CF8),
-                                ), // Realisasic Tahun Ini
+                                _buildBar(0.75, AppColors.indigoLight), // Realisasic Tahun Ini
                                 const SizedBox(width: 2),
-                                _buildBar(
-                                  0.90,
-                                  const Color(0xFF4F46E5),
-                                ), // Rencana
+                                _buildBar(0.90, AppColors.indigo), // Rencana
                               ],
                             ),
-                          ),
-                          const SizedBox(height: 8),
-                          Text(
-                            month,
-                            style: TextStyle(
-                              fontSize: 10,
-                              fontWeight: isSelected
-                                  ? FontWeight.bold
-                                  : FontWeight.normal,
-                              color: isSelected
-                                  ? const Color(0xFF0F172A)
-                                  : const Color(0xFF94A3B8),
                             ),
-                          ),
+                            const SizedBox(height: 8),
+                            Text(
+                              month,
+                              style: TextStyle(
+                                fontSize: 10,
+                                fontWeight: 
+                                    isSelected ? FontWeight.bold : 
+                                    FontWeight.normal,
+                              color: isSelected
+                                    ? AppColors.textPrimary
+                                    : AppColors.textMuted,
+                              ),
+                            ),
                         ],
                       );
                     }).toList(),
@@ -117,11 +109,11 @@ class MaintenanceChartCard extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              _buildLegend(const Color(0xFFC7D2FE), 'Realisasi Tahun Lalu'),
+              _buildLegend(AppColors.indigoPastel, 'Realisasi Tahun Lalu'),
               const SizedBox(width: 12),
-              _buildLegend(const Color(0xFF818CF8), 'Realisasi Tahun Ini'),
+              _buildLegend(AppColors.indigoLight, 'Realisasi Tahun Ini'),
               const SizedBox(width: 12),
-              _buildLegend(const Color(0xFF4F46E5), 'Rencana'),
+              _buildLegend(AppColors.indigo, 'Rencana'),
             ],
           ),
         ],
@@ -129,7 +121,7 @@ class MaintenanceChartCard extends StatelessWidget {
     );
   }
 
-  Widget _buildBar(double heigthFactor, Color color) {
+  Widget _buildBar(double heigthFactor, Color color){
     return FractionallySizedBox(
       heightFactor: heigthFactor,
       child: Container(
@@ -149,32 +141,35 @@ class MaintenanceChartCard extends StatelessWidget {
           width: 24,
           child: Text(
             label,
-            style: const TextStyle(fontSize: 9, color: Color(0xFFCBD5E1)),
+            style: const TextStyle(fontSize: 9, color: AppColors.borderSlate),
           ),
         ),
-        const Expanded(child: Divider(color: Color(0xFFF1F5F9), height: 1)),
+        const Expanded(
+          child: Divider(color: AppColors.bgSlate, height: 1,
+          ),
+          ),
       ],
     );
   }
 
-  Widget _buildFilterButton() {
+  Widget _buildFilterButton(){
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
       decoration: BoxDecoration(
-        color: const Color(0xFFF8FAFC),
-        border: Border.all(color: const Color(0xFFE2E8F0)),
+        color: AppColors.bgGradientEnd,
+        border: Border.all(color: AppColors.dividerSlate),
         borderRadius: BorderRadius.circular(8),
       ),
       child: const Row(
         children: [
-          Icon(Icons.tune_rounded, size: 12, color: Color(0xFF64748B)),
+          Icon(Icons.tune_rounded, size: 12, color: AppColors.textSecondary),
           SizedBox(width: 4),
           Text(
             'Filter',
             style: TextStyle(
               fontSize: 11,
               fontWeight: FontWeight.w600,
-              color: Color(0xFF64748B),
+              color: AppColors.textSecondary,
             ),
           ),
         ],
@@ -196,7 +191,7 @@ class MaintenanceChartCard extends StatelessWidget {
           style: const TextStyle(
             fontSize: 9,
             fontWeight: FontWeight.bold,
-            color: Color(0xFF475569),
+            color: AppColors.slate600,
           ),
         ),
       ],

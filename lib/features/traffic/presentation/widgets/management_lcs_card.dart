@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../../core/constants/app_colors.dart';
+
 class LaneSignItem {
   final String laneLabel; // e.g., 'L1', 'L2', 'L3', 'L4'
   final bool isOpen; // true = Panah Hijau (⬇), false = Silang Merah (❌)
@@ -28,11 +30,11 @@ class ManagementLcsCard extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: AppColors.white,
         borderRadius: BorderRadius.circular(16),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withValues(alpha: 0.02),
+            color: AppColors.black.withValues(alpha: 0.02),
             blurRadius: 8,
             offset: const Offset(0, 2),
           ),
@@ -48,13 +50,13 @@ class ManagementLcsCard extends StatelessWidget {
               Container(
                 padding: const EdgeInsets.all(8),
                 decoration: BoxDecoration(
-                  color: const Color(0xFFF1F5F9),
+                  color: AppColors.bgSlate,
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: const Icon(
                   Icons.alt_route_rounded,
                   size: 18,
-                  color: Color(0xFF003399),
+                  color: AppColors.primaryActive,
                 ),
               ),
               const SizedBox(width: 10),
@@ -67,7 +69,7 @@ class ManagementLcsCard extends StatelessWidget {
                       style: const TextStyle(
                         fontSize: 14,
                         fontWeight: FontWeight.bold,
-                        color: Color(0xFF0F2B5B),
+                        color: AppColors.darkNavy,
                       ),
                     ),
                     const SizedBox(height: 2),
@@ -75,7 +77,7 @@ class ManagementLcsCard extends StatelessWidget {
                       locationSub,
                       style: const TextStyle(
                         fontSize: 11,
-                        color: Color(0xFF64748B),
+                        color: AppColors.textSecondary,
                       ),
                     ),
                   ],
@@ -89,8 +91,8 @@ class ManagementLcsCard extends StatelessWidget {
                 ),
                 decoration: BoxDecoration(
                   color: isOnline
-                      ? const Color(0xFF22C55E)
-                      : const Color(0xFF94A3B8),
+                      ? AppColors.vibrantGreen
+                      : AppColors.textMuted,
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: Text(
@@ -98,7 +100,7 @@ class ManagementLcsCard extends StatelessWidget {
                   style: const TextStyle(
                     fontSize: 10,
                     fontWeight: FontWeight.bold,
-                    color: Colors.white,
+                    color: AppColors.white,
                   ),
                 ),
               ),
@@ -122,7 +124,7 @@ class ManagementLcsCard extends StatelessWidget {
                       style: const TextStyle(
                         fontSize: 11,
                         fontWeight: FontWeight.bold,
-                        color: Color(0xFF475569),
+                        color: AppColors.slate600,
                       ),
                     ),
                     ...laneList.map((lane) => _buildLaneBadge(lane)),
@@ -138,13 +140,13 @@ class ManagementLcsCard extends StatelessWidget {
                 child: Container(
                   padding: const EdgeInsets.all(8),
                   decoration: BoxDecoration(
-                    color: const Color(0xFFF1F5F9),
+                    color: AppColors.bgSlate,
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: const Icon(
                     Icons.search_rounded,
                     size: 18,
-                    color: Color(0xFF0F2B5B),
+                    color: AppColors.darkNavy,
                   ),
                 ),
               ),
@@ -159,7 +161,7 @@ class ManagementLcsCard extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 3),
       decoration: BoxDecoration(
-        color: lane.isOpen ? const Color(0xFFDCFCE7) : const Color(0xFFFEE2E2),
+        color: lane.isOpen ? AppColors.badgeGreenBg : AppColors.badgeRedBg,
         borderRadius: BorderRadius.circular(6),
       ),
       child: Row(
@@ -170,17 +172,13 @@ class ManagementLcsCard extends StatelessWidget {
             style: TextStyle(
               fontSize: 10,
               fontWeight: FontWeight.bold,
-              color: lane.isOpen
-                  ? const Color(0xFF16A34A)
-                  : const Color(0xFFDC2626),
+              color: lane.isOpen ? AppColors.statusGreen : AppColors.dangerRed,
             ),
           ),
           Icon(
             lane.isOpen ? Icons.arrow_downward_rounded : Icons.close_rounded,
             size: 11,
-            color: lane.isOpen
-                ? const Color(0xFF16A34A)
-                : const Color(0xFFDC2626),
+            color: lane.isOpen ? AppColors.statusGreen : AppColors.dangerRed,
           ),
         ],
       ),

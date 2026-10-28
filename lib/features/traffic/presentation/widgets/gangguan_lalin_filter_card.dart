@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../../core/constants/app_colors.dart';
+
 class GangguanLalinFilterCard extends StatefulWidget {
   final int incidentCount;
   final VoidCallback? onApply;
@@ -29,11 +31,11 @@ class _GangguanLalinFilterCardState extends State<GangguanLalinFilterCard> {
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: AppColors.white,
         borderRadius: BorderRadius.circular(20),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withValues(alpha: 0.02),
+            color: AppColors.black.withValues(alpha: 0.02),
             blurRadius: 10,
             offset: const Offset(0, 2),
           ),
@@ -51,7 +53,7 @@ class _GangguanLalinFilterCardState extends State<GangguanLalinFilterCard> {
                   Icon(
                     Icons.warning_amber_rounded,
                     size: 18,
-                    color: Color(0xFFDC2626),
+                    color: AppColors.dangerRed,
                   ),
                   SizedBox(width: 6),
                   Text(
@@ -59,7 +61,7 @@ class _GangguanLalinFilterCardState extends State<GangguanLalinFilterCard> {
                     style: TextStyle(
                       fontSize: 14,
                       fontWeight: FontWeight.bold,
-                      color: Color(0xFF0F2B5B),
+                      color: AppColors.darkNavy,
                     ),
                   ),
                 ],
@@ -70,7 +72,7 @@ class _GangguanLalinFilterCardState extends State<GangguanLalinFilterCard> {
                   vertical: 4,
                 ),
                 decoration: BoxDecoration(
-                  color: const Color(0xFFFFE4E6),
+                  color: AppColors.badgeRoseBg,
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: Text(
@@ -78,7 +80,7 @@ class _GangguanLalinFilterCardState extends State<GangguanLalinFilterCard> {
                   style: const TextStyle(
                     fontSize: 10,
                     fontWeight: FontWeight.bold,
-                    color: Color(0xFFDC2626),
+                    color: AppColors.dangerRed,
                   ),
                 ),
               ),
@@ -141,7 +143,7 @@ class _GangguanLalinFilterCardState extends State<GangguanLalinFilterCard> {
               ElevatedButton(
                 onPressed: widget.onApply,
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color(0xFF2563EB),
+                  backgroundColor: AppColors.blue600,
                   elevation: 0,
                   padding: const EdgeInsets.symmetric(
                     horizontal: 18,
@@ -156,7 +158,7 @@ class _GangguanLalinFilterCardState extends State<GangguanLalinFilterCard> {
                   style: TextStyle(
                     fontSize: 12,
                     fontWeight: FontWeight.bold,
-                    color: Colors.white,
+                    color: AppColors.white,
                   ),
                 ),
               ),
@@ -171,7 +173,7 @@ class _GangguanLalinFilterCardState extends State<GangguanLalinFilterCard> {
                     horizontal: 18,
                     vertical: 10,
                   ),
-                  side: const BorderSide(color: Color(0xFFCBD5E1)),
+                  side: const BorderSide(color: AppColors.borderSlate),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
@@ -181,7 +183,7 @@ class _GangguanLalinFilterCardState extends State<GangguanLalinFilterCard> {
                   style: TextStyle(
                     fontSize: 12,
                     fontWeight: FontWeight.bold,
-                    color: Color(0xFF64748B),
+                    color: AppColors.textSecondary,
                   ),
                 ),
               ),
@@ -191,7 +193,7 @@ class _GangguanLalinFilterCardState extends State<GangguanLalinFilterCard> {
               Container(
                 padding: const EdgeInsets.all(3),
                 decoration: BoxDecoration(
-                  color: const Color(0xFFF1F5F9),
+                  color: AppColors.bgSlate,
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: Row(
@@ -222,14 +224,14 @@ class _GangguanLalinFilterCardState extends State<GangguanLalinFilterCard> {
           style: const TextStyle(
             fontSize: 10,
             fontWeight: FontWeight.w600,
-            color: Color(0xFF64748B),
+            color: AppColors.textSecondary,
           ),
         ),
         const SizedBox(height: 4),
         Container(
           padding: const EdgeInsets.symmetric(horizontal: 10),
           decoration: BoxDecoration(
-            border: Border.all(color: const Color(0xFFE2E8F0)),
+            border: Border.all(color: AppColors.dividerSlate),
             borderRadius: BorderRadius.circular(10),
           ),
           child: DropdownButtonHideUnderline(
@@ -239,12 +241,12 @@ class _GangguanLalinFilterCardState extends State<GangguanLalinFilterCard> {
               icon: const Icon(
                 Icons.keyboard_arrow_down_rounded,
                 size: 18,
-                color: Color(0xFF64748B),
+                color: AppColors.textSecondary,
               ),
               style: const TextStyle(
                 fontSize: 11,
                 fontWeight: FontWeight.bold,
-                color: Color(0xFF0F172A),
+                color: AppColors.textPrimary,
               ),
               onChanged: onChanged,
               items: items.map((e) {
@@ -264,7 +266,7 @@ class _GangguanLalinFilterCardState extends State<GangguanLalinFilterCard> {
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
         decoration: BoxDecoration(
-          color: isSelected ? const Color(0xFF003399) : Colors.transparent,
+          color: isSelected ? AppColors.primaryActive : AppColors.transparent,
           borderRadius: BorderRadius.circular(8),
         ),
         child: Text(
@@ -272,7 +274,7 @@ class _GangguanLalinFilterCardState extends State<GangguanLalinFilterCard> {
           style: TextStyle(
             fontSize: 11,
             fontWeight: FontWeight.bold,
-            color: isSelected ? Colors.white : const Color(0xFF64748B),
+            color: isSelected ? AppColors.white : AppColors.textSecondary,
           ),
         ),
       ),

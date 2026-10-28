@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../../core/constants/app_colors.dart';
 
 class LcsGantryStatus {
   final String laneLabel; 
@@ -51,7 +52,7 @@ class DetailLcsDialog extends StatelessWidget {
         borderRadius: BorderRadius.circular(24),
       ),
       elevation: 0,
-      backgroundColor: Colors.white,
+      backgroundColor: AppColors.white,
       insetPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
       child: Padding(
         padding: const EdgeInsets.all(20),
@@ -70,7 +71,7 @@ class DetailLcsDialog extends StatelessWidget {
                     style: const TextStyle(
                       fontSize: 15,
                       fontWeight: FontWeight.bold,
-                      color: Color(0xFF0F2B5B),
+                      color: AppColors.darkNavy,
                       height: 1.3,
                     ),
                   ),
@@ -84,14 +85,14 @@ class DetailLcsDialog extends StatelessWidget {
                     child: Icon(
                       Icons.close_rounded,
                       size: 20,
-                      color: Color(0xFF64748B),
+                      color: AppColors.textSecondary,
                     ),
                   ),
                 ),
               ],
             ),
             const SizedBox(height: 12),
-            const Divider(color: Color(0xFFE2E8F0), height: 1),
+            const Divider(color: AppColors.dividerSlate, height: 1),
             const SizedBox(height: 12),
 
             // 2. Location Subtitle
@@ -99,7 +100,7 @@ class DetailLcsDialog extends StatelessWidget {
               'Ruas: $ruasText | Jalur: $jalurText',
               style: const TextStyle(
                 fontSize: 11,
-                color: Color(0xFF64748B),
+                color: AppColors.textSecondary,
                 fontWeight: FontWeight.w500,
               ),
             ),
@@ -111,7 +112,7 @@ class DetailLcsDialog extends StatelessWidget {
               style: TextStyle(
                 fontSize: 12,
                 fontWeight: FontWeight.bold,
-                color: Color(0xFF0F172A),
+                color: AppColors.textPrimary,
               ),
             ),
             const SizedBox(height: 14),
@@ -136,7 +137,7 @@ class DetailLcsDialog extends StatelessWidget {
               child: ElevatedButton(
                 onPressed: () => Navigator.of(context).pop(),
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color(0xFF003399),
+                  backgroundColor: AppColors.primaryActive,
                   elevation: 0,
                   padding: const EdgeInsets.symmetric(vertical: 14),
                   shape: RoundedRectangleBorder(
@@ -148,7 +149,7 @@ class DetailLcsDialog extends StatelessWidget {
                   style: TextStyle(
                     fontSize: 13,
                     fontWeight: FontWeight.bold,
-                    color: Colors.white,
+                    color: AppColors.white,
                   ),
                 ),
               ),
@@ -162,15 +163,15 @@ class DetailLcsDialog extends StatelessWidget {
   Widget _buildGantryCard(LcsGantryStatus gantry) {
     final bool isOpen = gantry.isOpen;
     final Color statusColor =
-        isOpen ? const Color(0xFF22C55E) : const Color(0xFFEF4444);
+        isOpen ? AppColors.vibrantGreen : AppColors.alertRed;
 
     return Container(
       width: 90,
       padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 8),
       decoration: BoxDecoration(
-        color: const Color(0xFF0F172A), // Dark Gantry Display Box
+        color: AppColors.textPrimary, // Dark Gantry Display Box
         borderRadius: BorderRadius.circular(14),
-        border: Border.all(color: const Color(0xFF1E293B)),
+        border: Border.all(color: AppColors.playerSurface),
       ),
       child: Column(
         children: [
@@ -179,7 +180,7 @@ class DetailLcsDialog extends StatelessWidget {
             style: const TextStyle(
               fontSize: 11,
               fontWeight: FontWeight.w500,
-              color: Color(0xFF94A3B8),
+              color: AppColors.textMuted,
             ),
           ),
           const SizedBox(height: 10),

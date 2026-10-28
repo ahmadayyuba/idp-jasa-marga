@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../../core/constants/app_colors.dart';
+
 class EtleMetricCards extends StatelessWidget {
   const EtleMetricCards({super.key});
 
@@ -10,7 +12,7 @@ class EtleMetricCards extends StatelessWidget {
         // Card 1: Total Pelanggaran
         Expanded(
           child: _buildMetricCard(
-            bgColor: const Color(0xFFBE123C),
+            bgColor: AppColors.crimsonRose,
             title: 'Total Pelanggaran',
             icon: Icons.camera_alt_rounded,
             value: '67',
@@ -18,7 +20,7 @@ class EtleMetricCards extends StatelessWidget {
             badgeWidget: Container(
               padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
               decoration: BoxDecoration(
-                color: Colors.black.withValues(alpha: 0.2),
+                color: AppColors.black.withValues(alpha: 0.2),
                 borderRadius: BorderRadius.circular(6),
               ),
               child: const Text(
@@ -26,7 +28,7 @@ class EtleMetricCards extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 9,
                   fontWeight: FontWeight.bold,
-                  color: Colors.white,
+                  color: AppColors.white,
                 ),
               ),
             ),
@@ -37,7 +39,7 @@ class EtleMetricCards extends StatelessWidget {
         // Card 2: Rata-Rata Kecepatan
         Expanded(
           child: _buildMetricCard(
-            bgColor: const Color(0xFF1E3A8A),
+            bgColor: AppColors.primaryBlue,
             title: 'Rata-Rata Kecepatan',
             icon: Icons.speed_rounded,
             value: '127.0',
@@ -45,7 +47,7 @@ class EtleMetricCards extends StatelessWidget {
             badgeWidget: Container(
               padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
               decoration: BoxDecoration(
-                color: Colors.black.withValues(alpha: 0.2),
+                color: AppColors.black.withValues(alpha: 0.2),
                 borderRadius: BorderRadius.circular(6),
               ),
               child: const Text(
@@ -53,7 +55,7 @@ class EtleMetricCards extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 9,
                   fontWeight: FontWeight.bold,
-                  color: Color(0xFFFBBF24), // Yellow Warning Text
+                  color: AppColors.warningYellow, // Yellow Warning Text
                 ),
               ),
             ),
@@ -64,7 +66,7 @@ class EtleMetricCards extends StatelessWidget {
         // Card 3: Puncak Insiden
         Expanded(
           child: _buildMetricCard(
-            bgColor: const Color(0xFF047857),
+            bgColor: AppColors.darkEmerald,
             title: 'Puncak Insiden',
             icon: Icons.trending_up_rounded,
             value: '17',
@@ -72,7 +74,7 @@ class EtleMetricCards extends StatelessWidget {
             badgeWidget: Container(
               padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
               decoration: BoxDecoration(
-                color: Colors.black.withValues(alpha: 0.2),
+                color: AppColors.black.withValues(alpha: 0.2),
                 borderRadius: BorderRadius.circular(6),
               ),
               child: const Text(
@@ -80,7 +82,7 @@ class EtleMetricCards extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 9,
                   fontWeight: FontWeight.bold,
-                  color: Colors.white,
+                  color: AppColors.white,
                 ),
               ),
             ),
@@ -123,13 +125,13 @@ class EtleMetricCards extends StatelessWidget {
                   style: const TextStyle(
                     fontSize: 9,
                     fontWeight: FontWeight.bold,
-                    color: Colors.white70,
+                    color: AppColors.white70,
                   ),
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                 ),
               ),
-              Icon(icon, size: 14, color: Colors.white70),
+              Icon(icon, size: 14, color: AppColors.white70),
             ],
           ),
           const SizedBox(height: 8),
@@ -142,13 +144,13 @@ class EtleMetricCards extends StatelessWidget {
                 style: const TextStyle(
                   fontSize: 22,
                   fontWeight: FontWeight.bold,
-                  color: Colors.white,
+                  color: AppColors.white,
                 ),
               ),
               const SizedBox(width: 4),
               Text(
                 unit,
-                style: const TextStyle(fontSize: 9, color: Colors.white70),
+                style: const TextStyle(fontSize: 9, color: AppColors.white70),
               ),
             ],
           ),

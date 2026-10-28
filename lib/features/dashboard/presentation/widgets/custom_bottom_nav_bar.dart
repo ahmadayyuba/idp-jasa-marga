@@ -4,19 +4,32 @@ import '../../../traffic/presentation/antrean_gerbang_screen.dart';
 import '../../../traffic/presentation/realtime_traffic_screen.dart';
 import '../../../../cctv/presentation/cctv_ruas_screen.dart';
 import '../dashboard_screen.dart';
+import '../../../../core/constants/app_colors.dart';
 
 class CustomBottomNavBar extends StatelessWidget {
-  const CustomBottomNavBar({super.key});
+  final int activeIndex; // 0: Home, 1: CCTV, 2: Map, 3: Antrean, 4: Traffic
+
+  const CustomBottomNavBar({
+    super.key,
+    this.activeIndex = 0,
+  });
+
+  void _navigateTo(BuildContext context, int targetIndex, Widget targetScreen) {
+    if (activeIndex == targetIndex) return; // Guard: Cegah push berulang di tab aktif
+    Navigator.of(context).pushReplacement(
+      MaterialPageRoute(builder: (context) => targetScreen),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     return Container(
       height: 70,
       decoration: const BoxDecoration(
-        color: Colors.white,
+        color: AppColors.white,
         boxShadow: [
           BoxShadow(
-            color: Colors.black12,
+            color: AppColors.black12,
             blurRadius: 10,
             offset: Offset(0, -2),
           ),
@@ -28,66 +41,37 @@ class CustomBottomNavBar extends StatelessWidget {
           _buildNavItem(
             icon: Icons.home_rounded,
             label: 'Home',
-            isActive: false,
-            onTap: () {
-              Navigator.of(context).pushReplacement(
-                MaterialPageRoute(builder: (context) => DashboardScreen()),
-              );
-            },
+            isActive: activeIndex == 0,
+            onTap: () => _navigateTo(context, 0, const DashboardScreen()),
           ),
           _buildNavItem(
             icon: Icons.videocam_outlined,
             label: 'CCTV',
-            isActive: false,
-            onTap: () {
-              Navigator.of(context).push(
-                MaterialPageRoute(builder: (context) => const CctvRuasScreen()),
-              );
-            },
+            isActive: activeIndex == 1,
+            onTap: () => _navigateTo(context, 1, const CctvRuasScreen()),
           ),
-
-          // Center Floating Action Icon
+          // Center Floating Map Icon
           Container(
             width: 52,
             height: 52,
             decoration: BoxDecoration(
-              color: const Color(0xFF005BAC),
+              color: AppColors.accentBlue,
               shape: BoxShape.circle,
-              border: Border.all(color: Colors.white, width: 3),
+              border: Border.all(color: AppColors.white, width: 3),
             ),
-            child: const Icon(
-              Icons.map_outlined,
-              color: Colors.white,
-              size: 26,
-            ),
+            child: const Icon(Icons.map_outlined, color: AppColors.white, size: 26),
           ),
-
-          // Tombol Navigasi Antrian Gerbang
           _buildNavItem(
             icon: Icons.grid_view_outlined,
             label: 'Antrian\nGerbang',
-            isActive: false,
-            onTap: () {
-              Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (context) => const AntreanGerbangScreen(),
-                ),
-              );
-            },
+            isActive: activeIndex == 3,
+            onTap: () => _navigateTo(context, 3, const AntreanGerbangScreen()),
           ),
-
-          // Tombol Navigasi Realtime Traffic
           _buildNavItem(
             icon: Icons.show_chart_rounded,
             label: 'Realtime\nTraffic',
-            isActive: false,
-            onTap: () {
-              Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (context) => const RealtimeTrafficScreen(),
-                ),
-              );
-            },
+            isActive: activeIndex == 4,
+            onTap: () => _navigateTo(context, 4, const RealtimeTrafficScreen()),
           ),
         ],
       ),
@@ -111,7 +95,7 @@ class CustomBottomNavBar extends StatelessWidget {
             Icon(
               icon,
               size: 22,
-              color: isActive ? const Color(0xFF003399) : Colors.grey,
+              color: isActive ? AppColors.primaryActive : AppColors.grey,
             ),
             const SizedBox(height: 2),
             Text(
@@ -120,7 +104,7 @@ class CustomBottomNavBar extends StatelessWidget {
               style: TextStyle(
                 fontSize: 9,
                 fontWeight: isActive ? FontWeight.bold : FontWeight.normal,
-                color: isActive ? const Color(0xFF003399) : Colors.grey,
+                color: isActive ? AppColors.primaryActive : AppColors.grey,
               ),
             ),
           ],

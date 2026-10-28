@@ -1,16 +1,23 @@
 import 'package:flutter/material.dart';
+import '../../data/models/ruas_model.dart';
+import '../../../core/constants/app_colors.dart';
 
 class CctvRuasCard extends StatelessWidget {
-  final String title;
-  final String subtitle;
+  final RuasModel? ruas;
+  final String? title;
+  final String? subtitle;
   final VoidCallback onTap;
 
   const CctvRuasCard({
     super.key,
-    required this.title,
-    required this.subtitle,
+    this.ruas,
+    this.title,
+    this.subtitle,
     required this.onTap,
   });
+
+  String get displayTitle => ruas?.title ?? title ?? '';
+  String get displaySubtitle => ruas?.subtitle ?? subtitle ?? '';
 
   @override
   Widget build(BuildContext context) {
@@ -21,16 +28,13 @@ class CctvRuasCard extends StatelessWidget {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
           gradient: const LinearGradient(
-            colors: [
-              Color(0xFF111827),
-              Color(0xFF1E3A8A),
-            ], // Gradient Biru Gelap
+            colors: [AppColors.deepNavy, AppColors.primaryBlue], // Gradient Biru Gelap
             begin: Alignment.centerLeft,
             end: Alignment.centerRight,
           ),
           boxShadow: [
             BoxShadow(
-              color: const Color(0xFF1E3A8A).withValues(alpha: 0.3),
+              color: AppColors.primaryBlue.withValues(alpha: 0.3),
               blurRadius: 12,
               offset: const Offset(0, 6),
             ),
@@ -51,7 +55,7 @@ class CctvRuasCard extends StatelessWidget {
                   decoration: BoxDecoration(
                     border: Border(
                       top: BorderSide(
-                        color: Colors.white.withValues(alpha: 0.1),
+                        color: AppColors.white.withValues(alpha: 0.1),
                         width: 2,
                       ),
                     ),
@@ -71,35 +75,35 @@ class CctvRuasCard extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          title,
+                          displayTitle,
                           style: const TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.bold,
-                            color: Colors.white,
+                            color: AppColors.white,
                           ),
                         ),
                         const SizedBox(height: 4),
                         Text(
-                          subtitle,
+                          displaySubtitle,
                           style: const TextStyle(
                             fontSize: 10,
-                            color: Colors.white70,
+                            color: AppColors.white70,
                           ),
                         ),
                       ],
                     ),
                   ),
-
+                  
                   // Tombol Ikon Bulat
                   Container(
                     padding: const EdgeInsets.all(12),
                     decoration: const BoxDecoration(
-                      color: Colors.white,
+                      color: AppColors.white,
                       shape: BoxShape.circle,
                     ),
                     child: const Icon(
                       Icons.map_rounded, // Menggunakan icon peta mirip desain
-                      color: Color(0xFF0F2B5B),
+                      color: AppColors.darkNavy,
                       size: 24,
                     ),
                   ),

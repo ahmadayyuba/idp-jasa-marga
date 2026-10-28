@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+
 import 'radial_tick_gauge_painter.dart';
+import '../../../../core/constants/app_colors.dart';
 
 class TrafficCountingCard extends StatelessWidget {
   final String title;
@@ -26,11 +28,11 @@ class TrafficCountingCard extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: AppColors.white,
         borderRadius: BorderRadius.circular(20),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withValues(alpha: 0.02),
+            color: AppColors.black.withValues(alpha: 0.02),
             blurRadius: 10,
             offset: const Offset(0, 2),
           ),
@@ -52,7 +54,7 @@ class TrafficCountingCard extends StatelessWidget {
                       style: const TextStyle(
                         fontSize: 13,
                         fontWeight: FontWeight.bold,
-                        color: Color(0xFF0F172A),
+                        color: AppColors.textPrimary,
                       ),
                     ),
                     const SizedBox(height: 2),
@@ -60,7 +62,7 @@ class TrafficCountingCard extends StatelessWidget {
                       subtitle,
                       style: const TextStyle(
                         fontSize: 10,
-                        color: Color(0xFF64748B),
+                        color: AppColors.textSecondary,
                       ),
                     ),
                   ],
@@ -69,10 +71,12 @@ class TrafficCountingCard extends StatelessWidget {
               const SizedBox(width: 8),
               // Badge Kecepatan Hijau
               Container(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 10,
+                  vertical: 4,
+                ),
                 decoration: BoxDecoration(
-                  color: const Color(0xFFDCFCE7),
+                  color: AppColors.badgeGreenBg,
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: Text(
@@ -80,7 +84,7 @@ class TrafficCountingCard extends StatelessWidget {
                   style: const TextStyle(
                     fontSize: 11,
                     fontWeight: FontWeight.bold,
-                    color: Color(0xFF16A34A),
+                    color: AppColors.statusGreen,
                   ),
                 ),
               ),
@@ -110,7 +114,7 @@ class TrafficCountingCard extends StatelessWidget {
                       'Volume Jam ($timeRange)',
                       style: const TextStyle(
                         fontSize: 10,
-                        color: Color(0xFF64748B),
+                        color: AppColors.textSecondary,
                       ),
                     ),
                     const SizedBox(height: 2),
@@ -123,7 +127,7 @@ class TrafficCountingCard extends StatelessWidget {
                           style: const TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.bold,
-                            color: Color(0xFF0F172A),
+                            color: AppColors.textPrimary,
                           ),
                         ),
                         const SizedBox(width: 4),
@@ -132,7 +136,7 @@ class TrafficCountingCard extends StatelessWidget {
                           style: TextStyle(
                             fontSize: 13,
                             fontWeight: FontWeight.bold,
-                            color: Color(0xFF0F172A),
+                            color: AppColors.textPrimary,
                           ),
                         ),
                       ],
@@ -142,7 +146,7 @@ class TrafficCountingCard extends StatelessWidget {
                       'Update: $updateTime',
                       style: const TextStyle(
                         fontSize: 9,
-                        color: Color(0xFF94A3B8),
+                        color: AppColors.textMuted,
                       ),
                     ),
                   ],

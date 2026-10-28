@@ -14,11 +14,11 @@ class CardHeader extends StatelessWidget {
           height: 48,
           padding: const EdgeInsets.all(8),
           decoration: BoxDecoration(
-            color: Colors.white,
+            color: AppColors.white,
             shape: BoxShape.circle,
             boxShadow: [
               BoxShadow(
-                color: Colors.black.withValues(alpha: 0.08),
+                color: AppColors.black.withValues(alpha: 0.08),
                 blurRadius: 10,
               ),
             ],
@@ -40,7 +40,7 @@ class CardHeader extends StatelessWidget {
                   ),
                 ),
                 SizedBox(width: 4),
-                CircleAvatar(radius: 3, backgroundColor: Colors.orange),
+                CircleAvatar(radius: 3, backgroundColor: AppColors.orange),
               ],
             ),
             Text(

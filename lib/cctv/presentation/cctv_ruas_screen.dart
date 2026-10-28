@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
 
+import '../data/cctv_mock_datasource.dart';
+import '../data/models/ruas_model.dart';
 import 'widgets/cctv_header.dart';
+import 'widgets/cctv_search_bar.dart';
 import 'widgets/cctv_ruas_card.dart';
 import './cctv_segment_screen.dart';
 
 // Reusable Dashboard Widgets
 import '../../features/dashboard/presentation/widgets/floating_side_button.dart';
 import '../../features/dashboard/presentation/widgets/custom_bottom_nav_bar.dart';
+import '../../core/constants/app_colors.dart';
 
 class CctvRuasScreen extends StatefulWidget {
   const CctvRuasScreen({super.key});
@@ -16,21 +20,34 @@ class CctvRuasScreen extends StatefulWidget {
 }
 
 class _CctvRuasScreenState extends State<CctvRuasScreen> {
-  final List<Map<String, String>> _ruasData = [
-    {'title': 'JAGORAWI', 'subtitle': 'JAKARTA - BOGOR - CIAWI'},
-    {'title': 'DALAM KOTA', 'subtitle': 'CAWANG - TOMANG - PLUIT'},
-    {'title': 'SEDYATMO', 'subtitle': 'PROF. DR. IR. SOEDIJATMO'},
-    {'title': 'JAKARTA - CIKAMPEK', 'subtitle': 'JAKARTA - CIKAMPEK ELEVATED'},
-    {'title': 'TOL LINGKAR LUAR JAKARTA', 'subtitle': 'JORR NON S & JORR S'},
-  ];
+  final TextEditingController _searchController = TextEditingController();
+  String _searchQuery = '';
+
+  @override
+  void dispose() {
+    _searchController.dispose();
+    super.dispose();
+  }
+
+  List<RuasModel> get _filteredRuas {
+    final list = CctvMockDatasource.ruasList;
+    if (_searchQuery.isEmpty) return list;
+    final query = _searchQuery.toLowerCase();
+    return list.where((ruas) {
+      return ruas.title.toLowerCase().contains(query) ||
+          ruas.subtitle.toLowerCase().contains(query);
+    }).toList();
+  }
 
   @override
   Widget build(BuildContext context) {
+    final filtered = _filteredRuas;
+
     return Scaffold(
       body: Container(
         decoration: const BoxDecoration(
           gradient: LinearGradient(
-            colors: [Color(0xFFE0F2FE), Color(0xFFF8FAFC)],
+            colors: [AppColors.bgGradientStart, AppColors.bgGradientEnd],
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
           ),
@@ -48,26 +65,37 @@ class _CctvRuasScreenState extends State<CctvRuasScreen> {
                     const CctvHeader(),
                     const SizedBox(height: 20),
 
+                    CctvSearchBar(
+                      controller: _searchController,
+                      hintText: 'cari ruas',
+                      onChanged: (query) {
+                        setState(() {
+                          _searchQuery = query;
+                        });
+                      },
+                    ),
+                    const SizedBox(height: 20),
+
                     // List Render
                     ListView.separated(
                       shrinkWrap: true,
                       physics: const NeverScrollableScrollPhysics(),
-                      itemCount: _ruasData.length,
+                      itemCount: filtered.length,
                       separatorBuilder: (context, index) =>
                           const SizedBox(height: 12),
-
-                      // 1. Hapus tanda "=>" di sini, cukup gunakan "{"
                       itemBuilder: (context, index) {
-                        final ruas = _ruasData[index];
+                        final ruas = filtered[index];
                         return CctvRuasCard(
-                          title: ruas['title']!,
-                          subtitle: ruas['subtitle']!,
+                          ruas: ruas,
+                          title: ruas.title,
+                          subtitle: ruas.subtitle,
                           onTap: () {
-                            // 👇 Navigasi langsung ke CctvSegmentScreen membawa nama ruas
                             Navigator.of(context).push(
                               MaterialPageRoute(
-                                builder: (context) =>
-                                    CctvSegmentScreen(ruasName: ruas['title']!),
+                                builder: (context) => CctvSegmentScreen(
+                                  ruas: ruas,
+                                  ruasName: ruas.title,
+                                ),
                               ),
                             );
                           },
@@ -87,7 +115,7 @@ class _CctvRuasScreenState extends State<CctvRuasScreen> {
           ),
         ),
       ),
-      bottomNavigationBar: const CustomBottomNavBar(),
+      bottomNavigationBar: const CustomBottomNavBar(activeIndex: 1),
     );
   }
 }

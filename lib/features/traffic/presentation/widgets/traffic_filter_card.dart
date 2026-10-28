@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../../core/constants/app_colors.dart';
+
 class TrafficFilterCard extends StatefulWidget {
   final VoidCallback? onApply;
 
@@ -19,11 +21,11 @@ class _TrafficFilterCardState extends State<TrafficFilterCard> {
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: AppColors.white,
         borderRadius: BorderRadius.circular(20),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withValues(alpha: 0.02),
+            color: AppColors.black.withValues(alpha: 0.02),
             blurRadius: 8,
             offset: const Offset(0, 2),
           ),
@@ -35,14 +37,18 @@ class _TrafficFilterCardState extends State<TrafficFilterCard> {
           // Title Filter
           const Row(
             children: [
-              Icon(Icons.traffic_rounded, size: 18, color: Color(0xFF003399)),
+              Icon(
+                Icons.traffic_rounded,
+                size: 18,
+                color: AppColors.primaryActive,
+              ),
               SizedBox(width: 6),
               Text(
                 'Filter Ruas & Koridor Tol',
                 style: TextStyle(
                   fontSize: 14,
                   fontWeight: FontWeight.bold,
-                  color: Color(0xFF0F2B5B),
+                  color: AppColors.darkNavy,
                 ),
               ),
             ],
@@ -82,7 +88,7 @@ class _TrafficFilterCardState extends State<TrafficFilterCard> {
                 style: TextStyle(
                   fontSize: 10,
                   fontWeight: FontWeight.w600,
-                  color: Color(0xFF64748B),
+                  color: AppColors.textSecondary,
                 ),
               ),
               const SizedBox(height: 4),
@@ -92,7 +98,7 @@ class _TrafficFilterCardState extends State<TrafficFilterCard> {
                     child: Container(
                       padding: const EdgeInsets.symmetric(horizontal: 10),
                       decoration: BoxDecoration(
-                        border: Border.all(color: const Color(0xFFE2E8F0)),
+                        border: Border.all(color: AppColors.dividerSlate),
                         borderRadius: BorderRadius.circular(10),
                       ),
                       child: DropdownButtonHideUnderline(
@@ -102,12 +108,12 @@ class _TrafficFilterCardState extends State<TrafficFilterCard> {
                           icon: const Icon(
                             Icons.keyboard_arrow_down_rounded,
                             size: 18,
-                            color: Color(0xFF64748B),
+                            color: AppColors.textSecondary,
                           ),
                           style: const TextStyle(
                             fontSize: 11,
                             fontWeight: FontWeight.bold,
-                            color: Color(0xFF0F172A),
+                            color: AppColors.textPrimary,
                           ),
                           onChanged: (val) =>
                               setState(() => _selectedJalur = val!),
@@ -127,7 +133,7 @@ class _TrafficFilterCardState extends State<TrafficFilterCard> {
                   ElevatedButton(
                     onPressed: widget.onApply,
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color(0xFF2563EB),
+                      backgroundColor: AppColors.blue600,
                       elevation: 0,
                       padding: const EdgeInsets.symmetric(
                         horizontal: 20,
@@ -142,7 +148,7 @@ class _TrafficFilterCardState extends State<TrafficFilterCard> {
                       style: TextStyle(
                         fontSize: 12,
                         fontWeight: FontWeight.bold,
-                        color: Colors.white,
+                        color: AppColors.white,
                       ),
                     ),
                   ),
@@ -169,14 +175,14 @@ class _TrafficFilterCardState extends State<TrafficFilterCard> {
           style: const TextStyle(
             fontSize: 10,
             fontWeight: FontWeight.w600,
-            color: Color(0xFF64748B),
+            color: AppColors.textSecondary,
           ),
         ),
         const SizedBox(height: 4),
         Container(
           padding: const EdgeInsets.symmetric(horizontal: 10),
           decoration: BoxDecoration(
-            border: Border.all(color: const Color(0xFFE2E8F0)),
+            border: Border.all(color: AppColors.dividerSlate),
             borderRadius: BorderRadius.circular(10),
           ),
           child: DropdownButtonHideUnderline(
@@ -186,12 +192,12 @@ class _TrafficFilterCardState extends State<TrafficFilterCard> {
               icon: const Icon(
                 Icons.keyboard_arrow_down_rounded,
                 size: 18,
-                color: Color(0xFF64748B),
+                color: AppColors.textSecondary,
               ),
               style: const TextStyle(
                 fontSize: 11,
                 fontWeight: FontWeight.bold,
-                color: Color(0xFF0F172A),
+                color: AppColors.textPrimary,
               ),
               onChanged: onChanged,
               items: items.map((e) {

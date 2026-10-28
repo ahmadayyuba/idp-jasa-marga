@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:idp_jasa_marga/features/dashboard/presentation/widgets/custom_bottom_nav_bar.dart';
 import '../../../core/constants/app_colors.dart';
 import '../../../core/constants/app_text_styles.dart';
 import 'screens/realtime_ews_screen.dart';
@@ -74,7 +74,7 @@ class _PeralatanDashboardScreenState extends State<PeralatanDashboardScreen> {
           ),
         ),
       ),
-      // TODO: Nanti kita tambahkan BottomNavigationBar milik temanmu di sini
+      bottomNavigationBar: const CustomBottomNavBar(),
     );
   }
 

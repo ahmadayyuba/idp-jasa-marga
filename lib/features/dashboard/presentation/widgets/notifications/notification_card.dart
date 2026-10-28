@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../../../core/constants/app_colors.dart';
 
 class NotificationCard extends StatelessWidget {
   final String statusType;
@@ -36,7 +37,7 @@ class NotificationCard extends StatelessWidget {
       margin: const EdgeInsets.only(bottom: 14),
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: AppColors.white,
         borderRadius: BorderRadius.circular(20),
         border: Border.all(color: borderColor, width: 1.5),
       ),
@@ -73,7 +74,7 @@ class NotificationCard extends StatelessWidget {
                   style: const TextStyle(
                     fontSize: 11,
                     fontWeight: FontWeight.w600,
-                    color: Color(0xFF64748B),
+                    color: AppColors.textSecondary,
                   ),
                   overflow: TextOverflow.ellipsis,
                 ),
@@ -82,7 +83,7 @@ class NotificationCard extends StatelessWidget {
                 time,
                 style: const TextStyle(
                   fontSize: 11,
-                  color: Color(0xFF94A3B8),
+                  color: AppColors.textMuted,
                 ),
               ),
               const SizedBox(width: 6),
@@ -102,7 +103,7 @@ class NotificationCard extends StatelessWidget {
             style: const TextStyle(
               fontSize: 14,
               fontWeight: FontWeight.bold,
-              color: Color(0xFF0F172A),
+              color: AppColors.textPrimary,
             ),
           ),
           const SizedBox(height: 6),
@@ -111,7 +112,7 @@ class NotificationCard extends StatelessWidget {
             style: const TextStyle(
               fontSize: 12,
               height: 1.4,
-              color: Color(0xFF475569),
+              color: AppColors.slate600,
             ),
           ),
           const SizedBox(height: 12),
@@ -124,7 +125,7 @@ class NotificationCard extends StatelessWidget {
                 padding:
                     const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
                 decoration: BoxDecoration(
-                  color: const Color(0xFFF1F5F9),
+                  color: AppColors.bgSlate,
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: Row(
@@ -135,14 +136,14 @@ class NotificationCard extends StatelessWidget {
                       style: const TextStyle(
                         fontSize: 11,
                         fontWeight: FontWeight.bold,
-                        color: Color(0xFF003399),
+                        color: AppColors.primaryActive,
                       ),
                     ),
                     const SizedBox(width: 4),
                     const Icon(
                       Icons.arrow_forward_rounded,
                       size: 14,
-                      color: Color(0xFF003399),
+                      color: AppColors.primaryActive,
                     ),
                   ],
                 ),

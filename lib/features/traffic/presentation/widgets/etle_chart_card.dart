@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../../core/constants/app_colors.dart';
+
 class EtleChartCard extends StatelessWidget {
   const EtleChartCard({super.key});
 
@@ -40,11 +42,11 @@ class EtleChartCard extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: AppColors.white,
         borderRadius: BorderRadius.circular(20),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withValues(alpha: 0.02),
+            color: AppColors.black.withValues(alpha: 0.02),
             blurRadius: 8,
             offset: const Offset(0, 2),
           ),
@@ -66,13 +68,16 @@ class EtleChartCard extends StatelessWidget {
                       style: TextStyle(
                         fontSize: 14,
                         fontWeight: FontWeight.bold,
-                        color: Color(0xFF0F2B5B),
+                        color: AppColors.darkNavy,
                       ),
                     ),
                     SizedBox(height: 2),
                     Text(
                       'Korelasi Kecepatan Rata-Rata & Jumlah Pelanggaran',
-                      style: TextStyle(fontSize: 10, color: Color(0xFF64748B)),
+                      style: TextStyle(
+                        fontSize: 10,
+                        color: AppColors.textSecondary,
+                      ),
                     ),
                   ],
                 ),
@@ -83,7 +88,7 @@ class EtleChartCard extends StatelessWidget {
                   vertical: 4,
                 ),
                 decoration: BoxDecoration(
-                  color: const Color(0xFFF1F5F9),
+                  color: AppColors.bgSlate,
                   borderRadius: BorderRadius.circular(8),
                 ),
                 child: const Text(
@@ -91,7 +96,7 @@ class EtleChartCard extends StatelessWidget {
                   style: TextStyle(
                     fontSize: 10,
                     fontWeight: FontWeight.bold,
-                    color: Color(0xFF0F2B5B),
+                    color: AppColors.darkNavy,
                   ),
                 ),
               ),
@@ -104,7 +109,7 @@ class EtleChartCard extends StatelessWidget {
             height: 220,
             padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 16),
             decoration: BoxDecoration(
-              color: const Color(0xFF0F172A), // Dark Background
+              color: AppColors.textPrimary, // Dark Background
               borderRadius: BorderRadius.circular(16),
             ),
             child: Stack(
@@ -140,7 +145,7 @@ class EtleChartCard extends StatelessWidget {
                                 width: 20,
                                 height: constraints.maxHeight * pct,
                                 decoration: const BoxDecoration(
-                                  color: Color(0xFF10B981), // Green Bars
+                                  color: AppColors.successGreen, // Green Bars
                                   borderRadius: BorderRadius.vertical(
                                     top: Radius.circular(4),
                                   ),
@@ -156,7 +161,7 @@ class EtleChartCard extends StatelessWidget {
                             ),
                             painter: _LineChartPainter(
                               points: lineHeights,
-                              lineColor: const Color(0xFF38BDF8), // Light Blue
+                              lineColor: AppColors.skyBlueLight, // Light Blue
                             ),
                           ),
                         ],
@@ -180,7 +185,7 @@ class EtleChartCard extends StatelessWidget {
                           textAlign: TextAlign.center,
                           style: const TextStyle(
                             fontSize: 9,
-                            color: Colors.white54,
+                            color: AppColors.white54,
                           ),
                         ),
                       );
@@ -197,11 +202,11 @@ class EtleChartCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               _buildLegend(
-                const Color(0xFF10B981),
+                AppColors.successGreen,
                 'Kecepatan Rata-Rata (Km/j)',
               ),
               _buildLegend(
-                const Color(0xFF38BDF8),
+                AppColors.skyBlueLight,
                 'Jumlah Pelanggaran (Kasus)',
               ),
             ],
@@ -225,7 +230,7 @@ class EtleChartCard extends StatelessWidget {
           style: const TextStyle(
             fontSize: 10,
             fontWeight: FontWeight.w600,
-            color: Color(0xFF475569),
+            color: AppColors.slate600,
           ),
         ),
       ],
@@ -246,18 +251,18 @@ class _YAxisLine extends StatelessWidget {
           width: 20,
           child: Text(
             labelL,
-            style: const TextStyle(fontSize: 8, color: Colors.white38),
+            style: const TextStyle(fontSize: 8, color: AppColors.white38),
           ),
         ),
         const Expanded(
-          child: Divider(color: Colors.white10, height: 1, thickness: 1),
+          child: Divider(color: AppColors.white10, height: 1, thickness: 1),
         ),
         SizedBox(
           width: 20,
           child: Text(
             labelR,
             textAlign: TextAlign.right,
-            style: const TextStyle(fontSize: 8, color: Colors.white38),
+            style: const TextStyle(fontSize: 8, color: AppColors.white38),
           ),
         ),
       ],
@@ -280,7 +285,7 @@ class _LineChartPainter extends CustomPainter {
       ..strokeWidth = 2.5
       ..style = PaintingStyle.stroke;
 
-    final paintDotOuter = Paint()..color = Colors.white;
+    final paintDotOuter = Paint()..color = AppColors.white;
     final paintDotInner = Paint()..color = lineColor;
 
     final double stepX = size.width / (points.length - 1);

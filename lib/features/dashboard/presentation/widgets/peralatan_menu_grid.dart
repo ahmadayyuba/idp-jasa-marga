@@ -37,7 +37,6 @@ class PeralatanMenuGrid extends StatelessWidget {
           icon: menuItems[index]['icon'],
           label: menuItems[index]['label'],
           onTap: () {
-            // TODO: Tambahkan navigasi AppRoutes sesuai menu peralatan yang diklik
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(content: Text('Menu ${menuItems[index]['label']} diklik')),
             );

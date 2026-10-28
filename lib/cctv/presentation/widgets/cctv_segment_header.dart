@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'cctv_action_buttons.dart';
+import '../../../core/constants/app_colors.dart';
 
 class CctvSegmentHeader extends StatelessWidget {
   final String ruasName;
@@ -23,7 +24,7 @@ class CctvSegmentHeader extends StatelessWidget {
             padding: EdgeInsets.all(8.0),
             child: Icon(
               Icons.arrow_back_ios_new_rounded,
-              color: Color(0xFF1E3A8A),
+              color: AppColors.primaryBlue,
               size: 20,
             ),
             ),
@@ -38,7 +39,7 @@ class CctvSegmentHeader extends StatelessWidget {
                 'Ruas',
                 style: TextStyle(
                   fontSize: 12,
-                  color: Color(0xFF64748B),
+                  color: AppColors.textSecondary,
                 ),
               ),
               Text(
@@ -46,7 +47,7 @@ class CctvSegmentHeader extends StatelessWidget {
                 style: const TextStyle(
                     fontSize: 15,
                     fontWeight: FontWeight.bold,
-                    color: Color(0xFF0F172A),
+                    color: AppColors.textPrimary,
                 ),
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,

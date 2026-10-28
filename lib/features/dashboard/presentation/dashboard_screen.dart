@@ -16,6 +16,8 @@ import 'widgets/notifications/notification_bottom_sheet.dart';
 import 'widgets/settings/settings_bottom_sheet.dart';
 import '../../auth/presentation/login_screen.dart';
 import 'widgets/pemeliharaan_menu_grid.dart';
+import '../../../core/constants/app_colors.dart';
+import '../../../core/session/auth_session_manager.dart';
 
 class DashboardScreen extends StatefulWidget {
   const DashboardScreen({super.key});
@@ -27,13 +29,17 @@ class DashboardScreen extends StatefulWidget {
 class _DashboardScreenState extends State<DashboardScreen> {
   int _activeCategoryIndex = 0;
 
+  /// Ambil nama dari session, fallback ke 'Anggun Windari'
+  String get _displayName =>
+      AuthSessionManager.instance.currentUser?.fullName ?? 'Anggun Windari';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
         decoration: const BoxDecoration(
           gradient: LinearGradient(
-            colors: [Color(0xFFE0F2FE), Color(0xFFF8FAFC)],
+            colors: [AppColors.bgGradientStart, AppColors.bgGradientEnd],
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
           ),
@@ -50,7 +56,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     HeaderProfileSection(
-                      userName: 'Anggun Windari',
+                      userName: _displayName,
                       onNotificationTap: () {
                         NotificationBottomSheet.show(context);
                       },
@@ -58,6 +64,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                         SettingsBottomSheet.show(context);
                       },
                       onLogoutTap: () {
+                        AuthSessionManager.instance.logout();
                         Navigator.of(context).pushAndRemoveUntil(
                           MaterialPageRoute(
                             builder: (context) => const LoginScreen(),
@@ -70,7 +77,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                     const TrafficSummaryCard(),
                     const SizedBox(height: 24),
 
-                    // 2. Tambahkan CategoryFilterPills di sini
+                    // Pill selector kategori menu
                     CategoryFilterPills(
                       activeIndex: _activeCategoryIndex,
                       onCategoryChanged: (index) {
@@ -81,14 +88,15 @@ class _DashboardScreenState extends State<DashboardScreen> {
                     ),
                     const SizedBox(height: 24),
 
-                    // 3. Render grid sesuai dengan kategori yang dipilih
+                    // Render grid sesuai dengan kategori yang dipilih
                     _buildActiveGrid(),
 
-                    const SizedBox(height: 80),
+                    const SizedBox(height: 96),
                   ],
                 ),
               ),
 
+              // Floating side button (sisi kanan)
               Positioned(
                 right: 0,
                 bottom: MediaQuery.sizeOf(context).height * 0.015,
@@ -102,7 +110,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
     );
   }
 
-  // Fungsi untuk mengatur tampilan grid berdasarkan kategori
+  /// Render grid berdasarkan kategori aktif
   Widget _buildActiveGrid() {
     switch (_activeCategoryIndex) {
       case 0:

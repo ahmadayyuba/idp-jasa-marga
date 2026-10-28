@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
+import '../../../../core/constants/app_colors.dart';
 
 class OdolChartCard extends StatelessWidget {
   const OdolChartCard({super.key});
@@ -14,14 +15,14 @@ class OdolChartCard extends StatelessWidget {
           style: TextStyle(
             fontSize: 14,
             fontWeight: FontWeight.bold,
-            color: Color(0xFF003399),
+            color: AppColors.primaryActive,
           ),
         ),
         const SizedBox(height: 12),
         Container(
           padding: const EdgeInsets.all(16),
           decoration: BoxDecoration(
-            color: Colors.white,
+            color: AppColors.white,
             borderRadius: BorderRadius.circular(20),
           ),
           child: Row(
@@ -39,10 +40,10 @@ class OdolChartCard extends StatelessWidget {
               Expanded(
                 child: Column(
                   children: [
-                    _buildLegendRow(const Color(0xFF0284C7), '5-20%', '57 kend'),
-                    _buildLegendRow(const Color(0xFF10B981), '20-50%', '85 kend'),
-                    _buildLegendRow(const Color(0xFFF59E0B), '50-100%', '91 kend'),
-                    _buildLegendRow(const Color(0xFFEF4444), '>100%', '43 kend'),
+                    _buildLegendRow(AppColors.brightBlue, '5-20%', '57 kend'),
+                    _buildLegendRow(AppColors.successGreen, '20-50%', '85 kend'),
+                    _buildLegendRow(AppColors.alertAmber, '50-100%', '91 kend'),
+                    _buildLegendRow(AppColors.alertRed, '>100%', '43 kend'),
                   ],
                 ),
               ),
@@ -70,7 +71,7 @@ class OdolChartCard extends StatelessWidget {
               style: const TextStyle(
                 fontSize: 11,
                 fontWeight: FontWeight.w600,
-                color: Color(0xFF64748B),
+                color: AppColors.textSecondary,
               ),
             ),
           ),
@@ -79,7 +80,7 @@ class OdolChartCard extends StatelessWidget {
             style: const TextStyle(
               fontSize: 11,
               fontWeight: FontWeight.bold,
-              color: Color(0xFF0F172A),
+              color: AppColors.textPrimary,
             ),
           ),
         ],
@@ -104,10 +105,10 @@ class DonutChartPainter extends CustomPainter {
     double startAngle = -pi / 2;
 
     final slices = [
-      {'color': const Color(0xFF0284C7), 'sweep': 0.25 * 2 * pi},
-      {'color': const Color(0xFF10B981), 'sweep': 0.30 * 2 * pi},
-      {'color': const Color(0xFFF59E0B), 'sweep': 0.28 * 2 * pi},
-      {'color': const Color(0xFFEF4444), 'sweep': 0.17 * 2 * pi},
+      {'color': AppColors.brightBlue, 'sweep': 0.25 * 2 * pi},
+      {'color': AppColors.successGreen, 'sweep': 0.30 * 2 * pi},
+      {'color': AppColors.alertAmber, 'sweep': 0.28 * 2 * pi},
+      {'color': AppColors.alertRed, 'sweep': 0.17 * 2 * pi},
     ];
 
     for (var slice in slices) {

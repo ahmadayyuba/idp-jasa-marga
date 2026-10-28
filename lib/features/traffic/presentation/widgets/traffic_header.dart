@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../../core/constants/app_colors.dart';
 
 class TrafficHeader extends StatelessWidget {
   final String title;
@@ -26,7 +27,7 @@ class TrafficHeader extends StatelessWidget {
             padding: EdgeInsets.all(8.0),
             child: Icon(
               Icons.arrow_back_ios_new_rounded,
-              color: Color(0xFF003399),
+              color: AppColors.primaryActive,
               size: 20,
             ),
           ),
@@ -37,7 +38,7 @@ class TrafficHeader extends StatelessWidget {
           style: const TextStyle(
             fontSize: 18,
             fontWeight: FontWeight.bold,
-            color: Color(0xFF003399),
+            color: AppColors.primaryActive,
           ),
         ),
         const Spacer(),
@@ -49,16 +50,16 @@ class TrafficHeader extends StatelessWidget {
           child: Container(
             padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
             decoration: BoxDecoration(
-              color: Colors.white,
+              color: AppColors.white,
               borderRadius: BorderRadius.circular(20),
-              border: Border.all(color: const Color(0xFFE2E8F0)),
+              border: Border.all(color: AppColors.dividerSlate),
             ),
             child: const Row(
               children: [
                 Icon(
                   Icons.grid_view_rounded,
                   size: 16,
-                  color: Color(0xFF003399),
+                  color: AppColors.primaryActive,
                 ),
                 SizedBox(width: 6),
                 Text(
@@ -66,7 +67,7 @@ class TrafficHeader extends StatelessWidget {
                   style: TextStyle(
                     fontSize: 12,
                     fontWeight: FontWeight.bold,
-                    color: Color(0xFF003399),
+                    color: AppColors.primaryActive,
                   ),
                 ),
               ],
@@ -83,12 +84,12 @@ class TrafficHeader extends StatelessWidget {
             width: 38,
             height: 38,
             decoration: const BoxDecoration(
-              color: Colors.white,
+              color: AppColors.white,
               shape: BoxShape.circle,
             ),
             child: const Icon(
               Icons.refresh_rounded,
-              color: Color(0xFF003399),
+              color: AppColors.primaryActive,
               size: 20,
             ),
           ),
