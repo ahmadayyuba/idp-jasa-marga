@@ -124,9 +124,9 @@ class AntreanGerbangScreen extends StatelessWidget {
                       gridDelegate:
                           const SliverGridDelegateWithFixedCrossAxisCount(
                             crossAxisCount: 2,
-                            crossAxisSpacing: 12,
+                            crossAxisSpacing: 12, 
                             mainAxisSpacing: 12,
-                            childAspectRatio: 0.88,
+                            childAspectRatio: 0.78,
                           ),
                       itemBuilder: (context, index) {
                         final item = gerbangList[index];
