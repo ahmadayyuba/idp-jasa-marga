@@ -5,15 +5,9 @@ class AuthSessionManager {
   AuthSessionManager._internal();
   static final AuthSessionManager instance = AuthSessionManager._internal();
 
-  // Ubah default user ke Anggun Windari
-  final ValueNotifier<UserModel?> currentUserNotifier = ValueNotifier<UserModel?>(
-    const UserModel(
-      id: 'usr_001',
-      employeeId: 'employeeId',
-      fullName: 'Anggun Windari',
-      role: 'Operator',
-    ),
-  );
+  // Ubah nilai awal menjadi null (belum login)
+  final ValueNotifier<UserModel?> currentUserNotifier =
+      ValueNotifier<UserModel?>(null);
 
   UserModel? get currentUser => currentUserNotifier.value;
   bool get isLoggedIn => currentUserNotifier.value != null;
